@@ -1,0 +1,1433 @@
+\doxysection{gaim.\+h File Reference}
+\label{gaim_8h}\index{gaim.h@{gaim.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ parameter\+\_\+ga}
+\begin{DoxyCompactList}\small\item\em Structure containing initialization parameters for G\+A-\/based optimization. \end{DoxyCompactList}\item 
+struct \textbf{ parameter\+\_\+im}
+\begin{DoxyCompactList}\small\item\em Structure containing initialization parameters for an Island Model. \end{DoxyCompactList}\item 
+struct \textbf{ parameter\+\_\+pr}
+\begin{DoxyCompactList}\small\item\em Structure containing display parameters controlling which information is printed. \end{DoxyCompactList}\item 
+struct \textbf{ individual}
+\begin{DoxyCompactList}\small\item\em Structure representing an individual. \end{DoxyCompactList}\item 
+class \textbf{ GA}
+\begin{DoxyCompactList}\small\item\em Genetic Algorithm main class. \end{DoxyCompactList}\item 
+class \textbf{ IM}
+\begin{DoxyCompactList}\small\item\em Island Model main class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \textbf{ parameter\+\_\+ga} \textbf{ ga\+\_\+parameter\+\_\+s}
+\begin{DoxyCompactList}\small\item\em Structure containing initialization parameters for G\+A-\/based optimization. \end{DoxyCompactList}\item 
+typedef struct \textbf{ parameter\+\_\+im} \textbf{ im\+\_\+parameter\+\_\+s}
+\begin{DoxyCompactList}\small\item\em Structure containing initialization parameters for an Island Model. \end{DoxyCompactList}\item 
+typedef struct \textbf{ parameter\+\_\+pr} \textbf{ pr\+\_\+parameter\+\_\+s}
+\begin{DoxyCompactList}\small\item\em Structure containing display parameters controlling which information is printed. \end{DoxyCompactList}\item 
+typedef struct \textbf{ individual} \textbf{ individual\+\_\+s}
+\begin{DoxyCompactList}\small\item\em Structure representing an individual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ remove\+\_\+at} (std\+::vector$<$ size\+\_\+t $>$ \&, typename std\+::vector$<$ size\+\_\+t $>$\+::size\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Removes an element from a vector by swaping the element at position n with the last one and poping it out of the vector. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ int\+\_\+random} (size\+\_\+t, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Integer uniform distribution. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ float\+\_\+random} (R\+E\+A\+L\+\_\+, R\+E\+A\+L\+\_\+)
+\begin{DoxyCompactList}\small\item\em Float uniform distribution. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ ktournament\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, size\+\_\+t, int, bool)
+\begin{DoxyCompactList}\small\item\em Extra Selection functions. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ truncation\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, size\+\_\+t, size\+\_\+t, bool)
+\begin{DoxyCompactList}\small\item\em Implements a truncation selection operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ linear\+\_\+rank\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, size\+\_\+t, bool)
+\begin{DoxyCompactList}\small\item\em Implements a linear rank selection mechanism. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ random\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, size\+\_\+t, bool)
+\begin{DoxyCompactList}\small\item\em Implements a random selection. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ roulette\+\_\+wheel\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, size\+\_\+t, bool)
+\begin{DoxyCompactList}\small\item\em Implements a roulette-\/wheel selection (or fitness-\/proportionate selection) mechanism. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, size\+\_\+t, bool)
+\begin{DoxyCompactList}\small\item\em Parent selection method proposed by Lipowski A. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ whitley\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, R\+E\+A\+L\+\_\+, size\+\_\+t, bool)
+\begin{DoxyCompactList}\small\item\em Parent selection method proposed by Darrell Whitley in his G\+E\+N\+I\+T\+OR paper\+: \char`\"{}\+The G\+E\+N\+I\+T\+O\+R Algorithm and Selection Pressure\+: Why Rank-\/\+Based Allocation
+of Reproductive Trials is Best\char`\"{}, ", D. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ one\+\_\+point\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Extra Crossover functions. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ two\+\_\+point\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Two-\/point crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ uniform\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Uniform crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ flat\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Flat crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ discrete\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Discrete crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ order\+\_\+one\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Order-\/one crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ delta\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, R\+E\+A\+L\+\_\+, R\+E\+A\+L\+\_\+)
+\begin{DoxyCompactList}\small\item\em Extra Mutation functions. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ random\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, R\+E\+A\+L\+\_\+, R\+E\+A\+L\+\_\+, bool)
+\begin{DoxyCompactList}\small\item\em Random mutation operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ nonuniform\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, size\+\_\+t, size\+\_\+t, size\+\_\+t, R\+E\+A\+L\+\_\+, R\+E\+A\+L\+\_\+)
+\begin{DoxyCompactList}\small\item\em Non-\/uniform mutation operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ fusion\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, R\+E\+A\+L\+\_\+, R\+E\+A\+L\+\_\+, bool)
+\begin{DoxyCompactList}\small\item\em Fusion mutation operator method. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ swap\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Swap mutation operator method. \end{DoxyCompactList}\item 
+bool \textbf{ compare\+\_\+fitness} (const \textbf{ individual\+\_\+s}, const \textbf{ individual\+\_\+s})
+\begin{DoxyCompactList}\small\item\em Auxiliary Functions declarations. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ average\+\_\+fitness} (R\+E\+A\+L\+\_\+, const \textbf{ individual\+\_\+s})
+\begin{DoxyCompactList}\small\item\em This is a helper function serving as an binary operator for std\+:accumulate. \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+path\+\_\+exist} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Checks if the given path (directory or file) exists. \end{DoxyCompactList}\item 
+int \textbf{ remove\+\_\+file} (const std\+::string)
+\begin{DoxyCompactList}\small\item\em Deletes a file. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ calculate\+\_\+whitley\+\_\+factor} (R\+E\+A\+L\+\_\+)
+\begin{DoxyCompactList}\small\item\em Calculates the Whitley factor used in Whitley\textquotesingle{}s selection method. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ maximum\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$)
+\begin{DoxyCompactList}\small\item\em A naive implementation of maximum. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ nonselected\+\_\+maximum\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$)
+\begin{DoxyCompactList}\small\item\em Computes the maximum fitness of all the non-\/selected (from a selection operator) indivuduals of a population. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ cumulative\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$)
+\begin{DoxyCompactList}\small\item\em Computes the cumulative fitness of a population based on which individuals have not been yet selected. \end{DoxyCompactList}\item 
+void \textbf{ independent\+\_\+runs} (\textbf{ ga\+\_\+parameter\+\_\+s} $\ast$, \textbf{ pr\+\_\+parameter\+\_\+s} $\ast$)
+\begin{DoxyCompactList}\small\item\em Multithread and Islands functions declarations. \end{DoxyCompactList}\item 
+std\+::string \textbf{ center} (const std\+::string, const int)
+\begin{DoxyCompactList}\small\item\em Printing Functions. \end{DoxyCompactList}\item 
+std\+::string \textbf{ prd} (const double, const int, const int)
+\item 
+void \textbf{ print\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&, size\+\_\+t unique\+\_\+id=0, std\+::string write\+\_\+to=\char`\"{}stdout\char`\"{})
+\item 
+void \textbf{ print\+\_\+bsf} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, size\+\_\+t unique\+\_\+id=0, std\+::string write\+\_\+to=\char`\"{}stdout\char`\"{})
+\item 
+void \textbf{ print\+\_\+avg\+\_\+fitness} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, size\+\_\+t unique\+\_\+id=0, std\+::string write\+\_\+to=\char`\"{}stdout\char`\"{})
+\item 
+void \textbf{ print\+\_\+best\+\_\+genome} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, size\+\_\+t unique\+\_\+id=0, std\+::string write\+\_\+to=\char`\"{}stdout\char`\"{})
+\item 
+void \textbf{ print\+\_\+results} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, size\+\_\+t, \textbf{ pr\+\_\+parameter\+\_\+s} $\ast$)
+\item 
+R\+E\+A\+L\+\_\+ \textbf{ sphere} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)
+\begin{DoxyCompactList}\small\item\em Demo functions End-\/user can define more at her/his will. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ rastrigin} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)
+\begin{DoxyCompactList}\small\item\em Rastrigin cost function. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ schwefel} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)
+\begin{DoxyCompactList}\small\item\em Schwefel cost function. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ griewank} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)
+\begin{DoxyCompactList}\small\item\em Griewangk cost function. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ tsm} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&x)
+\item 
+std\+::tuple$<$ \textbf{ ga\+\_\+parameter\+\_\+s}, \textbf{ pr\+\_\+parameter\+\_\+s}, \textbf{ im\+\_\+parameter\+\_\+s} $>$ \textbf{ read\+\_\+parameters\+\_\+file} (const char $\ast$)
+\begin{DoxyCompactList}\small\item\em Parameters files. \end{DoxyCompactList}\item 
+void \textbf{ print\+\_\+parameters} (\textbf{ ga\+\_\+parameter\+\_\+s}, \textbf{ pr\+\_\+parameter\+\_\+s}, \textbf{ im\+\_\+parameter\+\_\+s})
+\begin{DoxyCompactList}\small\item\em Prints parameters to a .dat file, or to stdout if \char`\"{}stdout\char`\"{} is specified. \end{DoxyCompactList}\item 
+int \textbf{ mkdir\+\_\+} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Attempts to make a directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of \doxyref{GA}{p.}{classGA} and \doxyref{IM}{p.}{classIM} classes (and their methods), comprising the main external interface. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{gaim_8h_a89734bd6529544f0baddd879f565d94b}} 
+\index{gaim.h@{gaim.h}!ga\_parameter\_s@{ga\_parameter\_s}}
+\index{ga\_parameter\_s@{ga\_parameter\_s}!gaim.h@{gaim.h}}
+\doxysubsubsection{ga\_parameter\_s}
+{\footnotesize\ttfamily typedef struct \textbf{ parameter\+\_\+ga} \textbf{ ga\+\_\+parameter\+\_\+s}}
+
+
+
+Structure containing initialization parameters for G\+A-\/based optimization. 
+
+A structure that contains all the parameters for specifying a Genetic Algorithms simulation, including how many generations it will run for, what the size of the population is, what the size of the genome is, what the endpoints of the interval to optimize on are, how many offspring are to be produced and how many individuals are to be replaced. It is typical in a Genetic Algorithm without elitism to replace the entire population. The number of indepedent runs can also be specified, if you are trying to derive an Monte Carlo estimate of fitness. \mbox{\label{gaim_8h_a8d4fd104d78eed52db4a70ed2ada28ac}} 
+\index{gaim.h@{gaim.h}!im\_parameter\_s@{im\_parameter\_s}}
+\index{im\_parameter\_s@{im\_parameter\_s}!gaim.h@{gaim.h}}
+\doxysubsubsection{im\_parameter\_s}
+{\footnotesize\ttfamily typedef struct \textbf{ parameter\+\_\+im} \textbf{ im\+\_\+parameter\+\_\+s}}
+
+
+
+Structure containing initialization parameters for an Island Model. 
+
+A structure that contains all the parameters for running an Island Model (\doxyref{IM}{p.}{classIM}), a \doxyref{GA}{p.}{classGA} with multiple subpopulations and structured migrations. \mbox{\label{gaim_8h_ae4920e8d3c078b055e3c4089c93908b9}} 
+\index{gaim.h@{gaim.h}!individual\_s@{individual\_s}}
+\index{individual\_s@{individual\_s}!gaim.h@{gaim.h}}
+\doxysubsubsection{individual\_s}
+{\footnotesize\ttfamily typedef struct \textbf{ individual} \textbf{ individual\+\_\+s}}
+
+
+
+Structure representing an individual. 
+
+A structure that represents an individual and carries all the necessary information about an individual, including ID, fitness, and genome. \mbox{\label{gaim_8h_ac27d906cc49ccb3918d60eb43afbe46f}} 
+\index{gaim.h@{gaim.h}!pr\_parameter\_s@{pr\_parameter\_s}}
+\index{pr\_parameter\_s@{pr\_parameter\_s}!gaim.h@{gaim.h}}
+\doxysubsubsection{pr\_parameter\_s}
+{\footnotesize\ttfamily typedef struct \textbf{ parameter\+\_\+pr} \textbf{ pr\+\_\+parameter\+\_\+s}}
+
+
+
+Structure containing display parameters controlling which information is printed. 
+
+A structure that contains all the parameters for printing information about the \doxyref{GA}{p.}{classGA} or the \doxyref{IM}{p.}{classIM}. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{gaim_8h_a1177b09905836f47887034420641a2c0}} 
+\index{gaim.h@{gaim.h}!average\_fitness@{average\_fitness}}
+\index{average\_fitness@{average\_fitness}!gaim.h@{gaim.h}}
+\doxysubsubsection{average\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ average\+\_\+fitness (\begin{DoxyParamCaption}\item[{R\+E\+A\+L\+\_\+}]{x,  }\item[{const \textbf{ individual\+\_\+s}}]{y }\end{DoxyParamCaption})}
+
+
+
+This is a helper function serving as an binary operator for std\+:accumulate. 
+
+It helps add up the fitness belonging to individuals so that the cumulative fitness in the population can be computed, which is necessary for roulette-\/wheel selection, etc.
+
+\begin{DoxySeeAlso}{See also}
+one\+\_\+generation\+\_\+step()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & R\+E\+A\+L\+\_\+, it is the current accumulated fitness. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Data struct of individual\+\_\+s type, it provides the new fitness of an idividual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current accumulated fitness yielded in the accumulation (usually for the whole population.) 
+\end{DoxyReturn}
+
+
+Definition at line 180 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+References individual\+::fitness.
+
+
+
+Referenced by roulette\+\_\+wheel\+\_\+selection(), and G\+A\+::run\+\_\+one\+\_\+generation().
+
+\mbox{\label{gaim_8h_aa99c807eea6c4f2b7f9cd220ea090332}} 
+\index{gaim.h@{gaim.h}!calculate\_whitley\_factor@{calculate\_whitley\_factor}}
+\index{calculate\_whitley\_factor@{calculate\_whitley\_factor}!gaim.h@{gaim.h}}
+\doxysubsubsection{calculate\_whitley\_factor()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ calculate\+\_\+whitley\+\_\+factor (\begin{DoxyParamCaption}\item[{R\+E\+A\+L\+\_\+}]{bias }\end{DoxyParamCaption})}
+
+
+
+Calculates the Whitley factor used in Whitley\textquotesingle{}s selection method. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bias} & Governs how strong one would like to favor high ranked individuals. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The factor bias -\/ sqrt(bias$^\wedge$2 -\/ 4 $\ast$ (bias -\/ 1) $\ast$ rand(0, 1))/2/(bias-\/1)
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Bias should be in (1, 2]
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxyref{whitley\+\_\+selection()}{p.}{selection_8cpp_a42d54711e8f1e8da6ae5c2b52678e9be} 
+\end{DoxySeeAlso}
+
+
+Definition at line 451 of file selection.\+cpp.
+
+
+
+References float\+\_\+random().
+
+
+
+Referenced by whitley\+\_\+selection().
+
+\mbox{\label{gaim_8h_a4f13bdd6b5a183dec1a4af3ba900b669}} 
+\index{gaim.h@{gaim.h}!center@{center}}
+\index{center@{center}!gaim.h@{gaim.h}}
+\doxysubsubsection{center()}
+{\footnotesize\ttfamily std\+::string center (\begin{DoxyParamCaption}\item[{const std\+::string}]{s,  }\item[{const int}]{w }\end{DoxyParamCaption})}
+
+
+
+Printing Functions. 
+
+Printing Functions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & The input string to be centered \\
+\hline
+\mbox{\texttt{ in}}  & {\em w} & The width of the total string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string that is centered and padded with spaces 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file logging.\+cpp.
+
+
+
+Referenced by print\+\_\+avg\+\_\+fitness(), print\+\_\+bsf(), and print\+\_\+fitness().
+
+\mbox{\label{gaim_8h_a98c219b4a1c75f16e81784bf5618cd8a}} 
+\index{gaim.h@{gaim.h}!compare\_fitness@{compare\_fitness}}
+\index{compare\_fitness@{compare\_fitness}!gaim.h@{gaim.h}}
+\doxysubsubsection{compare\_fitness()}
+{\footnotesize\ttfamily bool compare\+\_\+fitness (\begin{DoxyParamCaption}\item[{const \textbf{ individual\+\_\+s}}]{x,  }\item[{const \textbf{ individual\+\_\+s}}]{y }\end{DoxyParamCaption})}
+
+
+
+Auxiliary Functions declarations. 
+
+Auxiliary Functions declarations.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Data struct of type const individual\+\_\+s. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Data struct of type const individual\+\_\+s. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if x.\+fitness $<$ y.\+fitness, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 160 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+References individual\+::fitness.
+
+
+
+Referenced by linear\+\_\+rank\+\_\+selection(), G\+A\+::next\+\_\+generation(), G\+A\+::sort\+\_\+population(), and truncation\+\_\+selection().
+
+\mbox{\label{gaim_8h_a3422d21ce5b5a4bd09925c7c3501197c}} 
+\index{gaim.h@{gaim.h}!cumulative\_fitness@{cumulative\_fitness}}
+\index{cumulative\_fitness@{cumulative\_fitness}!gaim.h@{gaim.h}}
+\doxysubsubsection{cumulative\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ cumulative\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$}]{population }\end{DoxyParamCaption})}
+
+
+
+Computes the cumulative fitness of a population based on which individuals have not been yet selected. 
+
+This function is used in the roulette\+\_\+wheel\+\_\+selection with replacement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cumulative fitness of a population.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{roulette\+\_\+wheel\+\_\+selection()}{p.}{selection_8cpp_aaf7a7082658144642a54b8f309a507bc} 
+\end{DoxySeeAlso}
+
+
+Definition at line 92 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{gaim_8h_a576d08d180192ac01d9dac66547395d9}} 
+\index{gaim.h@{gaim.h}!delta\_mutation@{delta\_mutation}}
+\index{delta\_mutation@{delta\_mutation}!gaim.h@{gaim.h}}
+\doxysubsubsection{delta\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ delta\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{R\+E\+A\+L\+\_\+}]{mutation\+\_\+rate = {\ttfamily 0.5},  }\item[{R\+E\+A\+L\+\_\+}]{variance = {\ttfamily 0.5} }\end{DoxyParamCaption})}
+
+
+
+Extra Mutation functions. 
+
+Extra Mutation functions.
+
+Specifically, the mutation delta is drawn from the Normal/\+Gaussian distribution with mean 0 and standard deviation defined by the argument variance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & The genome (genes) of an individual \\
+\hline
+\mbox{\texttt{ in}}  & {\em mutation\+\_\+rate} & Mutation rate (probability threshold) \\
+\hline
+\mbox{\texttt{ in}}  & {\em variance} & Standard deviation of the normal distribution from which the increment/decrement is drawn \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of floats (mutated genome) 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file mutation.\+cpp.
+
+
+
+References delta().
+
+
+
+Referenced by G\+A\+::mutation(), and P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a79addbdcfd7f50898f1cea5e007a0e21}} 
+\index{gaim.h@{gaim.h}!discrete\_crossover@{discrete\_crossover}}
+\index{discrete\_crossover@{discrete\_crossover}!gaim.h@{gaim.h}}
+\doxysubsubsection{discrete\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ discrete\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Discrete crossover operator. 
+
+Performs a discrete crossover operation. Genes from both parent are combined in a random way, slightly different from uniform crossover. The second parent\textquotesingle{}s genes replace genes from the first parent\textquotesingle{}s genome in a random way. For each gene a random number \{0, 1\} is drawn and defines the replacement. In the case of a 0 being drawn, the second parent\textquotesingle{}s gene replaces the first parent\textquotesingle{}s gene.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a17f47d65b7dd182a493b402d36298019}} 
+\index{gaim.h@{gaim.h}!flat\_crossover@{flat\_crossover}}
+\index{flat\_crossover@{flat\_crossover}!gaim.h@{gaim.h}}
+\doxysubsubsection{flat\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ flat\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Flat crossover operator. 
+
+Performs a \char`\"{}flat\char`\"{} crossover operation. Genes from both parent are combined in as by linear mixing, similar to alpha blending. A random variate is chosen to specify ~\newline
+ the mixing weight.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a1d9cef7331f9b3b7e0c590c61f74eff2}} 
+\index{gaim.h@{gaim.h}!float\_random@{float\_random}}
+\index{float\_random@{float\_random}!gaim.h@{gaim.h}}
+\doxysubsubsection{float\_random()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ float\+\_\+random (\begin{DoxyParamCaption}\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b }\end{DoxyParamCaption})}
+
+
+
+Float uniform distribution. 
+
+It returns a float random number in the interval [a, b] (uniform distribution).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Lower limit of range [a, b] from which a random float will be drawn. \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper limit of range [a, b]. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A float number in [a, b]. 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by calculate\+\_\+whitley\+\_\+factor(), roulette\+\_\+wheel\+\_\+selection(), and stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{gaim_8h_a05f4ca43161b814d1c8da4b88541a8f9}} 
+\index{gaim.h@{gaim.h}!fusion\_mutation@{fusion\_mutation}}
+\index{fusion\_mutation@{fusion\_mutation}!gaim.h@{gaim.h}}
+\doxysubsubsection{fusion\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ fusion\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b,  }\item[{bool}]{is\+\_\+real }\end{DoxyParamCaption})}
+
+
+
+Fusion mutation operator method. 
+
+Performs a fusion mutation operation. It checks if the genome has unique elements. If doesn\textquotesingle{}t have, it removes the repetitions and replaces them by new random (uniformly drawn) values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & Lower bound of sampling interval \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper bound of sampling interval \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+\_\+real} & Determines if the interval is in the set of reals or integers (to use when R\+E\+A\+L\+\_\+ is set to I\+NT)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome. 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file mutation.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a4ee9ecf0f8b15abe84fe28b658a48fed}} 
+\index{gaim.h@{gaim.h}!griewank@{griewank}}
+\index{griewank@{griewank}!gaim.h@{gaim.h}}
+\doxysubsubsection{griewank()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ griewank (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Griewangk cost function. 
+
+Griewangk cost function \[ f({\bf x}) = 1 + \frac{1}{4000} \sum{i=0}^{n} x_i^2 - \prod_{i=0}^{n} \cos(\frac{x_i}{\sqrt{i+1}}) \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file test\+\_\+functions.\+cpp.
+
+\mbox{\label{gaim_8h_a518c54c210409fc2183267d6a6a16c60}} 
+\index{gaim.h@{gaim.h}!independent\_runs@{independent\_runs}}
+\index{independent\_runs@{independent\_runs}!gaim.h@{gaim.h}}
+\doxysubsubsection{independent\_runs()}
+{\footnotesize\ttfamily void independent\+\_\+runs (\begin{DoxyParamCaption}\item[{\textbf{ ga\+\_\+parameter\+\_\+s} $\ast$}]{pms,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s} $\ast$}]{pr\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+Multithread and Islands functions declarations. 
+
+Multithread and Islands functions declarations.
+
+Runs an X number of G\+As in parallel and independently using threads. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pms} & Structure of \doxyref{GA}{p.}{classGA} parameters. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pr\+\_\+pms} & Structure of printing parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void) 
+\end{DoxyReturn}
+Instantiate threads and G\+As
+
+Join threads
+
+Definition at line 39 of file parallel\+\_\+ga.\+cpp.
+
+
+
+References G\+A\+::evolve(), parameter\+\_\+ga\+::generations, and parameter\+\_\+ga\+::runs.
+
+\mbox{\label{gaim_8h_a31999cecab5f3885384236781c504ec7}} 
+\index{gaim.h@{gaim.h}!int\_random@{int\_random}}
+\index{int\_random@{int\_random}!gaim.h@{gaim.h}}
+\doxysubsubsection{int\_random()}
+{\footnotesize\ttfamily size\+\_\+t int\+\_\+random (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{a,  }\item[{size\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Integer uniform distribution. 
+
+It returns an integer random number in the interval [a, b] (uniform distribution).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Lower limit of range [a, b] from which a random integer will be drawn. \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper limit of range [a, b]. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer number in [a, b]. 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by random\+\_\+selection(), stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection(), and truncation\+\_\+selection().
+
+\mbox{\label{gaim_8h_a6a9d68405f0d36911319327d8bf2aea3}} 
+\index{gaim.h@{gaim.h}!is\_path\_exist@{is\_path\_exist}}
+\index{is\_path\_exist@{is\_path\_exist}!gaim.h@{gaim.h}}
+\doxysubsubsection{is\_path\_exist()}
+{\footnotesize\ttfamily bool is\+\_\+path\+\_\+exist (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the given path (directory or file) exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & const string that contains the name of the path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the path exists and false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 192 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by print\+\_\+avg\+\_\+fitness(), print\+\_\+best\+\_\+genome(), print\+\_\+bsf(), print\+\_\+fitness(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{gaim_8h_ac6caec06f9664fbafbb3b5a5a2174a1b}} 
+\index{gaim.h@{gaim.h}!ktournament\_selection@{ktournament\_selection}}
+\index{ktournament\_selection@{ktournament\_selection}!gaim.h@{gaim.h}}
+\doxysubsubsection{ktournament\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ ktournament\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{int}]{k,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Extra Selection functions. 
+
+Extra Selection functions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em k} & An integer that defines the tournament size (how many individuals from the population will be drawn randomly). \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s structures (selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file selection.\+cpp.
+
+
+
+References individual\+::fitness, individual\+::genome, individual\+::is\+\_\+selected, and remove\+\_\+at().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and G\+A\+::selection().
+
+\mbox{\label{gaim_8h_a0ddbfdfc342d3ae254d07b84cdbdf195}} 
+\index{gaim.h@{gaim.h}!linear\_rank\_selection@{linear\_rank\_selection}}
+\index{linear\_rank\_selection@{linear\_rank\_selection}!gaim.h@{gaim.h}}
+\doxysubsubsection{linear\_rank\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ linear\+\_\+rank\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a linear rank selection mechanism. 
+
+The population is sorted based on the fitness of each individual and then a selection probability is assigned to each individual based on their rank.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s structures (or the selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 176 of file selection.\+cpp.
+
+
+
+References compare\+\_\+fitness().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_acb4000e1f156fd614bf9dcc08e6d3de8}} 
+\index{gaim.h@{gaim.h}!maximum\_fitness@{maximum\_fitness}}
+\index{maximum\_fitness@{maximum\_fitness}!gaim.h@{gaim.h}}
+\doxysubsubsection{maximum\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ maximum\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$}]{population }\end{DoxyParamCaption})}
+
+
+
+A naive implementation of maximum. 
+
+This function finds the maximum fitness and returns it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The maximum fitness of a population. 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{gaim_8h_a51e89d3d4efac8a4f638eb5ca81dda6e}} 
+\index{gaim.h@{gaim.h}!mkdir\_@{mkdir\_}}
+\index{mkdir\_@{mkdir\_}!gaim.h@{gaim.h}}
+\doxysubsubsection{mkdir\_()}
+{\footnotesize\ttfamily int mkdir\+\_\+ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Attempts to make a directory. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & const string that contains the name (path) of the new directory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero upon successfully created directory, one otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{gaim_8h_a1c91b36573002b76424edf271296e431}} 
+\index{gaim.h@{gaim.h}!nonselected\_maximum\_fitness@{nonselected\_maximum\_fitness}}
+\index{nonselected\_maximum\_fitness@{nonselected\_maximum\_fitness}!gaim.h@{gaim.h}}
+\doxysubsubsection{nonselected\_maximum\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ nonselected\+\_\+maximum\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$}]{population }\end{DoxyParamCaption})}
+
+
+
+Computes the maximum fitness of all the non-\/selected (from a selection operator) indivuduals of a population. 
+
+\begin{DoxyNote}{Note}
+This functions is meant to be used with selection methods that use the maximum fitness of a population and have the selection-\/with-\/replacement option disabled.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The maximum fitness of a population (of the non-\/selected individuals). 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{gaim_8h_a8cd2bc592f03915b94b93e423ca36f1e}} 
+\index{gaim.h@{gaim.h}!nonuniform\_mutation@{nonuniform\_mutation}}
+\index{nonuniform\_mutation@{nonuniform\_mutation}!gaim.h@{gaim.h}}
+\doxysubsubsection{nonuniform\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ nonuniform\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{size\+\_\+t}]{time,  }\item[{size\+\_\+t}]{generations,  }\item[{size\+\_\+t}]{order,  }\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b }\end{DoxyParamCaption})}
+
+
+
+Non-\/uniform mutation operator. 
+
+Performs a non-\/uniform mutation which is time-\/dependent, decaying over time. The mutation is computed as $ \Delta(b - x) $ or $\Delta(x - a) $ based on a random choice between -\/1 or 1, respectively.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em time} & Current generation (time step) \\
+\hline
+\mbox{\texttt{ in}}  & {\em generations} & Total number of generations (total time steps) \\
+\hline
+\mbox{\texttt{ in}}  & {\em order} & Power of mutation rate \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & Lower boundary of interval [a, b] \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper boundary of interval [a, b]\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome. 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file mutation.\+cpp.
+
+
+
+References delta().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_aa57e75e451e45644bd429e661055e99f}} 
+\index{gaim.h@{gaim.h}!one\_point\_crossover@{one\_point\_crossover}}
+\index{one\_point\_crossover@{one\_point\_crossover}!gaim.h@{gaim.h}}
+\doxysubsubsection{one\_point\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ one\+\_\+point\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Extra Crossover functions. 
+
+Extra Crossover functions.
+
+By default, this is a one-\/point crossover operator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & Genome of the first parent \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Genome of the second parent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The genome of a child as a vector of type R\+E\+A\+L\+\_\+ 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file crossover.\+cpp.
+
+
+
+Referenced by G\+A\+::crossover(), and P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a61a9cfc8c1803925356fb3a7adeaf354}} 
+\index{gaim.h@{gaim.h}!order\_one\_crossover@{order\_one\_crossover}}
+\index{order\_one\_crossover@{order\_one\_crossover}!gaim.h@{gaim.h}}
+\doxysubsubsection{order\_one\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ order\+\_\+one\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Order-\/one crossover operator. 
+
+Performs an order-\/one crossover operation. It starts from the half genome of the first parent and as long as the genes between the two parents are different, it copies parent 2\textquotesingle{}s genes to the child\textquotesingle{}s genome.
+
+\begin{DoxyNote}{Note}
+This operator is useful in problems involving permuations. The rule is somewhat different from traditional single-\/point crossover, which has no guarantees of preserving parent A\textquotesingle{}s half genome.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 247 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a1d36d7cf689304e7e68abb3afbed2e95}} 
+\index{gaim.h@{gaim.h}!prd@{prd}}
+\index{prd@{prd}!gaim.h@{gaim.h}}
+\doxysubsubsection{prd()}
+{\footnotesize\ttfamily std\+::string prd (\begin{DoxyParamCaption}\item[{const double}]{,  }\item[{const int}]{,  }\item[{const int}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{gaim_8h_a7a9a9195bee2340a0edc6cdcffbb669f}} 
+\index{gaim.h@{gaim.h}!print\_avg\_fitness@{print\_avg\_fitness}}
+\index{print\_avg\_fitness@{print\_avg\_fitness}!gaim.h@{gaim.h}}
+\doxysubsubsection{print\_avg\_fitness()}
+{\footnotesize\ttfamily void print\+\_\+avg\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{,  }\item[{size\+\_\+t}]{unique\+\_\+id = {\ttfamily 0},  }\item[{std\+::string}]{write\+\_\+to = {\ttfamily \char`\"{}stdout\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\label{gaim_8h_ae7f2cf274b94c5bca4fdfb63851e9fc8}} 
+\index{gaim.h@{gaim.h}!print\_best\_genome@{print\_best\_genome}}
+\index{print\_best\_genome@{print\_best\_genome}!gaim.h@{gaim.h}}
+\doxysubsubsection{print\_best\_genome()}
+{\footnotesize\ttfamily void print\+\_\+best\+\_\+genome (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{,  }\item[{size\+\_\+t}]{unique\+\_\+id = {\ttfamily 0},  }\item[{std\+::string}]{write\+\_\+to = {\ttfamily \char`\"{}stdout\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\label{gaim_8h_a14d0a0189fbca1f616e3593ff147cfdc}} 
+\index{gaim.h@{gaim.h}!print\_bsf@{print\_bsf}}
+\index{print\_bsf@{print\_bsf}!gaim.h@{gaim.h}}
+\doxysubsubsection{print\_bsf()}
+{\footnotesize\ttfamily void print\+\_\+bsf (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{,  }\item[{size\+\_\+t}]{unique\+\_\+id = {\ttfamily 0},  }\item[{std\+::string}]{write\+\_\+to = {\ttfamily \char`\"{}stdout\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\label{gaim_8h_aecf6d4290fc2fa17fb3c2650c60cbd52}} 
+\index{gaim.h@{gaim.h}!print\_fitness@{print\_fitness}}
+\index{print\_fitness@{print\_fitness}!gaim.h@{gaim.h}}
+\doxysubsubsection{print\_fitness()}
+{\footnotesize\ttfamily void print\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{,  }\item[{size\+\_\+t}]{unique\+\_\+id = {\ttfamily 0},  }\item[{std\+::string}]{write\+\_\+to = {\ttfamily \char`\"{}stdout\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\label{gaim_8h_a31a290ceec25b129ac0107ef5b205732}} 
+\index{gaim.h@{gaim.h}!print\_parameters@{print\_parameters}}
+\index{print\_parameters@{print\_parameters}!gaim.h@{gaim.h}}
+\doxysubsubsection{print\_parameters()}
+{\footnotesize\ttfamily void print\+\_\+parameters (\begin{DoxyParamCaption}\item[{\textbf{ ga\+\_\+parameter\+\_\+s}}]{ga\+\_\+pms,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s}}]{pr\+\_\+pms,  }\item[{\textbf{ im\+\_\+parameter\+\_\+s}}]{im\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+Prints parameters to a .dat file, or to stdout if \char`\"{}stdout\char`\"{} is specified. 
+
+Prints all the parameters to the standard output (if \char`\"{}stdout\char`\"{} is specified as where2write in the printing params) and to a file for debugging purposes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ga\+\_\+pms} & Structure of \doxyref{GA}{p.}{classGA} parameters \\
+\hline
+\mbox{\texttt{ in}}  & {\em pr\+\_\+pms} & Structure of printing parameters \\
+\hline
+\mbox{\texttt{ in}}  & {\em im\+\_\+pms} & Structure of \doxyref{IM}{p.}{classIM} parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void function) 
+\end{DoxyReturn}
+
+
+Definition at line 208 of file parameters.\+cpp.
+
+
+
+References parameter\+\_\+ga\+::clipping\+\_\+fname, parameter\+\_\+pr\+::experiment\+\_\+name, parameter\+\_\+ga\+::generations, parameter\+\_\+ga\+::genome\+\_\+size, parameter\+\_\+im\+::is\+\_\+im\+\_\+enabled, parameter\+\_\+im\+::migration\+\_\+interval, parameter\+\_\+im\+::num\+\_\+immigrants, parameter\+\_\+im\+::num\+\_\+islands, parameter\+\_\+ga\+::num\+\_\+offsprings, parameter\+\_\+ga\+::num\+\_\+replacement, parameter\+\_\+im\+::pick\+\_\+method, parameter\+\_\+ga\+::population\+\_\+size, parameter\+\_\+pr\+::print\+\_\+average\+\_\+fitness, parameter\+\_\+pr\+::print\+\_\+best\+\_\+genome, parameter\+\_\+pr\+::print\+\_\+bsf, parameter\+\_\+pr\+::print\+\_\+fitness, parameter\+\_\+im\+::replace\+\_\+method, parameter\+\_\+ga\+::runs, parameter\+\_\+ga\+::universal\+\_\+clipping, and parameter\+\_\+pr\+::where2write.
+
+\mbox{\label{gaim_8h_acbe6ab938467007fcf68724115720d83}} 
+\index{gaim.h@{gaim.h}!print\_results@{print\_results}}
+\index{print\_results@{print\_results}!gaim.h@{gaim.h}}
+\doxysubsubsection{print\_results()}
+{\footnotesize\ttfamily void print\+\_\+results (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$}]{,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{,  }\item[{size\+\_\+t}]{,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s} $\ast$}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{gaim_8h_a25f45336eec8fffbcf31fa22e2b43bc4}} 
+\index{gaim.h@{gaim.h}!random\_mutation@{random\_mutation}}
+\index{random\_mutation@{random\_mutation}!gaim.h@{gaim.h}}
+\doxysubsubsection{random\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ random\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b,  }\item[{bool}]{is\+\_\+real }\end{DoxyParamCaption})}
+
+
+
+Random mutation operator. 
+
+Performs a random mutation on the genome of an individual. A random mutation takes place at a random gene and replaces the current value of the gene with a new random one drawn from a uniform distribution in the interval [a, b].
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome (genes) \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & Lower boundary of interval [a, b] \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper boundary of interval [a, b] \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+\_\+real} & Determines if the interval is in the set of reals or integers (to use when R\+E\+A\+L\+\_\+ is set to I\+NT)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome (vector of type R\+E\+A\+L\+\_\+). 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file mutation.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a1a8376ffb1c32f823c2a8cd1b1365abe}} 
+\index{gaim.h@{gaim.h}!random\_selection@{random\_selection}}
+\index{random\_selection@{random\_selection}!gaim.h@{gaim.h}}
+\doxysubsubsection{random\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ random\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a random selection. 
+
+It randomly picks up one individual from the entire population.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of indivudual\+\_\+s as parents. 
+\end{DoxyReturn}
+
+
+Definition at line 251 of file selection.\+cpp.
+
+
+
+References int\+\_\+random().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_aaaf210a9f19d53b2550a8da88f350f29}} 
+\index{gaim.h@{gaim.h}!rastrigin@{rastrigin}}
+\index{rastrigin@{rastrigin}!gaim.h@{gaim.h}}
+\doxysubsubsection{rastrigin()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ rastrigin (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Rastrigin cost function. 
+
+Rastrigin cost function \[ f({\bf x}) = An + \sum{i=0}{n}x_i^2 − A\cos(2\pi x_i) \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file test\+\_\+functions.\+cpp.
+
+\mbox{\label{gaim_8h_aad545fd3361dd279f1470d03f867121d}} 
+\index{gaim.h@{gaim.h}!read\_parameters\_file@{read\_parameters\_file}}
+\index{read\_parameters\_file@{read\_parameters\_file}!gaim.h@{gaim.h}}
+\doxysubsubsection{read\_parameters\_file()}
+{\footnotesize\ttfamily std\+::tuple$<$\textbf{ ga\+\_\+parameter\+\_\+s}, \textbf{ pr\+\_\+parameter\+\_\+s}, \textbf{ im\+\_\+parameter\+\_\+s}$>$ read\+\_\+parameters\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Parameters files. 
+
+Parameters files.
+
+Reads a configuration file (.cfg) of libconfig format, parses it and loads the parameters into the internal data structures.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Configuration filename (libconfig format). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple of three structures (parameter\+\_\+s, print\+\_\+params\+\_\+s, im\+\_\+parameter\+\_\+s) -\/$>$ (\doxyref{GA}{p.}{classGA}, printing, \doxyref{IM}{p.}{classIM}). 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file parameters.\+cpp.
+
+
+
+References parameter\+\_\+ga\+::a, parameter\+\_\+im\+::adj\+\_\+list\+\_\+fname, parameter\+\_\+ga\+::b, parameter\+\_\+ga\+::clipping\+\_\+fname, parameter\+\_\+pr\+::experiment\+\_\+name, parameter\+\_\+ga\+::generations, parameter\+\_\+ga\+::genome\+\_\+size, parameter\+\_\+im\+::is\+\_\+im\+\_\+enabled, is\+\_\+path\+\_\+exist(), parameter\+\_\+im\+::migration\+\_\+interval, mkdir\+\_\+(), parameter\+\_\+im\+::num\+\_\+immigrants, parameter\+\_\+im\+::num\+\_\+islands, parameter\+\_\+ga\+::num\+\_\+offsprings, parameter\+\_\+ga\+::num\+\_\+replacement, parameter\+\_\+im\+::pick\+\_\+method, parameter\+\_\+ga\+::population\+\_\+size, parameter\+\_\+pr\+::print\+\_\+average\+\_\+fitness, print\+\_\+avg\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+best\+\_\+genome, print\+\_\+best\+\_\+genome(), print\+\_\+bsf(), parameter\+\_\+pr\+::print\+\_\+bsf, print\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+fitness, parameter\+\_\+im\+::replace\+\_\+method, parameter\+\_\+ga\+::runs, parameter\+\_\+ga\+::universal\+\_\+clipping, and parameter\+\_\+pr\+::where2write.
+
+\mbox{\label{gaim_8h_a5af1482c7bb76e240cbd177d1eb066fc}} 
+\index{gaim.h@{gaim.h}!remove\_at@{remove\_at}}
+\index{remove\_at@{remove\_at}!gaim.h@{gaim.h}}
+\doxysubsubsection{remove\_at()}
+{\footnotesize\ttfamily void remove\+\_\+at (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{v,  }\item[{std\+::vector$<$ size\+\_\+t $>$\+::size\+\_\+type}]{n }\end{DoxyParamCaption})}
+
+
+
+Removes an element from a vector by swaping the element at position n with the last one and poping it out of the vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em v} & The input vector from whith an element will be deleted. \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & The size\+\_\+type of the vector (position of deleted element). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by ktournament\+\_\+selection(), and stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{gaim_8h_ad1161f455f37ff08ba8644dbd1015f4d}} 
+\index{gaim.h@{gaim.h}!remove\_file@{remove\_file}}
+\index{remove\_file@{remove\_file}!gaim.h@{gaim.h}}
+\doxysubsubsection{remove\_file()}
+{\footnotesize\ttfamily int remove\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string}]{fname }\end{DoxyParamCaption})}
+
+
+
+Deletes a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & const string that contains the name of the file to being deleted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero in the case of successful deletion, non-\/zero value otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file auxiliary\+\_\+funs.\+cpp.
+
+\mbox{\label{gaim_8h_ae4c1be12a844e1fec91ab088797e176a}} 
+\index{gaim.h@{gaim.h}!roulette\_wheel\_selection@{roulette\_wheel\_selection}}
+\index{roulette\_wheel\_selection@{roulette\_wheel\_selection}!gaim.h@{gaim.h}}
+\doxysubsubsection{roulette\_wheel\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ roulette\+\_\+wheel\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a roulette-\/wheel selection (or fitness-\/proportionate selection) mechanism. 
+
+The fitness function observes a fitness for each individual and the share of the population\textquotesingle{}s total fitness is used to associate a selection ~\newline
+ probability with each individual.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s which corresponds to the selected parents. 
+\end{DoxyReturn}
+
+
+Definition at line 306 of file selection.\+cpp.
+
+
+
+References average\+\_\+fitness(), cumulative\+\_\+fitness(), and float\+\_\+random().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_ab65d727174dca6fa3e2c8f7695637ea4}} 
+\index{gaim.h@{gaim.h}!schwefel@{schwefel}}
+\index{schwefel@{schwefel}!gaim.h@{gaim.h}}
+\doxysubsubsection{schwefel()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ schwefel (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Schwefel cost function. 
+
+Schwefel cost function \[ f({\bf x}) = 418.9829 n - \sum_{i=0}^{n} x_i \sin(\sqrt{|x_i|}) \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file test\+\_\+functions.\+cpp.
+
+\mbox{\label{gaim_8h_a4ded098f00476342536910805dccda88}} 
+\index{gaim.h@{gaim.h}!sphere@{sphere}}
+\index{sphere@{sphere}!gaim.h@{gaim.h}}
+\doxysubsubsection{sphere()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ sphere (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Demo functions End-\/user can define more at her/his will. 
+
+Demo functions End-\/user can define more at her/his will.
+
+Sphere cost function \[ f({\bf x}) = \sum_{i=0}^{n}x_i^2 \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file test\+\_\+functions.\+cpp.
+
+
+
+Referenced by G\+A\+::\+G\+A().
+
+\mbox{\label{gaim_8h_a5ba4f3df2fa0375bd5e9296c3711506a}} 
+\index{gaim.h@{gaim.h}!stochastic\_roulette\_wheel\_selection@{stochastic\_roulette\_wheel\_selection}}
+\index{stochastic\_roulette\_wheel\_selection@{stochastic\_roulette\_wheel\_selection}!gaim.h@{gaim.h}}
+\doxysubsubsection{stochastic\_roulette\_wheel\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Parent selection method proposed by Lipowski A. 
+
+and Lipowska D. in \char`\"{}\+Roulette wheel selection via stochastic acceptance\char`\"{}, 2011. The method is a variant of the roulette wheel where the maximum fitness is used to normalize individuals\textquotesingle{} fitness and transform them to a probability. The latter is used to decide probabilisticly if the chosen individual will be allowed to get offsprings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of indivudual\+\_\+s (selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 385 of file selection.\+cpp.
+
+
+
+References float\+\_\+random(), int\+\_\+random(), maximum\+\_\+fitness(), nonselected\+\_\+maximum\+\_\+fitness(), and remove\+\_\+at().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_ab06bae7e4edcbb4bcdf26c189950b9b1}} 
+\index{gaim.h@{gaim.h}!swap\_mutation@{swap\_mutation}}
+\index{swap\_mutation@{swap\_mutation}!gaim.h@{gaim.h}}
+\doxysubsubsection{swap\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ swap\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome }\end{DoxyParamCaption})}
+
+
+
+Swap mutation operator method. 
+
+Performs a swap mutation operation. It randomly picks up two genes on the same genome and swaps them.
+
+\begin{DoxyNote}{Note}
+The swap mutation operator is useful in cases of permutations (for instance in solving problems such as the Traveling Salesman Problem).
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome. 
+\end{DoxyReturn}
+
+
+Definition at line 230 of file mutation.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_ac28de1e615ce83f0c3cc8c27929bab4c}} 
+\index{gaim.h@{gaim.h}!truncation\_selection@{truncation\_selection}}
+\index{truncation\_selection@{truncation\_selection}!gaim.h@{gaim.h}}
+\doxysubsubsection{truncation\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ truncation\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{size\+\_\+t}]{low\+\_\+bound,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a truncation selection operator. 
+
+The population is sorted based on the fitness of each individual and a percentage of individuals that will be discarded is computed based on the given number of offsprings (lambda).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction \\
+\hline
+\mbox{\texttt{ in}}  & {\em low\+\_\+bound} & The lowest index from which the selection begins. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s structures (or the selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file selection.\+cpp.
+
+
+
+References compare\+\_\+fitness(), and int\+\_\+random().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a4cb94ce044c729ba9a0a7be0444b9ad6}} 
+\index{gaim.h@{gaim.h}!tsm@{tsm}}
+\index{tsm@{tsm}!gaim.h@{gaim.h}}
+\doxysubsubsection{tsm()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ tsm (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file test\+\_\+functions.\+cpp.
+
+
+
+References distance().
+
+\mbox{\label{gaim_8h_a41c86a8ee8dec488fd2b14d514a7826c}} 
+\index{gaim.h@{gaim.h}!two\_point\_crossover@{two\_point\_crossover}}
+\index{two\_point\_crossover@{two\_point\_crossover}!gaim.h@{gaim.h}}
+\doxysubsubsection{two\_point\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ two\+\_\+point\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Two-\/point crossover operator. 
+
+Performs a two-\/point crossover. Two random points on the genome are drawn from a uniform distribution and the genes within the ~\newline
+ area defined by the two points is swapped between parents.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_ada4b26df76a7253893364e7d0bbbd4a9}} 
+\index{gaim.h@{gaim.h}!uniform\_crossover@{uniform\_crossover}}
+\index{uniform\_crossover@{uniform\_crossover}!gaim.h@{gaim.h}}
+\doxysubsubsection{uniform\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ uniform\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Uniform crossover operator. 
+
+Performs a uniform crossover operation. Each gene is chosen from one parent or the other with equal probability.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{gaim_8h_a298dfdba0181ea761730cedf1dbb033f}} 
+\index{gaim.h@{gaim.h}!whitley\_selection@{whitley\_selection}}
+\index{whitley\_selection@{whitley\_selection}!gaim.h@{gaim.h}}
+\doxysubsubsection{whitley\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ whitley\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{R\+E\+A\+L\+\_\+}]{bias,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Parent selection method proposed by Darrell Whitley in his G\+E\+N\+I\+T\+OR paper\+: \char`\"{}\+The G\+E\+N\+I\+T\+O\+R Algorithm and Selection Pressure\+: Why Rank-\/\+Based Allocation
+of Reproductive Trials is Best\char`\"{}, ", D. 
+
+Whitley, 2000.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bias} & The bias that controls how strongly the high rank individuals are favored. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of indivudual\+\_\+s (selected parents).
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{calculate\+\_\+whitley\+\_\+factor()}{p.}{selection_8cpp_a493ff9c75ab6ac1ef21aa248806c75a8} On how to calculate the Whitley factor. 
+\end{DoxySeeAlso}
+
+
+Definition at line 478 of file selection.\+cpp.
+
+
+
+References calculate\+\_\+whitley\+\_\+factor().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+

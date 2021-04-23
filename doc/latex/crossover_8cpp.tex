@@ -1,0 +1,212 @@
+\doxysection{crossover.\+cpp File Reference}
+\label{crossover_8cpp}\index{crossover.cpp@{crossover.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ one\+\_\+point\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent1, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent2)
+\begin{DoxyCompactList}\small\item\em Applies a crossover operator on the genomes of two parents (parent1 and parent2) to create a child genome. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ two\+\_\+point\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent1, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent2)
+\begin{DoxyCompactList}\small\item\em Two-\/point crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ uniform\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent1, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent2)
+\begin{DoxyCompactList}\small\item\em Uniform crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ flat\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent1, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent2)
+\begin{DoxyCompactList}\small\item\em Flat crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ discrete\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent1, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent2)
+\begin{DoxyCompactList}\small\item\em Discrete crossover operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ order\+\_\+one\+\_\+crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent1, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ parent2)
+\begin{DoxyCompactList}\small\item\em Order-\/one crossover operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements extra crossover operators, which specify how genes from two parent genomes will be combined to produce a child genome. Where applicable, one of two possible children will result with equal probability.
+
+The methods exit fatally if the size of genomes of the two parents is unequal. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{crossover_8cpp_a630d2410511d517172af6e13ac545fdf}} 
+\index{crossover.cpp@{crossover.cpp}!discrete\_crossover@{discrete\_crossover}}
+\index{discrete\_crossover@{discrete\_crossover}!crossover.cpp@{crossover.cpp}}
+\doxysubsubsection{discrete\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ discrete\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Discrete crossover operator. 
+
+Performs a discrete crossover operation. Genes from both parent are combined in a random way, slightly different from uniform crossover. The second parent\textquotesingle{}s genes replace genes from the first parent\textquotesingle{}s genome in a random way. For each gene a random number \{0, 1\} is drawn and defines the replacement. In the case of a 0 being drawn, the second parent\textquotesingle{}s gene replaces the first parent\textquotesingle{}s gene.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{crossover_8cpp_ad63fe19e9d7a37724a8cd697203151ca}} 
+\index{crossover.cpp@{crossover.cpp}!flat\_crossover@{flat\_crossover}}
+\index{flat\_crossover@{flat\_crossover}!crossover.cpp@{crossover.cpp}}
+\doxysubsubsection{flat\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ flat\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Flat crossover operator. 
+
+Performs a \char`\"{}flat\char`\"{} crossover operation. Genes from both parent are combined in as by linear mixing, similar to alpha blending. A random variate is chosen to specify ~\newline
+ the mixing weight.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{crossover_8cpp_afe9bf08c457226234a4a55b85ae5ec0b}} 
+\index{crossover.cpp@{crossover.cpp}!one\_point\_crossover@{one\_point\_crossover}}
+\index{one\_point\_crossover@{one\_point\_crossover}!crossover.cpp@{crossover.cpp}}
+\doxysubsubsection{one\_point\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ one\+\_\+point\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Applies a crossover operator on the genomes of two parents (parent1 and parent2) to create a child genome. 
+
+Extra Crossover functions.
+
+By default, this is a one-\/point crossover operator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & Genome of the first parent \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Genome of the second parent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The genome of a child as a vector of type R\+E\+A\+L\+\_\+ 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file crossover.\+cpp.
+
+
+
+Referenced by G\+A\+::crossover(), and P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{crossover_8cpp_a82e24b1e844eec64f717af8bc9e8cc1e}} 
+\index{crossover.cpp@{crossover.cpp}!order\_one\_crossover@{order\_one\_crossover}}
+\index{order\_one\_crossover@{order\_one\_crossover}!crossover.cpp@{crossover.cpp}}
+\doxysubsubsection{order\_one\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ order\+\_\+one\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Order-\/one crossover operator. 
+
+Performs an order-\/one crossover operation. It starts from the half genome of the first parent and as long as the genes between the two parents are different, it copies parent 2\textquotesingle{}s genes to the child\textquotesingle{}s genome.
+
+\begin{DoxyNote}{Note}
+This operator is useful in problems involving permuations. The rule is somewhat different from traditional single-\/point crossover, which has no guarantees of preserving parent A\textquotesingle{}s half genome.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 247 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{crossover_8cpp_a43356097c6110373f59ca386383e52b8}} 
+\index{crossover.cpp@{crossover.cpp}!two\_point\_crossover@{two\_point\_crossover}}
+\index{two\_point\_crossover@{two\_point\_crossover}!crossover.cpp@{crossover.cpp}}
+\doxysubsubsection{two\_point\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ two\+\_\+point\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Two-\/point crossover operator. 
+
+Performs a two-\/point crossover. Two random points on the genome are drawn from a uniform distribution and the genes within the ~\newline
+ area defined by the two points is swapped between parents.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{crossover_8cpp_ac4015fe741fd4dbde7252b23c52b1e53}} 
+\index{crossover.cpp@{crossover.cpp}!uniform\_crossover@{uniform\_crossover}}
+\index{uniform\_crossover@{uniform\_crossover}!crossover.cpp@{crossover.cpp}}
+\doxysubsubsection{uniform\_crossover()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ uniform\+\_\+crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Uniform crossover operator. 
+
+Performs a uniform crossover operation. Each gene is chosen from one parent or the other with equal probability.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & First parent\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Second parent\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Offspring\textquotesingle{}s genome 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file crossover.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+

@@ -1,0 +1,460 @@
+\doxysection{pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ Class Template Reference}
+\label{classpcg__detail_1_1engine}\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+
+
+{\ttfamily \#include $<$pcg\+\_\+random.\+hpp$>$}
+
+
+
+Inheritance diagram for pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpcg__detail_1_1engine__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpcg__detail_1_1engine__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ can\+\_\+specify\+\_\+stream\+\_\+tag}
+\item 
+struct \textbf{ no\+\_\+specifiable\+\_\+stream\+\_\+tag}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef xtype \textbf{ result\+\_\+type}
+\item 
+typedef itype \textbf{ state\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ result\+\_\+type} \textbf{ operator()} ()
+\item 
+\textbf{ result\+\_\+type} \textbf{ operator()} (\textbf{ result\+\_\+type} upper\+\_\+bound)
+\item 
+void \textbf{ advance} (itype \textbf{ delta})
+\item 
+void \textbf{ backstep} (itype \textbf{ delta})
+\item 
+void \textbf{ discard} (itype \textbf{ delta})
+\item 
+bool \textbf{ wrapped} ()
+\item 
+\textbf{ engine} (itype state=itype(0xcafef00dd15ea5e5\+U\+LL))
+\item 
+{\footnotesize template$<$typename sm  = stream\+\_\+mixin$>$ }\\\textbf{ engine} (itype state, typename sm\+::stream\+\_\+state stream\+\_\+seed)
+\item 
+{\footnotesize template$<$typename Seed\+Seq $>$ }\\\textbf{ engine} (Seed\+Seq \&\&seed\+Seq, typename std\+::enable\+\_\+if$<$ !stream\+\_\+mixin\+::can\+\_\+specify\+\_\+stream \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, itype $>$\+::value \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, \textbf{ engine} $>$\+::value, \textbf{ no\+\_\+specifiable\+\_\+stream\+\_\+tag} $>$\+::type=\{\})
+\item 
+{\footnotesize template$<$typename Seed\+Seq $>$ }\\\textbf{ engine} (Seed\+Seq \&\&seed\+Seq, typename std\+::enable\+\_\+if$<$ stream\+\_\+mixin\+::can\+\_\+specify\+\_\+stream \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, itype $>$\+::value \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, \textbf{ engine} $>$\+::value, \textbf{ can\+\_\+specify\+\_\+stream\+\_\+tag} $>$\+::type=\{\})
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \textbf{ seed} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \textbf{ period\+\_\+pow2} ()
+\item 
+static constexpr \textbf{ result\+\_\+type} \textbf{ min} ()
+\item 
+static constexpr \textbf{ result\+\_\+type} \textbf{ max} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+itype \textbf{ bump} (itype state)
+\item 
+itype \textbf{ base\+\_\+generate} ()
+\item 
+itype \textbf{ base\+\_\+generate0} ()
+\item 
+itype \textbf{ distance} (itype newstate, itype mask=$\sim$itype(0U)) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static itype \textbf{ advance} (itype state, itype \textbf{ delta}, itype cur\+\_\+mult, itype cur\+\_\+plus)
+\item 
+static itype \textbf{ distance} (itype cur\+\_\+state, itype newstate, itype cur\+\_\+mult, itype cur\+\_\+plus, itype mask=$\sim$itype(0U))
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+itype \textbf{ state\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\bool \textbf{ operator==} (const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&, const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&)
+\item 
+{\footnotesize template$<$typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\itype1 \textbf{ operator-\/} (const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&, const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin1 , typename multiplier\+\_\+mixin1 $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin1, multiplier\+\_\+mixin1 $>$ \&)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin1 , typename multiplier\+\_\+mixin1 $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin1, multiplier\+\_\+mixin1 $>$ \&rng)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename xtype, typename itype, typename output\+\_\+mixin, bool output\+\_\+previous = true, typename stream\+\_\+mixin = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin = default\+\_\+multiplier$<$itype$>$$>$\newline
+class pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$}
+
+
+
+Definition at line 352 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\label{classpcg__detail_1_1engine_af7b21de08e98c837c5ac79ac0fb40260}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!result\_type@{result\_type}}
+\index{result\_type@{result\_type}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{result\_type}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+typedef xtype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::\textbf{ result\+\_\+type}}
+
+
+
+Definition at line 365 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a551fea1601c043e1162c790593c51b58}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!state\_type@{state\_type}}
+\index{state\_type@{state\_type}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{state\_type}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+typedef itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::\textbf{ state\+\_\+type}}
+
+
+
+Definition at line 366 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classpcg__detail_1_1engine_ac02de8c934480730d861cfcf5626b697}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!engine@{engine}}
+\index{engine@{engine}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{engine()\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+\textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::\textbf{ engine} (\begin{DoxyParamCaption}\item[{itype}]{state = {\ttfamily itype(0xcafef00dd15ea5e5ULL)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 458 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a911dbf0e47820abfe544bde5e63f5645}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!engine@{engine}}
+\index{engine@{engine}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{engine()\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename sm  = stream\+\_\+mixin$>$ \\
+\textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::\textbf{ engine} (\begin{DoxyParamCaption}\item[{itype}]{state,  }\item[{typename sm\+::stream\+\_\+state}]{stream\+\_\+seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 469 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a4bbf8478024a65a6d07f5adedaf2d7ae}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!engine@{engine}}
+\index{engine@{engine}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{engine()\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename Seed\+Seq $>$ \\
+\textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::\textbf{ engine} (\begin{DoxyParamCaption}\item[{Seed\+Seq \&\&}]{seed\+Seq,  }\item[{typename std\+::enable\+\_\+if$<$ !stream\+\_\+mixin\+::can\+\_\+specify\+\_\+stream \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, itype $>$\+::value \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ $>$\+::value, \textbf{ no\+\_\+specifiable\+\_\+stream\+\_\+tag} $>$\+::type}]{ = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 478 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a4a5018b2637964646c6623442d68d24d}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!engine@{engine}}
+\index{engine@{engine}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{engine()\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename Seed\+Seq $>$ \\
+\textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::\textbf{ engine} (\begin{DoxyParamCaption}\item[{Seed\+Seq \&\&}]{seed\+Seq,  }\item[{typename std\+::enable\+\_\+if$<$ stream\+\_\+mixin\+::can\+\_\+specify\+\_\+stream \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, itype $>$\+::value \&\&!std\+::is\+\_\+convertible$<$ Seed\+Seq, \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ $>$\+::value, \textbf{ can\+\_\+specify\+\_\+stream\+\_\+tag} $>$\+::type}]{ = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 489 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classpcg__detail_1_1engine_ad825cdb944e1a8c9e58e1b20dcbdf042}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!advance@{advance}}
+\index{advance@{advance}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{advance()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+void \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::advance (\begin{DoxyParamCaption}\item[{itype}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 431 of file pcg\+\_\+random.\+hpp.
+
+
+
+References delta(), and pcg\+\_\+detail\+::increment.
+
+\mbox{\label{classpcg__detail_1_1engine_a12d3653cfe490a59f7ce55d028f1a7e0}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!advance@{advance}}
+\index{advance@{advance}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{advance()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ \\
+itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::advance (\begin{DoxyParamCaption}\item[{itype}]{state,  }\item[{itype}]{delta,  }\item[{itype}]{cur\+\_\+mult,  }\item[{itype}]{cur\+\_\+plus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 614 of file pcg\+\_\+random.\+hpp.
+
+
+
+References delta().
+
+\mbox{\label{classpcg__detail_1_1engine_adfb7a9ba483de8ef30e53ea3a9a7ba0e}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!backstep@{backstep}}
+\index{backstep@{backstep}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{backstep()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+void \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::backstep (\begin{DoxyParamCaption}\item[{itype}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 436 of file pcg\+\_\+random.\+hpp.
+
+
+
+References delta().
+
+\mbox{\label{classpcg__detail_1_1engine_a6024d002bdbe9ac269cc7deefb5746d8}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!base\_generate@{base\_generate}}
+\index{base\_generate@{base\_generate}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{base\_generate()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::base\+\_\+generate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 392 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a9c75cb00bd3a81f316546acca79a2ca7}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!base\_generate0@{base\_generate0}}
+\index{base\_generate0@{base\_generate0}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{base\_generate0()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::base\+\_\+generate0 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 397 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_abc83b5b934e2acfa6fac6501db0bb703}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!bump@{bump}}
+\index{bump@{bump}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{bump()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::bump (\begin{DoxyParamCaption}\item[{itype}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 387 of file pcg\+\_\+random.\+hpp.
+
+
+
+References pcg\+\_\+detail\+::increment.
+
+\mbox{\label{classpcg__detail_1_1engine_ab47ab15e70c4ac7d284509642a4628a1}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!discard@{discard}}
+\index{discard@{discard}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{discard()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+void \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::discard (\begin{DoxyParamCaption}\item[{itype}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 441 of file pcg\+\_\+random.\+hpp.
+
+
+
+References delta().
+
+\mbox{\label{classpcg__detail_1_1engine_aa58dc06aeb00200b73dbb890abc50fbf}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!distance@{distance}}
+\index{distance@{distance}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{distance()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ \\
+itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::distance (\begin{DoxyParamCaption}\item[{itype}]{cur\+\_\+state,  }\item[{itype}]{newstate,  }\item[{itype}]{cur\+\_\+mult,  }\item[{itype}]{cur\+\_\+plus,  }\item[{itype}]{mask = {\ttfamily $\sim$itype(0U)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 645 of file pcg\+\_\+random.\+hpp.
+
+
+
+References distance().
+
+\mbox{\label{classpcg__detail_1_1engine_a00e9d352d7c83b5c5287d7b55b19b4bc}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!distance@{distance}}
+\index{distance@{distance}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{distance()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::distance (\begin{DoxyParamCaption}\item[{itype}]{newstate,  }\item[{itype}]{mask = {\ttfamily $\sim$itype(0U)} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 425 of file pcg\+\_\+random.\+hpp.
+
+
+
+References distance(), and pcg\+\_\+detail\+::increment.
+
+\mbox{\label{classpcg__detail_1_1engine_afb796307012f539f9ac31eb4390a9ead}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!max@{max}}
+\index{max@{max}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{max()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+static constexpr \textbf{ result\+\_\+type} \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 381 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a875ea02e42ccc2286b3966520e0faed5}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!min@{min}}
+\index{min@{min}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{min()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+static constexpr \textbf{ result\+\_\+type} \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 376 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_af26836cecbdaa218abfd1182f2e84402}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{operator()()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+\textbf{ result\+\_\+type} \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 405 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a24520f8e9105cd463b84d545e6777be9}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{operator()()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+\textbf{ result\+\_\+type} \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::operator() (\begin{DoxyParamCaption}\item[{\textbf{ result\+\_\+type}}]{upper\+\_\+bound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 413 of file pcg\+\_\+random.\+hpp.
+
+
+
+References pcg\+\_\+extras\+::bounded\+\_\+rand().
+
+\mbox{\label{classpcg__detail_1_1engine_ae534d703d6ecccf0c7a3da12e1f9bf5e}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!period\_pow2@{period\_pow2}}
+\index{period\_pow2@{period\_pow2}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{period\_pow2()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+static constexpr size\+\_\+t \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::period\+\_\+pow2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 368 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a17ee3e31eadcb8039f996762114d9597}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!seed@{seed}}
+\index{seed@{seed}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{seed()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename... Args$>$ \\
+void \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::seed (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 502 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1engine_a142a7d2853ddc5e0583e0398da4c77b7}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!wrapped@{wrapped}}
+\index{wrapped@{wrapped}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{wrapped()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+bool \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::wrapped (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 446 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\label{classpcg__detail_1_1engine_a5e668211d96961296a32014645938076}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{operator-\/}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ \\
+itype1 operator-\/ (\begin{DoxyParamCaption}\item[{const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&}]{,  }\item[{const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\label{classpcg__detail_1_1engine_aee30f7904561d75e90ee5d33f52af88f}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{operator$<$$<$}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename CharT , typename Traits , typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin1 , typename multiplier\+\_\+mixin1 $>$ \\
+std\+::basic\+\_\+ostream$<$CharT,Traits$>$\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{out,  }\item[{const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin1, multiplier\+\_\+mixin1 $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\label{classpcg__detail_1_1engine_af79f90f1b65a5d7c932621ae5ab0a603}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{operator==}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&}]{,  }\item[{const \textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\label{classpcg__detail_1_1engine_a38b8269789bd5a56b6ca3872e94dc778}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{operator$>$$>$}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+template$<$typename CharT , typename Traits , typename xtype1 , typename itype1 , typename output\+\_\+mixin1 , bool output\+\_\+previous1, typename stream\+\_\+mixin1 , typename multiplier\+\_\+mixin1 $>$ \\
+std\+::basic\+\_\+istream$<$CharT,Traits$>$\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{in,  }\item[{\textbf{ engine}$<$ xtype1, itype1, output\+\_\+mixin1, output\+\_\+previous1, stream\+\_\+mixin1, multiplier\+\_\+mixin1 $>$ \&}]{rng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classpcg__detail_1_1engine_a8e29a3b26c9966667b6ea7a7f153b145}} 
+\index{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}!state\_@{state\_}}
+\index{state\_@{state\_}!pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$@{pcg\_detail::engine$<$ xtype, itype, output\_mixin, output\_previous, stream\_mixin, multiplier\_mixin $>$}}
+\doxysubsubsection{state\_}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous = true, typename stream\+\_\+mixin  = oneseq\+\_\+stream$<$itype$>$, typename multiplier\+\_\+mixin  = default\+\_\+multiplier$<$itype$>$$>$ \\
+itype \textbf{ pcg\+\_\+detail\+::engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::state\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 356 of file pcg\+\_\+random.\+hpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ pcg\+\_\+random.\+hpp}\end{DoxyCompactItemize}

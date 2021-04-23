@@ -1,0 +1,151 @@
+\doxysection{individual Struct Reference}
+\label{structindividual}\index{individual@{individual}}
+
+
+Structure representing an individual.  
+
+
+
+
+{\ttfamily \#include $<$gaim.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ is\+\_\+selected}
+\begin{DoxyCompactList}\small\item\em Individual\textquotesingle{}s selection flag (indicates if an individual has been selected for procreating. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ id}
+\begin{DoxyCompactList}\small\item\em Individual\textquotesingle{}s Unique ID. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ fitness}
+\begin{DoxyCompactList}\small\item\em Individual\textquotesingle{}s Fitness value. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ genome}
+\begin{DoxyCompactList}\small\item\em Individual\textquotesingle{}s Genome (vector of R\+E\+A\+L\+\_\+) \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ lower\+\_\+limit}
+\begin{DoxyCompactList}\small\item\em Individual\textquotesingle{}s Genome lower boundary. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ upper\+\_\+limit}
+\begin{DoxyCompactList}\small\item\em Individual\textquotesingle{}s Genome upper boundary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure representing an individual. 
+
+A structure that represents an individual and carries all the necessary information about an individual, including ID, fitness, and genome. 
+
+Definition at line 143 of file gaim.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{structindividual_a993f2ff909d5bee2cc6fe34d46505c99}} 
+\index{individual@{individual}!fitness@{fitness}}
+\index{fitness@{fitness}!individual@{individual}}
+\doxysubsubsection{fitness}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ individual\+::fitness}
+
+
+
+Individual\textquotesingle{}s Fitness value. 
+
+
+
+Definition at line 147 of file gaim.\+h.
+
+
+
+Referenced by average\+\_\+fitness(), compare\+\_\+fitness(), ktournament\+\_\+selection(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and G\+A\+::run\+\_\+one\+\_\+generation().
+
+\mbox{\label{structindividual_a7df4ddddf193283b76fd27ee2288c082}} 
+\index{individual@{individual}!genome@{genome}}
+\index{genome@{genome}!individual@{individual}}
+\doxysubsubsection{genome}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ individual\+::genome}
+
+
+
+Individual\textquotesingle{}s Genome (vector of R\+E\+A\+L\+\_\+) 
+
+
+
+Definition at line 148 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::evolve(), ktournament\+\_\+selection(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and G\+A\+::run\+\_\+one\+\_\+generation().
+
+\mbox{\label{structindividual_a1121e1dd254801f93736390e488f0d8a}} 
+\index{individual@{individual}!id@{id}}
+\index{id@{id}!individual@{individual}}
+\doxysubsubsection{id}
+{\footnotesize\ttfamily std\+::size\+\_\+t individual\+::id}
+
+
+
+Individual\textquotesingle{}s Unique ID. 
+
+
+
+Definition at line 146 of file gaim.\+h.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{structindividual_a6686922a0a717744d8a2de737c18cf7c}} 
+\index{individual@{individual}!is\_selected@{is\_selected}}
+\index{is\_selected@{is\_selected}!individual@{individual}}
+\doxysubsubsection{is\_selected}
+{\footnotesize\ttfamily bool individual\+::is\+\_\+selected}
+
+
+
+Individual\textquotesingle{}s selection flag (indicates if an individual has been selected for procreating. 
+
+
+
+Definition at line 144 of file gaim.\+h.
+
+
+
+Referenced by ktournament\+\_\+selection(), and P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{structindividual_afd6784f1f9d45441cf635365485c09de}} 
+\index{individual@{individual}!lower\_limit@{lower\_limit}}
+\index{lower\_limit@{lower\_limit}!individual@{individual}}
+\doxysubsubsection{lower\_limit}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ individual\+::lower\+\_\+limit}
+
+
+
+Individual\textquotesingle{}s Genome lower boundary. 
+
+
+
+Definition at line 149 of file gaim.\+h.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{structindividual_a547e91967a5cbeec5fc29a5932799d3e}} 
+\index{individual@{individual}!upper\_limit@{upper\_limit}}
+\index{upper\_limit@{upper\_limit}!individual@{individual}}
+\doxysubsubsection{upper\_limit}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ individual\+::upper\+\_\+limit}
+
+
+
+Individual\textquotesingle{}s Genome upper boundary. 
+
+
+
+Definition at line 150 of file gaim.\+h.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ gaim.\+h}\end{DoxyCompactItemize}

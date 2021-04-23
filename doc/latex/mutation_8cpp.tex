@@ -1,0 +1,237 @@
+\doxysection{mutation.\+cpp File Reference}
+\label{mutation_8cpp}\index{mutation.cpp@{mutation.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ delta\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ genome, R\+E\+A\+L\+\_\+ mutation\+\_\+rate=0.\+5, R\+E\+A\+L\+\_\+ variance=0.\+5)
+\begin{DoxyCompactList}\small\item\em This function implements a delta mutation operator meaning that for every gene in the genome a random number drawn from a normal distribution and it is added to the gene value according to a probability. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ random\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ genome, R\+E\+A\+L\+\_\+ a, R\+E\+A\+L\+\_\+ b, bool is\+\_\+real)
+\begin{DoxyCompactList}\small\item\em Random mutation operator. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ delta} (R\+E\+A\+L\+\_\+ x, size\+\_\+t time, size\+\_\+t tot\+\_\+time, size\+\_\+t r=1)
+\begin{DoxyCompactList}\small\item\em Auxiliary function for decaying mutation, used in time-\/dependent non-\/uniform mutation. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ nonuniform\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ genome, size\+\_\+t time, size\+\_\+t generations, size\+\_\+t order, R\+E\+A\+L\+\_\+ a, R\+E\+A\+L\+\_\+ b)
+\begin{DoxyCompactList}\small\item\em Non-\/uniform mutation operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ fusion\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ genome, R\+E\+A\+L\+\_\+ a, R\+E\+A\+L\+\_\+ b, bool is\+\_\+real)
+\begin{DoxyCompactList}\small\item\em Fusion mutation operator method. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ swap\+\_\+mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ genome)
+\begin{DoxyCompactList}\small\item\em Swap mutation operator method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides extra mutation operators (which produce a mutant genome from a ~\newline
+ current genome) usable by default within G\+A\+IM. Some operators should be called multiple times per generation. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{mutation_8cpp_a98489f6a5793d78dee4e1425c9b21cea}} 
+\index{mutation.cpp@{mutation.cpp}!delta@{delta}}
+\index{delta@{delta}!mutation.cpp@{mutation.cpp}}
+\doxysubsubsection{delta()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ delta (\begin{DoxyParamCaption}\item[{R\+E\+A\+L\+\_\+}]{x,  }\item[{size\+\_\+t}]{time,  }\item[{size\+\_\+t}]{tot\+\_\+time,  }\item[{size\+\_\+t}]{r = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Auxiliary function for decaying mutation, used in time-\/dependent non-\/uniform mutation. 
+
+Performs the following operation \[ x (1 - \lambda^{{1 - \frac{t}{t_{tot}}}^r}) \] [1]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Gene\textquotesingle{}s numerical value \\
+\hline
+\mbox{\texttt{ in}}  & {\em time} & Current time step (generation) \\
+\hline
+\mbox{\texttt{ in}}  & {\em tot\+\_\+time} & Total number of time steps (generations) \\
+\hline
+\mbox{\texttt{ in}}  & {\em r} & Magnitude of order that the L\+HS of [1] affects the mutation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated gene value. 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file mutation.\+cpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::advance(), pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::advance\+\_\+table(), pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::backstep(), delta\+\_\+mutation(), pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::discard(), pcg\+\_\+detail\+::inside\+\_\+out$<$ baseclass $>$\+::external\+\_\+advance(), and nonuniform\+\_\+mutation().
+
+\mbox{\label{mutation_8cpp_aae60272d405be8a81a20d55a44852a66}} 
+\index{mutation.cpp@{mutation.cpp}!delta\_mutation@{delta\_mutation}}
+\index{delta\_mutation@{delta\_mutation}!mutation.cpp@{mutation.cpp}}
+\doxysubsubsection{delta\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ delta\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{R\+E\+A\+L\+\_\+}]{mutation\+\_\+rate = {\ttfamily 0.5},  }\item[{R\+E\+A\+L\+\_\+}]{variance = {\ttfamily 0.5} }\end{DoxyParamCaption})}
+
+
+
+This function implements a delta mutation operator meaning that for every gene in the genome a random number drawn from a normal distribution and it is added to the gene value according to a probability. 
+
+Extra Mutation functions.
+
+Specifically, the mutation delta is drawn from the Normal/\+Gaussian distribution with mean 0 and standard deviation defined by the argument variance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & The genome (genes) of an individual \\
+\hline
+\mbox{\texttt{ in}}  & {\em mutation\+\_\+rate} & Mutation rate (probability threshold) \\
+\hline
+\mbox{\texttt{ in}}  & {\em variance} & Standard deviation of the normal distribution from which the increment/decrement is drawn \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of floats (mutated genome) 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file mutation.\+cpp.
+
+
+
+References delta().
+
+
+
+Referenced by G\+A\+::mutation(), and P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{mutation_8cpp_a6770e5738eb1e4fc5d2b978bd0b22cf1}} 
+\index{mutation.cpp@{mutation.cpp}!fusion\_mutation@{fusion\_mutation}}
+\index{fusion\_mutation@{fusion\_mutation}!mutation.cpp@{mutation.cpp}}
+\doxysubsubsection{fusion\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ fusion\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b,  }\item[{bool}]{is\+\_\+real }\end{DoxyParamCaption})}
+
+
+
+Fusion mutation operator method. 
+
+Performs a fusion mutation operation. It checks if the genome has unique elements. If doesn\textquotesingle{}t have, it removes the repetitions and replaces them by new random (uniformly drawn) values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & Lower bound of sampling interval \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper bound of sampling interval \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+\_\+real} & Determines if the interval is in the set of reals or integers (to use when R\+E\+A\+L\+\_\+ is set to I\+NT)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome. 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file mutation.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{mutation_8cpp_aa3b9a27967ab6548bf554a635562956e}} 
+\index{mutation.cpp@{mutation.cpp}!nonuniform\_mutation@{nonuniform\_mutation}}
+\index{nonuniform\_mutation@{nonuniform\_mutation}!mutation.cpp@{mutation.cpp}}
+\doxysubsubsection{nonuniform\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ nonuniform\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{size\+\_\+t}]{time,  }\item[{size\+\_\+t}]{generations,  }\item[{size\+\_\+t}]{order,  }\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b }\end{DoxyParamCaption})}
+
+
+
+Non-\/uniform mutation operator. 
+
+Performs a non-\/uniform mutation which is time-\/dependent, decaying over time. The mutation is computed as $ \Delta(b - x) $ or $\Delta(x - a) $ based on a random choice between -\/1 or 1, respectively.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome \\
+\hline
+\mbox{\texttt{ in}}  & {\em time} & Current generation (time step) \\
+\hline
+\mbox{\texttt{ in}}  & {\em generations} & Total number of generations (total time steps) \\
+\hline
+\mbox{\texttt{ in}}  & {\em order} & Power of mutation rate \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & Lower boundary of interval [a, b] \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper boundary of interval [a, b]\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome. 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file mutation.\+cpp.
+
+
+
+References delta().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{mutation_8cpp_ad39dab4e9fc8e8e78867f5171302b568}} 
+\index{mutation.cpp@{mutation.cpp}!random\_mutation@{random\_mutation}}
+\index{random\_mutation@{random\_mutation}!mutation.cpp@{mutation.cpp}}
+\doxysubsubsection{random\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ random\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b,  }\item[{bool}]{is\+\_\+real }\end{DoxyParamCaption})}
+
+
+
+Random mutation operator. 
+
+Performs a random mutation on the genome of an individual. A random mutation takes place at a random gene and replaces the current value of the gene with a new random one drawn from a uniform distribution in the interval [a, b].
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome (genes) \\
+\hline
+\mbox{\texttt{ in}}  & {\em a} & Lower boundary of interval [a, b] \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper boundary of interval [a, b] \\
+\hline
+\mbox{\texttt{ in}}  & {\em is\+\_\+real} & Determines if the interval is in the set of reals or integers (to use when R\+E\+A\+L\+\_\+ is set to I\+NT)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome (vector of type R\+E\+A\+L\+\_\+). 
+\end{DoxyReturn}
+
+
+Definition at line 78 of file mutation.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{mutation_8cpp_a6de72c3fbff640aa534fc3fc17c09c62}} 
+\index{mutation.cpp@{mutation.cpp}!swap\_mutation@{swap\_mutation}}
+\index{swap\_mutation@{swap\_mutation}!mutation.cpp@{mutation.cpp}}
+\doxysubsubsection{swap\_mutation()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ swap\+\_\+mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome }\end{DoxyParamCaption})}
+
+
+
+Swap mutation operator method. 
+
+Performs a swap mutation operation. It randomly picks up two genes on the same genome and swaps them.
+
+\begin{DoxyNote}{Note}
+The swap mutation operator is useful in cases of permutations (for instance in solving problems such as the Traveling Salesman Problem).
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & Individual\textquotesingle{}s genome\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A mutated genome. 
+\end{DoxyReturn}
+
+
+Definition at line 230 of file mutation.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+

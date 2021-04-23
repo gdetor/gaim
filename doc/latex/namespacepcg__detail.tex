@@ -1,0 +1,416 @@
+\doxysection{pcg\+\_\+detail Namespace Reference}
+\label{namespacepcg__detail}\index{pcg\_detail@{pcg\_detail}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ default\+\_\+increment}
+\item 
+struct \textbf{ default\+\_\+multiplier}
+\item 
+class \textbf{ engine}
+\item 
+class \textbf{ extended}
+\item 
+struct \textbf{ halfsize\+\_\+trait}
+\item 
+struct \textbf{ halfsize\+\_\+trait$<$ pcg128\+\_\+t $>$}
+\item 
+struct \textbf{ halfsize\+\_\+trait$<$ uint16\+\_\+t $>$}
+\item 
+struct \textbf{ halfsize\+\_\+trait$<$ uint32\+\_\+t $>$}
+\item 
+struct \textbf{ halfsize\+\_\+trait$<$ uint64\+\_\+t $>$}
+\item 
+struct \textbf{ inside\+\_\+out}
+\item 
+struct \textbf{ mcg\+\_\+multiplier}
+\item 
+struct \textbf{ mcg\+\_\+unmultiplier}
+\item 
+class \textbf{ no\+\_\+stream}
+\item 
+class \textbf{ oneseq\+\_\+stream}
+\item 
+struct \textbf{ rxs\+\_\+m\+\_\+mixin}
+\item 
+struct \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin}
+\item 
+struct \textbf{ rxs\+\_\+mixin}
+\item 
+class \textbf{ specific\+\_\+stream}
+\item 
+struct \textbf{ xsh\+\_\+mixin}
+\item 
+struct \textbf{ xsh\+\_\+rr\+\_\+mixin}
+\item 
+struct \textbf{ xsh\+\_\+rs\+\_\+mixin}
+\item 
+struct \textbf{ xsl\+\_\+mixin}
+\item 
+struct \textbf{ xsl\+\_\+rr\+\_\+mixin}
+\item 
+struct \textbf{ xsl\+\_\+rr\+\_\+rr\+\_\+mixin}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ oneseq\+\_\+base} = \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, \textbf{ oneseq\+\_\+stream}$<$ itype $>$ $>$
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ unique\+\_\+base} = \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, unique\+\_\+stream$<$ itype $>$ $>$
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ setseq\+\_\+base} = \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, \textbf{ specific\+\_\+stream}$<$ itype $>$ $>$
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ mcg\+\_\+base} = \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, \textbf{ no\+\_\+stream}$<$ itype $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint8\+\_\+t, \textbf{ default}, multiplier, 141U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint8\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint16\+\_\+t, \textbf{ default}, multiplier, 12829U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint16\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint32\+\_\+t, \textbf{ default}, multiplier, 747796405U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint32\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint64\+\_\+t, \textbf{ default}, multiplier, 6364136223846793005U\+LL) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint64\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (\textbf{ pcg128\+\_\+t}, \textbf{ default}, multiplier, \textbf{ P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT}(2549297995355413924U\+LL, 4865540595714422341U\+LL)) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(\textbf{ pcg128\+\_\+t}
+\item 
+\textbf{ P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (6364136223846793005U\+LL, 1442695040888963407U\+LL)) template$<$ typename itype $>$ class unique\+\_\+stream
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ \&rng)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ \&rng)
+\item 
+{\footnotesize template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\itype \textbf{ operator-\/} (const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&lhs, const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\bool \textbf{ operator==} (const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&lhs, const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\bool \textbf{ operator!=} (const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&lhs, const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&rhs)
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint8\+\_\+t, \textbf{ mcg}, multiplier, 217U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint8\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint16\+\_\+t, \textbf{ mcg}, multiplier, 62169U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint16\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint32\+\_\+t, \textbf{ mcg}, multiplier, 277803737U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint32\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint64\+\_\+t, \textbf{ mcg}, multiplier, 12605985483714917081U\+LL) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint64\+\_\+t
+\item 
+\textbf{ P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (\textbf{ pcg128\+\_\+t}, \textbf{ mcg}, multiplier, \textbf{ P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT}(17766728186571221404U\+LL, 12605985483714917081U\+LL)) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(\textbf{ pcg128\+\_\+t}
+\item 
+\textbf{ P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (14422606686972528997U\+LL, 15009553638781119849U\+LL)) template$<$ typename xtype
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\bool \textbf{ operator==} (const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&lhs, const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rhs)
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\bool \textbf{ operator!=} (const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&lhs, const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rng)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rng)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ default}
+\item 
+\textbf{ increment}
+\item 
+\textbf{ mcg}
+\item 
+\textbf{ unmultiplier}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{namespacepcg__detail_a65a72fd850d14131a5e67ab95f16c62d}} 
+\index{pcg\_detail@{pcg\_detail}!mcg\_base@{mcg\_base}}
+\index{mcg\_base@{mcg\_base}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{mcg\_base}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ \\
+using \textbf{ pcg\+\_\+detail\+::mcg\+\_\+base} = typedef \textbf{ engine}$<$xtype, itype, output\+\_\+mixin$<$xtype, itype$>$, output\+\_\+previous, \textbf{ no\+\_\+stream}$<$itype$>$ $>$}
+
+
+
+Definition at line 739 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a6846cc3c8aeca330c4a5ab03bdbc9b32}} 
+\index{pcg\_detail@{pcg\_detail}!oneseq\_base@{oneseq\_base}}
+\index{oneseq\_base@{oneseq\_base}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{oneseq\_base}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ \\
+using \textbf{ pcg\+\_\+detail\+::oneseq\+\_\+base} = typedef \textbf{ engine}$<$xtype, itype, output\+\_\+mixin$<$xtype, itype$>$, output\+\_\+previous, \textbf{ oneseq\+\_\+stream}$<$itype$>$ $>$}
+
+
+
+Definition at line 718 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a4915560ccb551e1ee48ba0184eb7a6f1}} 
+\index{pcg\_detail@{pcg\_detail}!setseq\_base@{setseq\_base}}
+\index{setseq\_base@{setseq\_base}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{setseq\_base}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ \\
+using \textbf{ pcg\+\_\+detail\+::setseq\+\_\+base} = typedef \textbf{ engine}$<$xtype, itype, output\+\_\+mixin$<$xtype, itype$>$, output\+\_\+previous, \textbf{ specific\+\_\+stream}$<$itype$>$ $>$}
+
+
+
+Definition at line 732 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_ad322c970b880dc963bd35ce5840946d3}} 
+\index{pcg\_detail@{pcg\_detail}!unique\_base@{unique\_base}}
+\index{unique\_base@{unique\_base}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{unique\_base}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ \\
+using \textbf{ pcg\+\_\+detail\+::unique\+\_\+base} = typedef \textbf{ engine}$<$xtype, itype, output\+\_\+mixin$<$xtype, itype$>$, output\+\_\+previous, unique\+\_\+stream$<$itype$>$ $>$}
+
+
+
+Definition at line 725 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{namespacepcg__detail_ae301c41cc112c18882cd3f69d4a79c00}} 
+\index{pcg\_detail@{pcg\_detail}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator"!=()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ \\
+bool pcg\+\_\+detail\+::operator!= (\begin{DoxyParamCaption}\item[{const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&}]{lhs,  }\item[{const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 702 of file pcg\+\_\+random.\+hpp.
+
+
+
+References operator==().
+
+\mbox{\label{namespacepcg__detail_aa5d4605056ffa53aa9a18c804a75902d}} 
+\index{pcg\_detail@{pcg\_detail}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator"!=()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+bool pcg\+\_\+detail\+::operator!= (\begin{DoxyParamCaption}\item[{const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&}]{lhs,  }\item[{const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1368 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a4aae5e3d1c68d31e2608dcd41572869c}} 
+\index{pcg\_detail@{pcg\_detail}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator-\/()}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ \\
+itype pcg\+\_\+detail\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&}]{lhs,  }\item[{const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Definition at line 668 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a0f30773c4f997330cf3b2380a1ebc82d}} 
+\index{pcg\_detail@{pcg\_detail}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator$<$$<$()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ \\
+std\+::basic\+\_\+ostream$<$CharT,Traits$>$\& pcg\+\_\+detail\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{out,  }\item[{const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ \&}]{rng }\end{DoxyParamCaption})}
+
+
+
+Definition at line 555 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_af588d7f518702204287680eb7cc277e7}} 
+\index{pcg\_detail@{pcg\_detail}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator$<$$<$()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+std\+::basic\+\_\+ostream$<$CharT,Traits$>$\& pcg\+\_\+detail\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{out,  }\item[{const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&}]{rng }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1380 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a533d2dabb5e41bebf5f53025ee45ed6c}} 
+\index{pcg\_detail@{pcg\_detail}!operator==@{operator==}}
+\index{operator==@{operator==}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator==()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ \\
+bool pcg\+\_\+detail\+::operator== (\begin{DoxyParamCaption}\item[{const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&}]{lhs,  }\item[{const \textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Definition at line 686 of file pcg\+\_\+random.\+hpp.
+
+
+
+Referenced by operator!=().
+
+\mbox{\label{namespacepcg__detail_af5285db7f4a5ff43c3f68fe9ea87426e}} 
+\index{pcg\_detail@{pcg\_detail}!operator==@{operator==}}
+\index{operator==@{operator==}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator==()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+bool pcg\+\_\+detail\+::operator== (\begin{DoxyParamCaption}\item[{const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&}]{lhs,  }\item[{const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1355 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a655de592633ab35a7a3566d770121416}} 
+\index{pcg\_detail@{pcg\_detail}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator$>$$>$()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ \\
+std\+::basic\+\_\+istream$<$CharT,Traits$>$\& pcg\+\_\+detail\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{in,  }\item[{\textbf{ engine}$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ \&}]{rng }\end{DoxyParamCaption})}
+
+
+
+Definition at line 579 of file pcg\+\_\+random.\+hpp.
+
+
+
+References increment.
+
+\mbox{\label{namespacepcg__detail_aa57137134c0dde6e0c67e829923e0a49}} 
+\index{pcg\_detail@{pcg\_detail}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{operator$>$$>$()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+std\+::basic\+\_\+istream$<$CharT,Traits$>$\& pcg\+\_\+detail\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{in,  }\item[{\textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&}]{rng }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1404 of file pcg\+\_\+random.\+hpp.
+
+
+
+References pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::data\+\_\+.
+
+\mbox{\label{namespacepcg__detail_a7c64172ece8dce70c1e0f9a41e4e4409}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_128BIT\_CONSTANT@{PCG\_128BIT\_CONSTANT}}
+\index{PCG\_128BIT\_CONSTANT@{PCG\_128BIT\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_128BIT\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{14422606686972528997U\+LL}]{,  }\item[{15009553638781119849U\+LL}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_a5076fb5d29a1e7226df47ddba552512b}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_128BIT\_CONSTANT@{PCG\_128BIT\_CONSTANT}}
+\index{PCG\_128BIT\_CONSTANT@{PCG\_128BIT\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_128BIT\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{6364136223846793005U\+LL}]{,  }\item[{1442695040888963407U\+LL}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 152 of file pcg\+\_\+random.\+hpp.
+
+
+
+References increment.
+
+\mbox{\label{namespacepcg__detail_a6b95611bc9c355e26db45d06136a32dd}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{\textbf{ pcg128\+\_\+t}}]{,  }\item[{\textbf{ default}}]{,  }\item[{multiplier}]{,  }\item[{\textbf{ P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT}(2549297995355413924U\+LL, 4865540595714422341U\+LL)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_a8eca94340632aea6e654fc12f4f54fb3}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{\textbf{ pcg128\+\_\+t}}]{,  }\item[{\textbf{ mcg}}]{,  }\item[{multiplier}]{,  }\item[{\textbf{ P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT}(17766728186571221404U\+LL, 12605985483714917081U\+LL)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_ae3f1a39f6e1c9d180f6fe970f845f6d0}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{,  }\item[{\textbf{ default}}]{,  }\item[{multiplier}]{,  }\item[{12829U}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_aecac3be67365fe7a0a911150d1f93f67}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{,  }\item[{\textbf{ mcg}}]{,  }\item[{multiplier}]{,  }\item[{62169U}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_a1af7b39ab2cb8cc476246b943426cb44}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{,  }\item[{\textbf{ default}}]{,  }\item[{multiplier}]{,  }\item[{747796405U}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_ae10d2fec4f0ffb6eacf8ae6584a08eb9}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{,  }\item[{\textbf{ mcg}}]{,  }\item[{multiplier}]{,  }\item[{277803737U}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_a7945c131f689d0061ec29965eae56d20}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{,  }\item[{\textbf{ default}}]{,  }\item[{multiplier}]{,  }\item[{6364136223846793005U\+LL}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_a48a64b006741444113261cf0a804d5d7}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{,  }\item[{\textbf{ mcg}}]{,  }\item[{multiplier}]{,  }\item[{12605985483714917081U\+LL}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_aea65987cd8c53fed30401f1719ca15d8}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{,  }\item[{\textbf{ default}}]{,  }\item[{multiplier}]{,  }\item[{141U}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{namespacepcg__detail_a75c245f4a664b049dbfa5f82d4c758e7}} 
+\index{pcg\_detail@{pcg\_detail}!PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}}
+\index{PCG\_DEFINE\_CONSTANT@{PCG\_DEFINE\_CONSTANT}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{PCG\_DEFINE\_CONSTANT()\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{,  }\item[{\textbf{ mcg}}]{,  }\item[{multiplier}]{,  }\item[{217U}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\label{namespacepcg__detail_a7cefe974db0a1bb3a1fef33b171dfe60}} 
+\index{pcg\_detail@{pcg\_detail}!default@{default}}
+\index{default@{default}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{default}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::default}
+
+
+
+Definition at line 138 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a247ab2bf10e0640c12437b650ab15848}} 
+\index{pcg\_detail@{pcg\_detail}!increment@{increment}}
+\index{increment@{increment}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{increment}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::increment}
+
+
+
+Definition at line 138 of file pcg\+\_\+random.\+hpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::advance(), pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::bump(), pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::distance(), pcg\+\_\+detail\+::inside\+\_\+out$<$ baseclass $>$\+::external\+\_\+advance(), pcg\+\_\+detail\+::inside\+\_\+out$<$ baseclass $>$\+::external\+\_\+step(), operator$>$$>$(), P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+N\+T(), and pcg\+\_\+detail\+::oneseq\+\_\+stream$<$ itype $>$\+::stream().
+
+\mbox{\label{namespacepcg__detail_a1338b2f0b0575e795053506ae0579262}} 
+\index{pcg\_detail@{pcg\_detail}!mcg@{mcg}}
+\index{mcg@{mcg}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{mcg}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::mcg}
+
+
+
+Definition at line 878 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{namespacepcg__detail_a260bd33be49f954c81d6905bd68728c8}} 
+\index{pcg\_detail@{pcg\_detail}!unmultiplier@{unmultiplier}}
+\index{unmultiplier@{unmultiplier}!pcg\_detail@{pcg\_detail}}
+\doxysubsubsection{unmultiplier}
+{\footnotesize\ttfamily pcg\+\_\+detail\+::unmultiplier}
+
+
+
+Definition at line 878 of file pcg\+\_\+random.\+hpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::rxs\+\_\+m\+\_\+xs\+\_\+mixin\+::unoutput().
+

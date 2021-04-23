@@ -1,0 +1,327 @@
+\doxysection{selection.\+cpp File Reference}
+\label{selection_8cpp}\index{selection.cpp@{selection.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ ktournament\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&population, size\+\_\+t num\+\_\+parents, int k, bool replace)
+\begin{DoxyCompactList}\small\item\em Implements a k-\/tournament selection. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ truncation\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&population, size\+\_\+t num\+\_\+parents, size\+\_\+t low\+\_\+bound, bool replace)
+\begin{DoxyCompactList}\small\item\em Implements a truncation selection operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ linear\+\_\+rank\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&population, size\+\_\+t num\+\_\+parents, bool replace)
+\begin{DoxyCompactList}\small\item\em Implements a linear rank selection mechanism. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ random\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&population, size\+\_\+t num\+\_\+parents, bool replace)
+\begin{DoxyCompactList}\small\item\em Implements a random selection. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ roulette\+\_\+wheel\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&population, size\+\_\+t num\+\_\+parents, bool replace)
+\begin{DoxyCompactList}\small\item\em Implements a roulette-\/wheel selection (or fitness-\/proportionate selection) mechanism. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&population, size\+\_\+t num\+\_\+parents, bool replace)
+\begin{DoxyCompactList}\small\item\em Parent selection method proposed by Lipowski A. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ calculate\+\_\+whitley\+\_\+factor} (R\+E\+A\+L\+\_\+ bias)
+\begin{DoxyCompactList}\small\item\em Calculates the Whitley factor used in Whitley\textquotesingle{}s selection method. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ whitley\+\_\+selection} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&population, R\+E\+A\+L\+\_\+ bias, size\+\_\+t num\+\_\+parents, bool replace)
+\begin{DoxyCompactList}\small\item\em Parent selection method proposed by Darrell Whitley in his G\+E\+N\+I\+T\+OR paper\+: \char`\"{}\+The G\+E\+N\+I\+T\+O\+R Algorithm and Selection Pressure\+: Why Rank-\/\+Based Allocation
+of Reproductive Trials is Best\char`\"{}, ", D. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides extra selection operators (which identify reproducing pairs to create the next generation) usable by default within G\+A\+IM. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{selection_8cpp_a493ff9c75ab6ac1ef21aa248806c75a8}} 
+\index{selection.cpp@{selection.cpp}!calculate\_whitley\_factor@{calculate\_whitley\_factor}}
+\index{calculate\_whitley\_factor@{calculate\_whitley\_factor}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{calculate\_whitley\_factor()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ calculate\+\_\+whitley\+\_\+factor (\begin{DoxyParamCaption}\item[{R\+E\+A\+L\+\_\+}]{bias }\end{DoxyParamCaption})}
+
+
+
+Calculates the Whitley factor used in Whitley\textquotesingle{}s selection method. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bias} & Governs how strong one would like to favor high ranked individuals. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The factor bias -\/ sqrt(bias$^\wedge$2 -\/ 4 $\ast$ (bias -\/ 1) $\ast$ rand(0, 1))/2/(bias-\/1)
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+Bias should be in (1, 2]
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxyref{whitley\+\_\+selection()}{p.}{selection_8cpp_a42d54711e8f1e8da6ae5c2b52678e9be} 
+\end{DoxySeeAlso}
+
+
+Definition at line 451 of file selection.\+cpp.
+
+
+
+References float\+\_\+random().
+
+
+
+Referenced by whitley\+\_\+selection().
+
+\mbox{\label{selection_8cpp_a9abad039f558ff4565614a90e0222e48}} 
+\index{selection.cpp@{selection.cpp}!ktournament\_selection@{ktournament\_selection}}
+\index{ktournament\_selection@{ktournament\_selection}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{ktournament\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ ktournament\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{int}]{k,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a k-\/tournament selection. 
+
+Extra Selection functions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em k} & An integer that defines the tournament size (how many individuals from the population will be drawn randomly). \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s structures (selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file selection.\+cpp.
+
+
+
+References individual\+::fitness, individual\+::genome, individual\+::is\+\_\+selected, and remove\+\_\+at().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and G\+A\+::selection().
+
+\mbox{\label{selection_8cpp_a51405693b105cb75be857ea28f3cc568}} 
+\index{selection.cpp@{selection.cpp}!linear\_rank\_selection@{linear\_rank\_selection}}
+\index{linear\_rank\_selection@{linear\_rank\_selection}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{linear\_rank\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ linear\+\_\+rank\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a linear rank selection mechanism. 
+
+The population is sorted based on the fitness of each individual and then a selection probability is assigned to each individual based on their rank.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s structures (or the selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 176 of file selection.\+cpp.
+
+
+
+References compare\+\_\+fitness().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{selection_8cpp_af0baff9b36cc1f200a3cf96fefaaaae1}} 
+\index{selection.cpp@{selection.cpp}!random\_selection@{random\_selection}}
+\index{random\_selection@{random\_selection}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{random\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ random\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a random selection. 
+
+It randomly picks up one individual from the entire population.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of indivudual\+\_\+s as parents. 
+\end{DoxyReturn}
+
+
+Definition at line 251 of file selection.\+cpp.
+
+
+
+References int\+\_\+random().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{selection_8cpp_aaf7a7082658144642a54b8f309a507bc}} 
+\index{selection.cpp@{selection.cpp}!roulette\_wheel\_selection@{roulette\_wheel\_selection}}
+\index{roulette\_wheel\_selection@{roulette\_wheel\_selection}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{roulette\_wheel\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ roulette\+\_\+wheel\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a roulette-\/wheel selection (or fitness-\/proportionate selection) mechanism. 
+
+The fitness function observes a fitness for each individual and the share of the population\textquotesingle{}s total fitness is used to associate a selection ~\newline
+ probability with each individual.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s which corresponds to the selected parents. 
+\end{DoxyReturn}
+
+
+Definition at line 306 of file selection.\+cpp.
+
+
+
+References average\+\_\+fitness(), cumulative\+\_\+fitness(), and float\+\_\+random().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{selection_8cpp_a9620d28577a5545f313e43c4fc8f7436}} 
+\index{selection.cpp@{selection.cpp}!stochastic\_roulette\_wheel\_selection@{stochastic\_roulette\_wheel\_selection}}
+\index{stochastic\_roulette\_wheel\_selection@{stochastic\_roulette\_wheel\_selection}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{stochastic\_roulette\_wheel\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Parent selection method proposed by Lipowski A. 
+
+and Lipowska D. in \char`\"{}\+Roulette wheel selection via stochastic acceptance\char`\"{}, 2011. The method is a variant of the roulette wheel where the maximum fitness is used to normalize individuals\textquotesingle{} fitness and transform them to a probability. The latter is used to decide probabilisticly if the chosen individual will be allowed to get offsprings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of indivudual\+\_\+s (selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 385 of file selection.\+cpp.
+
+
+
+References float\+\_\+random(), int\+\_\+random(), maximum\+\_\+fitness(), nonselected\+\_\+maximum\+\_\+fitness(), and remove\+\_\+at().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{selection_8cpp_a8399246f9c26e00001cbd6cbe7b5ae04}} 
+\index{selection.cpp@{selection.cpp}!truncation\_selection@{truncation\_selection}}
+\index{truncation\_selection@{truncation\_selection}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{truncation\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ truncation\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{size\+\_\+t}]{low\+\_\+bound,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Implements a truncation selection operator. 
+
+The population is sorted based on the fitness of each individual and a percentage of individuals that will be discarded is computed based on the given number of offsprings (lambda).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction \\
+\hline
+\mbox{\texttt{ in}}  & {\em low\+\_\+bound} & The lowest index from which the selection begins. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individual\+\_\+s structures (or the selected parents). 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file selection.\+cpp.
+
+
+
+References compare\+\_\+fitness(), and int\+\_\+random().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{selection_8cpp_a42d54711e8f1e8da6ae5c2b52678e9be}} 
+\index{selection.cpp@{selection.cpp}!whitley\_selection@{whitley\_selection}}
+\index{whitley\_selection@{whitley\_selection}!selection.cpp@{selection.cpp}}
+\doxysubsubsection{whitley\_selection()}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ whitley\+\_\+selection (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{population,  }\item[{R\+E\+A\+L\+\_\+}]{bias,  }\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{bool}]{replace }\end{DoxyParamCaption})}
+
+
+
+Parent selection method proposed by Darrell Whitley in his G\+E\+N\+I\+T\+OR paper\+: \char`\"{}\+The G\+E\+N\+I\+T\+O\+R Algorithm and Selection Pressure\+: Why Rank-\/\+Based Allocation
+of Reproductive Trials is Best\char`\"{}, ", D. 
+
+Whitley, 2000.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population of individuals. \\
+\hline
+\mbox{\texttt{ in}}  & {\em bias} & The bias that controls how strongly the high rank individuals are favored. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Determines if the individuals will be selected with replacement or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of indivudual\+\_\+s (selected parents).
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{calculate\+\_\+whitley\+\_\+factor()}{p.}{selection_8cpp_a493ff9c75ab6ac1ef21aa248806c75a8} On how to calculate the Whitley factor. 
+\end{DoxySeeAlso}
+
+
+Definition at line 478 of file selection.\+cpp.
+
+
+
+References calculate\+\_\+whitley\+\_\+factor().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+

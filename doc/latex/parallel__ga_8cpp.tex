@@ -1,0 +1,45 @@
+\doxysection{parallel\+\_\+ga.\+cpp File Reference}
+\label{parallel__ga_8cpp}\index{parallel\_ga.cpp@{parallel\_ga.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ independent\+\_\+runs} (\textbf{ ga\+\_\+parameter\+\_\+s} $\ast$pms, \textbf{ pr\+\_\+parameter\+\_\+s} $\ast$pr\+\_\+pms)
+\begin{DoxyCompactList}\small\item\em It runs X independent G\+As in parallel using threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements parallel independent runs of a \doxyref{GA}{p.}{classGA} within an experiment so that you can average over separate evolutionary trajectories. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{parallel__ga_8cpp_af008679c958c06bd7a6619c7b0b1a2d3}} 
+\index{parallel\_ga.cpp@{parallel\_ga.cpp}!independent\_runs@{independent\_runs}}
+\index{independent\_runs@{independent\_runs}!parallel\_ga.cpp@{parallel\_ga.cpp}}
+\doxysubsubsection{independent\_runs()}
+{\footnotesize\ttfamily void independent\+\_\+runs (\begin{DoxyParamCaption}\item[{\textbf{ ga\+\_\+parameter\+\_\+s} $\ast$}]{pms,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s} $\ast$}]{pr\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+It runs X independent G\+As in parallel using threads. 
+
+Multithread and Islands functions declarations.
+
+Runs an X number of G\+As in parallel and independently using threads. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pms} & Structure of \doxyref{GA}{p.}{classGA} parameters. \\
+\hline
+\mbox{\texttt{ in}}  & {\em pr\+\_\+pms} & Structure of printing parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void) 
+\end{DoxyReturn}
+Instantiate threads and G\+As
+
+Join threads
+
+Definition at line 39 of file parallel\+\_\+ga.\+cpp.
+
+
+
+References G\+A\+::evolve(), parameter\+\_\+ga\+::generations, and parameter\+\_\+ga\+::runs.
+

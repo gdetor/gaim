@@ -1,0 +1,27 @@
+var namespacepcg__detail =
+[
+    [ "default_increment", "structpcg__detail_1_1default__increment.html", null ],
+    [ "default_multiplier", "structpcg__detail_1_1default__multiplier.html", null ],
+    [ "engine", "classpcg__detail_1_1engine.html", "classpcg__detail_1_1engine" ],
+    [ "extended", "classpcg__detail_1_1extended.html", "classpcg__detail_1_1extended" ],
+    [ "halfsize_trait", "structpcg__detail_1_1halfsize__trait.html", null ],
+    [ "halfsize_trait< pcg128_t >", "structpcg__detail_1_1halfsize__trait_3_01pcg128__t_01_4.html", "structpcg__detail_1_1halfsize__trait_3_01pcg128__t_01_4" ],
+    [ "halfsize_trait< uint16_t >", "structpcg__detail_1_1halfsize__trait_3_01uint16__t_01_4.html", "structpcg__detail_1_1halfsize__trait_3_01uint16__t_01_4" ],
+    [ "halfsize_trait< uint32_t >", "structpcg__detail_1_1halfsize__trait_3_01uint32__t_01_4.html", "structpcg__detail_1_1halfsize__trait_3_01uint32__t_01_4" ],
+    [ "halfsize_trait< uint64_t >", "structpcg__detail_1_1halfsize__trait_3_01uint64__t_01_4.html", "structpcg__detail_1_1halfsize__trait_3_01uint64__t_01_4" ],
+    [ "inside_out", "structpcg__detail_1_1inside__out.html", "structpcg__detail_1_1inside__out" ],
+    [ "mcg_multiplier", "structpcg__detail_1_1mcg__multiplier.html", null ],
+    [ "mcg_unmultiplier", "structpcg__detail_1_1mcg__unmultiplier.html", null ],
+    [ "no_stream", "classpcg__detail_1_1no__stream.html", "classpcg__detail_1_1no__stream" ],
+    [ "oneseq_stream", "classpcg__detail_1_1oneseq__stream.html", "classpcg__detail_1_1oneseq__stream" ],
+    [ "rxs_m_mixin", "structpcg__detail_1_1rxs__m__mixin.html", "structpcg__detail_1_1rxs__m__mixin" ],
+    [ "rxs_m_xs_mixin", "structpcg__detail_1_1rxs__m__xs__mixin.html", "structpcg__detail_1_1rxs__m__xs__mixin" ],
+    [ "rxs_mixin", "structpcg__detail_1_1rxs__mixin.html", "structpcg__detail_1_1rxs__mixin" ],
+    [ "specific_stream", "classpcg__detail_1_1specific__stream.html", "classpcg__detail_1_1specific__stream" ],
+    [ "xsh_mixin", "structpcg__detail_1_1xsh__mixin.html", "structpcg__detail_1_1xsh__mixin" ],
+    [ "xsh_rr_mixin", "structpcg__detail_1_1xsh__rr__mixin.html", "structpcg__detail_1_1xsh__rr__mixin" ],
+    [ "xsh_rs_mixin", "structpcg__detail_1_1xsh__rs__mixin.html", "structpcg__detail_1_1xsh__rs__mixin" ],
+    [ "xsl_mixin", "structpcg__detail_1_1xsl__mixin.html", "structpcg__detail_1_1xsl__mixin" ],
+    [ "xsl_rr_mixin", "structpcg__detail_1_1xsl__rr__mixin.html", "structpcg__detail_1_1xsl__rr__mixin" ],
+    [ "xsl_rr_rr_mixin", "structpcg__detail_1_1xsl__rr__rr__mixin.html", "structpcg__detail_1_1xsl__rr__rr__mixin" ]
+];

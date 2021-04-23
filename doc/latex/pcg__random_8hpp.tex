@@ -1,0 +1,782 @@
+\doxysection{pcg\+\_\+random.\+hpp File Reference}
+\label{pcg__random_8hpp}\index{pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::default\+\_\+multiplier$<$ T $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::default\+\_\+increment$<$ T $>$}
+\item 
+class \textbf{ pcg\+\_\+detail\+::no\+\_\+stream$<$ itype $>$}
+\item 
+class \textbf{ pcg\+\_\+detail\+::oneseq\+\_\+stream$<$ itype $>$}
+\item 
+class \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream$<$ itype $>$}
+\item 
+class \textbf{ pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::can\+\_\+specify\+\_\+stream\+\_\+tag}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::no\+\_\+specifiable\+\_\+stream\+\_\+tag}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::xsh\+\_\+rs\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::xsh\+\_\+rr\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::rxs\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::mcg\+\_\+multiplier$<$ T $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::mcg\+\_\+unmultiplier$<$ T $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::rxs\+\_\+m\+\_\+xs\+\_\+mixin}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::rxs\+\_\+m\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::xsl\+\_\+rr\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::halfsize\+\_\+trait$<$ T $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::halfsize\+\_\+trait$<$ pcg128\+\_\+t $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::halfsize\+\_\+trait$<$ uint64\+\_\+t $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::halfsize\+\_\+trait$<$ uint32\+\_\+t $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::halfsize\+\_\+trait$<$ uint16\+\_\+t $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::xsl\+\_\+rr\+\_\+rr\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::xsh\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::xsl\+\_\+mixin$<$ xtype, itype $>$}
+\item 
+struct \textbf{ pcg\+\_\+detail\+::inside\+\_\+out$<$ baseclass $>$}
+\item 
+class \textbf{ pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \textbf{ pcg\+\_\+detail}
+\item 
+ \textbf{ pcg\+\_\+engines}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ pcg\+\_\+detail\+::oneseq\+\_\+base} = engine$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, oneseq\+\_\+stream$<$ itype $>$ $>$
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ pcg\+\_\+detail\+::unique\+\_\+base} = engine$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, unique\+\_\+stream$<$ itype $>$ $>$
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ pcg\+\_\+detail\+::setseq\+\_\+base} = engine$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, \textbf{ specific\+\_\+stream}$<$ itype $>$ $>$
+\item 
+{\footnotesize template$<$typename xtype , typename itype , template$<$ typename X\+T, typename I\+T $>$ class output\+\_\+mixin, bool output\+\_\+previous = (sizeof(itype) $<$= 8)$>$ }\\using \textbf{ pcg\+\_\+detail\+::mcg\+\_\+base} = engine$<$ xtype, itype, output\+\_\+mixin$<$ xtype, itype $>$, output\+\_\+previous, \textbf{ no\+\_\+stream}$<$ itype $>$ $>$
+\item 
+typedef oneseq\+\_\+base$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rs\+\_\+16\+\_\+8}
+\item 
+typedef oneseq\+\_\+base$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rs\+\_\+32\+\_\+16}
+\item 
+typedef oneseq\+\_\+base$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}
+\item 
+typedef oneseq\+\_\+base$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rs\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rs\+\_\+16\+\_\+8}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rs\+\_\+32\+\_\+16}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rs\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rs\+\_\+16\+\_\+8}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rs\+\_\+32\+\_\+16}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rs\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rs\+\_\+16\+\_\+8}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rs\+\_\+32\+\_\+16}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rs\+\_\+128\+\_\+64}
+\item 
+typedef oneseq\+\_\+base$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rr\+\_\+16\+\_\+8}
+\item 
+typedef oneseq\+\_\+base$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rr\+\_\+32\+\_\+16}
+\item 
+typedef oneseq\+\_\+base$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef oneseq\+\_\+base$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rr\+\_\+16\+\_\+8}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rr\+\_\+32\+\_\+16}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rr\+\_\+16\+\_\+8}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rr\+\_\+32\+\_\+16}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint8\+\_\+t, uint16\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rr\+\_\+16\+\_\+8}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint16\+\_\+t, uint32\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rr\+\_\+32\+\_\+16}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsh\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef oneseq\+\_\+base$<$ uint8\+\_\+t, uint8\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8}
+\item 
+typedef oneseq\+\_\+base$<$ uint16\+\_\+t, uint16\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16}
+\item 
+typedef oneseq\+\_\+base$<$ uint32\+\_\+t, uint32\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32}
+\item 
+typedef oneseq\+\_\+base$<$ uint64\+\_\+t, uint64\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64}
+\item 
+typedef oneseq\+\_\+base$<$ \textbf{ pcg128\+\_\+t}, \textbf{ pcg128\+\_\+t}, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+128\+\_\+128}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint8\+\_\+t, uint8\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint16\+\_\+t, uint16\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint32\+\_\+t, uint32\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint64\+\_\+t, uint64\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ \textbf{ pcg128\+\_\+t}, \textbf{ pcg128\+\_\+t}, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+128\+\_\+128}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint8\+\_\+t, uint8\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint16\+\_\+t, uint16\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint32\+\_\+t, uint32\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint64\+\_\+t, uint64\+\_\+t, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ \textbf{ pcg128\+\_\+t}, \textbf{ pcg128\+\_\+t}, \textbf{ rxs\+\_\+m\+\_\+xs\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+128\+\_\+128}
+\item 
+typedef oneseq\+\_\+base$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef oneseq\+\_\+base$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsl\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint32\+\_\+t, uint64\+\_\+t, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsl\+\_\+rr\+\_\+64\+\_\+32}
+\item 
+typedef \textbf{ mcg\+\_\+base}$<$ uint64\+\_\+t, \textbf{ pcg128\+\_\+t}, \textbf{ xsl\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}
+\item 
+typedef oneseq\+\_\+base$<$ uint64\+\_\+t, uint64\+\_\+t, \textbf{ xsl\+\_\+rr\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+64\+\_\+64}
+\item 
+typedef oneseq\+\_\+base$<$ \textbf{ pcg128\+\_\+t}, \textbf{ pcg128\+\_\+t}, \textbf{ xsl\+\_\+rr\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+128\+\_\+128}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ uint64\+\_\+t, uint64\+\_\+t, \textbf{ xsl\+\_\+rr\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+64\+\_\+64}
+\item 
+typedef \textbf{ unique\+\_\+base}$<$ \textbf{ pcg128\+\_\+t}, \textbf{ pcg128\+\_\+t}, \textbf{ xsl\+\_\+rr\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+128\+\_\+128}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ uint64\+\_\+t, uint64\+\_\+t, \textbf{ xsl\+\_\+rr\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+64\+\_\+64}
+\item 
+typedef \textbf{ setseq\+\_\+base}$<$ \textbf{ pcg128\+\_\+t}, \textbf{ pcg128\+\_\+t}, \textbf{ xsl\+\_\+rr\+\_\+rr\+\_\+mixin} $>$ \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+128\+\_\+128}
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename Base\+R\+NG , bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+std8} = \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, Base\+R\+NG, oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename Base\+R\+NG , bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+std16} = \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, Base\+R\+NG, oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename Base\+R\+NG , bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+std32} = \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, Base\+R\+NG, oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename Base\+R\+NG , bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+std64} = \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, Base\+R\+NG, oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32} = ext\+\_\+std32$<$ table\+\_\+pow2, advance\+\_\+pow2, oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32} = ext\+\_\+std32$<$ table\+\_\+pow2, advance\+\_\+pow2, mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32} = ext\+\_\+std32$<$ table\+\_\+pow2, advance\+\_\+pow2, oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32} = ext\+\_\+std32$<$ table\+\_\+pow2, advance\+\_\+pow2, setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} = ext\+\_\+std64$<$ table\+\_\+pow2, advance\+\_\+pow2, mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} = ext\+\_\+std64$<$ table\+\_\+pow2, advance\+\_\+pow2, oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64, kdd $>$
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, bool kdd = true$>$ }\\using \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} = ext\+\_\+std64$<$ table\+\_\+pow2, advance\+\_\+pow2, setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64, kdd $>$
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32} \textbf{ pcg32}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32} \textbf{ pcg32\+\_\+oneseq}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32} \textbf{ pcg32\+\_\+unique}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32} \textbf{ pcg32\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64\+\_\+oneseq}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64\+\_\+unique}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8} \textbf{ pcg8\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16} \textbf{ pcg16\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32} \textbf{ pcg32\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64} \textbf{ pcg64\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+128\+\_\+128} \textbf{ pcg128\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8} \textbf{ pcg8\+\_\+oneseq\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16} \textbf{ pcg16\+\_\+oneseq\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32} \textbf{ pcg32\+\_\+oneseq\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64} \textbf{ pcg64\+\_\+oneseq\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+128\+\_\+128} \textbf{ pcg128\+\_\+oneseq\+\_\+once\+\_\+insecure}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$ 6, 16, true $>$ \textbf{ pcg32\+\_\+k2}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 6, 32, true $>$ \textbf{ pcg32\+\_\+k2\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$ 6, 16, true $>$ \textbf{ pcg32\+\_\+k64}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 6, 32, true $>$ \textbf{ pcg32\+\_\+k64\+\_\+oneseq}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 6, 32, true $>$ \textbf{ pcg32\+\_\+k64\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$ 6, 16, false $>$ \textbf{ pcg32\+\_\+c64}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 6, 32, false $>$ \textbf{ pcg32\+\_\+c64\+\_\+oneseq}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 6, 32, false $>$ \textbf{ pcg32\+\_\+c64\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 5, 16, true $>$ \textbf{ pcg64\+\_\+k32}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 5, 128, true $>$ \textbf{ pcg64\+\_\+k32\+\_\+oneseq}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 5, 128, true $>$ \textbf{ pcg64\+\_\+k32\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 5, 16, false $>$ \textbf{ pcg64\+\_\+c32}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 5, 128, false $>$ \textbf{ pcg64\+\_\+c32\+\_\+oneseq}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 5, 128, false $>$ \textbf{ pcg64\+\_\+c32\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$ 10, 16, true $>$ \textbf{ pcg32\+\_\+k1024}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 10, 32, true $>$ \textbf{ pcg32\+\_\+k1024\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$ 10, 16, false $>$ \textbf{ pcg32\+\_\+c1024}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 10, 32, false $>$ \textbf{ pcg32\+\_\+c1024\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 10, 16, true $>$ \textbf{ pcg64\+\_\+k1024}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 10, 128, true $>$ \textbf{ pcg64\+\_\+k1024\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 10, 16, false $>$ \textbf{ pcg64\+\_\+c1024}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$ 10, 128, false $>$ \textbf{ pcg64\+\_\+c1024\+\_\+fast}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$ 14, 16, true $>$ \textbf{ pcg32\+\_\+k16384}
+\item 
+typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$ 14, 32, true $>$ \textbf{ pcg32\+\_\+k16384\+\_\+fast}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint8\+\_\+t, default, multiplier, 141U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint8\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint16\+\_\+t, default, multiplier, 12829U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint16\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint32\+\_\+t, default, multiplier, 747796405U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint32\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint64\+\_\+t, default, multiplier, 6364136223846793005U\+LL) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint64\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (\textbf{ pcg128\+\_\+t}, default, multiplier, P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT(2549297995355413924U\+LL, 4865540595714422341U\+LL)) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(\textbf{ pcg128\+\_\+t}
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (6364136223846793005U\+LL, 1442695040888963407U\+LL)) template$<$ typename itype $>$ class unique\+\_\+stream
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+detail\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, const engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ \&rng)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin , typename multiplier\+\_\+mixin $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+detail\+::operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$ \&rng)
+\item 
+{\footnotesize template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\itype \textbf{ pcg\+\_\+detail\+::operator-\/} (const engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&lhs, const engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\bool \textbf{ pcg\+\_\+detail\+::operator==} (const engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&lhs, const engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename xtype , typename itype , typename output\+\_\+mixin , bool output\+\_\+previous, typename stream\+\_\+mixin\+\_\+lhs , typename multiplier\+\_\+mixin\+\_\+lhs , typename stream\+\_\+mixin\+\_\+rhs , typename multiplier\+\_\+mixin\+\_\+rhs $>$ }\\bool \textbf{ pcg\+\_\+detail\+::operator!=} (const engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+lhs, multiplier\+\_\+mixin\+\_\+lhs $>$ \&lhs, const engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin\+\_\+rhs, multiplier\+\_\+mixin\+\_\+rhs $>$ \&rhs)
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint8\+\_\+t, mcg, multiplier, 217U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint8\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint16\+\_\+t, mcg, multiplier, 62169U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint16\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint32\+\_\+t, mcg, multiplier, 277803737U) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint32\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (uint64\+\_\+t, mcg, multiplier, 12605985483714917081U\+LL) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(uint64\+\_\+t
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (\textbf{ pcg128\+\_\+t}, mcg, multiplier, P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT(17766728186571221404U\+LL, 12605985483714917081U\+LL)) P\+C\+G\+\_\+\+D\+E\+F\+I\+N\+E\+\_\+\+C\+O\+N\+S\+T\+A\+NT(\textbf{ pcg128\+\_\+t}
+\item 
+\textbf{ pcg\+\_\+detail\+::\+P\+C\+G\+\_\+128\+B\+I\+T\+\_\+\+C\+O\+N\+S\+T\+A\+NT} (14422606686972528997U\+LL, 15009553638781119849U\+LL)) template$<$ typename xtype
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\bool \textbf{ pcg\+\_\+detail\+::operator==} (const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&lhs, const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rhs)
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\bool \textbf{ pcg\+\_\+detail\+::operator!=} (const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&lhs, const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+detail\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, const \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rng)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+detail\+::operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, \textbf{ extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ \&rng)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ pcg\+\_\+detail\+::default}
+\item 
+\textbf{ pcg\+\_\+detail\+::increment}
+\item 
+\textbf{ pcg\+\_\+detail\+::mcg}
+\item 
+\textbf{ pcg\+\_\+detail\+::unmultiplier}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{pcg__random_8hpp_a099c841a111487f918c0737f1a27d441}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg128\_once\_insecure@{pcg128\_once\_insecure}}
+\index{pcg128\_once\_insecure@{pcg128\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg128\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+128\+\_\+128} \textbf{ pcg128\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1684 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ae74600fa655e7483691436ace9b2f8e7}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg128\_oneseq\_once\_insecure@{pcg128\_oneseq\_once\_insecure}}
+\index{pcg128\_oneseq\_once\_insecure@{pcg128\_oneseq\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg128\_oneseq\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+rr\+\_\+128\+\_\+128} \textbf{ pcg128\+\_\+oneseq\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1690 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a548df6e587a355cb04d89c216267b6e3}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg16\_once\_insecure@{pcg16\_once\_insecure}}
+\index{pcg16\_once\_insecure@{pcg16\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg16\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16} \textbf{ pcg16\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1681 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a0c26845b3147f2f3a10a3c1c19dec963}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg16\_oneseq\_once\_insecure@{pcg16\_oneseq\_once\_insecure}}
+\index{pcg16\_oneseq\_once\_insecure@{pcg16\_oneseq\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg16\_oneseq\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+16\+\_\+16} \textbf{ pcg16\+\_\+oneseq\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1687 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a9ce8658589affeee1963c9c4831f2b67}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32@{pcg32}}
+\index{pcg32@{pcg32}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32} \textbf{ pcg32}}
+
+
+
+Definition at line 1670 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a0ae892157bd8e0be6146a36873d35151}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_c1024@{pcg32\_c1024}}
+\index{pcg32\_c1024@{pcg32\_c1024}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_c1024}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$10,16,false$>$ \textbf{ pcg32\+\_\+c1024}}
+
+
+
+Definition at line 1734 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_aa2e5b6b6014c6cfd15a543f177dc40f4}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_c1024\_fast@{pcg32\_c1024\_fast}}
+\index{pcg32\_c1024\_fast@{pcg32\_c1024\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_c1024\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$10,32,false$>$ \textbf{ pcg32\+\_\+c1024\+\_\+fast}}
+
+
+
+Definition at line 1735 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a66e285c28c82869576bb3e06e801bc09}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_c64@{pcg32\_c64}}
+\index{pcg32\_c64@{pcg32\_c64}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_c64}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$6,16,false$>$ \textbf{ pcg32\+\_\+c64}}
+
+
+
+Definition at line 1712 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ae94ac05d814792941f3f5c68d9cb8440}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_c64\_fast@{pcg32\_c64\_fast}}
+\index{pcg32\_c64\_fast@{pcg32\_c64\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_c64\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$6,32,false$>$ \textbf{ pcg32\+\_\+c64\+\_\+fast}}
+
+
+
+Definition at line 1714 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_afdbe93f1e1ce3848eea68a570901f10f}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_c64\_oneseq@{pcg32\_c64\_oneseq}}
+\index{pcg32\_c64\_oneseq@{pcg32\_c64\_oneseq}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_c64\_oneseq}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$6,32,false$>$ \textbf{ pcg32\+\_\+c64\+\_\+oneseq}}
+
+
+
+Definition at line 1713 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a4e02cc327fb21a3e59c4b117eb704582}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_fast@{pcg32\_fast}}
+\index{pcg32\_fast@{pcg32\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32} \textbf{ pcg32\+\_\+fast}}
+
+
+
+Definition at line 1673 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a611ff51901d35b5d3a72c7dee2454753}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k1024@{pcg32\_k1024}}
+\index{pcg32\_k1024@{pcg32\_k1024}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k1024}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$10,16,true$>$ \textbf{ pcg32\+\_\+k1024}}
+
+
+
+Definition at line 1731 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a9e381591f8dedba40dfc5d310c3abc3a}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k1024\_fast@{pcg32\_k1024\_fast}}
+\index{pcg32\_k1024\_fast@{pcg32\_k1024\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k1024\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$10,32,true$>$ \textbf{ pcg32\+\_\+k1024\+\_\+fast}}
+
+
+
+Definition at line 1732 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a3499aa22820c4dbc744ff179e51517d8}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k16384@{pcg32\_k16384}}
+\index{pcg32\_k16384@{pcg32\_k16384}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k16384}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$14,16,true$>$ \textbf{ pcg32\+\_\+k16384}}
+
+
+
+Definition at line 1748 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a10d6cba7ba8dc67df41fef42ae86d53c}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k16384\_fast@{pcg32\_k16384\_fast}}
+\index{pcg32\_k16384\_fast@{pcg32\_k16384\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k16384\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$14,32,true$>$ \textbf{ pcg32\+\_\+k16384\+\_\+fast}}
+
+
+
+Definition at line 1749 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ad0a2b633c376a22e884e53b0bbf3420b}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k2@{pcg32\_k2}}
+\index{pcg32\_k2@{pcg32\_k2}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k2}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$6,16,true$>$ \textbf{ pcg32\+\_\+k2}}
+
+
+
+Definition at line 1698 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_aaa699575372098e86fea7c99c3c86ce4}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k2\_fast@{pcg32\_k2\_fast}}
+\index{pcg32\_k2\_fast@{pcg32\_k2\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k2\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$6,32,true$>$ \textbf{ pcg32\+\_\+k2\+\_\+fast}}
+
+
+
+Definition at line 1699 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a1f97f2cd540a101d089c7ade54a38d69}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k64@{pcg32\_k64}}
+\index{pcg32\_k64@{pcg32\_k64}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k64}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32}$<$6,16,true$>$ \textbf{ pcg32\+\_\+k64}}
+
+
+
+Definition at line 1708 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a995e7e184feb5ec20e25943b130993e4}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k64\_fast@{pcg32\_k64\_fast}}
+\index{pcg32\_k64\_fast@{pcg32\_k64\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k64\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$6,32,true$>$ \textbf{ pcg32\+\_\+k64\+\_\+fast}}
+
+
+
+Definition at line 1710 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a23593cb66ab4d7c61ba31401d8ecd8ad}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_k64\_oneseq@{pcg32\_k64\_oneseq}}
+\index{pcg32\_k64\_oneseq@{pcg32\_k64\_oneseq}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_k64\_oneseq}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsh\+\_\+rs\+\_\+64\+\_\+32}$<$6,32,true$>$ \textbf{ pcg32\+\_\+k64\+\_\+oneseq}}
+
+
+
+Definition at line 1709 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a2f81bf0ac725b61b625452cfc23a2bde}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_once\_insecure@{pcg32\_once\_insecure}}
+\index{pcg32\_once\_insecure@{pcg32\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32} \textbf{ pcg32\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1682 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ad03bfdc0dd466d4f84b860837ac5f08c}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_oneseq@{pcg32\_oneseq}}
+\index{pcg32\_oneseq@{pcg32\_oneseq}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_oneseq}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32} \textbf{ pcg32\+\_\+oneseq}}
+
+
+
+Definition at line 1671 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ae74b53a8d1cfa108a4849dea3d1b6971}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_oneseq\_once\_insecure@{pcg32\_oneseq\_once\_insecure}}
+\index{pcg32\_oneseq\_once\_insecure@{pcg32\_oneseq\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_oneseq\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+32\+\_\+32} \textbf{ pcg32\+\_\+oneseq\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1688 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a7ec351c8b2ccf422c08b184b3684bd5f}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg32\_unique@{pcg32\_unique}}
+\index{pcg32\_unique@{pcg32\_unique}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg32\_unique}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsh\+\_\+rr\+\_\+64\+\_\+32} \textbf{ pcg32\+\_\+unique}}
+
+
+
+Definition at line 1672 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a14475161629d8bd38ee54183d184ecd5}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64@{pcg64}}
+\index{pcg64@{pcg64}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64}}
+
+
+
+Definition at line 1675 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ad89773e63f611aaf6e6a37cecf431853}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_c1024@{pcg64\_c1024}}
+\index{pcg64\_c1024@{pcg64\_c1024}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_c1024}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$10,16,false$>$ \textbf{ pcg64\+\_\+c1024}}
+
+
+
+Definition at line 1740 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a5846c66ebdb95d05350028a0ff2a613f}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_c1024\_fast@{pcg64\_c1024\_fast}}
+\index{pcg64\_c1024\_fast@{pcg64\_c1024\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_c1024\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$10,128,false$>$ \textbf{ pcg64\+\_\+c1024\+\_\+fast}}
+
+
+
+Definition at line 1741 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a51cfb84a8d3da7d46089e02a8aa1e0ac}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_c32@{pcg64\_c32}}
+\index{pcg64\_c32@{pcg64\_c32}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_c32}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$5,16,false$>$ \textbf{ pcg64\+\_\+c32}}
+
+
+
+Definition at line 1720 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a1080ec9e675db8b8997e45299f9c396d}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_c32\_fast@{pcg64\_c32\_fast}}
+\index{pcg64\_c32\_fast@{pcg64\_c32\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_c32\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$5,128,false$>$ \textbf{ pcg64\+\_\+c32\+\_\+fast}}
+
+
+
+Definition at line 1722 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ab76aebcfe89888f5e4571b0dd135c002}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_c32\_oneseq@{pcg64\_c32\_oneseq}}
+\index{pcg64\_c32\_oneseq@{pcg64\_c32\_oneseq}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_c32\_oneseq}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$5,128,false$>$ \textbf{ pcg64\+\_\+c32\+\_\+oneseq}}
+
+
+
+Definition at line 1721 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_afd497cf4f5bc58142a20c8797f4ffbc9}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_fast@{pcg64\_fast}}
+\index{pcg64\_fast@{pcg64\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64\+\_\+fast}}
+
+
+
+Definition at line 1678 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a5acc6def770e5aebfb06226624c1a143}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_k1024@{pcg64\_k1024}}
+\index{pcg64\_k1024@{pcg64\_k1024}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_k1024}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$10,16,true$>$ \textbf{ pcg64\+\_\+k1024}}
+
+
+
+Definition at line 1737 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a6f3324b83255c98ed479e9723f5bb66e}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_k1024\_fast@{pcg64\_k1024\_fast}}
+\index{pcg64\_k1024\_fast@{pcg64\_k1024\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_k1024\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$10,128,true$>$ \textbf{ pcg64\+\_\+k1024\+\_\+fast}}
+
+
+
+Definition at line 1738 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a791837d1e4d3fac939723ee79f9314ec}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_k32@{pcg64\_k32}}
+\index{pcg64\_k32@{pcg64\_k32}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_k32}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+setseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$5,16,true$>$ \textbf{ pcg64\+\_\+k32}}
+
+
+
+Definition at line 1716 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a6e3493c440c710f49f8d907c0c1121b7}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_k32\_fast@{pcg64\_k32\_fast}}
+\index{pcg64\_k32\_fast@{pcg64\_k32\_fast}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_k32\_fast}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+mcg\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$5,128,true$>$ \textbf{ pcg64\+\_\+k32\+\_\+fast}}
+
+
+
+Definition at line 1718 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a1f6938e35f1aaf4038a9fe5c44803484}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_k32\_oneseq@{pcg64\_k32\_oneseq}}
+\index{pcg64\_k32\_oneseq@{pcg64\_k32\_oneseq}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_k32\_oneseq}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::ext\+\_\+oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64}$<$5,128,true$>$ \textbf{ pcg64\+\_\+k32\+\_\+oneseq}}
+
+
+
+Definition at line 1717 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a08de1b480ce730d26fa65c1aa8e42796}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_once\_insecure@{pcg64\_once\_insecure}}
+\index{pcg64\_once\_insecure@{pcg64\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64} \textbf{ pcg64\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1683 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_aa0b2a836f48038b84a85c8a7109d0270}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_oneseq@{pcg64\_oneseq}}
+\index{pcg64\_oneseq@{pcg64\_oneseq}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_oneseq}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64\+\_\+oneseq}}
+
+
+
+Definition at line 1676 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_ae4da5f505318e6bd069ed36daf5dc686}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_oneseq\_once\_insecure@{pcg64\_oneseq\_once\_insecure}}
+\index{pcg64\_oneseq\_once\_insecure@{pcg64\_oneseq\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_oneseq\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+64\+\_\+64} \textbf{ pcg64\+\_\+oneseq\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1689 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_aef6a69437f98ea7aa6383d4911bd486a}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg64\_unique@{pcg64\_unique}}
+\index{pcg64\_unique@{pcg64\_unique}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg64\_unique}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::unique\+\_\+xsl\+\_\+rr\+\_\+128\+\_\+64} \textbf{ pcg64\+\_\+unique}}
+
+
+
+Definition at line 1677 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_a0bff7c993bbc52efdfacc3de7ea37618}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg8\_once\_insecure@{pcg8\_once\_insecure}}
+\index{pcg8\_once\_insecure@{pcg8\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg8\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::setseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8} \textbf{ pcg8\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1680 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{pcg__random_8hpp_abad2e2984fe57db1aa2be0037226dd2e}} 
+\index{pcg\_random.hpp@{pcg\_random.hpp}!pcg8\_oneseq\_once\_insecure@{pcg8\_oneseq\_once\_insecure}}
+\index{pcg8\_oneseq\_once\_insecure@{pcg8\_oneseq\_once\_insecure}!pcg\_random.hpp@{pcg\_random.hpp}}
+\doxysubsubsection{pcg8\_oneseq\_once\_insecure}
+{\footnotesize\ttfamily typedef \textbf{ pcg\+\_\+engines\+::oneseq\+\_\+rxs\+\_\+m\+\_\+xs\+\_\+8\+\_\+8} \textbf{ pcg8\+\_\+oneseq\+\_\+once\+\_\+insecure}}
+
+
+
+Definition at line 1686 of file pcg\+\_\+random.\+hpp.
+

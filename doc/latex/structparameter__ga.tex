@@ -1,0 +1,231 @@
+\doxysection{parameter\+\_\+ga Struct Reference}
+\label{structparameter__ga}\index{parameter\_ga@{parameter\_ga}}
+
+
+Structure containing initialization parameters for G\+A-\/based optimization.  
+
+
+
+
+{\ttfamily \#include $<$gaim.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+R\+E\+A\+L\+\_\+ \textbf{ a}
+\begin{DoxyCompactList}\small\item\em Lower bound of genome\textquotesingle{}s interval ([a, b]) \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ b}
+\begin{DoxyCompactList}\small\item\em Upper bound of genome\textquotesingle{}s interval ([a, b]) \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ generations}
+\begin{DoxyCompactList}\small\item\em Number of generations the \doxyref{GA}{p.}{classGA} will run for. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ population\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Population size (number of individuals) \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ genome\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Size of genome of each individual. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ num\+\_\+offsprings}
+\begin{DoxyCompactList}\small\item\em Number of offsprings (children) \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ num\+\_\+replacement}
+\begin{DoxyCompactList}\small\item\em Number of individuals being replaced in every generation. \end{DoxyCompactList}\item 
+std\+::string \textbf{ clipping\+\_\+fname}
+\begin{DoxyCompactList}\small\item\em Clipping values file name. \end{DoxyCompactList}\item 
+int \textbf{ runs}
+\begin{DoxyCompactList}\small\item\em Number of experimental runs, greater than 1 in case of multiple trajectories. \end{DoxyCompactList}\item 
+bool \textbf{ universal\+\_\+clipping}
+\begin{DoxyCompactList}\small\item\em Controls when the clipping values are the same for all genes for every individual or each individual has its own clipping values per gene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure containing initialization parameters for G\+A-\/based optimization. 
+
+A structure that contains all the parameters for specifying a Genetic Algorithms simulation, including how many generations it will run for, what the size of the population is, what the size of the genome is, what the endpoints of the interval to optimize on are, how many offspring are to be produced and how many individuals are to be replaced. It is typical in a Genetic Algorithm without elitism to replace the entire population. The number of indepedent runs can also be specified, if you are trying to derive an Monte Carlo estimate of fitness. 
+
+Definition at line 86 of file gaim.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{structparameter__ga_ad3dab59a58e3228c4de7630de91fa0d6}} 
+\index{parameter\_ga@{parameter\_ga}!a@{a}}
+\index{a@{a}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{a}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ parameter\+\_\+ga\+::a}
+
+
+
+Lower bound of genome\textquotesingle{}s interval ([a, b]) 
+
+
+
+Definition at line 87 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::\+G\+A(), I\+M\+::\+I\+M(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_a71e315dc7bc0c19cb2edf7c632aeced6}} 
+\index{parameter\_ga@{parameter\_ga}!b@{b}}
+\index{b@{b}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{b}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ parameter\+\_\+ga\+::b}
+
+
+
+Upper bound of genome\textquotesingle{}s interval ([a, b]) 
+
+
+
+Definition at line 88 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::\+G\+A(), I\+M\+::\+I\+M(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_a102919dfdea00241442aa4d2d9a8c799}} 
+\index{parameter\_ga@{parameter\_ga}!clipping\_fname@{clipping\_fname}}
+\index{clipping\_fname@{clipping\_fname}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{clipping\_fname}
+{\footnotesize\ttfamily std\+::string parameter\+\_\+ga\+::clipping\+\_\+fname}
+
+
+
+Clipping values file name. 
+
+Contains the clipping values for each gene for each individual. 
+
+Definition at line 94 of file gaim.\+h.
+
+
+
+Referenced by print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_a12329a6d475e02fd715889728e504a27}} 
+\index{parameter\_ga@{parameter\_ga}!generations@{generations}}
+\index{generations@{generations}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{generations}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+ga\+::generations}
+
+
+
+Number of generations the \doxyref{GA}{p.}{classGA} will run for. 
+
+
+
+Definition at line 89 of file gaim.\+h.
+
+
+
+Referenced by I\+M\+::\+I\+M(), independent\+\_\+runs(), print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_a0a558f17babc2e8a47b181d7d7b7920d}} 
+\index{parameter\_ga@{parameter\_ga}!genome\_size@{genome\_size}}
+\index{genome\_size@{genome\_size}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{genome\_size}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+ga\+::genome\+\_\+size}
+
+
+
+Size of genome of each individual. 
+
+
+
+Definition at line 91 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::\+G\+A(), print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_abaa5369cab51b8d7832e07897ae25a5e}} 
+\index{parameter\_ga@{parameter\_ga}!num\_offsprings@{num\_offsprings}}
+\index{num\_offsprings@{num\_offsprings}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{num\_offsprings}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+ga\+::num\+\_\+offsprings}
+
+
+
+Number of offsprings (children) 
+
+
+
+Definition at line 92 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::\+G\+A(), print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_aaf0d11846c4c999777935576c8ded7ef}} 
+\index{parameter\_ga@{parameter\_ga}!num\_replacement@{num\_replacement}}
+\index{num\_replacement@{num\_replacement}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{num\_replacement}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+ga\+::num\+\_\+replacement}
+
+
+
+Number of individuals being replaced in every generation. 
+
+
+
+Definition at line 93 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::\+G\+A(), print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_a4b89bdb4d13ba3dd51c7e08ea6cceb79}} 
+\index{parameter\_ga@{parameter\_ga}!population\_size@{population\_size}}
+\index{population\_size@{population\_size}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{population\_size}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+ga\+::population\+\_\+size}
+
+
+
+Population size (number of individuals) 
+
+
+
+Definition at line 90 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::\+G\+A(), print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_a158967a149f2685f612977302ea1266b}} 
+\index{parameter\_ga@{parameter\_ga}!runs@{runs}}
+\index{runs@{runs}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{runs}
+{\footnotesize\ttfamily int parameter\+\_\+ga\+::runs}
+
+
+
+Number of experimental runs, greater than 1 in case of multiple trajectories. 
+
+
+
+Definition at line 96 of file gaim.\+h.
+
+
+
+Referenced by independent\+\_\+runs(), print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__ga_a4b768d38f1139a462d7224e57ffa629f}} 
+\index{parameter\_ga@{parameter\_ga}!universal\_clipping@{universal\_clipping}}
+\index{universal\_clipping@{universal\_clipping}!parameter\_ga@{parameter\_ga}}
+\doxysubsubsection{universal\_clipping}
+{\footnotesize\ttfamily bool parameter\+\_\+ga\+::universal\+\_\+clipping}
+
+
+
+Controls when the clipping values are the same for all genes for every individual or each individual has its own clipping values per gene. 
+
+
+
+Definition at line 97 of file gaim.\+h.
+
+
+
+Referenced by G\+A\+::\+G\+A(), print\+\_\+parameters(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and read\+\_\+parameters\+\_\+file().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ gaim.\+h}\end{DoxyCompactItemize}

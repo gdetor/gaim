@@ -1,0 +1,959 @@
+\doxysection{GA Class Reference}
+\label{classGA}\index{GA@{GA}}
+
+
+Genetic Algorithm main class.  
+
+
+
+
+{\ttfamily \#include $<$gaim.\+h$>$}
+
+
+
+Collaboration diagram for GA\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{classGA__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \textbf{ Callback} = std\+::function$<$ R\+E\+A\+L\+\_\+(std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ GA} (\textbf{ ga\+\_\+parameter\+\_\+s} $\ast$)
+\begin{DoxyCompactList}\small\item\em Constructor method of \doxyref{GA}{p.}{classGA} class. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+GA} ()
+\begin{DoxyCompactList}\small\item\em Destructor method of \doxyref{GA}{p.}{classGA}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ selection} (size\+\_\+t, int, bool)
+\begin{DoxyCompactList}\small\item\em Genetic Algorithm basic operators. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ crossover} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$)
+\begin{DoxyCompactList}\small\item\em Crossover operator method. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ mutation} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$, R\+E\+A\+L\+\_\+, R\+E\+A\+L\+\_\+)
+\begin{DoxyCompactList}\small\item\em Mutation operator method. \end{DoxyCompactList}\item 
+void \textbf{ evaluation} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Genetic Algorithm secondary operations. \end{DoxyCompactList}\item 
+void \textbf{ next\+\_\+generation} (size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Generate the next generation out of current individuals and. \end{DoxyCompactList}\item 
+void \textbf{ reset\+\_\+selection\+\_\+flags} ()
+\begin{DoxyCompactList}\small\item\em Reset the flag is\+\_\+selected (used from selections methods when. \end{DoxyCompactList}\item 
+void \textbf{ clip\+\_\+genome} ()
+\begin{DoxyCompactList}\small\item\em Clips the values of genes for each individual based on its lower. \end{DoxyCompactList}\item 
+void \textbf{ sort\+\_\+population} (void)
+\begin{DoxyCompactList}\small\item\em Sorting individuals based on their fitness value. \end{DoxyCompactList}\item 
+void \textbf{ run\+\_\+one\+\_\+generation} (void)
+\begin{DoxyCompactList}\small\item\em Main routine for running one single generation step. \end{DoxyCompactList}\item 
+void \textbf{ evolve} (size\+\_\+t, size\+\_\+t, \textbf{ pr\+\_\+parameter\+\_\+s} $\ast$)
+\begin{DoxyCompactList}\small\item\em Main routine for evolving a population over generations. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \& \textbf{ get\+\_\+bsf} ()
+\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \& \textbf{ get\+\_\+average\+\_\+fitness\+\_\+rec} ()
+\item 
+bool \textbf{ pycallback} (std\+::function$<$ R\+E\+A\+L\+\_\+(std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)$>$)
+\begin{DoxyCompactList}\small\item\em Fitness callback function. \end{DoxyCompactList}\item 
+bool \textbf{ pycallback} (\textbf{ Callback})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ R\+E\+A\+L\+\_\+(std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)$>$ \textbf{ fitness}
+\begin{DoxyCompactList}\small\item\em Callback for fitness function. It is used only with py\+G\+A\+IM. \end{DoxyCompactList}\item 
+\textbf{ Callback} \textbf{ fitness}
+\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ population}
+\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ offsprings}
+\begin{DoxyCompactList}\small\item\em Individuals population vector. \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ sorted\+\_\+population}
+\begin{DoxyCompactList}\small\item\em Offsprings vector. \end{DoxyCompactList}\item 
+\textbf{ individual\+\_\+s} \textbf{ best\+\_\+individual}
+\begin{DoxyCompactList}\small\item\em Sorted population vector. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ bsf}
+\begin{DoxyCompactList}\small\item\em Best individual (keep track) \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ fit\+\_\+avg}
+\begin{DoxyCompactList}\small\item\em B\+SF vector (keep track) \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ hfi}
+\begin{DoxyCompactList}\small\item\em Average fitness vector (keep track) \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ lfi}
+\begin{DoxyCompactList}\small\item\em Highest fitness in the population. \end{DoxyCompactList}\item 
+std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \textbf{ bsf\+\_\+genome}
+\begin{DoxyCompactList}\small\item\em Lowest fitness in the population. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+R\+E\+A\+L\+\_\+ \textbf{ alpha}
+\begin{DoxyCompactList}\small\item\em B\+SF genome. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ beta}
+\item 
+std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \textbf{ immigrant}
+\begin{DoxyCompactList}\small\item\em Genome\textquotesingle{}s interval limits [a, b]. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ mu}
+\begin{DoxyCompactList}\small\item\em Immigrants vector (buffer) \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ lambda}
+\begin{DoxyCompactList}\small\item\em Number of individuals within a population. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ replace\+\_\+perc}
+\begin{DoxyCompactList}\small\item\em Number of offsprings. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ genome\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Number of individuals being replaced. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ IM}
+\begin{DoxyCompactList}\small\item\em Genome size (number of genes) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Genetic Algorithm main class. 
+
+\doxyref{GA}{p.}{classGA} is the main class for seting up and running an optimization process. It contains all the methods for performing operations such as selection, crossover, and mutation. 
+
+Definition at line 162 of file gaim.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\label{classGA_ad43b621702ecd9ef228a823f6812041b}} 
+\index{GA@{GA}!Callback@{Callback}}
+\index{Callback@{Callback}!GA@{GA}}
+\doxysubsubsection{Callback}
+{\footnotesize\ttfamily using \textbf{ G\+A\+::\+Callback} =  std\+::function$<$R\+E\+A\+L\+\_\+(std\+::vector$<$R\+E\+A\+L\+\_\+$>$\&)$>$}
+
+
+
+Definition at line 207 of file gaim.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classGA_a2a2859549b38e5bb1446d07613718364}} 
+\index{GA@{GA}!GA@{GA}}
+\index{GA@{GA}!GA@{GA}}
+\doxysubsubsection{GA()}
+{\footnotesize\ttfamily G\+A\+::\+GA (\begin{DoxyParamCaption}\item[{\textbf{ ga\+\_\+parameter\+\_\+s} $\ast$}]{ga\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+Constructor method of \doxyref{GA}{p.}{classGA} class. 
+
+Constructor of \doxyref{GA}{p.}{classGA} class.
+
+It initializes all the necessary parameters and vectors for evolving a population of individuals based on a predetermined Genetic Algorithm (\doxyref{GA}{p.}{classGA}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ga\+\_\+pms} & A structure that contains all the parameters for the \doxyref{GA}{p.}{classGA} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References parameter\+\_\+ga\+::a, alpha, parameter\+\_\+ga\+::b, beta, fitness, parameter\+\_\+ga\+::genome\+\_\+size, genome\+\_\+size, lambda, mu, parameter\+\_\+ga\+::num\+\_\+offsprings, parameter\+\_\+ga\+::num\+\_\+replacement, offsprings, population, parameter\+\_\+ga\+::population\+\_\+size, replace\+\_\+perc, sorted\+\_\+population, sphere(), and parameter\+\_\+ga\+::universal\+\_\+clipping.
+
+\mbox{\label{classGA_a18975e5b8b24b68b2d783ae3080845c9}} 
+\index{GA@{GA}!````~GA@{$\sim$GA}}
+\index{````~GA@{$\sim$GA}!GA@{GA}}
+\doxysubsubsection{$\sim$GA()}
+{\footnotesize\ttfamily G\+A\+::$\sim$\+GA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor method of \doxyref{GA}{p.}{classGA}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classGA_a355a96066688ca3ea7b8bcdce049f337}} 
+\index{GA@{GA}!clip\_genome@{clip\_genome}}
+\index{clip\_genome@{clip\_genome}!GA@{GA}}
+\doxysubsubsection{clip\_genome()}
+{\footnotesize\ttfamily void G\+A\+::clip\+\_\+genome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clips the values of genes for each individual based on its lower. 
+
+Clips the value of genes indipendently based on predermined lower and upper boundaries.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em (void)} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void)
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This methods has to be called only when the lower and upper boundaries (limits) for every individual\textquotesingle{}s genome have been initialized properly. 
+\end{DoxyWarning}
+
+
+Definition at line 306 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References population.
+
+\mbox{\label{classGA_afacacff0cc253cd9fb205cdf6b0dec14}} 
+\index{GA@{GA}!crossover@{crossover}}
+\index{crossover@{crossover}!GA@{GA}}
+\doxysubsubsection{crossover()}
+{\footnotesize\ttfamily std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ G\+A\+::crossover (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent1,  }\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{parent2 }\end{DoxyParamCaption})}
+
+
+
+Crossover operator method. 
+
+Applies a crossover operator on the genomes of two parents (parent1 and parent2) to create a child genome.
+
+By default, this method calls the one-\/point crossover operator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parent1} & Genome of the first parent \\
+\hline
+\mbox{\texttt{ in}}  & {\em parent2} & Genome of the second parent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The genome of a child as a vector of type R\+E\+A\+L\+\_\+
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The user can define his or her own crossover operator or they can use any mutation operator that is defined in the file \doxyref{crossover.\+cpp}{p.}{crossover_8cpp}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxyref{one\+\_\+point\+\_\+crossover()}{p.}{crossover_8cpp_afe9bf08c457226234a4a55b85ae5ec0b}, \doxyref{two\+\_\+point\+\_\+crossover()}{p.}{crossover_8cpp_a43356097c6110373f59ca386383e52b8}, \doxyref{uniform\+\_\+crossover()}{p.}{crossover_8cpp_ac4015fe741fd4dbde7252b23c52b1e53}, \doxyref{flat\+\_\+crossover()}{p.}{crossover_8cpp_ad63fe19e9d7a37724a8cd697203151ca}, \doxyref{discrete\+\_\+crossover()}{p.}{crossover_8cpp_a630d2410511d517172af6e13ac545fdf} 
+\end{DoxySeeAlso}
+
+
+Definition at line 214 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References one\+\_\+point\+\_\+crossover().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a122339dba6cab111cbfee7dd71c3e1c8}} 
+\index{GA@{GA}!evaluation@{evaluation}}
+\index{evaluation@{evaluation}!GA@{GA}}
+\doxysubsubsection{evaluation()}
+{\footnotesize\ttfamily void G\+A\+::evaluation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Genetic Algorithm secondary operations. 
+
+Evaluates the fitness of each individual based on a predefined cost function.
+
+Evaluation of fitness of individuals
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector of individuals (population) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{test\+\_\+functions.\+cpp}{p.}{test__functions_8cpp} 
+\end{DoxySeeAlso}
+
+
+Definition at line 141 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References fitness.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a3ebfd185d2cedc432b321acad08c83da}} 
+\index{GA@{GA}!evolve@{evolve}}
+\index{evolve@{evolve}!GA@{GA}}
+\doxysubsubsection{evolve()}
+{\footnotesize\ttfamily void G\+A\+::evolve (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{generations,  }\item[{size\+\_\+t}]{unique\+\_\+id,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s} $\ast$}]{pms }\end{DoxyParamCaption})}
+
+
+
+Main routine for evolving a population over generations. 
+
+Evolves a population based on previously defined operators.
+
+Evolves a population of individuals based on operations such as selection, crossover, and mutation that have been predefined. It executes the ~\newline
+ evolutionary step over the total number of generations. Finally, it prints out results either to S\+T\+D\+O\+UT or to file.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em generations} & Total number of generations \\
+\hline
+\mbox{\texttt{ in}}  & {\em unique\+\_\+id} & Unique ID of a thread in case Island Model or Independent runs are used. Otherwise, can be any number of type size\+\_\+t \\
+\hline
+\mbox{\texttt{ in}}  & {\em pms} & Structure of logging parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void) ~\newline
+ 
+\end{DoxyReturn}
+
+
+Definition at line 414 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References best\+\_\+individual, bsf, fit\+\_\+avg, individual\+::genome, population, parameter\+\_\+pr\+::print\+\_\+average\+\_\+fitness, print\+\_\+avg\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+best\+\_\+genome, print\+\_\+best\+\_\+genome(), print\+\_\+bsf(), parameter\+\_\+pr\+::print\+\_\+bsf, print\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+fitness, run\+\_\+one\+\_\+generation(), sort\+\_\+population(), and parameter\+\_\+pr\+::where2write.
+
+
+
+Referenced by independent\+\_\+runs(), and P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{classGA_ad111852face5ba08f6dd5a4798f4a23c}} 
+\index{GA@{GA}!get\_average\_fitness\_rec@{get\_average\_fitness\_rec}}
+\index{get\_average\_fitness\_rec@{get\_average\_fitness\_rec}!GA@{GA}}
+\doxysubsubsection{get\_average\_fitness\_rec()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$\& G\+A\+::get\+\_\+average\+\_\+fitness\+\_\+rec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 200 of file gaim.\+h.
+
+
+
+References fit\+\_\+avg.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{classGA_a89800eb2174f0abd287dab5ce9016806}} 
+\index{GA@{GA}!get\_bsf@{get\_bsf}}
+\index{get\_bsf@{get\_bsf}!GA@{GA}}
+\doxysubsubsection{get\_bsf()}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$\& G\+A\+::get\+\_\+bsf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 199 of file gaim.\+h.
+
+
+
+References bsf\+\_\+genome.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{classGA_a6ebb11256ff35afe7cc718c2ec3b62ac}} 
+\index{GA@{GA}!mutation@{mutation}}
+\index{mutation@{mutation}!GA@{GA}}
+\doxysubsubsection{mutation()}
+{\footnotesize\ttfamily std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ G\+A\+::mutation (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{genome,  }\item[{R\+E\+A\+L\+\_\+}]{mutation\+\_\+rate = {\ttfamily 0.5},  }\item[{R\+E\+A\+L\+\_\+}]{variance = {\ttfamily 0.5} }\end{DoxyParamCaption})}
+
+
+
+Mutation operator method. 
+
+The basic mutation operator.
+
+By default, this is a delta mutation operator.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em genome} & The genome (genes) of an individual \\
+\hline
+\mbox{\texttt{ in}}  & {\em mutation\+\_\+rate} & Mutation rate (probability threshold) \\
+\hline
+\mbox{\texttt{ in}}  & {\em variance} & Standard deviation of the normal distribution from which the increment/decrement is drawn \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of floats (mutated genome)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The used can define his or her own method of mutation or they can use any other operator defined in the file \doxyref{mutation.\+cpp}{p.}{mutation_8cpp}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxyref{delta\+\_\+mutation()}{p.}{mutation_8cpp_aae60272d405be8a81a20d55a44852a66}, \doxyref{random\+\_\+mutation()}{p.}{mutation_8cpp_ad39dab4e9fc8e8e78867f5171302b568}, \doxyref{nonuniform\+\_\+mutation()}{p.}{mutation_8cpp_aa3b9a27967ab6548bf554a635562956e}, \doxyref{fusion\+\_\+mutation()}{p.}{mutation_8cpp_a6770e5738eb1e4fc5d2b978bd0b22cf1} 
+\end{DoxySeeAlso}
+
+
+Definition at line 237 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References delta\+\_\+mutation().
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a50729f556dc050a9ad3a167a4f3b57c6}} 
+\index{GA@{GA}!next\_generation@{next\_generation}}
+\index{next\_generation@{next\_generation}!GA@{GA}}
+\doxysubsubsection{next\_generation()}
+{\footnotesize\ttfamily void G\+A\+::next\+\_\+generation (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{perc = {\ttfamily 3} }\end{DoxyParamCaption})}
+
+
+
+Generate the next generation out of current individuals and. 
+
+The basic operation for forming the next generation.
+
+It determines which offspring individuals will pass their genomes to the next generation and which parents will be replaced. By default, it replaces the worst parents by the best offspring.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em perc} & The percentage of old individuals that will be replaced by new individuals. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The user can define his or her own method for the next generation. 
+\end{DoxyNote}
+
+
+Definition at line 259 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References compare\+\_\+fitness(), lambda, offsprings, and population.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_ad33d1ba273b049b8b108e9d216e02ee5}} 
+\index{GA@{GA}!pycallback@{pycallback}}
+\index{pycallback@{pycallback}!GA@{GA}}
+\doxysubsubsection{pycallback()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool G\+A\+::pycallback (\begin{DoxyParamCaption}\item[{\textbf{ Callback}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\label{classGA_aa85ba69277d8bca7bd57fd55857ecf40}} 
+\index{GA@{GA}!pycallback@{pycallback}}
+\index{pycallback@{pycallback}!GA@{GA}}
+\doxysubsubsection{pycallback()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool G\+A\+::pycallback (\begin{DoxyParamCaption}\item[{std\+::function$<$ R\+E\+A\+L\+\_\+(std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)$>$}]{func }\end{DoxyParamCaption})}
+
+
+
+Fitness callback function. 
+
+Allows the user to define a fitness function on Python side and use it with pygaim (based on pybind11).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em func} & Functional that takes a vector as input and returns a R\+E\+A\+L\+\_\+. Essentialy this is the fitness function.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True (bool)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{pygaim.\+cpp}{p.}{pygaim_8cpp}, pygaim\+\_\+demo.\+py
+\end{DoxySeeAlso}
+Destructor of \doxyref{GA}{p.}{classGA} class 
+
+Definition at line 110 of file genetic\+\_\+alg.\+cpp.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{classGA_a81fcc9b9c0c604e98ef58b382eb5744c}} 
+\index{GA@{GA}!reset\_selection\_flags@{reset\_selection\_flags}}
+\index{reset\_selection\_flags@{reset\_selection\_flags}!GA@{GA}}
+\doxysubsubsection{reset\_selection\_flags()}
+{\footnotesize\ttfamily void G\+A\+::reset\+\_\+selection\+\_\+flags (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset the flag is\+\_\+selected (used from selections methods when. 
+
+Resets selection flags.
+
+A selection flags indicate if an individual has been selected to procreate from any selection method. This method has to be used only when replace is set to true in selection method.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em (void)} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void)
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This methods has to be called after the method next\+\_\+generation and only when a selection operator without replacement has been chosen. 
+\end{DoxyWarning}
+
+
+Definition at line 287 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References population.
+
+
+
+Referenced by run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a0b8ceb2490cb2a5baaf5badfe053aa74}} 
+\index{GA@{GA}!run\_one\_generation@{run\_one\_generation}}
+\index{run\_one\_generation@{run\_one\_generation}!GA@{GA}}
+\doxysubsubsection{run\_one\_generation()}
+{\footnotesize\ttfamily void G\+A\+::run\+\_\+one\+\_\+generation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main routine for running one single generation step. 
+
+One single step of evolution (this is the main \doxyref{GA}{p.}{classGA} algorithm).
+
+Runs one step of evolution. This means that this method evaluates and sorts a population of individuals. It then selects parents, crosses and mutates their genomes, and generates the proper amount of offspring. Then it replaces the old generation with a new one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em (void)} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void) 
+\end{DoxyReturn}
+
+
+Definition at line 329 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References average\+\_\+fitness(), best\+\_\+individual, bsf, bsf\+\_\+genome, crossover(), evaluation(), fit\+\_\+avg, individual\+::fitness, fitness, individual\+::genome, hfi, lambda, lfi, mu, mutation(), next\+\_\+generation(), offsprings, population, replace\+\_\+perc, reset\+\_\+selection\+\_\+flags(), selection(), sort\+\_\+population(), and sorted\+\_\+population.
+
+
+
+Referenced by evolve(), and P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E().
+
+\mbox{\label{classGA_a6d2dde49b73927cd41ed4e792afda156}} 
+\index{GA@{GA}!selection@{selection}}
+\index{selection@{selection}!GA@{GA}}
+\doxysubsubsection{selection()}
+{\footnotesize\ttfamily std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ G\+A\+::selection (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+parents,  }\item[{int}]{k = {\ttfamily 2},  }\item[{bool}]{replace = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Genetic Algorithm basic operators. 
+
+Applies a selection operator by selecting two parents for breeding out of a whole population of individuals.
+
+Selection operator method
+
+By default this method implements a k-\/tournament selection.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em num\+\_\+parents} & Number of individuals being selected for reproduction. \\
+\hline
+\mbox{\texttt{ in}}  & {\em k} & An integer that defines the tournament size (how many individuals from the population will be drawn randomly) \\
+\hline
+\mbox{\texttt{ in}}  & {\em replace} & Defines if selection is being done with/without replacement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of individuals (parents)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The user can define his or her own selection operators or can use any other operator defined in the file \doxyref{selection.\+cpp}{p.}{selection_8cpp}.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxyref{ktournament\+\_\+selection()}{p.}{selection_8cpp_a9abad039f558ff4565614a90e0222e48}, \doxyref{roulette\+\_\+wheel\+\_\+selection()}{p.}{selection_8cpp_aaf7a7082658144642a54b8f309a507bc}, \doxyref{linear\+\_\+rank\+\_\+selection()}{p.}{selection_8cpp_a51405693b105cb75be857ea28f3cc568}, \doxyref{random\+\_\+selection()}{p.}{selection_8cpp_af0baff9b36cc1f200a3cf96fefaaaae1}, \doxyref{stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection()}{p.}{selection_8cpp_a9620d28577a5545f313e43c4fc8f7436}, trunctation\+\_\+selection() 
+\end{DoxySeeAlso}
+
+
+Definition at line 183 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References ktournament\+\_\+selection(), and population.
+
+
+
+Referenced by P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a769edcef11f0529ece816874513f884c}} 
+\index{GA@{GA}!sort\_population@{sort\_population}}
+\index{sort\_population@{sort\_population}!GA@{GA}}
+\doxysubsubsection{sort\_population()}
+{\footnotesize\ttfamily void G\+A\+::sort\+\_\+population (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Sorting individuals based on their fitness value. 
+
+Sorts the individuals within a population based on their fitness value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void) 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file genetic\+\_\+alg.\+cpp.
+
+
+
+References compare\+\_\+fitness(), population, and sorted\+\_\+population.
+
+
+
+Referenced by evolve(), P\+Y\+B\+I\+N\+D11\+\_\+\+M\+O\+D\+U\+L\+E(), and run\+\_\+one\+\_\+generation().
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\label{classGA_aa57c4a1cfccad26d7a06fd15cf4c8fb0}} 
+\index{GA@{GA}!IM@{IM}}
+\index{IM@{IM}!GA@{GA}}
+\doxysubsubsection{IM}
+{\footnotesize\ttfamily friend class \textbf{ IM}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Genome size (number of genes) 
+
+
+
+Definition at line 234 of file gaim.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classGA_a1d84718aa34bc280c586b8dbd237d19f}} 
+\index{GA@{GA}!alpha@{alpha}}
+\index{alpha@{alpha}!GA@{GA}}
+\doxysubsubsection{alpha}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ G\+A\+::alpha\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+B\+SF genome. 
+
+
+
+Definition at line 227 of file gaim.\+h.
+
+
+
+Referenced by G\+A().
+
+\mbox{\label{classGA_adf56d9161e7240aa8a2cf7d968723565}} 
+\index{GA@{GA}!best\_individual@{best\_individual}}
+\index{best\_individual@{best\_individual}!GA@{GA}}
+\doxysubsubsection{best\_individual}
+{\footnotesize\ttfamily \textbf{ individual\+\_\+s} G\+A\+::best\+\_\+individual}
+
+
+
+Sorted population vector. 
+
+
+
+Definition at line 219 of file gaim.\+h.
+
+
+
+Referenced by evolve(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a0452ea12a69c4d35ed8b15e31e98a9b8}} 
+\index{GA@{GA}!beta@{beta}}
+\index{beta@{beta}!GA@{GA}}
+\doxysubsubsection{beta}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ G\+A\+::beta\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 227 of file gaim.\+h.
+
+
+
+Referenced by G\+A().
+
+\mbox{\label{classGA_acf83f95e8a89102c0057863e54ca08a5}} 
+\index{GA@{GA}!bsf@{bsf}}
+\index{bsf@{bsf}!GA@{GA}}
+\doxysubsubsection{bsf}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ G\+A\+::bsf}
+
+
+
+Best individual (keep track) 
+
+
+
+Definition at line 220 of file gaim.\+h.
+
+
+
+Referenced by evolve(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a0ad4ecd90133aac99107b3d86d0c22f3}} 
+\index{GA@{GA}!bsf\_genome@{bsf\_genome}}
+\index{bsf\_genome@{bsf\_genome}!GA@{GA}}
+\doxysubsubsection{bsf\_genome}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ G\+A\+::bsf\+\_\+genome}
+
+
+
+Lowest fitness in the population. 
+
+
+
+Definition at line 224 of file gaim.\+h.
+
+
+
+Referenced by get\+\_\+bsf(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a30d7682cf0e54680635765bdcb40ba4b}} 
+\index{GA@{GA}!fit\_avg@{fit\_avg}}
+\index{fit\_avg@{fit\_avg}!GA@{GA}}
+\doxysubsubsection{fit\_avg}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ G\+A\+::fit\+\_\+avg}
+
+
+
+B\+SF vector (keep track) 
+
+
+
+Definition at line 221 of file gaim.\+h.
+
+
+
+Referenced by evolve(), get\+\_\+average\+\_\+fitness\+\_\+rec(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_ab159c9cfe16b5e27799e59a4a89c9127}} 
+\index{GA@{GA}!fitness@{fitness}}
+\index{fitness@{fitness}!GA@{GA}}
+\doxysubsubsection{fitness\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::function$<$ R\+E\+A\+L\+\_\+(std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&)$>$ G\+A\+::fitness}
+
+
+
+Callback for fitness function. It is used only with py\+G\+A\+IM. 
+
+Fitness function -\/ function pointer. 
+
+Definition at line 204 of file gaim.\+h.
+
+
+
+Referenced by evaluation(), G\+A(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a0bf5cfdd0ad478eb651700b4c19d6812}} 
+\index{GA@{GA}!fitness@{fitness}}
+\index{fitness@{fitness}!GA@{GA}}
+\doxysubsubsection{fitness\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \textbf{ Callback} G\+A\+::fitness}
+
+
+
+Definition at line 208 of file gaim.\+h.
+
+\mbox{\label{classGA_a92da617a43ffa69376d3ce6dcfc46f1e}} 
+\index{GA@{GA}!genome\_size@{genome\_size}}
+\index{genome\_size@{genome\_size}!GA@{GA}}
+\doxysubsubsection{genome\_size}
+{\footnotesize\ttfamily size\+\_\+t G\+A\+::genome\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of individuals being replaced. 
+
+
+
+Definition at line 232 of file gaim.\+h.
+
+
+
+Referenced by G\+A().
+
+\mbox{\label{classGA_a68c5a5c6cb9d3280f45cf7d5de162e37}} 
+\index{GA@{GA}!hfi@{hfi}}
+\index{hfi@{hfi}!GA@{GA}}
+\doxysubsubsection{hfi}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ G\+A\+::hfi}
+
+
+
+Average fitness vector (keep track) 
+
+
+
+Definition at line 222 of file gaim.\+h.
+
+
+
+Referenced by run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a841b9ebd111babd6cb0d187492e3f731}} 
+\index{GA@{GA}!immigrant@{immigrant}}
+\index{immigrant@{immigrant}!GA@{GA}}
+\doxysubsubsection{immigrant}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ G\+A\+::immigrant\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Genome\textquotesingle{}s interval limits [a, b]. 
+
+
+
+Definition at line 228 of file gaim.\+h.
+
+\mbox{\label{classGA_aa9ceaff1f5d0abb3dc8d4d5216557aa9}} 
+\index{GA@{GA}!lambda@{lambda}}
+\index{lambda@{lambda}!GA@{GA}}
+\doxysubsubsection{lambda}
+{\footnotesize\ttfamily size\+\_\+t G\+A\+::lambda\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of individuals within a population. 
+
+
+
+Definition at line 230 of file gaim.\+h.
+
+
+
+Referenced by G\+A(), next\+\_\+generation(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a98d79b2f9ade2f482e90444019a707f3}} 
+\index{GA@{GA}!lfi@{lfi}}
+\index{lfi@{lfi}!GA@{GA}}
+\doxysubsubsection{lfi}
+{\footnotesize\ttfamily std\+::vector$<$R\+E\+A\+L\+\_\+$>$ G\+A\+::lfi}
+
+
+
+Highest fitness in the population. 
+
+
+
+Definition at line 223 of file gaim.\+h.
+
+
+
+Referenced by run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a8bbd40411a7a6618e03b8837d7f2fff3}} 
+\index{GA@{GA}!mu@{mu}}
+\index{mu@{mu}!GA@{GA}}
+\doxysubsubsection{mu}
+{\footnotesize\ttfamily size\+\_\+t G\+A\+::mu\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Immigrants vector (buffer) 
+
+
+
+Definition at line 229 of file gaim.\+h.
+
+
+
+Referenced by G\+A(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_af4d8fbf8f3767e8da2604b6204ae5b46}} 
+\index{GA@{GA}!offsprings@{offsprings}}
+\index{offsprings@{offsprings}!GA@{GA}}
+\doxysubsubsection{offsprings}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ G\+A\+::offsprings}
+
+
+
+Individuals population vector. 
+
+
+
+Definition at line 217 of file gaim.\+h.
+
+
+
+Referenced by G\+A(), next\+\_\+generation(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a053c6966eeb3f494d76a467a9062dcb6}} 
+\index{GA@{GA}!population@{population}}
+\index{population@{population}!GA@{GA}}
+\doxysubsubsection{population}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ G\+A\+::population}
+
+
+
+Definition at line 216 of file gaim.\+h.
+
+
+
+Referenced by clip\+\_\+genome(), evolve(), G\+A(), next\+\_\+generation(), reset\+\_\+selection\+\_\+flags(), run\+\_\+one\+\_\+generation(), selection(), and sort\+\_\+population().
+
+\mbox{\label{classGA_aa43d57572e949a7cd64ba6140fd4cba6}} 
+\index{GA@{GA}!replace\_perc@{replace\_perc}}
+\index{replace\_perc@{replace\_perc}!GA@{GA}}
+\doxysubsubsection{replace\_perc}
+{\footnotesize\ttfamily size\+\_\+t G\+A\+::replace\+\_\+perc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of offsprings. 
+
+
+
+Definition at line 231 of file gaim.\+h.
+
+
+
+Referenced by G\+A(), and run\+\_\+one\+\_\+generation().
+
+\mbox{\label{classGA_a2920f1d9718b83395f98ec5204566ff5}} 
+\index{GA@{GA}!sorted\_population@{sorted\_population}}
+\index{sorted\_population@{sorted\_population}!GA@{GA}}
+\doxysubsubsection{sorted\_population}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ individual\+\_\+s}$>$ G\+A\+::sorted\+\_\+population}
+
+
+
+Offsprings vector. 
+
+
+
+Definition at line 218 of file gaim.\+h.
+
+
+
+Referenced by G\+A(), run\+\_\+one\+\_\+generation(), and sort\+\_\+population().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ gaim.\+h}\item 
+\textbf{ genetic\+\_\+alg.\+cpp}\end{DoxyCompactItemize}

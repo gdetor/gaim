@@ -1,0 +1,77 @@
+\doxysection{parameters.\+cpp File Reference}
+\label{parameters_8cpp}\index{parameters.cpp@{parameters.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::tuple$<$ \textbf{ ga\+\_\+parameter\+\_\+s}, \textbf{ pr\+\_\+parameter\+\_\+s}, \textbf{ im\+\_\+parameter\+\_\+s} $>$ \textbf{ read\+\_\+parameters\+\_\+file} (const char $\ast$fname)
+\begin{DoxyCompactList}\small\item\em Reads G\+A\+IM config files containing Genetic Algorithm, Island Model and printing parameters. \end{DoxyCompactList}\item 
+void \textbf{ print\+\_\+parameters} (\textbf{ ga\+\_\+parameter\+\_\+s} ga\+\_\+pms, \textbf{ pr\+\_\+parameter\+\_\+s} pr\+\_\+pms, \textbf{ im\+\_\+parameter\+\_\+s} im\+\_\+pms)
+\begin{DoxyCompactList}\small\item\em Prints parameters to a .dat file, or to stdout if \char`\"{}stdout\char`\"{} is specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides I/O of G\+A\+IM configuration files holding \doxyref{GA}{p.}{classGA}, \doxyref{IM}{p.}{classIM}, and printing/debug parameters. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{parameters_8cpp_a5c44056505c8da929fb03787b026f176}} 
+\index{parameters.cpp@{parameters.cpp}!print\_parameters@{print\_parameters}}
+\index{print\_parameters@{print\_parameters}!parameters.cpp@{parameters.cpp}}
+\doxysubsubsection{print\_parameters()}
+{\footnotesize\ttfamily void print\+\_\+parameters (\begin{DoxyParamCaption}\item[{\textbf{ ga\+\_\+parameter\+\_\+s}}]{ga\+\_\+pms,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s}}]{pr\+\_\+pms,  }\item[{\textbf{ im\+\_\+parameter\+\_\+s}}]{im\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+Prints parameters to a .dat file, or to stdout if \char`\"{}stdout\char`\"{} is specified. 
+
+Prints all the parameters to the standard output (if \char`\"{}stdout\char`\"{} is specified as where2write in the printing params) and to a file for debugging purposes.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ga\+\_\+pms} & Structure of \doxyref{GA}{p.}{classGA} parameters \\
+\hline
+\mbox{\texttt{ in}}  & {\em pr\+\_\+pms} & Structure of printing parameters \\
+\hline
+\mbox{\texttt{ in}}  & {\em im\+\_\+pms} & Structure of \doxyref{IM}{p.}{classIM} parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void function) 
+\end{DoxyReturn}
+
+
+Definition at line 208 of file parameters.\+cpp.
+
+
+
+References parameter\+\_\+ga\+::clipping\+\_\+fname, parameter\+\_\+pr\+::experiment\+\_\+name, parameter\+\_\+ga\+::generations, parameter\+\_\+ga\+::genome\+\_\+size, parameter\+\_\+im\+::is\+\_\+im\+\_\+enabled, parameter\+\_\+im\+::migration\+\_\+interval, parameter\+\_\+im\+::num\+\_\+immigrants, parameter\+\_\+im\+::num\+\_\+islands, parameter\+\_\+ga\+::num\+\_\+offsprings, parameter\+\_\+ga\+::num\+\_\+replacement, parameter\+\_\+im\+::pick\+\_\+method, parameter\+\_\+ga\+::population\+\_\+size, parameter\+\_\+pr\+::print\+\_\+average\+\_\+fitness, parameter\+\_\+pr\+::print\+\_\+best\+\_\+genome, parameter\+\_\+pr\+::print\+\_\+bsf, parameter\+\_\+pr\+::print\+\_\+fitness, parameter\+\_\+im\+::replace\+\_\+method, parameter\+\_\+ga\+::runs, parameter\+\_\+ga\+::universal\+\_\+clipping, and parameter\+\_\+pr\+::where2write.
+
+\mbox{\label{parameters_8cpp_a74daa07fe0d240921ba30b07f0bd337b}} 
+\index{parameters.cpp@{parameters.cpp}!read\_parameters\_file@{read\_parameters\_file}}
+\index{read\_parameters\_file@{read\_parameters\_file}!parameters.cpp@{parameters.cpp}}
+\doxysubsubsection{read\_parameters\_file()}
+{\footnotesize\ttfamily std\+::tuple$<$\textbf{ ga\+\_\+parameter\+\_\+s}, \textbf{ pr\+\_\+parameter\+\_\+s}, \textbf{ im\+\_\+parameter\+\_\+s}$>$ read\+\_\+parameters\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
+
+
+
+Reads G\+A\+IM config files containing Genetic Algorithm, Island Model and printing parameters. 
+
+Parameters files.
+
+Reads a configuration file (.cfg) of libconfig format, parses it and loads the parameters into the internal data structures.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & Configuration filename (libconfig format). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple of three structures (parameter\+\_\+s, print\+\_\+params\+\_\+s, im\+\_\+parameter\+\_\+s) -\/$>$ (\doxyref{GA}{p.}{classGA}, printing, \doxyref{IM}{p.}{classIM}). 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file parameters.\+cpp.
+
+
+
+References parameter\+\_\+ga\+::a, parameter\+\_\+im\+::adj\+\_\+list\+\_\+fname, parameter\+\_\+ga\+::b, parameter\+\_\+ga\+::clipping\+\_\+fname, parameter\+\_\+pr\+::experiment\+\_\+name, parameter\+\_\+ga\+::generations, parameter\+\_\+ga\+::genome\+\_\+size, parameter\+\_\+im\+::is\+\_\+im\+\_\+enabled, is\+\_\+path\+\_\+exist(), parameter\+\_\+im\+::migration\+\_\+interval, mkdir\+\_\+(), parameter\+\_\+im\+::num\+\_\+immigrants, parameter\+\_\+im\+::num\+\_\+islands, parameter\+\_\+ga\+::num\+\_\+offsprings, parameter\+\_\+ga\+::num\+\_\+replacement, parameter\+\_\+im\+::pick\+\_\+method, parameter\+\_\+ga\+::population\+\_\+size, parameter\+\_\+pr\+::print\+\_\+average\+\_\+fitness, print\+\_\+avg\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+best\+\_\+genome, print\+\_\+best\+\_\+genome(), print\+\_\+bsf(), parameter\+\_\+pr\+::print\+\_\+bsf, print\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+fitness, parameter\+\_\+im\+::replace\+\_\+method, parameter\+\_\+ga\+::runs, parameter\+\_\+ga\+::universal\+\_\+clipping, and parameter\+\_\+pr\+::where2write.
+

@@ -1,0 +1,7 @@
+\_form#0:\[ x (1 - \lambda^{{1 - \frac{t}{t_{tot}}}^r}) \]
+\_form#1:$ \Delta(b - x) $
+\_form#2:$\Delta(x - a) $
+\_form#3:\[ f({\bf x}) = \sum_{i=0}^{n}x_i^2 \]
+\_form#4:$ f({\bf x}) = An + \sum{i=0}{n}x_i^2 - A \cos(2\pi x_i) $
+\_form#5:\[ f({\bf x}) = 418.9829 n - \sum_{i=0}^{n} x_i \sin(\sqrt{|x_i|}) \]
+\_form#6:\[ f({\bf x}) = 1 + \frac{1}{4000} \sum{i=0}^{n} x_i^2 - \prod_{i=0}^{n} \cos(\frac{x_i}{\sqrt{i+1}}) \]

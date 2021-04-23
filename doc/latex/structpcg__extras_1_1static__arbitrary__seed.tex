@@ -1,0 +1,65 @@
+\doxysection{pcg\+\_\+extras\+::static\+\_\+arbitrary\+\_\+seed$<$ Int\+Type $>$ Struct Template Reference}
+\label{structpcg__extras_1_1static__arbitrary__seed}\index{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$@{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$}}
+
+
+{\ttfamily \#include $<$pcg\+\_\+extras.\+hpp$>$}
+
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr Int\+Type \textbf{ value}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr Int\+Type \textbf{ fnv} (Int\+Type hash, const char $\ast$pos)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Int\+Type$>$\newline
+struct pcg\+\_\+extras\+::static\+\_\+arbitrary\+\_\+seed$<$ Int\+Type $>$}
+
+
+
+Definition at line 595 of file pcg\+\_\+extras.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{structpcg__extras_1_1static__arbitrary__seed_ad73865d934154c023d3f74ea062f0d41}} 
+\index{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$@{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$}!fnv@{fnv}}
+\index{fnv@{fnv}!pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$@{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$}}
+\doxysubsubsection{fnv()}
+{\footnotesize\ttfamily template$<$typename Int\+Type $>$ \\
+static constexpr Int\+Type \textbf{ pcg\+\_\+extras\+::static\+\_\+arbitrary\+\_\+seed}$<$ Int\+Type $>$\+::fnv (\begin{DoxyParamCaption}\item[{Int\+Type}]{hash,  }\item[{const char $\ast$}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 597 of file pcg\+\_\+extras.\+hpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{structpcg__extras_1_1static__arbitrary__seed_a0168de8c2e22973e0d7802ed69050d6f}} 
+\index{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$@{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$}!value@{value}}
+\index{value@{value}!pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$@{pcg\_extras::static\_arbitrary\_seed$<$ IntType $>$}}
+\doxysubsubsection{value}
+{\footnotesize\ttfamily template$<$typename Int\+Type $>$ \\
+constexpr Int\+Type \textbf{ pcg\+\_\+extras\+::static\+\_\+arbitrary\+\_\+seed}$<$ Int\+Type $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= fnv(IntType(2166136261U \string^ \textcolor{keyword}{sizeof}(IntType)),}
+\DoxyCodeLine{                        \_\_DATE\_\_ \_\_TIME\_\_ \_\_FILE\_\_)}
+
+\end{DoxyCode}
+
+
+Definition at line 604 of file pcg\+\_\+extras.\+hpp.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ pcg\+\_\+extras.\+hpp}\end{DoxyCompactItemize}

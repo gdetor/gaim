@@ -1,0 +1,193 @@
+\doxysection{pcg\+\_\+detail\+::specific\+\_\+stream$<$ itype $>$ Class Template Reference}
+\label{classpcg__detail_1_1specific__stream}\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+
+
+{\ttfamily \#include $<$pcg\+\_\+random.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef itype \textbf{ state\+\_\+type}
+\item 
+typedef itype \textbf{ stream\+\_\+state}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+constexpr itype \textbf{ increment} () const
+\item 
+itype \textbf{ stream} ()
+\item 
+void \textbf{ set\+\_\+stream} (itype specific\+\_\+seq)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \textbf{ streams\+\_\+pow2} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \textbf{ can\+\_\+specify\+\_\+stream} = true
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ specific\+\_\+stream} ()=\textbf{ default}
+\item 
+\textbf{ specific\+\_\+stream} (itype specific\+\_\+seq)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+itype \textbf{ inc\+\_\+} = \textbf{ default\+\_\+increment}$<$itype$>$\+::\textbf{ increment}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr bool \textbf{ is\+\_\+mcg} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename itype$>$\newline
+class pcg\+\_\+detail\+::specific\+\_\+stream$<$ itype $>$}
+
+
+
+Definition at line 289 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\label{classpcg__detail_1_1specific__stream_ac1c9e408dfbfd9058fa8aeffef9ac3c4}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!state\_type@{state\_type}}
+\index{state\_type@{state\_type}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{state\_type}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+typedef itype \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::\textbf{ state\+\_\+type}}
+
+
+
+Definition at line 296 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1specific__stream_a1abe3bb41f33a34ab7c3bc9eeb8362a5}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!stream\_state@{stream\_state}}
+\index{stream\_state@{stream\_state}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{stream\_state}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+typedef itype \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::\textbf{ stream\+\_\+state}}
+
+
+
+Definition at line 297 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classpcg__detail_1_1specific__stream_a03f1a82cdf5883c0914903c43078b182}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!specific\_stream@{specific\_stream}}
+\index{specific\_stream@{specific\_stream}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{specific\_stream()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+\textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::\textbf{ specific\+\_\+stream} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+\mbox{\label{classpcg__detail_1_1specific__stream_a9b0d5b39c4549a7e23f3e2e12c8264b3}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!specific\_stream@{specific\_stream}}
+\index{specific\_stream@{specific\_stream}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{specific\_stream()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+\textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::\textbf{ specific\+\_\+stream} (\begin{DoxyParamCaption}\item[{itype}]{specific\+\_\+seq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 323 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classpcg__detail_1_1specific__stream_a27613848a2d0cce630b09fb3f4efd8ea}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!increment@{increment}}
+\index{increment@{increment}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{increment()}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+constexpr itype \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::increment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 299 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1specific__stream_a1cd78f949447eed81bd32151563f668a}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!set\_stream@{set\_stream}}
+\index{set\_stream@{set\_stream}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{set\_stream()}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+void \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::set\+\_\+stream (\begin{DoxyParamCaption}\item[{itype}]{specific\+\_\+seq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 308 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1specific__stream_a812f8d7df7cd7145ed563c16a55cc7a9}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!stream@{stream}}
+\index{stream@{stream}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{stream()}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+itype \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 303 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1specific__stream_ad2aa2c6e78e0a8ad1f49a00d298f832d}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!streams\_pow2@{streams\_pow2}}
+\index{streams\_pow2@{streams\_pow2}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{streams\_pow2()}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+static constexpr size\+\_\+t \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::streams\+\_\+pow2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 315 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classpcg__detail_1_1specific__stream_a3f7632a93f0732c5a7867d6432cdee30}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!can\_specify\_stream@{can\_specify\_stream}}
+\index{can\_specify\_stream@{can\_specify\_stream}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{can\_specify\_stream}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+constexpr bool \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::can\+\_\+specify\+\_\+stream = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 313 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1specific__stream_a2ce85a36b8003708f31e2ebf3544f455}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!inc\_@{inc\_}}
+\index{inc\_@{inc\_}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{inc\_}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+itype \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::inc\+\_\+ = \textbf{ default\+\_\+increment}$<$itype$>$\+::\textbf{ increment}()\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 293 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1specific__stream_ac29793333290df30fee4cf9c3037d249}} 
+\index{pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}!is\_mcg@{is\_mcg}}
+\index{is\_mcg@{is\_mcg}!pcg\_detail::specific\_stream$<$ itype $>$@{pcg\_detail::specific\_stream$<$ itype $>$}}
+\doxysubsubsection{is\_mcg}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+constexpr bool \textbf{ pcg\+\_\+detail\+::specific\+\_\+stream}$<$ itype $>$\+::is\+\_\+mcg = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 291 of file pcg\+\_\+random.\+hpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ pcg\+\_\+random.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,153 @@
+\doxysection{test\+\_\+functions.\+cpp File Reference}
+\label{test__functions_8cpp}\index{test\_functions.cpp@{test\_functions.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+R\+E\+A\+L\+\_\+ \textbf{ sphere} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Sphere cost function. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ rastrigin} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Rastrigin cost function. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ schwefel} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Schwefel cost function. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ griewank} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Griewangk cost function. \end{DoxyCompactList}\item 
+int \textbf{ distance} (int x, int y)
+\item 
+R\+E\+A\+L\+\_\+ \textbf{ tsm} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Furnishes a small collection of standard test objective functions typically used as benchmarks in numerical optimization. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{test__functions_8cpp_aeecd6e89e2a3202942f8bc969295608a}} 
+\index{test\_functions.cpp@{test\_functions.cpp}!distance@{distance}}
+\index{distance@{distance}!test\_functions.cpp@{test\_functions.cpp}}
+\doxysubsubsection{distance()}
+{\footnotesize\ttfamily int distance (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 110 of file test\+\_\+functions.\+cpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::advance(), pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::backstep(), pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::distance(), pcg\+\_\+detail\+::inside\+\_\+out$<$ baseclass $>$\+::external\+\_\+advance(), and tsm().
+
+\mbox{\label{test__functions_8cpp_ab16264d38d5a269f2f00c3707f221167}} 
+\index{test\_functions.cpp@{test\_functions.cpp}!griewank@{griewank}}
+\index{griewank@{griewank}!test\_functions.cpp@{test\_functions.cpp}}
+\doxysubsubsection{griewank()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ griewank (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Griewangk cost function. 
+
+Griewangk cost function \[ f({\bf x}) = 1 + \frac{1}{4000} \sum{i=0}^{n} x_i^2 - \prod_{i=0}^{n} \cos(\frac{x_i}{\sqrt{i+1}}) \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file test\+\_\+functions.\+cpp.
+
+\mbox{\label{test__functions_8cpp_afa129890421082451d3c2a8025e9d824}} 
+\index{test\_functions.cpp@{test\_functions.cpp}!rastrigin@{rastrigin}}
+\index{rastrigin@{rastrigin}!test\_functions.cpp@{test\_functions.cpp}}
+\doxysubsubsection{rastrigin()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ rastrigin (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Rastrigin cost function. 
+
+Rastrigin cost function \[ f({\bf x}) = An + \sum{i=0}{n}x_i^2 − A\cos(2\pi x_i) \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file test\+\_\+functions.\+cpp.
+
+\mbox{\label{test__functions_8cpp_ad56869b41fd72a0d395063964218a3db}} 
+\index{test\_functions.cpp@{test\_functions.cpp}!schwefel@{schwefel}}
+\index{schwefel@{schwefel}!test\_functions.cpp@{test\_functions.cpp}}
+\doxysubsubsection{schwefel()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ schwefel (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Schwefel cost function. 
+
+Schwefel cost function \[ f({\bf x}) = 418.9829 n - \sum_{i=0}^{n} x_i \sin(\sqrt{|x_i|}) \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file test\+\_\+functions.\+cpp.
+
+\mbox{\label{test__functions_8cpp_ad3b9262a03a70913ca68f43f383a0123}} 
+\index{test\_functions.cpp@{test\_functions.cpp}!sphere@{sphere}}
+\index{sphere@{sphere}!test\_functions.cpp@{test\_functions.cpp}}
+\doxysubsubsection{sphere()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ sphere (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Sphere cost function. 
+
+Demo functions End-\/user can define more at her/his will.
+
+Sphere cost function \[ f({\bf x}) = \sum_{i=0}^{n}x_i^2 \]
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A number indicating the cost 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file test\+\_\+functions.\+cpp.
+
+
+
+Referenced by G\+A\+::\+G\+A().
+
+\mbox{\label{test__functions_8cpp_a4cb94ce044c729ba9a0a7be0444b9ad6}} 
+\index{test\_functions.cpp@{test\_functions.cpp}!tsm@{tsm}}
+\index{tsm@{tsm}!test\_functions.cpp@{test\_functions.cpp}}
+\doxysubsubsection{tsm()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ tsm (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file test\+\_\+functions.\+cpp.
+
+
+
+References distance().
+

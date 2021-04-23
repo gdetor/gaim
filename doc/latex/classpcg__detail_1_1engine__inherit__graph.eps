@@ -1,0 +1,521 @@
+%!PS-Adobe-3.0
+%%Creator: graphviz version 2.43.0 (0)
+%%Title: pcg_detail::engine&lt; xtype, itype, output_mixin, output_previous, stream_mixin, multiplier_mixin &gt;
+%%Pages: (atend)
+%%BoundingBox: (atend)
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+/tapered { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 662 163
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 626 127 boxprim clip newpath
+1 1 set_scale 0 rotate 40 40 translate
+% Node1
+gsave
+0 0 0.74902 nodecolor
+newpath 495 33 moveto
+495 96 lineto
+618 96 lineto
+618 33 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 495 33 moveto
+495 96 lineto
+618 96 lineto
+618 33 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+503 84 moveto 79 (pcg_detail::engine) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+503 73 moveto 94 (< xtype, itype, output) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+503 62 moveto 107 (_mixin, output_previous,) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+503 51 moveto 107 ( stream_mixin, multiplier) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+537.5 40 moveto 38 (_mixin >) alignedtext
+grestore
+% Node2
+gsave
+0 0 1 nodecolor
+newpath 372 99 moveto
+372 118 lineto
+444 118 lineto
+444 99 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.74902 nodecolor
+newpath 372 99 moveto
+372 118 lineto
+444 118 lineto
+444 99 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+380 106 moveto 56 (output_mixin) alignedtext
+grestore
+% Node2->Node1
+gsave
+1 setlinewidth
+solid
+0.33333 1 0.39216 edgecolor
+newpath 450.4618 96.0473 moveto
+464.2499 91.9062 479.9024 87.2051 494.8355 82.7201 curveto
+stroke
+0.33333 1 0.39216 edgecolor
+newpath 449.3589 92.724 moveto
+440.7883 98.9527 lineto
+451.3725 99.4282 lineto
+closepath fill
+1 setlinewidth
+solid
+0.33333 1 0.39216 edgecolor
+newpath 449.3589 92.724 moveto
+440.7883 98.9527 lineto
+451.3725 99.4282 lineto
+closepath stroke
+grestore
+% Node3
+gsave
+[ /Rect [ 359 49 457 80 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classpcg__detail_1_1oneseq__stream.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 359 49.5 moveto
+359 79.5 lineto
+457 79.5 lineto
+457 49.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 359 49.5 moveto
+359 79.5 lineto
+457 79.5 lineto
+457 49.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+367 67.5 moveto 82 (pcg_detail::oneseq) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+370.5 56.5 moveto 75 (_stream< itype >) alignedtext
+grestore
+% Node3->Node1
+gsave
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 467.4163 64.5 moveto
+476.4554 64.5 485.8091 64.5 494.895 64.5 curveto
+stroke
+0.66667 0.77647 0.43922 edgecolor
+newpath 467.3756 61.0001 moveto
+457.3756 64.5 lineto
+467.3756 68.0001 lineto
+closepath fill
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 467.3756 61.0001 moveto
+457.3756 64.5 lineto
+467.3756 68.0001 lineto
+closepath stroke
+grestore
+% Node4
+gsave
+[ /Rect [ 175 49 279 80 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($structpcg__detail_1_1default__increment.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 175 49.5 moveto
+175 79.5 lineto
+279 79.5 lineto
+279 49.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 175 49.5 moveto
+175 79.5 lineto
+279 79.5 lineto
+279 49.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+183 67.5 moveto 80 (pcg_detail::default) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+183 56.5 moveto 88 (_increment< itype >) alignedtext
+grestore
+% Node4->Node3
+gsave
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 289.4906 64.5 moveto
+312.1426 64.5 337.4567 64.5 358.7719 64.5 curveto
+stroke
+0.66667 0.77647 0.43922 edgecolor
+newpath 289.2943 61.0001 moveto
+279.2942 64.5 lineto
+289.2942 68.0001 lineto
+closepath fill
+1 setlinewidth
+solid
+0.66667 0.77647 0.43922 edgecolor
+newpath 289.2943 61.0001 moveto
+279.2942 64.5 lineto
+289.2942 68.0001 lineto
+closepath stroke
+grestore
+% Node5
+gsave
+[ /Rect [ 0 49 96 80 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($structpcg__detail_1_1default__increment.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 0 49.5 moveto
+0 79.5 lineto
+96 79.5 lineto
+96 49.5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 0 49.5 moveto
+0 79.5 lineto
+96 79.5 lineto
+96 49.5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+8 67.5 moveto 80 (pcg_detail::default) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+11.5 56.5 moveto 73 (_increment< T >) alignedtext
+grestore
+% Node5->Node4
+gsave
+1 setlinewidth
+dashed
+0.10588 1 1 edgecolor
+newpath 106.6138 64.5 moveto
+128.5547 64.5 153.3917 64.5 174.7077 64.5 curveto
+stroke
+0.10588 1 1 edgecolor
+newpath 106.4328 61.0001 moveto
+96.4328 64.5 lineto
+106.4327 68.0001 lineto
+closepath fill
+1 setlinewidth
+solid
+0.10588 1 1 edgecolor
+newpath 106.4328 61.0001 moveto
+96.4328 64.5 lineto
+106.4327 68.0001 lineto
+closepath stroke
+0 0 0 edgecolor
+10 /Helvetica set_font
+114 67.5 moveto 43 ( < itype >) alignedtext
+grestore
+% Node6
+gsave
+[ /Rect [ 358 0 458 31 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($structpcg__detail_1_1default__multiplier.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 358 .5 moveto
+358 30.5 lineto
+458 30.5 lineto
+458 .5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 358 .5 moveto
+358 30.5 lineto
+458 30.5 lineto
+458 .5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+366 18.5 moveto 80 (pcg_detail::default) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+366 7.5 moveto 84 (_multiplier< itype >) alignedtext
+grestore
+% Node6->Node1
+gsave
+1 setlinewidth
+solid
+0.33333 1 0.39216 edgecolor
+newpath 463.708 33.7982 moveto
+473.8687 37.1967 484.539 40.7656 494.8644 44.2192 curveto
+stroke
+0.33333 1 0.39216 edgecolor
+newpath 464.744 30.4542 moveto
+454.1502 30.6014 lineto
+462.5236 37.0928 lineto
+closepath fill
+1 setlinewidth
+solid
+0.33333 1 0.39216 edgecolor
+newpath 464.744 30.4542 moveto
+454.1502 30.6014 lineto
+462.5236 37.0928 lineto
+closepath stroke
+grestore
+% Node7
+gsave
+[ /Rect [ 179 0 275 31 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($structpcg__detail_1_1default__multiplier.html) >>
+  /Subtype /Link
+/ANN pdfmark
+0 0 1 nodecolor
+newpath 179 .5 moveto
+179 30.5 lineto
+275 30.5 lineto
+275 .5 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0 nodecolor
+newpath 179 .5 moveto
+179 30.5 lineto
+275 30.5 lineto
+275 .5 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Helvetica set_font
+187 18.5 moveto 80 (pcg_detail::default) alignedtext
+0 0 0 nodecolor
+10 /Helvetica set_font
+192.5 7.5 moveto 69 (_multiplier< T >) alignedtext
+grestore
+% Node7->Node6
+gsave
+1 setlinewidth
+dashed
+0.10588 1 1 edgecolor
+newpath 285.1575 15.5 moveto
+308.5287 15.5 335.2996 15.5 357.7841 15.5 curveto
+stroke
+0.10588 1 1 edgecolor
+newpath 285.0302 12.0001 moveto
+275.0301 15.5 lineto
+285.0301 19.0001 lineto
+closepath fill
+1 setlinewidth
+solid
+0.10588 1 1 edgecolor
+newpath 285.0302 12.0001 moveto
+275.0301 15.5 lineto
+285.0301 19.0001 lineto
+closepath stroke
+0 0 0 edgecolor
+10 /Helvetica set_font
+297 18.5 moveto 43 ( < itype >) alignedtext
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+%%BoundingBox: 36 36 662 163
+end
+restore
+%%EOF

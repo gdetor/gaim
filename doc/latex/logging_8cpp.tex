@@ -1,0 +1,220 @@
+\doxysection{logging.\+cpp File Reference}
+\label{logging_8cpp}\index{logging.cpp@{logging.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \textbf{ prd} (const R\+E\+A\+L\+\_\+ x, const int dec\+Digits, const int width)
+\begin{DoxyCompactList}\small\item\em Converts a number to a string with specific format and tabs. \end{DoxyCompactList}\item 
+std\+::string \textbf{ center} (const std\+::string s, const int w)
+\begin{DoxyCompactList}\small\item\em Centers a string so it can be printed in a pretty way. \end{DoxyCompactList}\item 
+void \textbf{ print\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&\textbf{ individual}, std\+::size\+\_\+t unique\+\_\+id, std\+::string write\+\_\+to)
+\begin{DoxyCompactList}\small\item\em Prints the fitness of each individual within a population, as well as its ID, either to standard output (stdout) or to a file. \end{DoxyCompactList}\item 
+void \textbf{ print\+\_\+bsf} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ bsf, std\+::size\+\_\+t unique\+\_\+id, std\+::string write\+\_\+to)
+\begin{DoxyCompactList}\small\item\em Prints the best-\/so-\/far fitness (B\+SF) of a population either to standard output (stdout) or to a file. \end{DoxyCompactList}\item 
+void \textbf{ print\+\_\+avg\+\_\+fitness} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ fit\+\_\+avg, std\+::size\+\_\+t unique\+\_\+id, std\+::string write\+\_\+to)
+\begin{DoxyCompactList}\small\item\em Prints the average fitness of a population either to standard output (stdout) or to a file. \end{DoxyCompactList}\item 
+void \textbf{ print\+\_\+best\+\_\+genome} (std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$ best\+\_\+genome, std\+::size\+\_\+t unique\+\_\+id, std\+::string write\+\_\+to)
+\begin{DoxyCompactList}\small\item\em Prints the genome of an individual of a population with the best fitness either to standard output (stdout) or to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages serialization of fitness (avg or B\+SF) and genomes, as well as providing prettyprinting. ~\newline
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{logging_8cpp_ae57363fe94764993a5091a36c236c7b5}} 
+\index{logging.cpp@{logging.cpp}!center@{center}}
+\index{center@{center}!logging.cpp@{logging.cpp}}
+\doxysubsubsection{center()}
+{\footnotesize\ttfamily std\+::string center (\begin{DoxyParamCaption}\item[{const std\+::string}]{s,  }\item[{const int}]{w }\end{DoxyParamCaption})}
+
+
+
+Centers a string so it can be printed in a pretty way. 
+
+Printing Functions.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s} & The input string to be centered \\
+\hline
+\mbox{\texttt{ in}}  & {\em w} & The width of the total string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string that is centered and padded with spaces 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file logging.\+cpp.
+
+
+
+Referenced by print\+\_\+avg\+\_\+fitness(), print\+\_\+bsf(), and print\+\_\+fitness().
+
+\mbox{\label{logging_8cpp_afdaec33857f49ebe29a19907e69e8e7f}} 
+\index{logging.cpp@{logging.cpp}!prd@{prd}}
+\index{prd@{prd}!logging.cpp@{logging.cpp}}
+\doxysubsubsection{prd()}
+{\footnotesize\ttfamily std\+::string prd (\begin{DoxyParamCaption}\item[{const R\+E\+A\+L\+\_\+}]{x,  }\item[{const int}]{dec\+Digits,  }\item[{const int}]{width }\end{DoxyParamCaption})}
+
+
+
+Converts a number to a string with specific format and tabs. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Number to be converted to string \\
+\hline
+\mbox{\texttt{ in}}  & {\em dec\+Digits} & Number of decimal digits to be used \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & Width of the string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string that contains the number x 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file logging.\+cpp.
+
+
+
+Referenced by print\+\_\+avg\+\_\+fitness(), print\+\_\+bsf(), and print\+\_\+fitness().
+
+\mbox{\label{logging_8cpp_a8b932b6fc349b51aeb4c62dca775c94b}} 
+\index{logging.cpp@{logging.cpp}!print\_avg\_fitness@{print\_avg\_fitness}}
+\index{print\_avg\_fitness@{print\_avg\_fitness}!logging.cpp@{logging.cpp}}
+\doxysubsubsection{print\_avg\_fitness()}
+{\footnotesize\ttfamily void print\+\_\+avg\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{fit\+\_\+avg,  }\item[{std\+::size\+\_\+t}]{unique\+\_\+id,  }\item[{std\+::string}]{write\+\_\+to }\end{DoxyParamCaption})}
+
+
+
+Prints the average fitness of a population either to standard output (stdout) or to a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fit\+\_\+avg} & Average fitness of a population over generations \\
+\hline
+\mbox{\texttt{ in}}  & {\em unique\+\_\+id} & This is the thread id in case the Island Model is used otherwise it can be any number of type size\+\_\+t \\
+\hline
+\mbox{\texttt{ in}}  & {\em write\+\_\+to} & A string that defines where the fitness will be displayed (\char`\"{}stdout\char`\"{} or \char`\"{}/path/to/file\char`\"{})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing. (void) 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file logging.\+cpp.
+
+
+
+References center(), is\+\_\+path\+\_\+exist(), and prd().
+
+
+
+Referenced by G\+A\+::evolve(), I\+M\+::evolve\+\_\+island(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{logging_8cpp_a046f6f4e9d50b4045eab576c4457a12b}} 
+\index{logging.cpp@{logging.cpp}!print\_best\_genome@{print\_best\_genome}}
+\index{print\_best\_genome@{print\_best\_genome}!logging.cpp@{logging.cpp}}
+\doxysubsubsection{print\_best\_genome()}
+{\footnotesize\ttfamily void print\+\_\+best\+\_\+genome (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{best\+\_\+genome,  }\item[{std\+::size\+\_\+t}]{unique\+\_\+id,  }\item[{std\+::string}]{write\+\_\+to }\end{DoxyParamCaption})}
+
+
+
+Prints the genome of an individual of a population with the best fitness either to standard output (stdout) or to a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em best\+\_\+genome} & Vector of the best genome within a population \\
+\hline
+\mbox{\texttt{ in}}  & {\em unique\+\_\+id} & This is the thread id in case the Island Model is used otherwise it can be any number of type size\+\_\+t \\
+\hline
+\mbox{\texttt{ in}}  & {\em write\+\_\+to} & A string that defines where the fitness will be displayed (\char`\"{}stdout\char`\"{} or \char`\"{}/path/to/file\char`\"{})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing. (void) 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file logging.\+cpp.
+
+
+
+References is\+\_\+path\+\_\+exist().
+
+
+
+Referenced by G\+A\+::evolve(), I\+M\+::evolve\+\_\+island(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{logging_8cpp_a1d67a71cb4347738cb11f392964c2557}} 
+\index{logging.cpp@{logging.cpp}!print\_bsf@{print\_bsf}}
+\index{print\_bsf@{print\_bsf}!logging.cpp@{logging.cpp}}
+\doxysubsubsection{print\_bsf()}
+{\footnotesize\ttfamily void print\+\_\+bsf (\begin{DoxyParamCaption}\item[{std\+::vector$<$ R\+E\+A\+L\+\_\+ $>$}]{bsf,  }\item[{std\+::size\+\_\+t}]{unique\+\_\+id,  }\item[{std\+::string}]{write\+\_\+to }\end{DoxyParamCaption})}
+
+
+
+Prints the best-\/so-\/far fitness (B\+SF) of a population either to standard output (stdout) or to a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bsf} & Best-\/so-\/far individual\textquotesingle{}s fitness over generations \\
+\hline
+\mbox{\texttt{ in}}  & {\em unique\+\_\+id} & This is the thread id in case the Island Model is used otherwise it can be any number of type size\+\_\+t \\
+\hline
+\mbox{\texttt{ in}}  & {\em write\+\_\+to} & A string that defines where the fitness will be displayed (\char`\"{}stdout\char`\"{} or \char`\"{}/path/to/file\char`\"{})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing. (void) 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file logging.\+cpp.
+
+
+
+References center(), is\+\_\+path\+\_\+exist(), and prd().
+
+
+
+Referenced by G\+A\+::evolve(), I\+M\+::evolve\+\_\+island(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{logging_8cpp_a5342657743410aec95d13afb64d8f625}} 
+\index{logging.cpp@{logging.cpp}!print\_fitness@{print\_fitness}}
+\index{print\_fitness@{print\_fitness}!logging.cpp@{logging.cpp}}
+\doxysubsubsection{print\_fitness()}
+{\footnotesize\ttfamily void print\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ \&}]{individual,  }\item[{std\+::size\+\_\+t}]{unique\+\_\+id,  }\item[{std\+::string}]{write\+\_\+to }\end{DoxyParamCaption})}
+
+
+
+Prints the fitness of each individual within a population, as well as its ID, either to standard output (stdout) or to a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em individual} & The population vector \\
+\hline
+\mbox{\texttt{ in}}  & {\em unique\+\_\+id} & This is the thread id in case the Island Model is used; otherwise it can be any number of type size\+\_\+t \\
+\hline
+\mbox{\texttt{ in}}  & {\em write\+\_\+to} & A string that defines where the fitness will be displayed (\char`\"{}stdout\char`\"{} or \char`\"{}/path/to/file\char`\"{})\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing. (void) 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file logging.\+cpp.
+
+
+
+References center(), is\+\_\+path\+\_\+exist(), and prd().
+
+
+
+Referenced by G\+A\+::evolve(), I\+M\+::evolve\+\_\+island(), and read\+\_\+parameters\+\_\+file().
+

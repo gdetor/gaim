@@ -1,0 +1,60 @@
+UNAME_S:=$(shell uname -s)
+
+CC:=g++
+
+# Folders
+SRCDIR:=src
+INCDIR:=include
+BUILDDIR:=build
+TARGETDIR:=bin
+LIBDIR:=lib
+
+# Targets
+EXECUTABLE:=genc
+TARGET:=$(TARGETDIR)/$(EXECUTABLE)
+LIBNAME:=yagen
+LTARGET:=$(LIBDIR)/$(LIBNAME)
+
+# Final Paths
+INSTALLBINDIR:=bin/
+
+# Code Lists
+SRCEXT:=cpp
+
+SOURCE:=$(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+SOURCES:=$(filter-out src/main.cpp, $(SOURCE))
+OBJECTS:=$(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+
+SRCTEST:=$(wildcard $(TESTDIR)/%.cpp)
+TESTOBJ:=$(patsubst $(TESTSDIR)/%,$(BUILDDIR)/%,$(SRCTEST:.$(SRCEXT)=.o))
+
+INCDIRS:=$(shell find $(INCDIR) -name '*.h' -exec dirname {} \; | sort | uniq)
+INCLIST:=$(patsubst include/%,-I include/%,$(INCDIRS))
+BUILDLIST:=$(patsubst include/%,$(BUILDDIR)/%,$(INCDIRS))
+INC:=-I $(INCLIST)
+
+# Shared Compiler Flags
+CFLAGS:=-c -Wall -g -std=c++14 -I include/
+
+LIB:= -lm -lpthread -lboost_iostreams -lboost_system -lboost_filesystem
+
+
+$(TARGETDIR)/fitness: $(OBJECTS): $(TESTOBJ)
+	@mkdir -p $(TARGETDIR)
+	@echo "  Linking $(TARGET)"; $(CC) $^ -o $(TARGET) $(LIB)
+	
+# average_fitness: $(OBJECTS)
+# 	@mkdir -p $(TARGETDIR)
+# 	@echo "  Linking $(TARGET)"; $(CC) $^ -o $(TARGET) $(LIB)
+
+# bsf: $(OBJECTS)
+# 	@mkdir -p $(TARGETDIR)
+# 	@echo "  Linking $(TARGET)"; $(CC) $^ -o $(TARGET) $(LIB)
+	
+# independent_runs: $(OBJECTS)
+#  	@mkdir -p $(TARGETDIR)
+#  	@echo "  Linking $(TARGET)"; $(CC) $^ -o $(TARGET) $(LIB)
+
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT) : $(TESTDIR)/%.$(SRCEXT)
+	@mkdir -p $(BUILDDIR)
+	@echo "Compiling $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<

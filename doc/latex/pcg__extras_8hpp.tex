@@ -1,0 +1,72 @@
+\doxysection{pcg\+\_\+extras.\+hpp File Reference}
+\label{pcg__extras_8hpp}\index{pcg\_extras.hpp@{pcg\_extras.hpp}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ pcg\+\_\+extras\+::seed\+\_\+seq\+\_\+from$<$ Rng\+Type $>$}
+\item 
+struct \textbf{ pcg\+\_\+extras\+::static\+\_\+arbitrary\+\_\+seed$<$ Int\+Type $>$}
+\item 
+struct \textbf{ pcg\+\_\+extras\+::printable\+\_\+typename$<$ T $>$}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \textbf{ pcg\+\_\+extras}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \+\_\+\+\_\+uint128\+\_\+t \textbf{ pcg\+\_\+extras\+::pcg128\+\_\+t}
+\item 
+typedef uint8\+\_\+t \textbf{ pcg\+\_\+extras\+::bitcount\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+extras\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, pcg128\+\_\+t value)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+extras\+::operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, pcg128\+\_\+t \&value)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+extras\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, uint8\+\_\+t value)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ pcg\+\_\+extras\+::operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, uint8\+\_\+t target)
+\item 
+std\+::ostream \& \textbf{ pcg\+\_\+extras\+::operator$<$$<$} (std\+::ostream \&out, uint8\+\_\+t value)
+\item 
+std\+::istream \& \textbf{ pcg\+\_\+extras\+::operator$>$$>$} (std\+::istream \&in, uint8\+\_\+t \&value)
+\item 
+{\footnotesize template$<$typename itype $>$ }\\itype \textbf{ pcg\+\_\+extras\+::unxorshift} (itype x, bitcount\+\_\+t bits, bitcount\+\_\+t shift)
+\item 
+{\footnotesize template$<$typename itype $>$ }\\itype \textbf{ pcg\+\_\+extras\+::rotl} (itype value, bitcount\+\_\+t rot)
+\item 
+{\footnotesize template$<$typename itype $>$ }\\itype \textbf{ pcg\+\_\+extras\+::rotr} (itype value, bitcount\+\_\+t rot)
+\item 
+uint8\+\_\+t \textbf{ pcg\+\_\+extras\+::rotr} (uint8\+\_\+t value, bitcount\+\_\+t rot)
+\item 
+uint16\+\_\+t \textbf{ pcg\+\_\+extras\+::rotr} (uint16\+\_\+t value, bitcount\+\_\+t rot)
+\item 
+uint32\+\_\+t \textbf{ pcg\+\_\+extras\+::rotr} (uint32\+\_\+t value, bitcount\+\_\+t rot)
+\item 
+uint64\+\_\+t \textbf{ pcg\+\_\+extras\+::rotr} (uint64\+\_\+t value, bitcount\+\_\+t rot)
+\item 
+{\footnotesize template$<$class Src\+Iter , class Dest\+Iter $>$ }\\Src\+Iter \textbf{ pcg\+\_\+extras\+::uneven\+\_\+copy\+\_\+impl} (Src\+Iter src\+\_\+first, Dest\+Iter dest\+\_\+first, Dest\+Iter dest\+\_\+last, std\+::true\+\_\+type)
+\item 
+{\footnotesize template$<$class Src\+Iter , class Dest\+Iter $>$ }\\Src\+Iter \textbf{ pcg\+\_\+extras\+::uneven\+\_\+copy\+\_\+impl} (Src\+Iter src\+\_\+first, Dest\+Iter dest\+\_\+first, Dest\+Iter dest\+\_\+last, std\+::false\+\_\+type)
+\item 
+{\footnotesize template$<$class Src\+Iter , class Dest\+Iter $>$ }\\Src\+Iter \textbf{ pcg\+\_\+extras\+::uneven\+\_\+copy} (Src\+Iter src\+\_\+first, Dest\+Iter dest\+\_\+first, Dest\+Iter dest\+\_\+last)
+\item 
+{\footnotesize template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ }\\void \textbf{ pcg\+\_\+extras\+::generate\+\_\+to\+\_\+impl} (Seed\+Seq \&\&generator, Dest\+Iter dest, std\+::true\+\_\+type)
+\item 
+{\footnotesize template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ }\\void \textbf{ pcg\+\_\+extras\+::generate\+\_\+to\+\_\+impl} (Seed\+Seq \&\&generator, Dest\+Iter dest, std\+::false\+\_\+type)
+\item 
+{\footnotesize template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ }\\void \textbf{ pcg\+\_\+extras\+::generate\+\_\+to} (Seed\+Seq \&\&generator, Dest\+Iter dest)
+\item 
+{\footnotesize template$<$typename U\+Int , size\+\_\+t i = 0\+UL, size\+\_\+t N = i+1\+UL, typename Seed\+Seq $>$ }\\U\+Int \textbf{ pcg\+\_\+extras\+::generate\+\_\+one} (Seed\+Seq \&\&generator)
+\item 
+{\footnotesize template$<$typename Rng\+Type $>$ }\\auto \textbf{ pcg\+\_\+extras\+::bounded\+\_\+rand} (Rng\+Type \&rng, typename Rng\+Type\+::result\+\_\+type upper\+\_\+bound) -\/$>$ typename Rng\+Type\+::result\+\_\+type
+\item 
+{\footnotesize template$<$typename Iter , typename Rand\+Type $>$ }\\void \textbf{ pcg\+\_\+extras\+::shuffle} (Iter from, Iter to, Rand\+Type \&\&rng)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \textbf{ pcg\+\_\+extras\+::operator$<$$<$} (std\+::ostream \&out, printable\+\_\+typename$<$ T $>$)
+\end{DoxyCompactItemize}

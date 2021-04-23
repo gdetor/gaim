@@ -1,0 +1,488 @@
+\doxysection{IM Class Reference}
+\label{classIM}\index{IM@{IM}}
+
+
+Island Model main class.  
+
+
+
+
+{\ttfamily \#include $<$gaim.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ IM} (\textbf{ im\+\_\+parameter\+\_\+s} $\ast$, \textbf{ ga\+\_\+parameter\+\_\+s} $\ast$)
+\begin{DoxyCompactList}\small\item\em Constructor of Island Model (\doxyref{IM}{p.}{classIM}) class. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+IM} ()
+\begin{DoxyCompactList}\small\item\em \doxyref{IM}{p.}{classIM} Constructor method. \end{DoxyCompactList}\item 
+void \textbf{ select\+\_\+ind2migrate} (size\+\_\+t, size\+\_\+t, std\+::string method=\char`\"{}random\char`\"{})
+\begin{DoxyCompactList}\small\item\em \doxyref{IM}{p.}{classIM} Destructor method. \end{DoxyCompactList}\item 
+void \textbf{ move\+\_\+immigrants} (size\+\_\+t, size\+\_\+t, std\+::string)
+\begin{DoxyCompactList}\small\item\em Immigration method. It moves the immigrants (individuals) from one. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ read\+\_\+connectivity\+\_\+graph} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Island Model secondary operations methods. \end{DoxyCompactList}\item 
+void \textbf{ evolve\+\_\+island} (size\+\_\+t, \textbf{ im\+\_\+parameter\+\_\+s} $\ast$, \textbf{ pr\+\_\+parameter\+\_\+s} $\ast$)
+\begin{DoxyCompactList}\small\item\em Evolves an island (thread function) \end{DoxyCompactList}\item 
+void \textbf{ run\+\_\+islands} (\textbf{ im\+\_\+parameter\+\_\+s} $\ast$, \textbf{ pr\+\_\+parameter\+\_\+s} $\ast$)
+\begin{DoxyCompactList}\small\item\em Runs the Island Models. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \textbf{ GA} $>$ \textbf{ island}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+R\+E\+A\+L\+\_\+ \textbf{ a}
+\begin{DoxyCompactList}\small\item\em Islands (threads) vector. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ b}
+\item 
+std\+::map$<$ int, std\+::vector$<$ int $>$ $>$ \textbf{ adj\+\_\+list}
+\begin{DoxyCompactList}\small\item\em Genome\textquotesingle{}s interval [a, b]. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ generations}
+\begin{DoxyCompactList}\small\item\em Adjacent list of islands. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ num\+\_\+immigrants}
+\begin{DoxyCompactList}\small\item\em Generations. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ num\+\_\+islands}
+\begin{DoxyCompactList}\small\item\em Number of immigrants. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ migration\+\_\+interval}
+\begin{DoxyCompactList}\small\item\em Number of islands (threads) \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ migration\+\_\+steps}
+\begin{DoxyCompactList}\small\item\em Migration interval. \end{DoxyCompactList}\item 
+std\+::mutex \textbf{ mtx}
+\begin{DoxyCompactList}\small\item\em Generations / Migration Interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Island Model main class. 
+
+Island Model class contains methods to run an Island Model (\doxyref{IM}{p.}{classIM}) optimization. The class instance reads the topology from a file and builds a map (adjacency list). Moreover, provides methods for individuals selection and immigration over islands (threads). 
+
+Definition at line 246 of file gaim.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classIM_a7899c310524ff324c00a92e4ad3806c8}} 
+\index{IM@{IM}!IM@{IM}}
+\index{IM@{IM}!IM@{IM}}
+\doxysubsubsection{IM()}
+{\footnotesize\ttfamily I\+M\+::\+IM (\begin{DoxyParamCaption}\item[{\textbf{ im\+\_\+parameter\+\_\+s} $\ast$}]{im\+\_\+pms,  }\item[{\textbf{ ga\+\_\+parameter\+\_\+s} $\ast$}]{ga\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+Constructor of Island Model (\doxyref{IM}{p.}{classIM}) class. 
+
+Initializes all the necessary parameters and vectors for running an Island Model and evolve different islands (threads) based on a predermined Genetic Algorithm (\doxyref{GA}{p.}{classGA}).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em im\+\_\+pms} & Structure of \doxyref{IM}{p.}{classIM} parameters \\
+\hline
+\mbox{\texttt{ in}}  & {\em ga\+\_\+pms} & Structure of \doxyref{GA}{p.}{classGA} parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file island\+\_\+ga.\+cpp.
+
+
+
+References parameter\+\_\+ga\+::a, a, parameter\+\_\+im\+::adj\+\_\+list\+\_\+fname, parameter\+\_\+ga\+::b, b, parameter\+\_\+ga\+::generations, island, parameter\+\_\+im\+::migration\+\_\+interval, migration\+\_\+interval, migration\+\_\+steps, parameter\+\_\+im\+::num\+\_\+immigrants, num\+\_\+immigrants, parameter\+\_\+im\+::num\+\_\+islands, num\+\_\+islands, and read\+\_\+connectivity\+\_\+graph().
+
+\mbox{\label{classIM_a450bc003d188ce2f3ff72b83ce78abfb}} 
+\index{IM@{IM}!````~IM@{$\sim$IM}}
+\index{````~IM@{$\sim$IM}!IM@{IM}}
+\doxysubsubsection{$\sim$IM()}
+{\footnotesize\ttfamily I\+M\+::$\sim$\+IM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxyref{IM}{p.}{classIM} Constructor method. 
+
+Destructor of \doxyref{IM}{p.}{classIM} class. 
+
+Definition at line 86 of file island\+\_\+ga.\+cpp.
+
+
+
+References adj\+\_\+list, and island.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classIM_acc814e945302b43a24da8532ffeeb73b}} 
+\index{IM@{IM}!evolve\_island@{evolve\_island}}
+\index{evolve\_island@{evolve\_island}!IM@{IM}}
+\doxysubsubsection{evolve\_island()}
+{\footnotesize\ttfamily void I\+M\+::evolve\+\_\+island (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{unique\+\_\+id,  }\item[{\textbf{ im\+\_\+parameter\+\_\+s} $\ast$}]{im\+\_\+pms,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s} $\ast$}]{pr\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+Evolves an island (thread function) 
+
+Evolves an island.
+
+This method runs the genetic algorithm per island and performs two major operations, selection of outgoing individuals (migrants) and replacement of the target population. Furthermore, it provides logging for the results of the evolution process per island.
+
+
+\begin{DoxyParams}{Parameters}
+{\em unique\+\_\+id} & Unique ID number of island (thread ID) \\
+\hline
+{\em im\+\_\+pms} & Island model parameters structure \\
+\hline
+{\em pr\+\_\+pms} & Logging parameters structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void) 
+\end{DoxyReturn}
+
+
+Definition at line 288 of file island\+\_\+ga.\+cpp.
+
+
+
+References barrier, island, migration\+\_\+interval, migration\+\_\+steps, move\+\_\+immigrants(), mtx, parameter\+\_\+im\+::num\+\_\+immigrants, parameter\+\_\+im\+::num\+\_\+islands, parameter\+\_\+im\+::pick\+\_\+method, parameter\+\_\+pr\+::print\+\_\+average\+\_\+fitness, print\+\_\+avg\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+best\+\_\+genome, print\+\_\+best\+\_\+genome(), print\+\_\+bsf(), parameter\+\_\+pr\+::print\+\_\+bsf, print\+\_\+fitness(), parameter\+\_\+pr\+::print\+\_\+fitness, parameter\+\_\+im\+::replace\+\_\+method, select\+\_\+ind2migrate(), and parameter\+\_\+pr\+::where2write.
+
+
+
+Referenced by run\+\_\+islands().
+
+\mbox{\label{classIM_a581f6fd3f339c88635e75c6f3a15f487}} 
+\index{IM@{IM}!move\_immigrants@{move\_immigrants}}
+\index{move\_immigrants@{move\_immigrants}!IM@{IM}}
+\doxysubsubsection{move\_immigrants()}
+{\footnotesize\ttfamily void I\+M\+::move\+\_\+immigrants (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+immigrants,  }\item[{size\+\_\+t}]{unique\+\_\+id,  }\item[{std\+::string}]{method = {\ttfamily \char`\"{}random\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Immigration method. It moves the immigrants (individuals) from one. 
+
+Moves immigrants from one island (thread) to another based on a predefined method.
+
+Supported methods are\+: \begin{DoxyItemize}
+\item random Individuals from the current island are randomly chosen and they are replaced by immigrants \item elit The highest-\/fitness individuals within the current island population are replaced by immigrants \item poor The lowest-\/fitness individuals within the current island population are replaced by immigrants ~\newline
+\end{DoxyItemize}
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+immigrants} & Total number of immigrants the island can accept \\
+\hline
+{\em unique\+\_\+id} & Island\textquotesingle{}s unique ID (thread ID) \\
+\hline
+{\em method} & How individuals from the local population will be replaced by immigrants \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nonthing (void)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+In a future version of G\+A\+IM, islands will support a variable number of immigrants. 
+\end{DoxyNote}
+
+
+Definition at line 225 of file island\+\_\+ga.\+cpp.
+
+
+
+References adj\+\_\+list, island, mtx, num\+\_\+immigrants, and pcg\+\_\+extras\+::shuffle().
+
+
+
+Referenced by evolve\+\_\+island().
+
+\mbox{\label{classIM_a19a5a20a20afb85340511fad53f4a9d9}} 
+\index{IM@{IM}!read\_connectivity\_graph@{read\_connectivity\_graph}}
+\index{read\_connectivity\_graph@{read\_connectivity\_graph}!IM@{IM}}
+\doxysubsubsection{read\_connectivity\_graph()}
+{\footnotesize\ttfamily size\+\_\+t I\+M\+::read\+\_\+connectivity\+\_\+graph (\begin{DoxyParamCaption}\item[{std\+::string}]{fname }\end{DoxyParamCaption})}
+
+
+
+Island Model secondary operations methods. 
+
+Reads the connectivity graph (topology) from a text file.
+
+Reads the connectivity graph (topology) from a file
+
+The graph defines the number of islands (run on separate threads) and how they are connected. The format of the file is as follows\+: XX (number of islands -\/ vertices) D\+ST \#edges S\+R\+C1 S\+R\+C2 S\+R\+C3
+
+Example (ring topology with four islands)\+: 4 0 1 3 1 1 0 2 1 1 3 1 2
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & The name of the file that contains the graph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+num\+\_\+vertices The number of vertices (islands) found in the file.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The number of vertices is returned in order to validate the number of islands. In the rest of the code if the number if islands provided by the user does not match the number of vertices then the latter is being used as number of islands (threads). 
+\end{DoxyNote}
+
+
+Definition at line 115 of file island\+\_\+ga.\+cpp.
+
+
+
+References adj\+\_\+list, and num\+\_\+islands.
+
+
+
+Referenced by I\+M().
+
+\mbox{\label{classIM_a2113da7f6cacf768990ddc8c5a374526}} 
+\index{IM@{IM}!run\_islands@{run\_islands}}
+\index{run\_islands@{run\_islands}!IM@{IM}}
+\doxysubsubsection{run\_islands()}
+{\footnotesize\ttfamily void I\+M\+::run\+\_\+islands (\begin{DoxyParamCaption}\item[{\textbf{ im\+\_\+parameter\+\_\+s} $\ast$}]{im\+\_\+pms,  }\item[{\textbf{ pr\+\_\+parameter\+\_\+s} $\ast$}]{pr\+\_\+pms }\end{DoxyParamCaption})}
+
+
+
+Runs the Island Models. 
+
+Runs an Island Model experiment.
+
+
+\begin{DoxyParams}{Parameters}
+{\em im\+\_\+pms} & Island model parameters structure \\
+\hline
+{\em pr\+\_\+pms} & Logging parameters structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void) 
+\end{DoxyReturn}
+
+
+Definition at line 343 of file island\+\_\+ga.\+cpp.
+
+
+
+References barrier, evolve\+\_\+island(), parameter\+\_\+im\+::num\+\_\+islands, and num\+\_\+islands.
+
+\mbox{\label{classIM_af2a2985e55a2624e07a7b2bd30e9bfe7}} 
+\index{IM@{IM}!select\_ind2migrate@{select\_ind2migrate}}
+\index{select\_ind2migrate@{select\_ind2migrate}!IM@{IM}}
+\doxysubsubsection{select\_ind2migrate()}
+{\footnotesize\ttfamily void I\+M\+::select\+\_\+ind2migrate (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+immigrants,  }\item[{size\+\_\+t}]{unique\+\_\+id,  }\item[{std\+::string}]{method = {\ttfamily \char`\"{}random\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+\doxyref{IM}{p.}{classIM} Destructor method. 
+
+Selects the candidate individuals for immigration.
+
+Island Model basic operators methods Selection method. It selects individuals per island to move and
+
+The current method implements three distinct selection methods. \begin{DoxyItemize}
+\item random The number of individuals is selected randomly from the population \item elit Individuals with the best fitness (elit) are selected \item poor Individuals with the worst fitness (poor) are selected\end{DoxyItemize}
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+immigrants} & Number of total individuals who are selected to migrate \\
+\hline
+{\em unique\+\_\+id} & Is the unique ID of each island (thread ID) \\
+\hline
+{\em method} & Defines whith strategy (policy) of selecting individuals is going to be used (elit, poor, random) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nothing (void)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+In a future version of G\+A\+IM, each island will accept a different number of immigrants. 
+\end{DoxyNote}
+
+
+Definition at line 162 of file island\+\_\+ga.\+cpp.
+
+
+
+References a, b, island, mtx, num\+\_\+immigrants, and pcg\+\_\+extras\+::shuffle().
+
+
+
+Referenced by evolve\+\_\+island().
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classIM_a4fc85a7e303c58f74399744a58c4dfe4}} 
+\index{IM@{IM}!a@{a}}
+\index{a@{a}!IM@{IM}}
+\doxysubsubsection{a}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ I\+M\+::a\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Islands (threads) vector. 
+
+
+
+Definition at line 276 of file gaim.\+h.
+
+
+
+Referenced by I\+M(), and select\+\_\+ind2migrate().
+
+\mbox{\label{classIM_a5f4e569a338e52929a0488c036165832}} 
+\index{IM@{IM}!adj\_list@{adj\_list}}
+\index{adj\_list@{adj\_list}!IM@{IM}}
+\doxysubsubsection{adj\_list}
+{\footnotesize\ttfamily std\+::map$<$int, std\+::vector$<$int$>$ $>$ I\+M\+::adj\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Genome\textquotesingle{}s interval [a, b]. 
+
+
+
+Definition at line 277 of file gaim.\+h.
+
+
+
+Referenced by move\+\_\+immigrants(), read\+\_\+connectivity\+\_\+graph(), and $\sim$\+I\+M().
+
+\mbox{\label{classIM_a33dbe595c898c6a4205a4a3873a75167}} 
+\index{IM@{IM}!b@{b}}
+\index{b@{b}!IM@{IM}}
+\doxysubsubsection{b}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ I\+M\+::b\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 276 of file gaim.\+h.
+
+
+
+Referenced by I\+M(), and select\+\_\+ind2migrate().
+
+\mbox{\label{classIM_aee2c2c334f5e95c2c7c1b8a3db811410}} 
+\index{IM@{IM}!generations@{generations}}
+\index{generations@{generations}!IM@{IM}}
+\doxysubsubsection{generations}
+{\footnotesize\ttfamily size\+\_\+t I\+M\+::generations\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Adjacent list of islands. 
+
+
+
+Definition at line 278 of file gaim.\+h.
+
+\mbox{\label{classIM_abbd9daac5118d5a6a3a0f1618bb69e71}} 
+\index{IM@{IM}!island@{island}}
+\index{island@{island}!IM@{IM}}
+\doxysubsubsection{island}
+{\footnotesize\ttfamily std\+::vector$<$\textbf{ GA}$>$ I\+M\+::island}
+
+
+
+Definition at line 273 of file gaim.\+h.
+
+
+
+Referenced by evolve\+\_\+island(), I\+M(), move\+\_\+immigrants(), select\+\_\+ind2migrate(), and $\sim$\+I\+M().
+
+\mbox{\label{classIM_a2a4461a34fa9de6d4ea7c0dbe5653f55}} 
+\index{IM@{IM}!migration\_interval@{migration\_interval}}
+\index{migration\_interval@{migration\_interval}!IM@{IM}}
+\doxysubsubsection{migration\_interval}
+{\footnotesize\ttfamily size\+\_\+t I\+M\+::migration\+\_\+interval\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of islands (threads) 
+
+
+
+Definition at line 281 of file gaim.\+h.
+
+
+
+Referenced by evolve\+\_\+island(), and I\+M().
+
+\mbox{\label{classIM_a7fb80afa381a603f0ba7ae2ed14749f5}} 
+\index{IM@{IM}!migration\_steps@{migration\_steps}}
+\index{migration\_steps@{migration\_steps}!IM@{IM}}
+\doxysubsubsection{migration\_steps}
+{\footnotesize\ttfamily size\+\_\+t I\+M\+::migration\+\_\+steps\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Migration interval. 
+
+
+
+Definition at line 282 of file gaim.\+h.
+
+
+
+Referenced by evolve\+\_\+island(), and I\+M().
+
+\mbox{\label{classIM_abaa9967120da8d0fe168ebcb60af2c54}} 
+\index{IM@{IM}!mtx@{mtx}}
+\index{mtx@{mtx}!IM@{IM}}
+\doxysubsubsection{mtx}
+{\footnotesize\ttfamily std\+::mutex I\+M\+::mtx\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generations / Migration Interval. 
+
+
+
+Definition at line 284 of file gaim.\+h.
+
+
+
+Referenced by evolve\+\_\+island(), move\+\_\+immigrants(), and select\+\_\+ind2migrate().
+
+\mbox{\label{classIM_a63b324a454c4c57d5438b89f0bfec051}} 
+\index{IM@{IM}!num\_immigrants@{num\_immigrants}}
+\index{num\_immigrants@{num\_immigrants}!IM@{IM}}
+\doxysubsubsection{num\_immigrants}
+{\footnotesize\ttfamily size\+\_\+t I\+M\+::num\+\_\+immigrants\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generations. 
+
+
+
+Definition at line 279 of file gaim.\+h.
+
+
+
+Referenced by I\+M(), move\+\_\+immigrants(), and select\+\_\+ind2migrate().
+
+\mbox{\label{classIM_a0544287f3561fb2a6288ab3ee0215d4a}} 
+\index{IM@{IM}!num\_islands@{num\_islands}}
+\index{num\_islands@{num\_islands}!IM@{IM}}
+\doxysubsubsection{num\_islands}
+{\footnotesize\ttfamily size\+\_\+t I\+M\+::num\+\_\+islands\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of immigrants. 
+
+
+
+Definition at line 280 of file gaim.\+h.
+
+
+
+Referenced by I\+M(), read\+\_\+connectivity\+\_\+graph(), and run\+\_\+islands().
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ gaim.\+h}\item 
+\textbf{ island\+\_\+ga.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,354 @@
+\doxysection{auxiliary\+\_\+funs.\+cpp File Reference}
+\label{auxiliary__funs_8cpp}\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \textbf{ int\+\_\+random} (size\+\_\+t a, size\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Integer uniform distribution. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ float\+\_\+random} (R\+E\+A\+L\+\_\+ a, R\+E\+A\+L\+\_\+ b)
+\begin{DoxyCompactList}\small\item\em Float uniform distribution. \end{DoxyCompactList}\item 
+void \textbf{ remove\+\_\+at} (std\+::vector$<$ size\+\_\+t $>$ \&v, std\+::vector$<$ size\+\_\+t $>$\+::size\+\_\+type n)
+\begin{DoxyCompactList}\small\item\em Removes an element from a vector by swaping the element at position n with the last one and poping it out of the vector. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ cumulative\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ population)
+\begin{DoxyCompactList}\small\item\em Computes the cumulative fitness of a population based on which individuals have not been yet selected. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ maximum\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ population)
+\begin{DoxyCompactList}\small\item\em A naive implementation of maximum. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ nonselected\+\_\+maximum\+\_\+fitness} (std\+::vector$<$ \textbf{ individual\+\_\+s} $>$ population)
+\begin{DoxyCompactList}\small\item\em Computes the maximum fitness of all the non-\/selected (from a selection operator) indivuduals of a population. \end{DoxyCompactList}\item 
+bool \textbf{ compare\+\_\+fitness} (const \textbf{ individual\+\_\+s} x, const \textbf{ individual\+\_\+s} y)
+\begin{DoxyCompactList}\small\item\em This helper function compares the fitness of two individuals and returns true if the first argument has a smaller fitness or false otherwise. \end{DoxyCompactList}\item 
+R\+E\+A\+L\+\_\+ \textbf{ average\+\_\+fitness} (R\+E\+A\+L\+\_\+ x, const \textbf{ individual\+\_\+s} y)
+\begin{DoxyCompactList}\small\item\em This is a helper function serving as an binary operator for std\+:accumulate. \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+path\+\_\+exist} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Checks if the given path (directory or file) exists. \end{DoxyCompactList}\item 
+int \textbf{ remove\+\_\+file} (const std\+::string fname)
+\begin{DoxyCompactList}\small\item\em Deletes a file. \end{DoxyCompactList}\item 
+int \textbf{ mkdir\+\_\+} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Attempts to make a directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Auxiliary functions for the G\+A\+IM package, encompassing helpers for arithmetic with individual fitnesses and wrappers for directory I/O. 
+
+\doxysubsection{Function Documentation}
+\mbox{\label{auxiliary__funs_8cpp_addc8f0ef3a052d32abb937843bd5ee03}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!average\_fitness@{average\_fitness}}
+\index{average\_fitness@{average\_fitness}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{average\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ average\+\_\+fitness (\begin{DoxyParamCaption}\item[{R\+E\+A\+L\+\_\+}]{x,  }\item[{const \textbf{ individual\+\_\+s}}]{y }\end{DoxyParamCaption})}
+
+
+
+This is a helper function serving as an binary operator for std\+:accumulate. 
+
+It helps add up the fitness belonging to individuals so that the cumulative fitness in the population can be computed, which is necessary for roulette-\/wheel selection, etc.
+
+\begin{DoxySeeAlso}{See also}
+one\+\_\+generation\+\_\+step()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & R\+E\+A\+L\+\_\+, it is the current accumulated fitness. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Data struct of individual\+\_\+s type, it provides the new fitness of an idividual. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current accumulated fitness yielded in the accumulation (usually for the whole population.) 
+\end{DoxyReturn}
+
+
+Definition at line 180 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+References individual\+::fitness.
+
+
+
+Referenced by roulette\+\_\+wheel\+\_\+selection(), and G\+A\+::run\+\_\+one\+\_\+generation().
+
+\mbox{\label{auxiliary__funs_8cpp_a127a7b16674934e62f0a15587254edcf}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!compare\_fitness@{compare\_fitness}}
+\index{compare\_fitness@{compare\_fitness}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{compare\_fitness()}
+{\footnotesize\ttfamily bool compare\+\_\+fitness (\begin{DoxyParamCaption}\item[{const \textbf{ individual\+\_\+s}}]{x,  }\item[{const \textbf{ individual\+\_\+s}}]{y }\end{DoxyParamCaption})}
+
+
+
+This helper function compares the fitness of two individuals and returns true if the first argument has a smaller fitness or false otherwise. 
+
+Auxiliary Functions declarations.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em x} & Data struct of type const individual\+\_\+s. \\
+\hline
+\mbox{\texttt{ in}}  & {\em y} & Data struct of type const individual\+\_\+s. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if x.\+fitness $<$ y.\+fitness, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 160 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+References individual\+::fitness.
+
+
+
+Referenced by linear\+\_\+rank\+\_\+selection(), G\+A\+::next\+\_\+generation(), G\+A\+::sort\+\_\+population(), and truncation\+\_\+selection().
+
+\mbox{\label{auxiliary__funs_8cpp_aafb38822500672cdc0a29785d0470128}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!cumulative\_fitness@{cumulative\_fitness}}
+\index{cumulative\_fitness@{cumulative\_fitness}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{cumulative\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ cumulative\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$}]{population }\end{DoxyParamCaption})}
+
+
+
+Computes the cumulative fitness of a population based on which individuals have not been yet selected. 
+
+This function is used in the roulette\+\_\+wheel\+\_\+selection with replacement.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cumulative fitness of a population.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{roulette\+\_\+wheel\+\_\+selection()}{p.}{selection_8cpp_aaf7a7082658144642a54b8f309a507bc} 
+\end{DoxySeeAlso}
+
+
+Definition at line 92 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{auxiliary__funs_8cpp_a9142f18ff97e6aa5e07b0e77627e8d5d}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!float\_random@{float\_random}}
+\index{float\_random@{float\_random}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{float\_random()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ float\+\_\+random (\begin{DoxyParamCaption}\item[{R\+E\+A\+L\+\_\+}]{a,  }\item[{R\+E\+A\+L\+\_\+}]{b }\end{DoxyParamCaption})}
+
+
+
+Float uniform distribution. 
+
+It returns a float random number in the interval [a, b] (uniform distribution).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Lower limit of range [a, b] from which a random float will be drawn. \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper limit of range [a, b]. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A float number in [a, b]. 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by calculate\+\_\+whitley\+\_\+factor(), roulette\+\_\+wheel\+\_\+selection(), and stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{auxiliary__funs_8cpp_a28190403d6972e55fc4ebfd428f5af5e}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!int\_random@{int\_random}}
+\index{int\_random@{int\_random}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{int\_random()}
+{\footnotesize\ttfamily size\+\_\+t int\+\_\+random (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{a,  }\item[{size\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Integer uniform distribution. 
+
+It returns an integer random number in the interval [a, b] (uniform distribution).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em a} & Lower limit of range [a, b] from which a random integer will be drawn. \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Upper limit of range [a, b]. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An integer number in [a, b]. 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by random\+\_\+selection(), stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection(), and truncation\+\_\+selection().
+
+\mbox{\label{auxiliary__funs_8cpp_a6201a899e77b1e4c95e78fd556aacc33}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!is\_path\_exist@{is\_path\_exist}}
+\index{is\_path\_exist@{is\_path\_exist}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{is\_path\_exist()}
+{\footnotesize\ttfamily bool is\+\_\+path\+\_\+exist (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Checks if the given path (directory or file) exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & const string that contains the name of the path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the path exists and false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 192 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by print\+\_\+avg\+\_\+fitness(), print\+\_\+best\+\_\+genome(), print\+\_\+bsf(), print\+\_\+fitness(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{auxiliary__funs_8cpp_a200c5cef87b1728625017c3a9650f351}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!maximum\_fitness@{maximum\_fitness}}
+\index{maximum\_fitness@{maximum\_fitness}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{maximum\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ maximum\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$}]{population }\end{DoxyParamCaption})}
+
+
+
+A naive implementation of maximum. 
+
+This function finds the maximum fitness and returns it.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The maximum fitness of a population. 
+\end{DoxyReturn}
+
+
+Definition at line 111 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{auxiliary__funs_8cpp_adf4f9d52eda048cea3009041a5b541fb}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!mkdir\_@{mkdir\_}}
+\index{mkdir\_@{mkdir\_}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{mkdir\_()}
+{\footnotesize\ttfamily int mkdir\+\_\+ (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Attempts to make a directory. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em path} & const string that contains the name (path) of the new directory.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero upon successfully created directory, one otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{auxiliary__funs_8cpp_a6d7e63a956d3bf21d8164f857c7f49bf}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!nonselected\_maximum\_fitness@{nonselected\_maximum\_fitness}}
+\index{nonselected\_maximum\_fitness@{nonselected\_maximum\_fitness}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{nonselected\_maximum\_fitness()}
+{\footnotesize\ttfamily R\+E\+A\+L\+\_\+ nonselected\+\_\+maximum\+\_\+fitness (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \textbf{ individual\+\_\+s} $>$}]{population }\end{DoxyParamCaption})}
+
+
+
+Computes the maximum fitness of all the non-\/selected (from a selection operator) indivuduals of a population. 
+
+\begin{DoxyNote}{Note}
+This functions is meant to be used with selection methods that use the maximum fitness of a population and have the selection-\/with-\/replacement option disabled.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em population} & A vector of the entire population. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The maximum fitness of a population (of the non-\/selected individuals). 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{auxiliary__funs_8cpp_a2f6d22680b09e89b853d11b696d4a2c5}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!remove\_at@{remove\_at}}
+\index{remove\_at@{remove\_at}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{remove\_at()}
+{\footnotesize\ttfamily void remove\+\_\+at (\begin{DoxyParamCaption}\item[{std\+::vector$<$ size\+\_\+t $>$ \&}]{v,  }\item[{std\+::vector$<$ size\+\_\+t $>$\+::size\+\_\+type}]{n }\end{DoxyParamCaption})}
+
+
+
+Removes an element from a vector by swaping the element at position n with the last one and poping it out of the vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em v} & The input vector from whith an element will be deleted. \\
+\hline
+\mbox{\texttt{ in}}  & {\em n} & The size\+\_\+type of the vector (position of deleted element). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file auxiliary\+\_\+funs.\+cpp.
+
+
+
+Referenced by ktournament\+\_\+selection(), and stochastic\+\_\+roulette\+\_\+wheel\+\_\+selection().
+
+\mbox{\label{auxiliary__funs_8cpp_ac0d698537f4df6c4785b620425448f19}} 
+\index{auxiliary\_funs.cpp@{auxiliary\_funs.cpp}!remove\_file@{remove\_file}}
+\index{remove\_file@{remove\_file}!auxiliary\_funs.cpp@{auxiliary\_funs.cpp}}
+\doxysubsubsection{remove\_file()}
+{\footnotesize\ttfamily int remove\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string}]{fname }\end{DoxyParamCaption})}
+
+
+
+Deletes a file. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em fname} & const string that contains the name of the file to being deleted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Zero in the case of successful deletion, non-\/zero value otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 206 of file auxiliary\+\_\+funs.\+cpp.
+

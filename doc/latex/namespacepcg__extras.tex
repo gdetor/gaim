@@ -1,0 +1,377 @@
+\doxysection{pcg\+\_\+extras Namespace Reference}
+\label{namespacepcg__extras}\index{pcg\_extras@{pcg\_extras}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ printable\+\_\+typename}
+\item 
+class \textbf{ seed\+\_\+seq\+\_\+from}
+\item 
+struct \textbf{ static\+\_\+arbitrary\+\_\+seed}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \+\_\+\+\_\+uint128\+\_\+t \textbf{ pcg128\+\_\+t}
+\item 
+typedef uint8\+\_\+t \textbf{ bitcount\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, \textbf{ pcg128\+\_\+t} value)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, \textbf{ pcg128\+\_\+t} \&value)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, uint8\+\_\+t value)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, uint8\+\_\+t target)
+\item 
+std\+::ostream \& \textbf{ operator$<$$<$} (std\+::ostream \&out, uint8\+\_\+t value)
+\item 
+std\+::istream \& \textbf{ operator$>$$>$} (std\+::istream \&in, uint8\+\_\+t \&value)
+\item 
+{\footnotesize template$<$typename itype $>$ }\\itype \textbf{ unxorshift} (itype x, \textbf{ bitcount\+\_\+t} bits, \textbf{ bitcount\+\_\+t} shift)
+\item 
+{\footnotesize template$<$typename itype $>$ }\\itype \textbf{ rotl} (itype value, \textbf{ bitcount\+\_\+t} rot)
+\item 
+{\footnotesize template$<$typename itype $>$ }\\itype \textbf{ rotr} (itype value, \textbf{ bitcount\+\_\+t} rot)
+\item 
+uint8\+\_\+t \textbf{ rotr} (uint8\+\_\+t value, \textbf{ bitcount\+\_\+t} rot)
+\item 
+uint16\+\_\+t \textbf{ rotr} (uint16\+\_\+t value, \textbf{ bitcount\+\_\+t} rot)
+\item 
+uint32\+\_\+t \textbf{ rotr} (uint32\+\_\+t value, \textbf{ bitcount\+\_\+t} rot)
+\item 
+uint64\+\_\+t \textbf{ rotr} (uint64\+\_\+t value, \textbf{ bitcount\+\_\+t} rot)
+\item 
+{\footnotesize template$<$class Src\+Iter , class Dest\+Iter $>$ }\\Src\+Iter \textbf{ uneven\+\_\+copy\+\_\+impl} (Src\+Iter src\+\_\+first, Dest\+Iter dest\+\_\+first, Dest\+Iter dest\+\_\+last, std\+::true\+\_\+type)
+\item 
+{\footnotesize template$<$class Src\+Iter , class Dest\+Iter $>$ }\\Src\+Iter \textbf{ uneven\+\_\+copy\+\_\+impl} (Src\+Iter src\+\_\+first, Dest\+Iter dest\+\_\+first, Dest\+Iter dest\+\_\+last, std\+::false\+\_\+type)
+\item 
+{\footnotesize template$<$class Src\+Iter , class Dest\+Iter $>$ }\\Src\+Iter \textbf{ uneven\+\_\+copy} (Src\+Iter src\+\_\+first, Dest\+Iter dest\+\_\+first, Dest\+Iter dest\+\_\+last)
+\item 
+{\footnotesize template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ }\\void \textbf{ generate\+\_\+to\+\_\+impl} (Seed\+Seq \&\&generator, Dest\+Iter dest, std\+::true\+\_\+type)
+\item 
+{\footnotesize template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ }\\void \textbf{ generate\+\_\+to\+\_\+impl} (Seed\+Seq \&\&generator, Dest\+Iter dest, std\+::false\+\_\+type)
+\item 
+{\footnotesize template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ }\\void \textbf{ generate\+\_\+to} (Seed\+Seq \&\&generator, Dest\+Iter dest)
+\item 
+{\footnotesize template$<$typename U\+Int , size\+\_\+t i = 0\+UL, size\+\_\+t N = i+1\+UL, typename Seed\+Seq $>$ }\\U\+Int \textbf{ generate\+\_\+one} (Seed\+Seq \&\&generator)
+\item 
+{\footnotesize template$<$typename Rng\+Type $>$ }\\auto \textbf{ bounded\+\_\+rand} (Rng\+Type \&rng, typename Rng\+Type\+::result\+\_\+type upper\+\_\+bound) -\/$>$ typename Rng\+Type\+::result\+\_\+type
+\item 
+{\footnotesize template$<$typename Iter , typename Rand\+Type $>$ }\\void \textbf{ shuffle} (Iter from, Iter to, Rand\+Type \&\&rng)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::ostream \& \textbf{ operator$<$$<$} (std\+::ostream \&out, \textbf{ printable\+\_\+typename}$<$ T $>$)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\label{namespacepcg__extras_a406cfb7122fb02569323935c54affb0b}} 
+\index{pcg\_extras@{pcg\_extras}!bitcount\_t@{bitcount\_t}}
+\index{bitcount\_t@{bitcount\_t}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{bitcount\_t}
+{\footnotesize\ttfamily typedef P\+C\+G\+\_\+\+B\+I\+T\+C\+O\+U\+N\+T\+\_\+T \textbf{ pcg\+\_\+extras\+::bitcount\+\_\+t}}
+
+
+
+Definition at line 108 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a4b7559a202a8ea61a4c22183fffdacaa}} 
+\index{pcg\_extras@{pcg\_extras}!pcg128\_t@{pcg128\_t}}
+\index{pcg128\_t@{pcg128\_t}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{pcg128\_t}
+{\footnotesize\ttfamily typedef pcg\+\_\+extras\+::uint\+\_\+x4$<$ uint32\+\_\+t, uint64\+\_\+t $>$ \textbf{ pcg\+\_\+extras\+::pcg128\+\_\+t}}
+
+
+
+Definition at line 82 of file pcg\+\_\+extras.\+hpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\label{namespacepcg__extras_a09fe30ab14f4bae059b13199966e6562}} 
+\index{pcg\_extras@{pcg\_extras}!bounded\_rand@{bounded\_rand}}
+\index{bounded\_rand@{bounded\_rand}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{bounded\_rand()}
+{\footnotesize\ttfamily template$<$typename Rng\+Type $>$ \\
+auto pcg\+\_\+extras\+::bounded\+\_\+rand (\begin{DoxyParamCaption}\item[{Rng\+Type \&}]{rng,  }\item[{typename Rng\+Type\+::result\+\_\+type}]{upper\+\_\+bound }\end{DoxyParamCaption}) -\/$>$ typename Rng\+Type\+::result\+\_\+type
+}
+
+
+
+Definition at line 517 of file pcg\+\_\+extras.\+hpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::engine$<$ xtype, itype, output\+\_\+mixin, output\+\_\+previous, stream\+\_\+mixin, multiplier\+\_\+mixin $>$\+::operator()(), pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::operator()(), and shuffle().
+
+\mbox{\label{namespacepcg__extras_aa725ad9f9f0b511be8646ffff716665d}} 
+\index{pcg\_extras@{pcg\_extras}!generate\_one@{generate\_one}}
+\index{generate\_one@{generate\_one}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{generate\_one()}
+{\footnotesize\ttfamily template$<$typename U\+Int , size\+\_\+t i = 0\+UL, size\+\_\+t N = i+1\+UL, typename Seed\+Seq $>$ \\
+U\+Int pcg\+\_\+extras\+::generate\+\_\+one (\begin{DoxyParamCaption}\item[{Seed\+Seq \&\&}]{generator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 509 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a41e1950d9f7429f7e9775c3924a861db}} 
+\index{pcg\_extras@{pcg\_extras}!generate\_to@{generate\_to}}
+\index{generate\_to@{generate\_to}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{generate\_to()}
+{\footnotesize\ttfamily template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ \\
+void pcg\+\_\+extras\+::generate\+\_\+to (\begin{DoxyParamCaption}\item[{Seed\+Seq \&\&}]{generator,  }\item[{Dest\+Iter}]{dest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 494 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a61f43320af045b4a81fd1d47ddb0d9af}} 
+\index{pcg\_extras@{pcg\_extras}!generate\_to\_impl@{generate\_to\_impl}}
+\index{generate\_to\_impl@{generate\_to\_impl}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{generate\_to\_impl()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ \\
+void pcg\+\_\+extras\+::generate\+\_\+to\+\_\+impl (\begin{DoxyParamCaption}\item[{Seed\+Seq \&\&}]{generator,  }\item[{Dest\+Iter}]{dest,  }\item[{std\+::false\+\_\+type}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 465 of file pcg\+\_\+extras.\+hpp.
+
+
+
+References uneven\+\_\+copy().
+
+\mbox{\label{namespacepcg__extras_a908d65518153efed3219c2bd26d54789}} 
+\index{pcg\_extras@{pcg\_extras}!generate\_to\_impl@{generate\_to\_impl}}
+\index{generate\_to\_impl@{generate\_to\_impl}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{generate\_to\_impl()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$size\+\_\+t size, typename Seed\+Seq , typename Dest\+Iter $>$ \\
+void pcg\+\_\+extras\+::generate\+\_\+to\+\_\+impl (\begin{DoxyParamCaption}\item[{Seed\+Seq \&\&}]{generator,  }\item[{Dest\+Iter}]{dest,  }\item[{std\+::true\+\_\+type}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 458 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a41f557d4b3de5723fbea74a42375adff}} 
+\index{pcg\_extras@{pcg\_extras}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{operator$<$$<$()\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits $>$ \\
+std\+::basic\+\_\+ostream$<$CharT,Traits$>$\& pcg\+\_\+extras\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{out,  }\item[{\textbf{ pcg128\+\_\+t}}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 124 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_accb964dd39270b688b7c1d16edba7bbe}} 
+\index{pcg\_extras@{pcg\_extras}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{operator$<$$<$()\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits $>$ \\
+std\+::basic\+\_\+ostream$<$CharT,Traits$>$\& pcg\+\_\+extras\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{out,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 216 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_af39b04b807cd9ab964e2d142ae48d90f}} 
+\index{pcg\_extras@{pcg\_extras}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{operator$<$$<$()\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& pcg\+\_\+extras\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{\textbf{ printable\+\_\+typename}$<$ T $>$}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 619 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a190f7c2ff4231922080d5e7a578341c4}} 
+\index{pcg\_extras@{pcg\_extras}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{operator$<$$<$()\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily std\+::ostream\& pcg\+\_\+extras\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 242 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a4705963e2fdfc7b83823cf0fad8bfc1d}} 
+\index{pcg\_extras@{pcg\_extras}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{operator$>$$>$()\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits $>$ \\
+std\+::basic\+\_\+istream$<$CharT,Traits$>$\& pcg\+\_\+extras\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{in,  }\item[{\textbf{ pcg128\+\_\+t} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 168 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a59f6a342c6ea854807e2ebeb011ce2d5}} 
+\index{pcg\_extras@{pcg\_extras}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{operator$>$$>$()\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename CharT , typename Traits $>$ \\
+std\+::basic\+\_\+istream$<$CharT,Traits$>$\& pcg\+\_\+extras\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{in,  }\item[{uint8\+\_\+t}]{target }\end{DoxyParamCaption})}
+
+
+
+Definition at line 223 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_ac80e2fdc2d7998717af4cc18fdfe0a25}} 
+\index{pcg\_extras@{pcg\_extras}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{operator$>$$>$()\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily std\+::istream\& pcg\+\_\+extras\+::operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{in,  }\item[{uint8\+\_\+t \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 247 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a7cb58f709cce6e8b5335f104acad8314}} 
+\index{pcg\_extras@{pcg\_extras}!rotl@{rotl}}
+\index{rotl@{rotl}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{rotl()}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+itype pcg\+\_\+extras\+::rotl (\begin{DoxyParamCaption}\item[{itype}]{value,  }\item[{\textbf{ bitcount\+\_\+t}}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 294 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_afae38bd6d5a7e1d79b8e32fc38dbabe3}} 
+\index{pcg\_extras@{pcg\_extras}!rotr@{rotr}}
+\index{rotr@{rotr}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{rotr()\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+itype pcg\+\_\+extras\+::rotr (\begin{DoxyParamCaption}\item[{itype}]{value,  }\item[{\textbf{ bitcount\+\_\+t}}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 306 of file pcg\+\_\+extras.\+hpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::xsh\+\_\+rr\+\_\+mixin$<$ xtype, itype $>$\+::output(), pcg\+\_\+detail\+::xsl\+\_\+rr\+\_\+mixin$<$ xtype, itype $>$\+::output(), and pcg\+\_\+detail\+::xsl\+\_\+rr\+\_\+rr\+\_\+mixin$<$ xtype, itype $>$\+::output().
+
+\mbox{\label{namespacepcg__extras_ae0617b1a1fb71cb2fc13ccb96aec234e}} 
+\index{pcg\_extras@{pcg\_extras}!rotr@{rotr}}
+\index{rotr@{rotr}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{rotr()\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily uint16\+\_\+t pcg\+\_\+extras\+::rotr (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{value,  }\item[{\textbf{ bitcount\+\_\+t}}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 332 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_aa2ea21f423ed0aff32d98d85b92c984f}} 
+\index{pcg\_extras@{pcg\_extras}!rotr@{rotr}}
+\index{rotr@{rotr}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{rotr()\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily uint32\+\_\+t pcg\+\_\+extras\+::rotr (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value,  }\item[{\textbf{ bitcount\+\_\+t}}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 338 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_abcb6ea54f6be951b48b649abed405bdf}} 
+\index{pcg\_extras@{pcg\_extras}!rotr@{rotr}}
+\index{rotr@{rotr}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{rotr()\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily uint64\+\_\+t pcg\+\_\+extras\+::rotr (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{value,  }\item[{\textbf{ bitcount\+\_\+t}}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 345 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_ab8596eacbc8dfa1e226a055ca0aade47}} 
+\index{pcg\_extras@{pcg\_extras}!rotr@{rotr}}
+\index{rotr@{rotr}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{rotr()\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily uint8\+\_\+t pcg\+\_\+extras\+::rotr (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{value,  }\item[{\textbf{ bitcount\+\_\+t}}]{rot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 326 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_a131f49fae5a8125fbe37eee8c28154b2}} 
+\index{pcg\_extras@{pcg\_extras}!shuffle@{shuffle}}
+\index{shuffle@{shuffle}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{shuffle()}
+{\footnotesize\ttfamily template$<$typename Iter , typename Rand\+Type $>$ \\
+void pcg\+\_\+extras\+::shuffle (\begin{DoxyParamCaption}\item[{Iter}]{from,  }\item[{Iter}]{to,  }\item[{Rand\+Type \&\&}]{rng }\end{DoxyParamCaption})}
+
+
+
+Definition at line 531 of file pcg\+\_\+extras.\+hpp.
+
+
+
+References bounded\+\_\+rand().
+
+
+
+Referenced by I\+M\+::move\+\_\+immigrants(), and I\+M\+::select\+\_\+ind2migrate().
+
+\mbox{\label{namespacepcg__extras_a7be0229515bb8d26962826f1c484ec9d}} 
+\index{pcg\_extras@{pcg\_extras}!uneven\_copy@{uneven\_copy}}
+\index{uneven\_copy@{uneven\_copy}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{uneven\_copy()}
+{\footnotesize\ttfamily template$<$class Src\+Iter , class Dest\+Iter $>$ \\
+Src\+Iter pcg\+\_\+extras\+::uneven\+\_\+copy (\begin{DoxyParamCaption}\item[{Src\+Iter}]{src\+\_\+first,  }\item[{Dest\+Iter}]{dest\+\_\+first,  }\item[{Dest\+Iter}]{dest\+\_\+last }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 441 of file pcg\+\_\+extras.\+hpp.
+
+
+
+References uneven\+\_\+copy\+\_\+impl().
+
+
+
+Referenced by generate\+\_\+to\+\_\+impl().
+
+\mbox{\label{namespacepcg__extras_a7150076de2f368a305a6123f3004e5a3}} 
+\index{pcg\_extras@{pcg\_extras}!uneven\_copy\_impl@{uneven\_copy\_impl}}
+\index{uneven\_copy\_impl@{uneven\_copy\_impl}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{uneven\_copy\_impl()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Src\+Iter , class Dest\+Iter $>$ \\
+Src\+Iter pcg\+\_\+extras\+::uneven\+\_\+copy\+\_\+impl (\begin{DoxyParamCaption}\item[{Src\+Iter}]{src\+\_\+first,  }\item[{Dest\+Iter}]{dest\+\_\+first,  }\item[{Dest\+Iter}]{dest\+\_\+last,  }\item[{std\+::false\+\_\+type}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 412 of file pcg\+\_\+extras.\+hpp.
+
+\mbox{\label{namespacepcg__extras_ae1857a2bac68e1df88092dc2d5a136b4}} 
+\index{pcg\_extras@{pcg\_extras}!uneven\_copy\_impl@{uneven\_copy\_impl}}
+\index{uneven\_copy\_impl@{uneven\_copy\_impl}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{uneven\_copy\_impl()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Src\+Iter , class Dest\+Iter $>$ \\
+Src\+Iter pcg\+\_\+extras\+::uneven\+\_\+copy\+\_\+impl (\begin{DoxyParamCaption}\item[{Src\+Iter}]{src\+\_\+first,  }\item[{Dest\+Iter}]{dest\+\_\+first,  }\item[{Dest\+Iter}]{dest\+\_\+last,  }\item[{std\+::true\+\_\+type}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 383 of file pcg\+\_\+extras.\+hpp.
+
+
+
+Referenced by uneven\+\_\+copy().
+
+\mbox{\label{namespacepcg__extras_a4f03e67e7e86db7eaeb41c67d0cd2cb5}} 
+\index{pcg\_extras@{pcg\_extras}!unxorshift@{unxorshift}}
+\index{unxorshift@{unxorshift}!pcg\_extras@{pcg\_extras}}
+\doxysubsubsection{unxorshift()}
+{\footnotesize\ttfamily template$<$typename itype $>$ \\
+itype pcg\+\_\+extras\+::unxorshift (\begin{DoxyParamCaption}\item[{itype}]{x,  }\item[{\textbf{ bitcount\+\_\+t}}]{bits,  }\item[{\textbf{ bitcount\+\_\+t}}]{shift }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 265 of file pcg\+\_\+extras.\+hpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::rxs\+\_\+m\+\_\+xs\+\_\+mixin\+::unoutput().
+

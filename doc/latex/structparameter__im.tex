@@ -1,0 +1,171 @@
+\doxysection{parameter\+\_\+im Struct Reference}
+\label{structparameter__im}\index{parameter\_im@{parameter\_im}}
+
+
+Structure containing initialization parameters for an Island Model.  
+
+
+
+
+{\ttfamily \#include $<$gaim.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::size\+\_\+t \textbf{ num\+\_\+immigrants}
+\begin{DoxyCompactList}\small\item\em Number of immigrants (individuals to move) \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ num\+\_\+islands}
+\begin{DoxyCompactList}\small\item\em Number of islands (threads) in the model. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \textbf{ migration\+\_\+interval}
+\begin{DoxyCompactList}\small\item\em Migration interval (period) \end{DoxyCompactList}\item 
+std\+::string \textbf{ pick\+\_\+method}
+\begin{DoxyCompactList}\small\item\em Name of method for selecting migrants. \end{DoxyCompactList}\item 
+std\+::string \textbf{ replace\+\_\+method}
+\begin{DoxyCompactList}\small\item\em Name of method for displacing residents. \end{DoxyCompactList}\item 
+std\+::string \textbf{ adj\+\_\+list\+\_\+fname}
+\begin{DoxyCompactList}\small\item\em Name of the file containing adjacency list (pop. \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+im\+\_\+enabled} = false
+\begin{DoxyCompactList}\small\item\em Boolean flag indicating if \doxyref{IM}{p.}{classIM} is enabled or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure containing initialization parameters for an Island Model. 
+
+A structure that contains all the parameters for running an Island Model (\doxyref{IM}{p.}{classIM}), a \doxyref{GA}{p.}{classGA} with multiple subpopulations and structured migrations. 
+
+Definition at line 109 of file gaim.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{structparameter__im_aeb802399743c80fb41818edd1b1a4b65}} 
+\index{parameter\_im@{parameter\_im}!adj\_list\_fname@{adj\_list\_fname}}
+\index{adj\_list\_fname@{adj\_list\_fname}!parameter\_im@{parameter\_im}}
+\doxysubsubsection{adj\_list\_fname}
+{\footnotesize\ttfamily std\+::string parameter\+\_\+im\+::adj\+\_\+list\+\_\+fname}
+
+
+
+Name of the file containing adjacency list (pop. 
+
+graph) 
+
+Definition at line 115 of file gaim.\+h.
+
+
+
+Referenced by I\+M\+::\+I\+M(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__im_a77e6d8069934d9c1da0b28fc6d6c4e59}} 
+\index{parameter\_im@{parameter\_im}!is\_im\_enabled@{is\_im\_enabled}}
+\index{is\_im\_enabled@{is\_im\_enabled}!parameter\_im@{parameter\_im}}
+\doxysubsubsection{is\_im\_enabled}
+{\footnotesize\ttfamily bool parameter\+\_\+im\+::is\+\_\+im\+\_\+enabled = false}
+
+
+
+Boolean flag indicating if \doxyref{IM}{p.}{classIM} is enabled or not. 
+
+
+
+Definition at line 116 of file gaim.\+h.
+
+
+
+Referenced by print\+\_\+parameters(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__im_aaeb50aa717d9df1f03e10012fb6aeb40}} 
+\index{parameter\_im@{parameter\_im}!migration\_interval@{migration\_interval}}
+\index{migration\_interval@{migration\_interval}!parameter\_im@{parameter\_im}}
+\doxysubsubsection{migration\_interval}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+im\+::migration\+\_\+interval}
+
+
+
+Migration interval (period) 
+
+
+
+Definition at line 112 of file gaim.\+h.
+
+
+
+Referenced by I\+M\+::\+I\+M(), print\+\_\+parameters(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__im_a23c8aa9f8f7c618113640f1d497645cf}} 
+\index{parameter\_im@{parameter\_im}!num\_immigrants@{num\_immigrants}}
+\index{num\_immigrants@{num\_immigrants}!parameter\_im@{parameter\_im}}
+\doxysubsubsection{num\_immigrants}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+im\+::num\+\_\+immigrants}
+
+
+
+Number of immigrants (individuals to move) 
+
+
+
+Definition at line 110 of file gaim.\+h.
+
+
+
+Referenced by I\+M\+::evolve\+\_\+island(), I\+M\+::\+I\+M(), print\+\_\+parameters(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__im_a922dd1fedfeedfe9281ac9b521aa8208}} 
+\index{parameter\_im@{parameter\_im}!num\_islands@{num\_islands}}
+\index{num\_islands@{num\_islands}!parameter\_im@{parameter\_im}}
+\doxysubsubsection{num\_islands}
+{\footnotesize\ttfamily std\+::size\+\_\+t parameter\+\_\+im\+::num\+\_\+islands}
+
+
+
+Number of islands (threads) in the model. 
+
+
+
+Definition at line 111 of file gaim.\+h.
+
+
+
+Referenced by I\+M\+::evolve\+\_\+island(), I\+M\+::\+I\+M(), print\+\_\+parameters(), read\+\_\+parameters\+\_\+file(), and I\+M\+::run\+\_\+islands().
+
+\mbox{\label{structparameter__im_aa5aad319a811fc054aae6353b17292bd}} 
+\index{parameter\_im@{parameter\_im}!pick\_method@{pick\_method}}
+\index{pick\_method@{pick\_method}!parameter\_im@{parameter\_im}}
+\doxysubsubsection{pick\_method}
+{\footnotesize\ttfamily std\+::string parameter\+\_\+im\+::pick\+\_\+method}
+
+
+
+Name of method for selecting migrants. 
+
+
+
+Definition at line 113 of file gaim.\+h.
+
+
+
+Referenced by I\+M\+::evolve\+\_\+island(), print\+\_\+parameters(), and read\+\_\+parameters\+\_\+file().
+
+\mbox{\label{structparameter__im_afe8fcabbad56091bedec303aca66fba9}} 
+\index{parameter\_im@{parameter\_im}!replace\_method@{replace\_method}}
+\index{replace\_method@{replace\_method}!parameter\_im@{parameter\_im}}
+\doxysubsubsection{replace\_method}
+{\footnotesize\ttfamily std\+::string parameter\+\_\+im\+::replace\+\_\+method}
+
+
+
+Name of method for displacing residents. 
+
+
+
+Definition at line 114 of file gaim.\+h.
+
+
+
+Referenced by I\+M\+::evolve\+\_\+island(), print\+\_\+parameters(), and read\+\_\+parameters\+\_\+file().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ gaim.\+h}\end{DoxyCompactItemize}

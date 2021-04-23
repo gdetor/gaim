@@ -1,0 +1,581 @@
+\doxysection{pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$ Class Template Reference}
+\label{classpcg__detail_1_1extended}\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+
+
+{\ttfamily \#include $<$pcg\+\_\+random.\+hpp$>$}
+
+
+
+Inheritance diagram for pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classpcg__detail_1_1extended__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{classpcg__detail_1_1extended__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef baseclass\+::state\+\_\+type \textbf{ state\+\_\+type}
+\item 
+typedef baseclass\+::result\+\_\+type \textbf{ result\+\_\+type}
+\item 
+typedef \textbf{ inside\+\_\+out}$<$ extvalclass $>$ \textbf{ insideout}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) \textbf{ result\+\_\+type} operator()()
+\item 
+\textbf{ result\+\_\+type} \textbf{ operator()} (\textbf{ result\+\_\+type} upper\+\_\+bound)
+\item 
+void \textbf{ set} (\textbf{ result\+\_\+type} wanted)
+\item 
+void \textbf{ advance} (\textbf{ state\+\_\+type} \textbf{ distance}, bool forwards=true)
+\item 
+void \textbf{ backstep} (\textbf{ state\+\_\+type} \textbf{ distance})
+\item 
+\textbf{ extended} (const \textbf{ result\+\_\+type} $\ast$data)
+\item 
+\textbf{ extended} (const \textbf{ result\+\_\+type} $\ast$data, \textbf{ state\+\_\+type} \textbf{ seed})
+\item 
+{\footnotesize template$<$typename bc  = baseclass$>$ }\\\textbf{ extended} (const \textbf{ result\+\_\+type} $\ast$data, \textbf{ state\+\_\+type} \textbf{ seed}, typename bc\+::stream\+\_\+state stream\+\_\+seed)
+\item 
+\textbf{ extended} ()
+\item 
+\textbf{ extended} (\textbf{ state\+\_\+type} \textbf{ seed})
+\item 
+{\footnotesize template$<$typename bc  = baseclass$>$ }\\\textbf{ extended} (\textbf{ state\+\_\+type} \textbf{ seed}, typename bc\+::stream\+\_\+state stream\+\_\+seed)
+\item 
+{\footnotesize template$<$typename Seed\+Seq , typename  = typename std\+::enable\+\_\+if$<$           !std\+::is\+\_\+convertible$<$\+Seed\+Seq, result\+\_\+type$>$\+::value        \&\& !std\+::is\+\_\+convertible$<$\+Seed\+Seq, extended$>$\+::value$>$\+::type$>$ }\\\textbf{ extended} (Seed\+Seq \&\&seed\+Seq)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \textbf{ seed} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr size\+\_\+t \textbf{ period\+\_\+pow2} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+C\+G\+\_\+\+N\+O\+I\+N\+L\+I\+NE void \textbf{ advance\+\_\+table} ()
+\item 
+P\+C\+G\+\_\+\+N\+O\+I\+N\+L\+I\+NE void \textbf{ advance\+\_\+table} (\textbf{ state\+\_\+type} \textbf{ delta}, bool is\+Forwards=true)
+\item 
+\textbf{ result\+\_\+type} \& \textbf{ get\+\_\+extended\+\_\+value} ()
+\item 
+void \textbf{ selfinit} ()
+\item 
+void \textbf{ datainit} (const \textbf{ result\+\_\+type} $\ast$data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ result\+\_\+type} \textbf{ data\+\_\+} [\textbf{ table\+\_\+size}]
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \textbf{ bitcount\+\_\+t} \textbf{ rtypebits} = sizeof(\textbf{ result\+\_\+type})$\ast$8
+\item 
+static constexpr \textbf{ bitcount\+\_\+t} \textbf{ stypebits} = sizeof(\textbf{ state\+\_\+type})$\ast$8
+\item 
+static constexpr \textbf{ bitcount\+\_\+t} \textbf{ tick\+\_\+limit\+\_\+pow2} = 64U
+\item 
+static constexpr size\+\_\+t \textbf{ table\+\_\+size} = 1UL $<$$<$ table\+\_\+pow2
+\item 
+static constexpr size\+\_\+t \textbf{ table\+\_\+shift} = \textbf{ stypebits} -\/ table\+\_\+pow2
+\item 
+static constexpr \textbf{ state\+\_\+type} \textbf{ table\+\_\+mask}
+\item 
+static constexpr bool \textbf{ may\+\_\+tick}
+\item 
+static constexpr size\+\_\+t \textbf{ tick\+\_\+shift} = \textbf{ stypebits} -\/ advance\+\_\+pow2
+\item 
+static constexpr \textbf{ state\+\_\+type} \textbf{ tick\+\_\+mask}
+\item 
+static constexpr bool \textbf{ may\+\_\+tock} = \textbf{ stypebits} $<$ \textbf{ tick\+\_\+limit\+\_\+pow2}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$bitcount\+\_\+t table\+\_\+pow2\+\_\+, bitcount\+\_\+t advance\+\_\+pow2\+\_\+, typename baseclass\+\_\+ , typename extvalclass\+\_\+ , bool kdd\+\_\+$>$ }\\bool \textbf{ operator==} (const \textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&, const \textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2\+\_\+, bitcount\+\_\+t advance\+\_\+pow2\+\_\+, typename baseclass\+\_\+ , typename extvalclass\+\_\+ , bool kdd\+\_\+$>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& \textbf{ operator$<$$<$} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&out, const \textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&)
+\item 
+{\footnotesize template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2\+\_\+, bitcount\+\_\+t advance\+\_\+pow2\+\_\+, typename baseclass\+\_\+ , typename extvalclass\+\_\+ , bool kdd\+\_\+$>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& \textbf{ operator$>$$>$} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&in, \textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass, typename extvalclass, bool kdd = true$>$\newline
+class pcg\+\_\+detail\+::extended$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$}
+
+
+
+Definition at line 1142 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\label{classpcg__detail_1_1extended_a64baae65f154ad0d1a7bb57cca871d47}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!insideout@{insideout}}
+\index{insideout@{insideout}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{insideout}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+typedef \textbf{ inside\+\_\+out}$<$extvalclass$>$ \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ insideout}}
+
+
+
+Definition at line 1146 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_ad4e11342d5bc82d54ad61fbc7bf9330c}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!result\_type@{result\_type}}
+\index{result\_type@{result\_type}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{result\_type}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+typedef baseclass\+::result\+\_\+type \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ result\+\_\+type}}
+
+
+
+Definition at line 1145 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_af07d941ef553f1871d64a361ead2e871}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!state\_type@{state\_type}}
+\index{state\_type@{state\_type}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{state\_type}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+typedef baseclass\+::state\+\_\+type \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ state\+\_\+type}}
+
+
+
+Definition at line 1144 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classpcg__detail_1_1extended_a2bdc8e8e19d8f0fe6d948aca502e12f6}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!extended@{extended}}
+\index{extended@{extended}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{extended()\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ extended} (\begin{DoxyParamCaption}\item[{const \textbf{ result\+\_\+type} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1232 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a95e71dcfcfaa9d25fdf0124eb6cbc2a9}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!extended@{extended}}
+\index{extended@{extended}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{extended()\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ extended} (\begin{DoxyParamCaption}\item[{const \textbf{ result\+\_\+type} $\ast$}]{data,  }\item[{\textbf{ state\+\_\+type}}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1238 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a77f7e9f6c07fbc1495eba30eb6ef6be0}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!extended@{extended}}
+\index{extended@{extended}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{extended()\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+template$<$typename bc  = baseclass$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ extended} (\begin{DoxyParamCaption}\item[{const \textbf{ result\+\_\+type} $\ast$}]{data,  }\item[{\textbf{ state\+\_\+type}}]{seed,  }\item[{typename bc\+::stream\+\_\+state}]{stream\+\_\+seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1248 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a7c7bf80c696f2c9da304cf818667e38b}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!extended@{extended}}
+\index{extended@{extended}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{extended()\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ extended} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1255 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a5cc1d5ac70e34632d03684ae175f1b3f}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!extended@{extended}}
+\index{extended@{extended}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{extended()\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ extended} (\begin{DoxyParamCaption}\item[{\textbf{ state\+\_\+type}}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1261 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a8efbc38f19ebf1813617245993e0112a}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!extended@{extended}}
+\index{extended@{extended}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{extended()\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+template$<$typename bc  = baseclass$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ extended} (\begin{DoxyParamCaption}\item[{\textbf{ state\+\_\+type}}]{seed,  }\item[{typename bc\+::stream\+\_\+state}]{stream\+\_\+seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1271 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_ad27409604764df608c71f5c34e40074e}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!extended@{extended}}
+\index{extended@{extended}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{extended()\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+template$<$typename Seed\+Seq , typename  = typename std\+::enable\+\_\+if$<$           !std\+::is\+\_\+convertible$<$\+Seed\+Seq, result\+\_\+type$>$\+::value        \&\& !std\+::is\+\_\+convertible$<$\+Seed\+Seq, extended$>$\+::value$>$\+::type$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\textbf{ extended} (\begin{DoxyParamCaption}\item[{Seed\+Seq \&\&}]{seed\+Seq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1286 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classpcg__detail_1_1extended_ac6ce75937526e0003b0d46ec9e90251e}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{\_\_attribute\_\_()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::\+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(always\+\_\+inline)}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1206 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_ad917a2241597772e81668695c18ab2bb}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!advance@{advance}}
+\index{advance@{advance}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{advance()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::advance (\begin{DoxyParamCaption}\item[{\textbf{ state\+\_\+type}}]{distance,  }\item[{bool}]{forwards = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1476 of file pcg\+\_\+random.\+hpp.
+
+
+
+References distance().
+
+\mbox{\label{classpcg__detail_1_1extended_a5f496dd4c53e6543d9966f5c252074d9}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!advance\_table@{advance\_table}}
+\index{advance\_table@{advance\_table}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{advance\_table()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::advance\+\_\+table\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 1435 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a0d81db8641a6144e45738018a89f3850}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!advance\_table@{advance\_table}}
+\index{advance\_table@{advance\_table}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{advance\_table()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::advance\+\_\+table (\begin{DoxyParamCaption}\item[{\textbf{ state\+\_\+type}}]{delta,  }\item[{bool}]{is\+Forwards = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 1450 of file pcg\+\_\+random.\+hpp.
+
+
+
+References delta().
+
+\mbox{\label{classpcg__detail_1_1extended_a484d1b7cb53ef387153c321c96ec0deb}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!backstep@{backstep}}
+\index{backstep@{backstep}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{backstep()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::backstep (\begin{DoxyParamCaption}\item[{\textbf{ state\+\_\+type}}]{distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1227 of file pcg\+\_\+random.\+hpp.
+
+
+
+References distance().
+
+\mbox{\label{classpcg__detail_1_1extended_abc0720b51a3a438758f73fd305686c42}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!datainit@{datainit}}
+\index{datainit@{datainit}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{datainit()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::datainit (\begin{DoxyParamCaption}\item[{const \textbf{ result\+\_\+type} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 1326 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a36486b3339ae8242e65ea3218d3e5e26}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!get\_extended\_value@{get\_extended\_value}}
+\index{get\_extended\_value@{get\_extended\_value}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{get\_extended\_value()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ result\+\_\+type}\& \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::get\+\_\+extended\+\_\+value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1176 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a09db52d110feeaa594ab04209685c2d8}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{operator()()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ result\+\_\+type} \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::operator() (\begin{DoxyParamCaption}\item[{\textbf{ result\+\_\+type}}]{upper\+\_\+bound }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1213 of file pcg\+\_\+random.\+hpp.
+
+
+
+References pcg\+\_\+extras\+::bounded\+\_\+rand().
+
+\mbox{\label{classpcg__detail_1_1extended_a87de70733c1c7e5b628834eff39c6819}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!period\_pow2@{period\_pow2}}
+\index{period\_pow2@{period\_pow2}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{period\_pow2()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+static constexpr size\+\_\+t \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::period\+\_\+pow2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 1201 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_af67216cce3a9091fea149dce8fd3cab9}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!seed@{seed}}
+\index{seed@{seed}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{seed()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+template$<$typename... Args$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::seed (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1293 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_acbfa117fc73c2405d0c73fd5ea2f8d2b}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!selfinit@{selfinit}}
+\index{selfinit@{selfinit}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{selfinit()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::selfinit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 1335 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a7f59d13e5255386164b06619a1e384d3}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!set@{set}}
+\index{set@{set}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{set()}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+void \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::set (\begin{DoxyParamCaption}\item[{\textbf{ result\+\_\+type}}]{wanted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 1218 of file pcg\+\_\+random.\+hpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\label{classpcg__detail_1_1extended_a1889092c48e8eae1cc937197c6d57176}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{operator$<$$<$}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2\+\_\+, bitcount\+\_\+t advance\+\_\+pow2\+\_\+, typename baseclass\+\_\+ , typename extvalclass\+\_\+ , bool kdd\+\_\+$>$ \\
+std\+::basic\+\_\+ostream$<$CharT,Traits$>$\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&}]{out,  }\item[{const \textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\label{classpcg__detail_1_1extended_a40929ecf1de81eaea048b61014233b80}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{operator==}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+template$<$bitcount\+\_\+t table\+\_\+pow2\+\_\+, bitcount\+\_\+t advance\+\_\+pow2\+\_\+, typename baseclass\+\_\+ , typename extvalclass\+\_\+ , bool kdd\+\_\+$>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&}]{,  }\item[{const \textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\mbox{\label{classpcg__detail_1_1extended_a4187839cf940702c776e0bcb7c3dfdf2}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{operator$>$$>$}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+template$<$typename CharT , typename Traits , bitcount\+\_\+t table\+\_\+pow2\+\_\+, bitcount\+\_\+t advance\+\_\+pow2\+\_\+, typename baseclass\+\_\+ , typename extvalclass\+\_\+ , bool kdd\+\_\+$>$ \\
+std\+::basic\+\_\+istream$<$CharT,Traits$>$\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&}]{in,  }\item[{\textbf{ extended}$<$ table\+\_\+pow2\+\_\+, advance\+\_\+pow2\+\_\+, baseclass\+\_\+, extvalclass\+\_\+, kdd\+\_\+ $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{classpcg__detail_1_1extended_ad5695148631932b277ec2cbac96efcb4}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!data\_@{data\_}}
+\index{data\_@{data\_}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{data\_}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+\textbf{ result\+\_\+type} \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::data\+\_\+[\textbf{ table\+\_\+size}]\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 1170 of file pcg\+\_\+random.\+hpp.
+
+
+
+Referenced by pcg\+\_\+detail\+::operator$>$$>$().
+
+\mbox{\label{classpcg__detail_1_1extended_ad0d69e4199fa8fc3e368d15007b92773}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!may\_tick@{may\_tick}}
+\index{may\_tick@{may\_tick}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{may\_tick}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr bool \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::may\+\_\+tick\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        (advance\_pow2 < stypebits) \&\& (advance\_pow2 < tick\_limit\_pow2)}
+
+\end{DoxyCode}
+
+
+Definition at line 1159 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a25ebcf79c66b6c892141b5891c7a5c76}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!may\_tock@{may\_tock}}
+\index{may\_tock@{may\_tock}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{may\_tock}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr bool \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::may\+\_\+tock = \textbf{ stypebits} $<$ \textbf{ tick\+\_\+limit\+\_\+pow2}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1168 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_ab2cfda4b535eb02fa3db2cf3e2ec8a39}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!rtypebits@{rtypebits}}
+\index{rtypebits@{rtypebits}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{rtypebits}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr \textbf{ bitcount\+\_\+t} \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::rtypebits = sizeof(\textbf{ result\+\_\+type})$\ast$8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1149 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_ae83fad8d96c53f5cc3f507304497b175}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!stypebits@{stypebits}}
+\index{stypebits@{stypebits}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{stypebits}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr \textbf{ bitcount\+\_\+t} \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::stypebits = sizeof(\textbf{ state\+\_\+type})$\ast$8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1150 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a7e868e8d4ae31d7c872b416f85c6184d}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!table\_mask@{table\_mask}}
+\index{table\_mask@{table\_mask}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{table\_mask}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr \textbf{ state\+\_\+type} \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::table\+\_\+mask\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        (state\_type(1U) << table\_pow2) -\/ state\_type(1U)}
+
+\end{DoxyCode}
+
+
+Definition at line 1156 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_af742031eb6b211feca341549ca6e197f}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!table\_shift@{table\_shift}}
+\index{table\_shift@{table\_shift}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{table\_shift}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr size\+\_\+t \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::table\+\_\+shift = \textbf{ stypebits} -\/ table\+\_\+pow2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1155 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_ab620b21cdcfaa30cf3e73ca8ac2e5041}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!table\_size@{table\_size}}
+\index{table\_size@{table\_size}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{table\_size}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr size\+\_\+t \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::table\+\_\+size = 1UL $<$$<$ table\+\_\+pow2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1154 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a234c40f44b89a281594e0b229b83c189}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!tick\_limit\_pow2@{tick\_limit\_pow2}}
+\index{tick\_limit\_pow2@{tick\_limit\_pow2}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{tick\_limit\_pow2}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr \textbf{ bitcount\+\_\+t} \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::tick\+\_\+limit\+\_\+pow2 = 64U\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1152 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_adb17aa0ed60443a8c422e774c2356eb9}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!tick\_mask@{tick\_mask}}
+\index{tick\_mask@{tick\_mask}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{tick\_mask}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr \textbf{ state\+\_\+type} \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::tick\+\_\+mask\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{        may\_tick ? state\_type(}
+\DoxyCodeLine{                       (uint64\_t(1) << (advance\_pow2*may\_tick)) -\/ 1)}
+\DoxyCodeLine{                                        }
+\DoxyCodeLine{                 : \string~state\_type(0U)}
+
+\end{DoxyCode}
+
+
+Definition at line 1162 of file pcg\+\_\+random.\+hpp.
+
+\mbox{\label{classpcg__detail_1_1extended_a50f15c19d43998b80ad7c9eeb270920e}} 
+\index{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}!tick\_shift@{tick\_shift}}
+\index{tick\_shift@{tick\_shift}!pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$@{pcg\_detail::extended$<$ table\_pow2, advance\_pow2, baseclass, extvalclass, kdd $>$}}
+\doxysubsubsection{tick\_shift}
+{\footnotesize\ttfamily template$<$bitcount\+\_\+t table\+\_\+pow2, bitcount\+\_\+t advance\+\_\+pow2, typename baseclass , typename extvalclass , bool kdd = true$>$ \\
+constexpr size\+\_\+t \textbf{ pcg\+\_\+detail\+::extended}$<$ table\+\_\+pow2, advance\+\_\+pow2, baseclass, extvalclass, kdd $>$\+::tick\+\_\+shift = \textbf{ stypebits} -\/ advance\+\_\+pow2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [private]}}
+
+
+
+Definition at line 1161 of file pcg\+\_\+random.\+hpp.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ pcg\+\_\+random.\+hpp}\end{DoxyCompactItemize}
