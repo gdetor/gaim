@@ -45,6 +45,8 @@ if __name__ == '__main__':
     ga_params.num_offsprings = 5        # Number of offsprings
     ga_params.num_replacement = 3       # Number of individuals to be replaced
     ga_params.runs = 1                  # Number of indipendent runs of a GA
+    ga_params.universal_clipping = True     # Global clipping values
+    clipping_fname = "../examples/clip_file.dat".encode('utf-8')
 
     # Define all Logging parameters
     where2write = "./data/".encode('utf-8')     # Where to store the results
