@@ -88,6 +88,28 @@ PYBIND11_MODULE(pygaim, m)
         .def_readwrite("lower_limit", &individual_s::lower_limit)
         .def_readwrite("upper_limit", &individual_s::upper_limit);
 
+    py::class_<im_parameter_s>(m, "im_parameter_s")
+        .def(py::init([] (){ return new im_parameter_s; }))
+        .def_readwrite("num_immigrants", &im_parameter_s::num_immigrants)
+        .def_readwrite("num_islands", &im_parameter_s::num_islands)
+        .def_readwrite("migration_interval", &im_parameter_s::migration_interval)
+        .def_readwrite("pick_method", &im_parameter_s::pick_method)
+        .def_readwrite("replace_method", &im_parameter_s::replace_method)
+        .def_readwrite("adj_list_fname", &im_parameter_s::adj_list_fname)
+        .def_readwrite("is_im_enabled", &im_parameter_s::is_im_enabled);
+
+    // Wrapper for IM class
+    py::class_<IM>(m, "IM")
+        .def(py::init([] (im_parameter_s *im, ga_parameter_s *pms){
+                    IM *islands = new IM(im, pms);
+                    return islands;
+                    }))
+        .def("read_connectivity_graph", &IM::read_connectivity_graph)
+        .def("select_ind2migrate", &IM::select_ind2migrate)
+        .def("move_immigrants", &IM::move_immigrants)
+        .def("evolve_island", &IM::evolve_island)
+        .def("run_islands", &IM::run_islands);
+
     // Crossover functions
     m.def("one_point_crossover",
           &one_point_crossover,
