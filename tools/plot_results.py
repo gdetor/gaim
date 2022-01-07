@@ -81,7 +81,7 @@ def plot_data(directory='./data/', data_type="bsf", nbytes=4, average=False):
     ax.set_ylabel(data_type, fontsize=16, weight='bold')
     ticks = ax.get_xticks().astype('i')
     ax.set_xticklabels(ticks, fontsize=16, weight='bold')
-    ticks = np.round(ax.get_yticks(), 4)
+    ticks = np.round(ax.get_yticks(), 7)
     ax.set_yticklabels(ticks, fontsize=16, weight='bold')
 
 
