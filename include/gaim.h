@@ -45,7 +45,7 @@
 
 #include <sys/stat.h>
 
-#define REAL_ double
+#define REAL_ float
 
 #include <functional>
 

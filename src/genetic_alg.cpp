@@ -412,11 +412,12 @@ void GA::run_one_generation(void)
     // Evaluate offspring fitness
     evaluation(offsprings);
 
+    // Integrate offspring in the initial population
+    next_generation(replace_perc);
+    
     // Clip genome
     clip_genome();
     
-    // Integrate offspring in the initial population
-    next_generation(replace_perc);
 
     // Increase iteration index
     iter_index++;
