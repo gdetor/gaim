@@ -209,12 +209,6 @@ std::vector<individual_s> GA::selection(size_t num_parents,
 {
     std::vector<individual_s> parents;
     parents = ktournament_selection(population, num_parents, k, replace);
-    // parents = truncation_selection(population, num_parents, 2, replace);
-    // parents = linear_rank_selection(population, num_parents, replace);
-    // parents = random_selection(population, num_parents, replace);
-    // parents = roulette_wheel_selection(population, num_parents, replace);
-    // parents = stochastic_roulette_wheel_selection(population, num_parents, replace);
-    // parents = whitley_selection(population, 1, num_parents, replace);
     return parents;
 }
 
