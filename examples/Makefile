@@ -10,6 +10,9 @@ src=$(wildcard $(SRC)/*.cpp)
 src:=$(filter-out main.cpp, $(src))
 
 
+interface: $(src) main_interface.cpp
+	$(CXX) $(CPPFLAGS) $(INC) $^ -o $@ $(LIB)
+
 custom_ga: $(src) main_custom_ga.cpp 
 	$(CXX) $(CPPFLAGS) -DCUSTOM $(INC) $^ -o $@ $(LIB)
 

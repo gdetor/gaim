@@ -396,6 +396,32 @@ bool is_path_exist(const std::string &);
 int mkdir_(const std::string &);
 
 
+/// Interface functions (to use GAIM through other programming languages
+int ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
+                    size_t,
+                    size_t,
+                    size_t,
+                    size_t,
+                    size_t,
+                    size_t,
+                    size_t,
+                    size_t,
+                    size_t,
+                    REAL_,
+                    REAL_,
+                    char *,
+                    char *,
+                    char *,
+                    char *,
+                    char *,
+                    char *,
+                    bool,
+                    bool,
+                    bool,
+                    bool,
+                    bool,
+                    bool);
+
 #ifdef __cplusplus
 }
 #endif
