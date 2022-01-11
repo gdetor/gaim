@@ -172,4 +172,7 @@ PYBIND11_MODULE(pygaim, m)
     m.def("whitley_selection",
           &whitley_selection,
           "Whitley rank selection method");
+
+    // Interface function
+    m.def("ga_optimization", &ga_optimization);
 }

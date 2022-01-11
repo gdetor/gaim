@@ -26,9 +26,9 @@
 
 int main() {
     int res;
-    char *replace = "poor", *choice = "elite";
-    char *store = "./data/", *exp_id = "interface";
-    char *clip = " ", *graph = " ";
+    std::string replace = "poor", choice = "elite";
+    std::string store = "./data/", exp_id = "interface";
+    std::string clip = " ", graph = " ";
 
     res = ga_optimization(sphere,       // fitness function
                           1000,         // Generations

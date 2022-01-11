@@ -1,7 +1,8 @@
 #include "gaim.h"
 
-
-int ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
+extern "C"
+// int ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
+int ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
                     size_t n_generations,
                     size_t population_size,
                     size_t genome_size,
@@ -13,12 +14,12 @@ int ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
                     size_t migration_interval,
                     REAL_ a,
                     REAL_ b,
-                    char *pickup_method,
-                    char *replace_method,
-                    char *clipping_fname,
-                    char *log_fname,
-                    char *experiment_id,
-                    char *im_graph_fname,
+                    std::string pickup_method,
+                    std::string replace_method,
+                    std::string clipping_fname,
+                    std::string log_fname,
+                    std::string experiment_id,
+                    std::string im_graph_fname,
                     bool log_fitness,
                     bool log_average_fitness,
                     bool log_bsf,
@@ -72,7 +73,7 @@ int ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
         IM island_model(&im_pms, &ga_pms);
         printf("Optimizing using Island Model!\n");
         for (size_t i = 0; i < im_pms.num_islands; ++i) {
-           island_model.island[i].fitness=func;
+           island_model.island[i].fitness = func;
         }
         island_model.run_islands(&im_pms, &pr_pms);
     } else {
