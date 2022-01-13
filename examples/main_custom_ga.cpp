@@ -35,12 +35,12 @@
  * names. Of course the user is free to develop their own operators and use 
  * them here. 
  */
-void GA::run_one_generation(std::size_t iteration)
+void GA::run_one_generation()
 {
     /* int order; */
     /* std::size_t xover; */
     individual_s parent1, parent2;
-    std::pair<individual_s, individual_s> parents;
+    std::vector<individual_s> parents;
     std::vector<REAL_> child;
 
     // Evaluate fitness of each individual
@@ -49,10 +49,12 @@ void GA::run_one_generation(std::size_t iteration)
     // Sort the entire population based on fitness
     sort_population();
 
-    // Bookkeeping
-    hfi.push_back(sorted_population[sorted_population.size()-1].fitness);   // Best fitness
-    lfi.push_back(sorted_population[0].fitness);    // Lowest fitness
 
+    best_individual = sorted_population[sorted_population.size()-1];
+    hfi.push_back(best_individual.fitness);   // Best fitness
+    bsf_genome = best_individual.genome;  // Best so far genome
+    lfi.push_back(sorted_population[0].fitness);    // Lowest fitness
+    
     // Average fitness across population
     REAL_ acc = std::accumulate(population.begin(),
                                 population.end(),
@@ -60,33 +62,33 @@ void GA::run_one_generation(std::size_t iteration)
                                 average_fitness);
     fit_avg.push_back(acc / static_cast<REAL_>(mu));
     
-    best_so_far = std::max(best_so_far, hfi[iteration]);
-    bsf.push_back(best_so_far);
-    best_individual = sorted_population[sorted_population.size()-1];
+    bsf.push_back(best_individual.fitness);
 
     // Generate new offsprings
     for(std::size_t i = 0; i < lambda; ++i) {
         // Parents selection
-        parents = selection(2);
-        parent1 = parents.first;
-        parent2 = parents.second;
+        parents = selection(2, 2, false);
+        parent1 = parents[0];
+        parent2 = parents[1];
      
         // Crossover
         // child = crossover(parent1.genome, parent2.genome, xover, order);
         child = crossover(parent1.genome, parent2.genome);
 
         // Mutation
-        // child = mutation(child, 0.5, 0.2);
-        child = random_mutation(child, -1, 1);
+        child = mutation(child, 0.5, 0.5);
 
         // Append the offsprings genome list
         offsprings[i].genome = child;
     }
     // Evaluate offsprings fitness
     evaluation(offsprings);
-    
+   
     // Integrate offsprings in the initial population
     next_generation(replace_perc);
+    
+    // Clip genome
+    clip_genome();
 }
 
 
