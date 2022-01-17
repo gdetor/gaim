@@ -139,9 +139,10 @@ std::map<int, node_s> read_connectivity_graph(std::string fname,
  */
 void select_ind2migrate(std::vector<individual_s> pool,
                         REAL_ **buffer,
-                        REAL_ (*f)(std::vector<REAL_> &),
-                        REAL_ a,
-                        REAL_ b,
+                        // REAL_ (*f)(std::vector<REAL_> &),
+                        std::function<REAL_(std::vector<REAL_>&)> f,
+                        std::vector<REAL_> a,
+                        std::vector<REAL_> b,
                         std::size_t num_immigrants,
                         std::size_t genome_size,
                         std::string method)
@@ -150,7 +151,7 @@ void select_ind2migrate(std::vector<individual_s> pool,
     std::size_t len = pool.size();
     static std::random_device rd;
     static std::mt19937 gen(rd());
-    static std::uniform_real_distribution<> probs(a, b);
+    static std::uniform_real_distribution<> probs(a[0], b[0]);
     std::vector <REAL_> new_genome(genome_size);
     static std::vector<int> pop(pool.size());
 
@@ -217,7 +218,8 @@ void select_ind2migrate(std::vector<individual_s> pool,
  */
 void receiving_immigrants(std::vector<individual_s> pool,
                           REAL_ *buffer,
-                          REAL_ (*f)(std::vector<REAL_> &),
+                          // REAL_ (*f)(std::vector<REAL_> &),
+                          std::function<REAL_(std::vector<REAL_>&)> f,
                           std::size_t num_immigrants,
                           std::size_t genome_size,
                           std::string method)
@@ -384,7 +386,7 @@ int main(int argc, char **argv)
     sreqs = (MPI_Request *)malloc(sizeof(MPI_Request) * odeg);
     for (size_t i = 0; i < ga_pms.generations; ++i) {
         // Run an evolution step on each island
-        gen_alg.run_one_generation(i);
+        gen_alg.run_one_generation();
         
         // Migration takes place
         if (i % im_pms.migration_interval == 0) {

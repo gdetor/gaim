@@ -39,12 +39,20 @@
 GA::GA(ga_parameter_s *ga_pms)
 {
     REAL_ bound_val;
+    // alpha and beta are vectors
     alpha = ga_pms->a;  // Lower bound for genes [a, b]
     beta = ga_pms->b;   // Upper bound for genes [a, b]
 
+    if ((alpha.size() != ga_pms->genome_size) && \
+         (beta.size() != ga_pms->genome_size)) {
+        std::cout << "Genome limits [a, b] size is not correct!" << std::endl;
+        std::cout << "Size of a and b = genome size!" << std::endl;
+        exit(-1);
+    }
+
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<> genes(alpha, beta);
+    std::uniform_real_distribution<> genes(alpha[0], beta[0]);
 
     mu = ga_pms->population_size;   // Population size
     if (mu < 2) {
@@ -71,6 +79,7 @@ GA::GA(ga_parameter_s *ga_pms)
         population[i].is_selected = false;
         for (size_t j = 0; j < genome_size; ++j) {
             population[i].genome.push_back(genes(gen)); // Genome
+            genes = std::uniform_real_distribution<>(alpha[j], beta[j]);
         }
     }
     sorted_population = population; // Sort the population based on fitness
@@ -82,15 +91,16 @@ GA::GA(ga_parameter_s *ga_pms)
         offsprings[i].fitness = -10000;
         for (size_t j = 0; j < genome_size; ++j) {
             offsprings[i].genome.push_back(genes(gen)); 
+            genes = std::uniform_real_distribution<>(alpha[j], beta[j]);
         }
     }
 
-    // In case individual clipping values are given then read them from the
     // corresponding file (see config file)
-    if (ga_pms->universal_clipping == false) {
+    if (ga_pms->clipping == "file") {
         auto ifile = std::fstream(ga_pms->clipping_fname, std::ios::in);
         if (!ifile) {
-            std::cout << "Unable to open file " << ga_pms->clipping_fname << std::endl;
+            std::cout << "Unable to open file " << ga_pms->clipping_fname\
+                << std::endl;
             exit(1);
         }
         
@@ -104,13 +114,22 @@ GA::GA(ga_parameter_s *ga_pms)
                 population[i].upper_limit.push_back(bound_val);
             }
         }
+    } else if (ga_pms->clipping == "individual") {
+        for (size_t i = 0; i < mu; ++i) {
+            for (size_t j = 0; j < ga_pms->genome_size; ++j) {
+                population[i].lower_limit.push_back(alpha[j]);
+            }
+            for (size_t j = 0; j < ga_pms->genome_size; ++j) {
+                population[i].upper_limit.push_back(beta[j]);
+            }
+        }
     } else {
         for (size_t i = 0; i < mu; ++i) {
             for (size_t j = 0; j < ga_pms->genome_size; ++j) {
-                population[i].lower_limit.push_back(alpha);
+                population[i].lower_limit.push_back(alpha[0]);
             }
             for (size_t j = 0; j < ga_pms->genome_size; ++j) {
-                population[i].upper_limit.push_back(beta);
+                population[i].upper_limit.push_back(beta[0]);
             }
         }
     }

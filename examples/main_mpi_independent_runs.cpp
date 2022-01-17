@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     GA gen_alg(&ga_pms);
    
     // Set the fitness function
-    gen_alg.fitness = &schwefel;
+    gen_alg.fitness = &sphere;
 
     // Run the GA
     gen_alg.evolve(ga_pms.generations, rank, &pr_pms);

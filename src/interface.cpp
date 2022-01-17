@@ -12,19 +12,19 @@ int ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
                     size_t n_islands,
                     size_t n_immigrants,
                     size_t migration_interval,
-                    REAL_ a,
-                    REAL_ b,
+                    std::vector<REAL_> a,
+                    std::vector<REAL_> b,
+                    std::string clipping,
+                    std::string clipping_fname,
+                    std::string experiment_id,
+                    std::string log_fname,
                     std::string pickup_method,
                     std::string replace_method,
-                    std::string clipping_fname,
-                    std::string log_fname,
-                    std::string experiment_id,
                     std::string im_graph_fname,
                     bool log_fitness,
                     bool log_average_fitness,
                     bool log_bsf,
                     bool log_best_genome,
-                    bool universal_clipping,
                     bool is_im_enabled) {
     ga_parameter_s ga_pms;
     pr_parameter_s pr_pms;
@@ -45,7 +45,7 @@ int ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
         return 2;
     }
     ga_pms.num_replacement = n_replacements;
-    ga_pms.universal_clipping = universal_clipping;
+    ga_pms.clipping = clipping;
     ga_pms.clipping_fname = clipping_fname;
     ga_pms.a = a;
     ga_pms.b = b;

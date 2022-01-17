@@ -167,7 +167,7 @@ void IM::select_ind2migrate(size_t num_immigrants,
     size_t len = island[unique_id].population.size();
     static std::random_device rd;
     static std::mt19937 gen(rd());
-    static std::uniform_real_distribution<> probs(a, b);
+    static std::uniform_real_distribution<> probs(a[0], b[0]);
     std::vector <REAL_> new_genome(island[unique_id].genome_size);
     std::vector<int> pop(island[unique_id].population.size());
 

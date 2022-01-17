@@ -76,12 +76,13 @@ def plot_data(directory='./data/', data_type="bsf", nbytes=4, average=False):
     else:
         for i in range(len(data)):
             ax.plot(data[i], lw=2)
+            plt.ticklabel_format(axis="y", style='sci')
     # ax.set_ylim([data.min(), 0])
     ax.set_xlabel("Generations", fontsize=16, weight='bold')
     ax.set_ylabel(data_type, fontsize=16, weight='bold')
     ticks = ax.get_xticks().astype('i')
     ax.set_xticklabels(ticks, fontsize=16, weight='bold')
-    ticks = np.round(ax.get_yticks(), 7)
+    ticks = np.round(ax.get_yticks(), 17)
     ax.set_yticklabels(ticks, fontsize=16, weight='bold')
 
 

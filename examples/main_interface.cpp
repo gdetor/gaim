@@ -28,8 +28,10 @@ int main() {
     int res;
     std::string replace = "poor", choice = "elite";
     std::string store = "./data/", exp_id = "interface";
-    std::string clip = " ", graph = " ";
+    std::string clip = "universal", clip_file = " ", graph = " ";
 
+    int n = 2;
+    std::vector<REAL_> a(n, -10.0), b(n, 10.0);
     res = ga_optimization(sphere,       // fitness function
                           1000,         // Generations
                           10,           // Population size
@@ -40,19 +42,20 @@ int main() {
                           5,            // Number of Islands
                           4,            // Number of immigrants
                           200,          // Migration interval
-                          -10.0,        // a - lower bound
-                          10.0,         // b - upper bound
+                          a,            // a - lower bound
+                          b,            // b - upper bound
+                          clip,         // Log fitness
+                          clip_file,    // Clipping filename
+                          exp_id,       // Experiment ID
+                          store,        // Where to store the logs
                           choice,       // Pickup method (IM)
                           replace,      // Replace method (IM)
-                          clip,         // Clipping filename
-                          store,        // Where to store the logs
-                          exp_id,       // Experiment ID
                           graph,        // IM connectivity graph file
-                          false,        // Log fitness
                           true,         // Log average fitness
                           true,         // Log BSF
                           true,         // Log of best genome
                           true,         // Enable/disable genome universal clipping 
                           false);       // Enable/disable the IM
+    std::cout << "ga_optimization function returned: " << res << std::endl;
     return 0;
 }

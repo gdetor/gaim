@@ -84,19 +84,21 @@
  * trying to derive an Monte Carlo estimate of fitness.
  */
 typedef struct parameter_ga {
-    REAL_ a;    /**< Lower bound of genome's interval ([a, b]) */
-    REAL_ b;    /**< Upper bound of genome's interval ([a, b]) */
+    std::vector<REAL_> a;    /**< Lower bound of genome's interval ([a, b]) */
+    std::vector<REAL_> b;    /**< Upper bound of genome's interval ([a, b]) */
     std::size_t generations;    /**< Number of generations the GA will run for */
     std::size_t population_size;    /**< Population size (number of individuals) */
     std::size_t genome_size;    /**< Size of genome of each individual */
     std::size_t num_offsprings; /**< Number of offsprings (children) */
     std::size_t num_replacement;    /**< Number of individuals being replaced in every generation */
+    std::string clipping;    /**< Controls when the clipping values are the same for all genes
+                               for every individual ("universal"), or each individual 
+                               has its own clipping values per gene ("individual"),
+                               or each individual has its own clipping values per gene
+                               provided by a file ("file"). */
     std::string clipping_fname;     /**< Clipping values file name. Contains the clipping values 
                                       for each gene for each individual.*/
     int runs;   /**< Number of experimental runs, greater than 1 in case of multiple trajectories */
-    bool universal_clipping;    /**< Controls when the clipping values are the same for all genes
-                                  for every individual or each individual has its own clipping values
-                                  per gene. */
 } ga_parameter_s;
 
 
@@ -224,7 +226,7 @@ class GA {
         std::vector<REAL_> bsf_genome; /// BSF genome
 
     private:
-        REAL_ alpha, beta;  /// Genome's interval limits [a, b]
+        std::vector<REAL_> alpha, beta;  /// Genome's interval limits [a, b]
         std::vector<individual_s> immigrant;    /// Immigrants vector (buffer)
         size_t mu;     /// Number of individuals within a population
         size_t lambda; /// Number of offsprings
@@ -273,7 +275,7 @@ class IM {
         std::vector<GA> island; /// Islands (threads) vector
 
     private:
-        REAL_ a, b; /// Genome's interval [a, b]
+        std::vector<REAL_> a, b; /// Genome's interval [a, b]
         std::map<int, std::vector<int>> adj_list;   /// Adjacent list of islands
         size_t generations;     /// Generations
         size_t num_immigrants;  /// Number of immigrants
@@ -408,15 +410,15 @@ int ga_optimization(std::function<REAL_(std::vector<REAL_>&)>,
                     size_t,
                     size_t,
                     size_t,
-                    REAL_,
-                    REAL_,
+                    std::vector<REAL_>,
+                    std::vector<REAL_>,
                     std::string,
                     std::string,
                     std::string,
                     std::string,
                     std::string,
                     std::string,
-                    bool,
+                    std::string,
                     bool,
                     bool,
                     bool,

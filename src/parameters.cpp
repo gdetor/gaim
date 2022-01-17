@@ -44,13 +44,12 @@ std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> read_parameters_file(
     pr_parameter_s print_tmp;
     im_parameter_s island_tmp;
 
-    REAL_ alpha(0), beta(1);
     int generations, population_size, num_offsprings, genome_size;
     int num_replacement, runs;
     int num_islands, num_immigrants, migration_interval;
     bool print_fitness, print_avg_fitness, print_bsf, print_best_genome;
     bool im_enabled;
-    bool universal_clipping;
+    std::string clipping ;
     int flag;
     std::string where2write, exp_name, final_path, adj_list_fname;
     std::string base("./"), rmethod, cmethod;
@@ -92,16 +91,26 @@ std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> read_parameters_file(
             const Setting &pr = root["GA"]["print"];
             const Setting &im = root["GA"]["island_model"];
 
+            const Setting &a_cfg = ga.lookup("a");
+            std::vector<REAL_> tmp_a;
+            for (int n = 0; n < a_cfg.getLength(); ++n) {
+                tmp_a.push_back(a_cfg[n]);
+            }
+
+            const Setting &b_cfg = ga.lookup("b");
+            std::vector<REAL_> tmp_b;
+            for (int n = 0; n < b_cfg.getLength(); ++n) {
+                tmp_b.push_back(b_cfg[n]);
+            }
+
             // GA parameters
             if (ga.lookupValue("generations", generations) &&
                 ga.lookupValue("runs", runs) &&
                 ga.lookupValue("population_size", population_size) &&
                 ga.lookupValue("number_of_offsprings", num_offsprings) &&
                 ga.lookupValue("size_of_genome", genome_size) &&
-                ga.lookupValue("universal_clipping", universal_clipping) &&
+                ga.lookupValue("clipping", clipping) &&
                 ga.lookupValue("clipping_fname", clipping_fname) &&
-                ga.lookupValue("a", alpha) &&
-                ga.lookupValue("b", beta) &&
                 ga.lookupValue("number_of_replacement", num_replacement)) {
             
                 if ((generations < 0) || (population_size <= 0) ||
@@ -125,11 +134,11 @@ std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> read_parameters_file(
                     exit(-1);
                 }
                 tmp.num_replacement = num_replacement;
-                tmp.universal_clipping = universal_clipping;
+                tmp.clipping = clipping;
                 tmp.clipping_fname = clipping_fname;
-                tmp.a = alpha;
-                tmp.b = beta;
             }
+            tmp.a = tmp_a;
+            tmp.b = tmp_b;
 
             // Printing parameters
             if (pr.lookupValue("print_fitness", print_fitness) &&
@@ -220,7 +229,7 @@ void print_parameters(ga_parameter_s ga_pms,
         std::cout << "Genome Size: " << ga_pms.genome_size << std::endl;
         std::cout << "#Offsprings: " << ga_pms.num_offsprings << std::endl;
         std::cout << "#Replacements: " << ga_pms.num_replacement << std::endl;
-        std::cout << "Universal Clipping: " << ga_pms.universal_clipping << std::endl;
+        std::cout << "Clipping: " << ga_pms.clipping << std::endl;
         std::cout << "Clipping Values File: " << ga_pms.clipping_fname << std::endl;
         std::cout << "Print fitness: " << pr_pms.print_fitness << std::endl;
         std::cout << "Print average fitness: " << pr_pms.print_average_fitness << std::endl;
@@ -247,7 +256,7 @@ void print_parameters(ga_parameter_s ga_pms,
         ofile << "Genome Size: " << ga_pms.genome_size << std::endl;
         ofile << "#Offsprings: " << ga_pms.num_offsprings << std::endl;
         ofile << "#Replacements: " << ga_pms.num_replacement << std::endl;
-        ofile << "Universal Clipping: " << ga_pms.universal_clipping << std::endl;
+        ofile << "Clipping: " << ga_pms.clipping << std::endl;
         ofile << "Clipping Values File: " << ga_pms.clipping_fname << std::endl;
         ofile << "Print fitness: " << pr_pms.print_fitness << std::endl;
         ofile << "Print average fitness: " << pr_pms.print_average_fitness << std::endl;
