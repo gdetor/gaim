@@ -44,7 +44,7 @@ int main() {
                           200,          // Migration interval
                           a,            // a - lower bound
                           b,            // b - upper bound
-                          clip,         // Log fitness
+                          clip,         // Clipping method
                           clip_file,    // Clipping filename
                           exp_id,       // Experiment ID
                           store,        // Where to store the logs

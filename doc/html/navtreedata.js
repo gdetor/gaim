@@ -60,7 +60,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "gaim_8h.html#ac27d906cc49ccb3918d60eb43afbe46f",
-"structindividual.html#a1121e1dd254801f93736390e488f0d8a"
+"struct__pthread__barrier__t.html#a3916d57ff2b2d930a9a882f746bc79da"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

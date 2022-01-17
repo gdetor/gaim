@@ -98,6 +98,14 @@ within the model.
 -`independent_runs`: Main function for running independent GAs using threads
 and logging information about the outcomes of the separate experiments.
 
+-`interface`: Or **ga_optimization()** is a function that provides one-line
+optimizization (similar to Scipy's minimize). The user passes the objective
+function as an argument along with all the necessary optimization parameters.
+In this case there is no need for a configuration file. The same function can
+be called from Python since GAIM already provides a Python wrapper based on 
+Pybind11. 
+
+
 ## Controlling the optimizer using GAIM configuration files
 
 All the parameters for running an experiment have to be given by providing a configuration file
@@ -493,6 +501,58 @@ callback method and call the evolve method to run the GA.
 ```
 The complete example can be found in the **pygaim** directory as a standalone
 python script under the name **pygaim_demo.py**.
+
+
+## Optimize a function through the interface function from python
+The following code snippet demonstrates how we can use the **ga_optimization**
+function to minimize any objective function. For the moment the objective
+function accepts only one argument, an array that represents the genome. It
+does not accept any extra parameters so if the user would like to have some 
+extra parameters they will have to wrap their objective function around a new
+function that gets as an argument only the genome. Future versions of GAIM
+will allow an objective function with extra parameters. 
+
+
+```
+import numpy as np
+import pygaim
+
+
+def error(x):
+    """!
+    A simple test fitness function (Sphere).
+    """
+    x = np.array(x, 'd')
+    tmp = (x**2).sum()
+    return -tmp
+
+
+if __name__ == '__main__':
+    res = pygaim.ga_optimization(error,        # fitness function
+                                 1000,         # Generations
+                                 10,           # Population size
+                                 2,            # Genome size
+                                 3,            # Number of offsprings
+                                 1,            # Replacements
+                                 1,            # Independent rounds
+                                 5,            # Number of Islands
+                                 4,            # Number of immigrants
+                                 200,          # Migration interval
+                                 [-10.0, -10.0],   # a - lower bound
+                                 [10.0, 10.0],     # b - upper bound
+                                 "universal",   # Clipping method
+                                 " ",          # Clipping filename
+                                 "lolo",       # Experiment ID
+                                 "./data/",     # Where to store the logs
+                                 "elite",      # Pickup method (IM)
+                                 "poor",       # Replace method (IM)
+                                 " ",          # IM connectivity graph file
+                                 False,        # Log fitness
+                                 True,         # Log average fitness
+                                 True,         # Log BSF
+                                 True,         # Log of best genome
+                                 False)        # Enable/disable the IM
+```
 
 
 ## Platforms where GAIM has been tested

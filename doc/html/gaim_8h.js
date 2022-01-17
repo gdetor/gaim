@@ -20,6 +20,7 @@ var gaim_8h =
     [ "flat_crossover", "gaim_8h.html#a17f47d65b7dd182a493b402d36298019", null ],
     [ "float_random", "gaim_8h.html#a1d9cef7331f9b3b7e0c590c61f74eff2", null ],
     [ "fusion_mutation", "gaim_8h.html#a05f4ca43161b814d1c8da4b88541a8f9", null ],
+    [ "ga_optimization", "gaim_8h.html#ad8ae9e6c1620a56ea84cc94fa66a13e8", null ],
     [ "griewank", "gaim_8h.html#a4ee9ecf0f8b15abe84fe28b658a48fed", null ],
     [ "independent_runs", "gaim_8h.html#a518c54c210409fc2183267d6a6a16c60", null ],
     [ "int_random", "gaim_8h.html#a31999cecab5f3885384236781c504ec7", null ],

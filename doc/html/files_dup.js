@@ -5,6 +5,7 @@ var files_dup =
     [ "crossover.cpp", "crossover_8cpp.html", "crossover_8cpp" ],
     [ "gaim.h", "gaim_8h.html", "gaim_8h" ],
     [ "genetic_alg.cpp", "genetic__alg_8cpp.html", null ],
+    [ "interface.cpp", "interface_8cpp.html", "interface_8cpp" ],
     [ "island_ga.cpp", "island__ga_8cpp.html", "island__ga_8cpp" ],
     [ "logging.cpp", "logging_8cpp.html", "logging_8cpp" ],
     [ "mutation.cpp", "mutation_8cpp.html", "mutation_8cpp" ],

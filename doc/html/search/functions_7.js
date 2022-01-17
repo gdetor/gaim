@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['ga_469',['GA',['../classGA.html#a2a2859549b38e5bb1446d07613718364',1,'GA']]],
-  ['generate_470',['generate',['../classpcg__extras_1_1seed__seq__from.html#acd4556759cf92f49bf958e0cacb72e07',1,'pcg_extras::seed_seq_from']]],
-  ['generate_5fone_471',['generate_one',['../namespacepcg__extras.html#aa725ad9f9f0b511be8646ffff716665d',1,'pcg_extras']]],
-  ['generate_5fto_472',['generate_to',['../namespacepcg__extras.html#a41e1950d9f7429f7e9775c3924a861db',1,'pcg_extras']]],
-  ['generate_5fto_5fimpl_473',['generate_to_impl',['../namespacepcg__extras.html#a908d65518153efed3219c2bd26d54789',1,'pcg_extras::generate_to_impl(SeedSeq &amp;&amp;generator, DestIter dest, std::true_type)'],['../namespacepcg__extras.html#a61f43320af045b4a81fd1d47ddb0d9af',1,'pcg_extras::generate_to_impl(SeedSeq &amp;&amp;generator, DestIter dest, std::false_type)']]],
-  ['get_5faverage_5ffitness_5frec_474',['get_average_fitness_rec',['../classGA.html#ad111852face5ba08f6dd5a4798f4a23c',1,'GA']]],
-  ['get_5fbsf_475',['get_bsf',['../classGA.html#a89800eb2174f0abd287dab5ce9016806',1,'GA']]],
-  ['get_5fextended_5fvalue_476',['get_extended_value',['../classpcg__detail_1_1extended.html#a36486b3339ae8242e65ea3218d3e5e26',1,'pcg_detail::extended']]],
-  ['griewank_477',['griewank',['../test__functions_8cpp.html#ab16264d38d5a269f2f00c3707f221167',1,'griewank(std::vector&lt; REAL_ &gt; &amp;x):&#160;test_functions.cpp'],['../gaim_8h.html#a4ee9ecf0f8b15abe84fe28b658a48fed',1,'griewank(std::vector&lt; REAL_ &gt; &amp;):&#160;test_functions.cpp']]]
+  ['ga_472',['GA',['../classGA.html#a2a2859549b38e5bb1446d07613718364',1,'GA']]],
+  ['ga_5foptimization_473',['ga_optimization',['../interface_8cpp.html#a41122230547878783d6472a38a19eed5',1,'ga_optimization(std::function&lt; REAL_(std::vector&lt; REAL_ &gt; &amp;)&gt; func, size_t n_generations, size_t population_size, size_t genome_size, size_t n_offsprings, size_t n_replacements, size_t n_rounds, size_t n_islands, size_t n_immigrants, size_t migration_interval, std::vector&lt; REAL_ &gt; a, std::vector&lt; REAL_ &gt; b, std::string clipping, std::string clipping_fname, std::string experiment_id, std::string log_fname, std::string pickup_method, std::string replace_method, std::string im_graph_fname, bool log_fitness, bool log_average_fitness, bool log_bsf, bool log_best_genome, bool is_im_enabled):&#160;interface.cpp'],['../gaim_8h.html#ad8ae9e6c1620a56ea84cc94fa66a13e8',1,'ga_optimization(std::function&lt; REAL_(std::vector&lt; REAL_ &gt; &amp;)&gt;, size_t, size_t, size_t, size_t, size_t, size_t, size_t, size_t, size_t, std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;, std::string, std::string, std::string, std::string, std::string, std::string, std::string, bool, bool, bool, bool, bool):&#160;interface.cpp']]],
+  ['generate_474',['generate',['../classpcg__extras_1_1seed__seq__from.html#acd4556759cf92f49bf958e0cacb72e07',1,'pcg_extras::seed_seq_from']]],
+  ['generate_5fone_475',['generate_one',['../namespacepcg__extras.html#aa725ad9f9f0b511be8646ffff716665d',1,'pcg_extras']]],
+  ['generate_5fto_476',['generate_to',['../namespacepcg__extras.html#a41e1950d9f7429f7e9775c3924a861db',1,'pcg_extras']]],
+  ['generate_5fto_5fimpl_477',['generate_to_impl',['../namespacepcg__extras.html#a908d65518153efed3219c2bd26d54789',1,'pcg_extras::generate_to_impl(SeedSeq &amp;&amp;generator, DestIter dest, std::true_type)'],['../namespacepcg__extras.html#a61f43320af045b4a81fd1d47ddb0d9af',1,'pcg_extras::generate_to_impl(SeedSeq &amp;&amp;generator, DestIter dest, std::false_type)']]],
+  ['get_5faverage_5ffitness_5frec_478',['get_average_fitness_rec',['../classGA.html#ad111852face5ba08f6dd5a4798f4a23c',1,'GA']]],
+  ['get_5fbsf_479',['get_bsf',['../classGA.html#a89800eb2174f0abd287dab5ce9016806',1,'GA']]],
+  ['get_5fextended_5fvalue_480',['get_extended_value',['../classpcg__detail_1_1extended.html#a36486b3339ae8242e65ea3218d3e5e26',1,'pcg_detail::extended']]],
+  ['griewank_481',['griewank',['../test__functions_8cpp.html#ab16264d38d5a269f2f00c3707f221167',1,'griewank(std::vector&lt; REAL_ &gt; &amp;x):&#160;test_functions.cpp'],['../gaim_8h.html#a4ee9ecf0f8b15abe84fe28b658a48fed',1,'griewank(std::vector&lt; REAL_ &gt; &amp;):&#160;test_functions.cpp']]]
 ];

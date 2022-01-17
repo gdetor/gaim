@@ -45,17 +45,17 @@ if __name__ == '__main__':
                                  5,            # Number of Islands
                                  4,            # Number of immigrants
                                  200,          # Migration interval
-                                 -10.0,        # a - lower bound
-                                 10.0,         # b - upper bound
+                                 [-10.0, -10.0],   # a - lower bound
+                                 [10.0, 10.0],     # b - upper bound
+                                 "universal",   # Clipping method
+                                 " ",          # Clipping filename
+                                 "lolo",       # Experiment ID
+                                 "./data/",     # Where to store the logs
                                  "elite",      # Pickup method (IM)
                                  "poor",       # Replace method (IM)
-                                 " ",          # Clipping filename
-                                 "./data/",     # Where to store the logs
-                                 "lolo",       # Experiment ID
                                  " ",          # IM connectivity graph file
                                  False,        # Log fitness
                                  True,         # Log average fitness
                                  True,         # Log BSF
                                  True,         # Log of best genome
-                                 True,         # Enable/disable genome clip
                                  False)        # Enable/disable the IM

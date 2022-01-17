@@ -65,7 +65,7 @@ PYBIND11_MODULE(pygaim, m)
         .def_readwrite("genome_size", &ga_parameter_s::genome_size)
         .def_readwrite("num_offsprings", &ga_parameter_s::num_offsprings)
         .def_readwrite("num_replacement", &ga_parameter_s::num_replacement)
-        .def_readwrite("universal_clipping", &ga_parameter_s::universal_clipping)
+        .def_readwrite("clipping", &ga_parameter_s::clipping)
         .def_readwrite("clipping_fname", &ga_parameter_s::clipping_fname)
         .def_readwrite("runs", &ga_parameter_s::runs);
 
