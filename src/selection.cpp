@@ -449,9 +449,6 @@ std::vector<individual_s> stochastic_roulette_wheel_selection(std::vector<indivi
  * @see whitley_selection()
  */
 REAL_ calculate_whitley_factor(REAL_ bias) {
-    /* static std::random_device rd; */
-    /* static std::mt19937 gen(rd()); */
-    /* static std::uniform_real_distribution<> U(0, 1); */
     REAL_ tmp;
     REAL_ R = float_random(0, 1);
     tmp = (bias - sqrt(bias*bias - 4.0*(bias-1) * R)) / 2.0 / (bias-1);

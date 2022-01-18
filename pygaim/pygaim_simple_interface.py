@@ -59,3 +59,4 @@ if __name__ == '__main__':
                                  True,         # Log BSF
                                  True,         # Log of best genome
                                  False)        # Enable/disable the IM
+    print(res.genome)

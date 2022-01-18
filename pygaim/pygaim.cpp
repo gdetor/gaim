@@ -50,10 +50,11 @@ PYBIND11_MODULE(pygaim, m)
         .def("sort_population", &GA::sort_population)
         .def("run_one_generation", &GA::run_one_generation)
         .def("evolve", &GA::evolve)
-        .def("get_best_genome", &GA::get_bsf)
+        .def("get_best_genome", &GA::get_best_genome)
+        .def("get_bsf", &GA::get_bsf)
         .def("clip_genome", &GA::clip_genome)
         .def("reset_selection_flags", &GA::reset_selection_flags)
-        .def("get_average_fitness_record", &GA::get_average_fitness_rec);
+        .def("get_average_fitness", &GA::get_average_fitness);
 
     // Wrapper for GA parameters data structure
     py::class_<ga_parameter_s>(m, "ga_parameter_s")
@@ -97,6 +98,12 @@ PYBIND11_MODULE(pygaim, m)
         .def_readwrite("replace_method", &im_parameter_s::replace_method)
         .def_readwrite("adj_list_fname", &im_parameter_s::adj_list_fname)
         .def_readwrite("is_im_enabled", &im_parameter_s::is_im_enabled);
+
+    py::class_<py_results_s>(m, "py_results_s")
+        .def(py::init([] (){ return new py_results_s; }))
+        .def_readwrite("genome", &py_results_s::genome)
+        .def_readwrite("bsf", &py_results_s::bsf)
+        .def_readwrite("average_fitness", &py_results_s::average_fitness);
 
     // Wrapper for IM class
     py::class_<IM>(m, "IM")

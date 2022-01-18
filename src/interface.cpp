@@ -1,31 +1,32 @@
 #include "gaim.h"
 
 extern "C"
-// int ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
-int ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
-                    size_t n_generations,
-                    size_t population_size,
-                    size_t genome_size,
-                    size_t n_offsprings,
-                    size_t n_replacements,
-                    size_t n_rounds,
-                    size_t n_islands,
-                    size_t n_immigrants,
-                    size_t migration_interval,
-                    std::vector<REAL_> a,
-                    std::vector<REAL_> b,
-                    std::string clipping,
-                    std::string clipping_fname,
-                    std::string experiment_id,
-                    std::string log_fname,
-                    std::string pickup_method,
-                    std::string replace_method,
-                    std::string im_graph_fname,
-                    bool log_fitness,
-                    bool log_average_fitness,
-                    bool log_bsf,
-                    bool log_best_genome,
-                    bool is_im_enabled) {
+// py_results ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
+ py_results_s ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
+                              size_t n_generations,
+                              size_t population_size,
+                              size_t genome_size,
+                              size_t n_offsprings,
+                              size_t n_replacements,
+                              size_t n_rounds,
+                              size_t n_islands,
+                              size_t n_immigrants,
+                              size_t migration_interval,
+                              std::vector<REAL_> a,
+                              std::vector<REAL_> b,
+                              std::string clipping,
+                              std::string clipping_fname,
+                              std::string experiment_id,
+                              std::string log_fname,
+                              std::string pickup_method,
+                              std::string replace_method,
+                              std::string im_graph_fname,
+                              bool log_fitness,
+                              bool log_average_fitness,
+                              bool log_bsf,
+                              bool log_best_genome,
+                              bool is_im_enabled) {
+    py_results res;
     ga_parameter_s ga_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
@@ -37,19 +38,19 @@ int ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
     ga_pms.num_offsprings = n_offsprings;
     if (n_offsprings >= population_size) {
         printf("Number of offsprings cannot exceed population size!\n");
-        return 1;
+        exit(-1);
     }
     ga_pms.genome_size = genome_size;
     if (genome_size < 1) { 
         printf("Genome size cannot be smaller than 1!\n");
-        return 2;
+        exit(-1);
     }
     ga_pms.num_replacement = n_replacements;
     ga_pms.clipping = clipping;
     ga_pms.clipping_fname = clipping_fname;
     ga_pms.a = a;
     ga_pms.b = b;
-
+    
     // Assign values to logging parameters
     pr_pms.print_fitness = log_fitness;
     pr_pms.print_average_fitness = log_average_fitness;
@@ -82,13 +83,16 @@ int ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
             GA gen_alg(&ga_pms);
             gen_alg.fitness = func;
             gen_alg.evolve(ga_pms.generations, 0, &pr_pms);
+            res.bsf = gen_alg.get_bsf();
+            res.average_fitness = gen_alg.get_average_fitness();
+            res.genome = gen_alg.get_best_genome();
         } else if (ga_pms.runs > 1) {
             printf("Running %d independent GAs!\n", ga_pms.runs);
             independent_runs(&ga_pms, &pr_pms);
         } else {
             printf("Negative number of runs is illegal!\n");
-            return 3;
+            exit(-1);
         }
     }
-    return 0;
+    return res;
 }

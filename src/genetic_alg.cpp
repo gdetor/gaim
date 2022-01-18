@@ -431,7 +431,6 @@ void GA::run_one_generation(void)
     // Clip genome
     clip_genome();
     
-
     // Increase iteration index
     iter_index++;
 }

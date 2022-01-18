@@ -25,7 +25,7 @@
 
 
 int main() {
-    int res;
+    py_results res;
     std::string replace = "poor", choice = "elite";
     std::string store = "./data/", exp_id = "interface";
     std::string clip = "universal", clip_file = " ", graph = " ";
@@ -56,6 +56,11 @@ int main() {
                           true,         // Log of best genome
                           true,         // Enable/disable genome universal clipping 
                           false);       // Enable/disable the IM
-    std::cout << "ga_optimization function returned: " << res << std::endl;
+
+    std::cout << "Best genome:" << std::endl;
+    for (auto &g: res.genome) {
+        std::cout << g << "  ";
+    }
+    std::cout << std::endl;
     return 0;
 }

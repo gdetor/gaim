@@ -153,6 +153,13 @@ typedef struct individual {
 } individual_s;
 
 
+typedef struct py_results {
+    std::vector<REAL_> genome;
+    std::vector<REAL_> bsf;
+    std::vector<REAL_> average_fitness;
+} py_results_s;
+
+
 #ifdef __cplusplus
 /**
  * @brief Genetic Algorithm main class. 
@@ -198,13 +205,17 @@ class GA {
         /// Main routine for evolving a population over generations
         void evolve(size_t, size_t, pr_parameter_s *); 
 
-        std::vector<REAL_> &get_bsf(){ return bsf_genome; }
-        std::vector<REAL_> &get_average_fitness_rec(){ return fit_avg; }
+        std::vector<REAL_> &get_bsf(){ return bsf; }
+        std::vector<REAL_> &get_best_genome(){ return bsf_genome; }
+        std::vector<REAL_> &get_average_fitness(){ return fit_avg; }
 #ifdef PYTHON
 #ifdef OLDGCC
         /// Callback for fitness function. It is used only with pyGAIM
+        
         std::function<REAL_(std::vector<REAL_>&)> fitness;
         bool pycallback(std::function<REAL_(std::vector<REAL_>&)>);
+        /* REAL_ (*fitness)(std::vector<REAL_> &); */
+        /* bool pycallback(REAL_ (*fitness)(std::vector<REAL_>&)); */
 #else
         using Callback = std::function<REAL_(std::vector<REAL_>&)>;
         Callback fitness;
@@ -213,6 +224,7 @@ class GA {
 #else
         /// Fitness function - function pointer
         std::function<REAL_(std::vector<REAL_> &)> fitness;
+        // REAL_ (*fitness)(std::vector<REAL_> &);
 #endif
 
         std::vector<individual_s> population; /// Individuals population vector
@@ -399,31 +411,31 @@ int mkdir_(const std::string &);
 
 
 /// Interface functions (to use GAIM through other programming languages
-// int ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
-int ga_optimization(std::function<REAL_(std::vector<REAL_>&)>,
-                    size_t,
-                    size_t,
-                    size_t,
-                    size_t,
-                    size_t,
-                    size_t,
-                    size_t,
-                    size_t,
-                    size_t,
-                    std::vector<REAL_>,
-                    std::vector<REAL_>,
-                    std::string,
-                    std::string,
-                    std::string,
-                    std::string,
-                    std::string,
-                    std::string,
-                    std::string,
-                    bool,
-                    bool,
-                    bool,
-                    bool,
-                    bool);
+// py_results ga_optimization(REAL_ (*fitness)(std::vector<REAL_>&),
+py_results_s ga_optimization(std::function<REAL_(std::vector<REAL_>&)>,
+                             size_t,
+                             size_t,
+                             size_t,
+                             size_t,
+                             size_t,
+                             size_t,
+                             size_t,
+                             size_t,
+                             size_t,
+                             std::vector<REAL_>,
+                             std::vector<REAL_>,
+                             std::string,
+                             std::string,
+                             std::string,
+                             std::string,
+                             std::string,
+                             std::string,
+                             std::string,
+                             bool,
+                             bool,
+                             bool,
+                             bool,
+                             bool);
 
 #ifdef __cplusplus
 }
