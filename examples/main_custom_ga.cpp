@@ -67,16 +67,16 @@ void GA::run_one_generation()
     // Generate new offsprings
     for(std::size_t i = 0; i < lambda; ++i) {
         // Parents selection
-        parents = selection(2, 2, false);
+        parents = (this->*selection)(population);
         parent1 = parents[0];
         parent2 = parents[1];
      
         // Crossover
         // child = crossover(parent1.genome, parent2.genome, xover, order);
-        child = crossover(parent1.genome, parent2.genome);
+        child = (this->*crossover)(parent1.genome, parent2.genome);
 
         // Mutation
-        child = mutation(child, 0.5, 0.5);
+        child = (this->*mutation)(child);
 
         // Append the offsprings genome list
         offsprings[i].genome = child;
