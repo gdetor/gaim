@@ -19,8 +19,12 @@
 #include "gaim.h"
 
 int main() {
-    std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> pms;
+    std::tuple<ga_parameter_s,
+               sel_parameter_s,
+               pr_parameter_s,
+               im_parameter_s> pms;
     ga_parameter_s ga_pms;
+    sel_parameter_s sel_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
 
@@ -38,11 +42,11 @@ int main() {
         if (ga_pms.runs == 1) {
             std::cout << "Running a single GA" << std::endl;
             GA gen_alg(&ga_pms);
-            // gen_alg.fitness = &tsm;
             gen_alg.fitness = &sphere;
             gen_alg.evolve(ga_pms.generations, 0, &pr_pms);
         } else if (ga_pms.runs > 1) {
-            std::cout << "Running "<< ga_pms.runs << " Independent GAs" << std::endl;
+            std::cout << "Running "<< ga_pms.runs << " Independent GAs"
+                << std::endl;
             independent_runs(&ga_pms, &pr_pms);
         } else {
             std::cout << "Negative number of runs is illegal!" << std::endl;

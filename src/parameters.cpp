@@ -37,20 +37,25 @@ using namespace libconfig;
  * @return A tuple of three structures (parameter_s, print_params_s,
  *         im_parameter_s) -> (GA, printing, IM).
  */
-std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> read_parameters_file(const char *fname)
+std::tuple<ga_parameter_s,
+           pr_parameter_s,
+           im_parameter_s> read_parameters_file(const char *fname)
 {
     Config cfg;
     ga_parameter_s tmp;
     pr_parameter_s print_tmp;
     im_parameter_s island_tmp;
 
-    int generations, population_size, num_offsprings, genome_size;
+    int generations, population_size, num_offsprings, genome_size, k;
     int num_replacement, runs;
     int num_islands, num_immigrants, migration_interval;
+    int flag, time, order;
+    int num_parents, lower_bound;
+    REAL_ bias, mutation_rate, variance;
+    REAL_ low_bound, up_bound;
     bool print_fitness, print_avg_fitness, print_bsf, print_best_genome;
-    bool im_enabled;
-    std::string clipping ;
-    int flag;
+    bool im_enabled, replace, is_real;
+    std::string clipping, method;
     std::string where2write, exp_name, final_path, adj_list_fname;
     std::string base("./"), rmethod, cmethod;
     std::string clipping_fname;
@@ -88,6 +93,9 @@ std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> read_parameters_file(
     try
         {
             const Setting &ga = root["GA"]["evolution"];
+            const Setting &sel = root["GA"]["selection"];
+            const Setting &cross = root["GA"]["crossover"];
+            const Setting &mut = root["GA"]["mutation"];
             const Setting &pr = root["GA"]["print"];
             const Setting &im = root["GA"]["island_model"];
 
@@ -139,6 +147,47 @@ std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> read_parameters_file(
             }
             tmp.a = tmp_a;
             tmp.b = tmp_b;
+            
+            // Selection parameters
+            if (sel.lookupValue("selection_method", method) &&
+                sel.lookupValue("bias", bias) &&
+                sel.lookupValue("num_parents", num_parents) &&
+                sel.lookupValue("lower_bound", lower_bound) &&
+                sel.lookupValue("k", k) &&
+                sel.lookupValue("replace", replace))  {
+            
+                tmp.sel_pms.selection_method = method;
+                tmp.sel_pms.bias = bias;
+                tmp.sel_pms.num_parents = num_parents;
+                tmp.sel_pms.lower_bound = lower_bound;
+                tmp.sel_pms.k = k;
+                tmp.sel_pms.replace = replace;
+            }
+
+            // Crossover parameters
+            if (cross.lookupValue("crossover_method", method)) {
+                tmp.cross_pms.crossover_method = method;
+            }
+
+            // Selection parameters
+            if (mut.lookupValue("mutation_method", method) &&
+                mut.lookupValue("mutation_rate", mutation_rate) &&
+                mut.lookupValue("variance", variance) &&
+                mut.lookupValue("low_bound", low_bound) &&
+                mut.lookupValue("up_bound", up_bound) &&
+                mut.lookupValue("time", time) &&
+                mut.lookupValue("order", order) &&
+                mut.lookupValue("is_real", is_real))  {
+
+                tmp.mut_pms.mutation_method = method;
+                tmp.mut_pms.mutation_rate = mutation_rate;
+                tmp.mut_pms.variance = variance;
+                tmp.mut_pms.low_bound = low_bound;
+                tmp.mut_pms.up_bound = up_bound;
+                tmp.mut_pms.time = time;
+                tmp.mut_pms.order = order;
+                tmp.mut_pms.is_real = is_real;
+            }
 
             // Printing parameters
             if (pr.lookupValue("print_fitness", print_fitness) &&
@@ -230,17 +279,52 @@ void print_parameters(ga_parameter_s ga_pms,
         std::cout << "#Offsprings: " << ga_pms.num_offsprings << std::endl;
         std::cout << "#Replacements: " << ga_pms.num_replacement << std::endl;
         std::cout << "Clipping: " << ga_pms.clipping << std::endl;
-        std::cout << "Clipping Values File: " << ga_pms.clipping_fname << std::endl;
+        std::cout << "Clipping Values File: " << ga_pms.clipping_fname
+            << std::endl;
+        std::cout << "Selection method: " << ga_pms.sel_pms.selection_method
+            << std::endl;
+        std::cout << "Selection bias: " << ga_pms.sel_pms.bias << std::endl;
+        std::cout << "Selection number of parents: "
+            << ga_pms.sel_pms.num_parents << std::endl;
+        std::cout << "Selection lower bound: " << ga_pms.sel_pms.lower_bound
+            << std::endl;
+        std::cout << "Selection k: " << ga_pms.sel_pms.k << std::endl;
+        std::cout << "Selection replace: " << ga_pms.sel_pms.replace
+            << std::endl;
+        std::cout << "Crossover method: " << ga_pms.cross_pms.crossover_method
+            << std::endl;
+        std::cout << "Mutation method: " << ga_pms.mut_pms.mutation_method
+            << std::endl;
+        std::cout << "Delta mutation rate: " << ga_pms.mut_pms.mutation_rate
+            << std::endl;
+        std::cout << "Denta mutation var: " << ga_pms.mut_pms.variance
+            << std::endl;
+        std::cout << "Interval lower limit: " << ga_pms.mut_pms.low_bound
+            << std::endl;
+        std::cout << "Interval upper limit: " << ga_pms.mut_pms.up_bound
+            << std::endl;
+        std::cout << "Non-uniform mutation time: " << ga_pms.mut_pms.time
+            << std::endl;
+        std::cout << "Non-uniform mutation order: " << ga_pms.mut_pms.order
+            << std::endl;
+        std::cout << "Fusion and Random mutation float/int switch: "
+            << ga_pms.mut_pms.is_real << std::endl;
+
         std::cout << "Print fitness: " << pr_pms.print_fitness << std::endl;
-        std::cout << "Print average fitness: " << pr_pms.print_average_fitness << std::endl;
+        std::cout << "Print average fitness: " << pr_pms.print_average_fitness
+            << std::endl;
         std::cout << "Print BSF: " << pr_pms.print_bsf << std::endl;
-        std::cout << "Print best genome: " << pr_pms.print_best_genome << std::endl;
+        std::cout << "Print best genome: " << pr_pms.print_best_genome
+            << std::endl;
         std::cout << "Island Model is " << im_pms.is_im_enabled << std::endl;
         std::cout << "#Islands: " << im_pms.num_islands << std::endl;
         std::cout << "#Immigrants: " << im_pms.num_immigrants << std::endl;
-        std::cout << "Migration Interval: " << im_pms.migration_interval << std::endl;
-        std::cout << "Choose immigrants method: " << im_pms.pick_method << std::endl;
-        std::cout << "Replace individuals method: " << im_pms.replace_method << std::endl;
+        std::cout << "Migration Interval: " << im_pms.migration_interval
+            << std::endl;
+        std::cout << "Choose immigrants method: " << im_pms.pick_method
+            << std::endl;
+        std::cout << "Replace individuals method: " << im_pms.replace_method
+            << std::endl;
         std::cout << std::string(20, '*') << std::endl;
         std::cout << "" << std::endl;
     }else{
@@ -258,16 +342,48 @@ void print_parameters(ga_parameter_s ga_pms,
         ofile << "#Replacements: " << ga_pms.num_replacement << std::endl;
         ofile << "Clipping: " << ga_pms.clipping << std::endl;
         ofile << "Clipping Values File: " << ga_pms.clipping_fname << std::endl;
+        ofile << "Selection method: " << ga_pms.sel_pms.selection_method
+            << std::endl;
+        ofile << "Selection bias: " << ga_pms.sel_pms.bias << std::endl;
+        ofile << "Selection number of parents: " << ga_pms.sel_pms.num_parents
+            << std::endl;
+        ofile << "Selection lower bound: " << ga_pms.sel_pms.lower_bound
+            << std::endl;
+        ofile << "Selection k: " << ga_pms.sel_pms.k << std::endl;
+        ofile << "Selection replace: " << ga_pms.sel_pms.replace << std::endl;
+        ofile << "Crossover method: " << ga_pms.cross_pms.crossover_method
+            << std::endl;
+        ofile << "Mutation method: " << ga_pms.mut_pms.mutation_method
+            << std::endl;
+        ofile << "Delta mutation rate: " << ga_pms.mut_pms.mutation_rate
+            << std::endl;
+        ofile << "Denta mutation var: " << ga_pms.mut_pms.variance
+            << std::endl;
+        ofile << "Interval lower limit: " << ga_pms.mut_pms.low_bound
+            << std::endl;
+        ofile << "Interval upper limit: " << ga_pms.mut_pms.up_bound
+            << std::endl;
+        ofile << "Non-uniform mutation time: " << ga_pms.mut_pms.time
+            << std::endl;
+        ofile << "Non-uniform mutation order: " << ga_pms.mut_pms.order
+            << std::endl;
+        ofile << "Fusion and Random mutation float/int switch: "
+            << ga_pms.mut_pms.is_real << std::endl;
         ofile << "Print fitness: " << pr_pms.print_fitness << std::endl;
-        ofile << "Print average fitness: " << pr_pms.print_average_fitness << std::endl;
+        ofile << "Print average fitness: " << pr_pms.print_average_fitness
+            << std::endl;
         ofile << "Print BSF: " << pr_pms.print_bsf << std::endl;
-        ofile << "Print best genome: " << pr_pms.print_best_genome << std::endl;
+        ofile << "Print best genome: " << pr_pms.print_best_genome
+            << std::endl;
         ofile << "Island Model is " << im_pms.is_im_enabled << std::endl;
         ofile << "#Islands: " << im_pms.num_islands << std::endl;
         ofile << "#Immigrants: " << im_pms.num_immigrants << std::endl;
-        ofile << "Migration Interval: " << im_pms.migration_interval << std::endl;
-        ofile << "Choose immigrants method: " << im_pms.pick_method << std::endl;
-        ofile << "Replace individuals method: " << im_pms.replace_method << std::endl;
+        ofile << "Migration Interval: " << im_pms.migration_interval
+            << std::endl;
+        ofile << "Choose immigrants method: " << im_pms.pick_method
+            << std::endl;
+        ofile << "Replace individuals method: " << im_pms.replace_method
+            << std::endl;
         ofile << std::string(20, '*') << std::endl;
         ofile << "" << std::endl;
         ofile.close();

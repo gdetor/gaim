@@ -26,6 +26,29 @@
 #include "gaim.h"
 
 
+void GA::select_selection_method() {
+    // Assign the appropriate selection method
+    if (selection_method == "ktournamet") {
+        selection = &GA::ktournament_selection;
+    } else if (selection_method == "truncation") {
+        selection = &GA::truncation_selection;
+    } else if (selection_method == "linear_rank") {
+        selection = &GA::linear_rank_selection;
+    } else if (selection_method == "random") {
+        selection = &GA::random_selection;
+    } else if (selection_method == "roulette") {
+        selection = &GA::roulette_wheel_selection;
+    } else if (selection_method == "stochastic_roulette") {
+        selection = &GA::stochastic_roulette_wheel_selection;
+    } else if (selection_method == "whitley") {
+        selection = &GA::whitley_selection;
+    } else {
+        std::cout << "Error: GA Selection method not found!" << std::endl;
+        exit(-1);
+    }
+}
+
+
 /**
  * Implements a k-tournament selection. 
  *
@@ -38,11 +61,7 @@
  * replacement or not.
  * @return A vector of individual_s structures (selected parents).
  */
-std::vector<individual_s> ktournament_selection(std::vector<individual_s> &population,
-                                                size_t num_parents,
-                                                int k,
-                                                bool replace)
-{
+std::vector<individual_s> GA::ktournament_selection(std::vector<individual_s> &population) {
     int best_index = 0;
     std::vector<individual_s> selected_individuals;
     individual_s ind, best; 
@@ -94,7 +113,7 @@ std::vector<individual_s> ktournament_selection(std::vector<individual_s> &popul
             }
             selected_individuals.push_back(best);
         }
-        }
+    }
     return selected_individuals;
 }
 
@@ -111,11 +130,7 @@ std::vector<individual_s> ktournament_selection(std::vector<individual_s> &popul
  * replacement or not.
  * @return A vector of individual_s structures (or the selected parents). 
  */
-std::vector<individual_s> truncation_selection(std::vector<individual_s> &population,
-                                               size_t num_parents,
-                                               size_t low_bound,
-                                               bool replace)
-{
+std::vector<individual_s> GA::truncation_selection(std::vector<individual_s> &population) {
     size_t r = 0, mu = population.size()-1;
     std::vector<size_t> indices(num_parents);
     std::vector<individual_s> selected_individuals;
@@ -135,7 +150,7 @@ std::vector<individual_s> truncation_selection(std::vector<individual_s> &popula
         return selected_individuals;
     }
 
-    if ((low_bound > num_parents) || (low_bound > population.size())) {
+    if ((lower_bound > num_parents) || (lower_bound > population.size())) {
         std::cerr << "Truncation Selection: Lower bound wrong size!" << std::endl;
         exit(-1);
     }
@@ -145,7 +160,7 @@ std::vector<individual_s> truncation_selection(std::vector<individual_s> &popula
 
     // Select the individuals from the population without replacement
     if (replace == false) {
-        std::iota(indices.begin(), indices.end(), low_bound);
+        std::iota(indices.begin(), indices.end(), lower_bound);
         std::random_shuffle(std::begin(indices), std::end(indices));
         for(size_t i = 0; i < num_parents; ++i) {
             selected_individuals.push_back(population[indices[i]]);
@@ -154,7 +169,7 @@ std::vector<individual_s> truncation_selection(std::vector<individual_s> &popula
     // Select the individuals from the population with replacement
     } else {
         for(size_t i = 0; i < num_parents; ++i) {
-            r = int_random(low_bound, mu);
+            r = int_random(lower_bound, mu);
             selected_individuals.push_back(population[r]);
         }
     }
@@ -173,10 +188,7 @@ std::vector<individual_s> truncation_selection(std::vector<individual_s> &popula
  * replacement or not.
  * @return A vector of individual_s structures (or the selected parents). 
  */
-std::vector<individual_s> linear_rank_selection(std::vector<individual_s> &population,
-                                                size_t num_parents,
-                                                bool replace)
-{
+std::vector<individual_s> GA::linear_rank_selection(std::vector<individual_s> &population) {
     size_t index = 0;
     REAL_ prob = 0;
     std::vector<individual_s> selected_individuals;
@@ -248,10 +260,7 @@ std::vector<individual_s> linear_rank_selection(std::vector<individual_s> &popul
  * replacement or not.
  * @return A vector of indivudual_s as parents. 
  */
-std::vector<individual_s> random_selection(std::vector<individual_s> &population,
-                                           size_t num_parents,
-                                           bool replace)
-{
+std::vector<individual_s> GA::random_selection(std::vector<individual_s> &population) {
     size_t idx;
     std::vector<size_t> indices(population.size());
     std::vector<individual_s> selected_individuals;
@@ -303,10 +312,7 @@ std::vector<individual_s> random_selection(std::vector<individual_s> &population
  * replacement or not.
  * @return A vector of individual_s which corresponds to the selected parents. 
  */
-std::vector<individual_s> roulette_wheel_selection(std::vector<individual_s> &population,
-                                                   size_t num_parents,
-                                                   bool replace)
-{
+std::vector<individual_s> GA::roulette_wheel_selection(std::vector<individual_s> &population) {
     size_t index = 0;
     REAL_ prob = 0, r = 0;
     std::vector<individual_s> selected_individuals;
@@ -382,10 +388,7 @@ std::vector<individual_s> roulette_wheel_selection(std::vector<individual_s> &po
  * replacement or not.
  * @return A vector of indivudual_s (selected parents). 
  */
-std::vector<individual_s> stochastic_roulette_wheel_selection(std::vector<individual_s> &population,
-                                                              size_t num_parents,
-                                                              bool replace)
-{
+std::vector<individual_s> GA::stochastic_roulette_wheel_selection(std::vector<individual_s> &population) {
     size_t index(0), idx(0);
     REAL_ prob(0), max_fitness(1), r(0);
     std::vector<individual_s> selected_individuals;
@@ -472,11 +475,7 @@ REAL_ calculate_whitley_factor(REAL_ bias) {
  *
  * @see calculate_whitley_factor() On how to calculate the Whitley factor.
  */
-std::vector<individual_s> whitley_selection(std::vector<individual_s> &population,
-                                            REAL_ bias,
-                                            size_t num_parents,
-                                            bool replace)
-{
+std::vector<individual_s> GA::whitley_selection(std::vector<individual_s> &population) {
     size_t best = 0;
     REAL_ wt_factor = 0.0;
     size_t index;

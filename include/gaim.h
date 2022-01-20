@@ -71,6 +71,34 @@
                        printf(ANSI_COLOR_GREEN "TEST PASSED\n" ANSI_COLOR_RESET );\
                    }}
 
+
+typedef struct parameter_sel {
+    std::string selection_method;
+    REAL_ bias;
+    size_t num_parents;
+    size_t lower_bound;
+    int k;
+    bool replace;
+} sel_parameter_s;
+
+
+typedef struct parameter_cross {
+    std::string crossover_method;
+} cross_parameter_s;
+
+
+typedef struct parameter_mut {
+    std::string mutation_method;
+    REAL_ mutation_rate;
+    REAL_ variance;
+    REAL_ low_bound;
+    REAL_ up_bound;
+    size_t time;
+    size_t order;
+    bool is_real;
+} mut_parameter_s;
+
+
 /**
  * @brief Structure containing initialization parameters for GA-based optimization. 
  *
@@ -84,6 +112,10 @@
  * trying to derive an Monte Carlo estimate of fitness.
  */
 typedef struct parameter_ga {
+    sel_parameter_s sel_pms;
+    cross_parameter_s cross_pms;
+    mut_parameter_s mut_pms;
+
     std::vector<REAL_> a;    /**< Lower bound of genome's interval ([a, b]) */
     std::vector<REAL_> b;    /**< Upper bound of genome's interval ([a, b]) */
     std::size_t generations;    /**< Number of generations the GA will run for */
@@ -161,6 +193,7 @@ typedef struct py_results {
 
 
 #ifdef __cplusplus
+
 /**
  * @brief Genetic Algorithm main class. 
  *
@@ -170,18 +203,56 @@ typedef struct py_results {
  */
 class GA {
     public:
-        GA(ga_parameter_s *);  /**< Constructor method of GA class */
+        GA(ga_parameter_s *); /**< Constructor method of GA class */
         ~GA();              /**< Destructor method of GA */
 
         /**
          * Genetic Algorithm basic operators
          */
-        /// Selection operator method
-        std::vector<individual_s> selection(size_t, int, bool);
-        /// Crossover operator method
-        std::vector<REAL_> crossover(std::vector<REAL_>, std::vector<REAL_>);
-        /// Mutation operator method
-        std::vector<REAL_> mutation(std::vector<REAL_>, REAL_, REAL_);
+        /// Selection operator methods
+        std::vector<individual_s> ktournament_selection(std::vector<individual_s> &);
+        std::vector<individual_s> truncation_selection(std::vector<individual_s> &);
+        std::vector<individual_s> linear_rank_selection(std::vector<individual_s> &);
+        std::vector<individual_s> random_selection(std::vector<individual_s> &);
+        std::vector<individual_s> roulette_wheel_selection(std::vector<individual_s> &);
+        std::vector<individual_s> stochastic_roulette_wheel_selection(std::vector<individual_s> &);
+        std::vector<individual_s> whitley_selection(std::vector<individual_s> &);
+        
+        /// Selection pointer function
+        std::vector<individual_s> (GA::*selection)(std::vector<individual_s> &);
+        
+        /// This method assigns the appropriate selection method to selection
+        /// pointer function
+        void select_selection_method();
+
+        /// Crossover operator methods
+        std::vector<REAL_> one_point_crossover(std::vector<REAL_>, std::vector<REAL_>);
+        std::vector<REAL_> two_point_crossover(std::vector<REAL_>, std::vector<REAL_>);
+        std::vector<REAL_> uniform_crossover(std::vector<REAL_>, std::vector<REAL_>);
+        std::vector<REAL_> flat_crossover(std::vector<REAL_>, std::vector<REAL_>);
+        std::vector<REAL_> discrete_crossover(std::vector<REAL_>, std::vector<REAL_>);
+        std::vector<REAL_> order_one_crossover(std::vector<REAL_>, std::vector<REAL_>);
+
+        /// Crossover pointer function
+        std::vector<REAL_> (GA::*crossover)(std::vector<REAL_>, std::vector<REAL_>);
+    
+        /// This method assigns the appropriate crossover method to crossover
+        /// pointer function
+        void select_crossover_method();
+
+        /// Mutation operator methods
+        std::vector<REAL_> delta_mutation(std::vector<REAL_>);
+        std::vector<REAL_> random_mutation(std::vector<REAL_>);
+        std::vector<REAL_> nonuniform_mutation(std::vector<REAL_>);
+        std::vector<REAL_> fusion_mutation(std::vector<REAL_>);
+        std::vector<REAL_> swap_mutation(std::vector<REAL_>);
+        
+        /// Mutation pointer function
+        std::vector<REAL_> (GA::*mutation)(std::vector<REAL_>);
+    
+        /// This method assigns the appropriate mutation operator based on
+        /// the chosen mutation method
+        void select_mutation_method();
 
         /**
          * Genetic Algorithm secondary operations
@@ -240,10 +311,26 @@ class GA {
     private:
         std::vector<REAL_> alpha, beta;  /// Genome's interval limits [a, b]
         std::vector<individual_s> immigrant;    /// Immigrants vector (buffer)
+        std::string selection_method;
+        std::string crossover_method;
+        std::string mutation_method;
+        REAL_ bias;    /// Bias term for Whitley selection metehod 
+        REAL_ mutation_rate;
+        REAL_ variance;
+        REAL_ low_bound;
+        REAL_ up_bound;
         size_t mu;     /// Number of individuals within a population
         size_t lambda; /// Number of offsprings
         size_t replace_perc;   /// Number of individuals being replaced 
         size_t genome_size;    /// Genome size (number of genes)
+        size_t num_parents;    /// Number of parents per generation to select from
+        size_t lower_bound;    /// Starting index for truncation selection
+        size_t time;
+        size_t generations;
+        size_t order;
+        int k;                 /// k-tournament order
+        bool replace;          /// If replace is enabled, then selected parents are replaced 
+        bool is_real;
 
     friend class IM;
 };
@@ -259,7 +346,8 @@ class GA {
  */
 class IM {
     public:
-        IM(im_parameter_s *, ga_parameter_s *);    /// IM Constructor method
+        IM(im_parameter_s *,
+           ga_parameter_s *);
         ~IM();  /// IM Destructor method
         
         /**
@@ -308,53 +396,6 @@ REAL_ float_random(REAL_, REAL_);
 #ifdef __cplusplus
 extern "C" {
 #endif
-/// Extra Selection functions
-std::vector<individual_s> ktournament_selection(std::vector<individual_s> &,
-                                                size_t,
-                                                int,
-                                                bool);
-std::vector<individual_s> truncation_selection(std::vector<individual_s> &,
-                                               size_t,
-                                               size_t,
-                                               bool);
-std::vector<individual_s> linear_rank_selection(std::vector<individual_s> &,
-                                                size_t,
-                                                bool);
-std::vector<individual_s> random_selection(std::vector<individual_s> &,
-                                           size_t,
-                                           bool);
-std::vector<individual_s> roulette_wheel_selection(std::vector<individual_s> &,
-                                                   size_t,
-                                                   bool);
-std::vector<individual_s> stochastic_roulette_wheel_selection(std::vector<individual_s> &,
-                                                              size_t,
-                                                              bool);
-std::vector<individual_s> whitley_selection(std::vector<individual_s> &,
-                                            REAL_,
-                                            size_t,
-                                            bool);
-
-/// Extra Crossover functions
-std::vector<REAL_> one_point_crossover(std::vector<REAL_>, std::vector<REAL_>);
-std::vector<REAL_> two_point_crossover(std::vector<REAL_>, std::vector<REAL_>);
-std::vector<REAL_> uniform_crossover(std::vector<REAL_>, std::vector<REAL_>);
-std::vector<REAL_> flat_crossover(std::vector<REAL_>, std::vector<REAL_>);
-std::vector<REAL_> discrete_crossover(std::vector<REAL_>, std::vector<REAL_>);
-std::vector<REAL_> order_one_crossover(std::vector<REAL_>, std::vector<REAL_>);
-
-
-/// Extra Mutation functions
-std::vector<REAL_> delta_mutation(std::vector<REAL_>, REAL_, REAL_);
-std::vector<REAL_> random_mutation(std::vector<REAL_>, REAL_, REAL_, bool);
-std::vector<REAL_> nonuniform_mutation(std::vector<REAL_>,
-                                       size_t,
-                                       size_t,
-                                       size_t,
-                                       REAL_,
-                                       REAL_);
-std::vector<REAL_> fusion_mutation(std::vector<REAL_>, REAL_, REAL_, bool);
-std::vector<REAL_> swap_mutation(std::vector<REAL_>);
-
 
 /// Auxiliary Functions declarations
 bool compare_fitness(const individual_s, const individual_s);
@@ -368,7 +409,8 @@ REAL_ cumulative_fitness(std::vector<individual_s>);
 
 
 /// Multithread and Islands functions declarations
-void independent_runs(ga_parameter_s *, pr_parameter_s *);
+void independent_runs(ga_parameter_s *,
+                      pr_parameter_s *);
 
 
 /// Printing Functions
@@ -404,8 +446,12 @@ REAL_ tsm(std::vector<REAL_>& x);
 
 
 /// Parameters files
-std::tuple<ga_parameter_s, pr_parameter_s, im_parameter_s> read_parameters_file(const char *);
-void print_parameters(ga_parameter_s, pr_parameter_s, im_parameter_s); 
+std::tuple<ga_parameter_s,
+           pr_parameter_s,
+           im_parameter_s> read_parameters_file(const char *);
+void print_parameters(ga_parameter_s,
+                      pr_parameter_s,
+                      im_parameter_s); 
 bool is_path_exist(const std::string &);
 int mkdir_(const std::string &);
 

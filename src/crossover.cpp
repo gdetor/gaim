@@ -29,6 +29,27 @@
 #include "gaim.h"
 
 
+void GA::select_crossover_method() {
+    // Assign the appropriate crossover method
+    if (crossover_method == "one_point") {
+        crossover = &GA::one_point_crossover;
+    } else if (crossover_method == "two_point") {
+        crossover = &GA::two_point_crossover;
+    } else if (crossover_method == "uniform") {
+        crossover = &GA::uniform_crossover;
+    } else if (crossover_method == "flat") {
+        crossover = &GA::flat_crossover;
+    } else if (crossover_method == "discrete") {
+        crossover = &GA::discrete_crossover;
+    } else if (crossover_method == "first_order") {
+        crossover = &GA::order_one_crossover;
+    } else {
+        std::cout << "Error: GA Crossover method not found!" << std::endl;
+        exit(-1);
+    }
+}
+
+
 /**
  * Applies a crossover operator on the genomes of two parents (parent1 and
  * parent2) to create a child genome.
@@ -38,8 +59,8 @@
  * @param[in] parent2 Genome of the second parent
  * @return The genome of a child as a vector of type REAL_
  */
-std::vector<REAL_> one_point_crossover(std::vector<REAL_> parent1,
-                                       std::vector<REAL_> parent2)
+std::vector<REAL_> GA::one_point_crossover(std::vector<REAL_> parent1,
+                                           std::vector<REAL_> parent2)
 {
     int order;
     size_t xover;
@@ -79,8 +100,8 @@ std::vector<REAL_> one_point_crossover(std::vector<REAL_> parent1,
  *
  * @return Offspring's genome 
  */
-std::vector<REAL_> two_point_crossover(std::vector<REAL_> parent1,
-                                       std::vector<REAL_> parent2)
+std::vector<REAL_> GA::two_point_crossover(std::vector<REAL_> parent1,
+                                           std::vector<REAL_> parent2)
 {
     std::vector<REAL_> child1, child2;
     static std::random_device rd;
@@ -127,8 +148,8 @@ std::vector<REAL_> two_point_crossover(std::vector<REAL_> parent1,
  *
  * @return Offspring's genome 
  */
-std::vector<REAL_> uniform_crossover(std::vector<REAL_> parent1,
-                                     std::vector<REAL_> parent2)
+std::vector<REAL_> GA::uniform_crossover(std::vector<REAL_> parent1,
+                                         std::vector<REAL_> parent2)
 {
     std::vector<REAL_> child1, child2;
     static std::random_device rd;
@@ -168,8 +189,8 @@ std::vector<REAL_> uniform_crossover(std::vector<REAL_> parent1,
  *
  * @return Offspring's genome 
  */
-std::vector<REAL_> flat_crossover(std::vector<REAL_> parent1,
-                                  std::vector<REAL_> parent2)
+std::vector<REAL_> GA::flat_crossover(std::vector<REAL_> parent1,
+                                      std::vector<REAL_> parent2)
 {
     std::vector<REAL_> child;
     static std::random_device rd;
@@ -204,8 +225,8 @@ std::vector<REAL_> flat_crossover(std::vector<REAL_> parent1,
  *
  * @return Offspring's genome 
  */
-std::vector<REAL_> discrete_crossover(std::vector<REAL_> parent1,
-                                      std::vector<REAL_> parent2)
+std::vector<REAL_> GA::discrete_crossover(std::vector<REAL_> parent1,
+                                          std::vector<REAL_> parent2)
 {
     std::vector<REAL_> child;
     static std::random_device rd;
@@ -244,8 +265,8 @@ std::vector<REAL_> discrete_crossover(std::vector<REAL_> parent1,
  *
  * @return Offspring's genome 
  */
-std::vector<REAL_> order_one_crossover(std::vector<REAL_> parent1,
-                                       std::vector<REAL_> parent2)
+std::vector<REAL_> GA::order_one_crossover(std::vector<REAL_> parent1,
+                                           std::vector<REAL_> parent2)
 {
     size_t len = static_cast<size_t>(parent1.size() / 2);
     std::vector<REAL_> child1(parent1.size(), 0);

@@ -43,6 +43,7 @@ GA::GA(ga_parameter_s *ga_pms)
     alpha = ga_pms->a;  // Lower bound for genes [a, b]
     beta = ga_pms->b;   // Upper bound for genes [a, b]
 
+    // Validate alpha and beta paremeters
     if ((alpha.size() != ga_pms->genome_size) && \
          (beta.size() != ga_pms->genome_size)) {
         std::cout << "Genome limits [a, b] size is not correct!" << std::endl;
@@ -50,16 +51,19 @@ GA::GA(ga_parameter_s *ga_pms)
         exit(-1);
     }
 
+    // Initialize random number generator
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> genes(alpha[0], beta[0]);
 
+    // Assign and validate mu values
     mu = ga_pms->population_size;   // Population size
     if (mu < 2) {
         std::cout << "Population size is smaller than 2!" << std::endl; 
         std::cout << "Impossible to have sexual reproduction!" << std::endl;
         exit(-1);
     }
+    // Assign and validate lambda values
     lambda = ga_pms->num_offsprings;    // Number of offspring
     replace_perc = ga_pms->num_replacement; // Number of individuals being replaced
     if (replace_perc > lambda) {
@@ -70,6 +74,32 @@ GA::GA(ga_parameter_s *ga_pms)
     genome_size = ga_pms->genome_size;  // Genome size
 
     fitness = sphere;  // Define the cost function (example -> sphere)
+
+    // Initialize selection method
+    selection_method = ga_pms->sel_pms.selection_method;
+    bias = ga_pms->sel_pms.bias;
+    num_parents = ga_pms->sel_pms.num_parents;
+    lower_bound = ga_pms->sel_pms.lower_bound;
+    k = ga_pms->sel_pms.k;
+    replace = ga_pms->sel_pms.replace;
+
+    select_selection_method();
+
+    // Initialize crossover method
+    crossover_method = ga_pms->cross_pms.crossover_method;
+    select_crossover_method();
+
+    // Initialize mutation method
+    mutation_method = ga_pms->mut_pms.mutation_method;
+    mutation_rate = ga_pms->mut_pms.mutation_rate;
+    variance = ga_pms->mut_pms.variance;
+    low_bound = ga_pms->mut_pms.low_bound;
+    up_bound = ga_pms->mut_pms.up_bound;
+    time = ga_pms->mut_pms.time;
+    order = ga_pms->mut_pms.order;
+    is_real = ga_pms->mut_pms.is_real;
+
+    select_mutation_method();
 
     // Initialize the population vector
     for (size_t i = 0; i < mu; ++i) {
@@ -204,83 +234,6 @@ void GA::sort_population(void)
 
 
 /**
- * Applies a selection operator by selecting two parents for breeding out
- * of a whole population of individuals. By default this method implements a
- * k-tournament selection. 
- *
- * @param[in] num_parents Number of individuals being selected for
- * reproduction.
- * @param[in] k An integer that defines the tournament size (how many 
- *              individuals from the population will be drawn randomly)
- * @param[in] replace Defines if selection is being done with/without replacement
- * @return A vector of individuals (parents)
- *
- * @note The user can define his or her own selection operators or can use any
- * other operator defined in the file selection.cpp.
- *
- * @see ktournament_selection(), roulette_wheel_selection(),
- * linear_rank_selection(), random_selection(),
- * stochastic_roulette_wheel_selection(), trunctation_selection()
- */
-std::vector<individual_s> GA::selection(size_t num_parents,
-                                        int k=2,
-                                        bool replace=true)
-{
-    std::vector<individual_s> parents;
-    parents = ktournament_selection(population, num_parents, k, replace);
-    return parents;
-}
-
-
-/**
- * Applies a crossover operator on the genomes of two parents (parent1 and
- * parent2) to create a child genome.
- * By default, this method calls the one-point crossover operator.
- *
- * @param[in] parent1 Genome of the first parent
- * @param[in] parent2 Genome of the second parent
- * @return The genome of a child as a vector of type REAL_
- *  
- * @note The user can define his or her own crossover operator or they can 
- * use any mutation operator that is defined in the file crossover.cpp.
- *
- * @see one_point_crossover(), two_point_crossover(), uniform_crossover(),
- * flat_crossover(), discrete_crossover()
- */
-std::vector<REAL_> GA::crossover(std::vector<REAL_> parent1,
-                                 std::vector<REAL_> parent2)
-{
-    std::vector<REAL_> child;
-    child = one_point_crossover(parent1, parent2);
-    return child;
-}
-
-
-/**
- * The basic mutation operator. By default, this is a delta mutation operator.
- *
- * @param[in] genome The genome (genes) of an individual
- * @param[in] mutation_rate Mutation rate (probability threshold)
- * @param[in] variance  Standard deviation of the normal distribution from which the
- * increment/decrement is drawn
- * @return A vector of floats (mutated genome)
- *
- * @note The used can define his or her own method of mutation or they can use
- * any other operator defined in the file mutation.cpp.
- *
- * @see delta_mutation(), random_mutation(), nonuniform_mutation(), fusion_mutation()
- */
-std::vector<REAL_> GA::mutation(std::vector<REAL_> genome,
-                                REAL_ mutation_rate=0.5,
-                                REAL_ variance=0.5)
-{
-    std::vector<REAL_> tmp;
-    tmp = delta_mutation(genome, mutation_rate, variance);
-    return tmp;
-}
-
-
-/**
  * The basic operation for forming the next generation. It determines which 
  * offspring individuals will pass their genomes to the next generation and 
  * which parents will be replaced. By default, it replaces the worst parents
@@ -398,7 +351,8 @@ void GA::run_one_generation(void)
     // Generate new offspring
     for(size_t i = 0; i < lambda-1; ++i) {
         // Parents selection
-        parents = selection(2, 2, false);
+        // parents = selection(2, 2, false);
+        parents = (this->*selection)(population);
         parent1 = parents[0];
         parent2 = parents[1];
         /* parent1 = parents[i]; */
@@ -410,14 +364,11 @@ void GA::run_one_generation(void)
         reset_selection_flags();
 
         // Crossover
-        child = crossover(parent1.genome, parent2.genome);
+        child = (this->*crossover)(parent1.genome, parent2.genome);
         // child = order_one_crossover(parent1.genome, parent2.genome);
 
         // Mutation
-        /* REAL_ tmp = 85*pow((1 - 1/5000), iter_index) + 0.5; */
-        /* child = mutation(child, 0.5, tmp); */
-        child = mutation(child);
-        // child = swap_mutation(child);
+        child = (this->*mutation)(child);
 
         // Append the offspring genome list
         offsprings[i].genome = child;

@@ -27,6 +27,24 @@
 #include "gaim.h"
 
 
+void GA::select_mutation_method() {
+    // Assign the appropriate selection method
+    if (mutation_method == "delta") {
+        mutation = &GA::delta_mutation;
+    } else if (mutation_method == "random") {
+        mutation = &GA::random_mutation;
+    } else if (mutation_method == "nonuniform") {
+        mutation = &GA::nonuniform_mutation;
+    } else if (mutation_method == "fusion") {
+        mutation = &GA::fusion_mutation;
+    } else if (mutation_method == "swap_mutation") {
+        mutation = &GA::swap_mutation;
+    } else {
+        std::cout << "Error: GA Mutation method not found!" << std::endl;
+        exit(-1);
+    }
+}
+
 /**
  * This function implements a delta mutation operator meaning that for every 
  * gene in the genome a random number drawn from a normal
@@ -40,9 +58,7 @@
  * increment/decrement is drawn
  * @return A vector of floats (mutated genome)
  */
-std::vector<REAL_> delta_mutation(std::vector<REAL_> genome,
-                                  REAL_ mutation_rate=0.5,
-                                  REAL_ variance=0.5)
+std::vector<REAL_> GA::delta_mutation(std::vector<REAL_> genome)
 {
     std::vector<REAL_> tmp;
     static std::random_device rd;
@@ -75,10 +91,7 @@ std::vector<REAL_> delta_mutation(std::vector<REAL_> genome,
  *
  * @return A mutated genome (vector of type REAL_). 
  */
-std::vector<REAL_> random_mutation(std::vector<REAL_> genome,
-                                   REAL_ a,
-                                   REAL_ b,
-                                   bool is_real)
+std::vector<REAL_> GA::random_mutation(std::vector<REAL_> genome)
 {
     std::vector<REAL_> mutated_genome;
     static std::random_device rd;
@@ -87,9 +100,12 @@ std::vector<REAL_> random_mutation(std::vector<REAL_> genome,
 
     mutated_genome = genome;
     if (is_real) {
-        static std::uniform_real_distribution<> R(a, b);
+        static std::uniform_real_distribution<> R(low_bound, up_bound);
         mutated_genome[U(gen)] = R(gen);
     } else {
+        int a, b;
+        a = (int) low_bound;
+        b = (int) up_bound;
         static std::uniform_int_distribution<> R(a, b);
         mutated_genome[U(gen)] = R(gen);
     }
@@ -139,12 +155,7 @@ REAL_ delta(REAL_ x, size_t time, size_t tot_time, size_t r=1)
  * @return A mutated genome.
  *
  */
-std::vector<REAL_> nonuniform_mutation(std::vector<REAL_> genome,
-                                       size_t time,
-                                       size_t generations,
-                                       size_t order,
-                                       REAL_ a,
-                                       REAL_ b)
+std::vector<REAL_> GA::nonuniform_mutation(std::vector<REAL_> genome)
 {
     std::vector<REAL_> mutated_genome;
     static std::random_device rd;
@@ -155,11 +166,11 @@ std::vector<REAL_> nonuniform_mutation(std::vector<REAL_> genome,
     size_t sign = U(gen);
     if (sign == 1) {
         for (auto &g : mutated_genome) {
-            g += delta(b - g, time, generations, order);
+            g += delta(up_bound - g, time, generations, order);
         }
     } else {
         for (auto &g : mutated_genome) {
-            g -= delta(g - a, time, generations, order);
+            g -= delta(g - low_bound, time, generations, order);
         }
     }
     return mutated_genome;
@@ -181,10 +192,7 @@ std::vector<REAL_> nonuniform_mutation(std::vector<REAL_> genome,
  *
  * @return A mutated genome.
  */
-std::vector<REAL_> fusion_mutation(std::vector<REAL_> genome,
-                                   REAL_ a,
-                                   REAL_ b,
-                                   bool is_real)
+std::vector<REAL_> GA::fusion_mutation(std::vector<REAL_> genome)
 {
     std::vector<REAL_> mutated_genome;
     std::vector<REAL_>::iterator it;
@@ -194,7 +202,7 @@ std::vector<REAL_> fusion_mutation(std::vector<REAL_> genome,
     mutated_genome = genome;
     std::set<REAL_> unique_genome;
     if (is_real) {
-        static std::uniform_real_distribution<> R(a, b);
+        static std::uniform_real_distribution<> R(low_bound, up_bound);
         for (size_t i = 0; i < mutated_genome.size(); ++i) {
             if (unique_genome.find(mutated_genome[i]) != unique_genome.end()) {
                 mutated_genome[i] = R(gen);
@@ -202,6 +210,9 @@ std::vector<REAL_> fusion_mutation(std::vector<REAL_> genome,
             unique_genome.insert(mutated_genome[i]);
         }
     } else {
+        int a, b;
+        a = (int) low_bound;
+        b = (int) up_bound;
         static std::uniform_int_distribution<> R(a, b);
         for (size_t i = 0; i < mutated_genome.size(); ++i) {
             if (unique_genome.find(mutated_genome[i]) != unique_genome.end()) {
@@ -227,7 +238,7 @@ std::vector<REAL_> fusion_mutation(std::vector<REAL_> genome,
  *
  * @return A mutated genome.
  */
-std::vector<REAL_> swap_mutation(std::vector<REAL_> genome)
+std::vector<REAL_> GA::swap_mutation(std::vector<REAL_> genome)
 {
     size_t idx_a(0), idx_b(0);
     std::vector<REAL_> mutated_genome;

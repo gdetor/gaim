@@ -36,17 +36,17 @@
  *
  * @return Nothing (void)
  */
-void independent_runs(ga_parameter_s *pms,
+void independent_runs(ga_parameter_s *ga_pms,
                       pr_parameter_s *pr_pms)
 {
-    std::vector<GA> ind_population(pms->runs, GA(pms));
+    std::vector<GA> ind_population(ga_pms->runs, GA(ga_pms));
     std::vector<std::thread> run;
 
     /// Instantiate threads and GAs
-    for(int i = 0; i < pms->runs; ++i) {
+    for(int i = 0; i < ga_pms->runs; ++i) {
         run.push_back(std::thread(&GA::evolve,
                                   &ind_population[i],
-                                  pms->generations,
+                                  ga_pms->generations,
                                   i,
                                   pr_pms));
     }

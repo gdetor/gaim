@@ -31,6 +31,24 @@ extern "C"
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
 
+    ga_pms.sel_pms.bias = 1.5;
+    ga_pms.sel_pms.selection_method = "random";
+    ga_pms.sel_pms.num_parents = 2;
+    ga_pms.sel_pms.lower_bound = 1;
+    ga_pms.sel_pms.k = 2;
+    ga_pms.sel_pms.replace = false;
+    
+    ga_pms.cross_pms.crossover_method = "one_point";
+
+    ga_pms.mut_pms.mutation_method = "delta";
+    ga_pms.mut_pms.mutation_rate = 0.5;
+    ga_pms.mut_pms.variance = 0.5;
+    ga_pms.mut_pms.low_bound = 1.0;
+    ga_pms.mut_pms.up_bound = 1.0;
+    ga_pms.mut_pms.time = 1;
+    ga_pms.mut_pms.order = 1;
+    ga_pms.mut_pms.is_real = true;
+
     // Assign values to GA parameters
     ga_pms.runs = n_rounds;
     ga_pms.generations = n_generations;
