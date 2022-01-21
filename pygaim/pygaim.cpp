@@ -42,9 +42,27 @@ PYBIND11_MODULE(pygaim, m)
                     return ga;
                     }))
         .def("pycallback", &GA::pycallback)
-        .def("selection", &GA::selection)
-        .def("crossover", &GA::crossover)
-        .def("mutation", &GA::mutation)
+        .def("ktournament_selection", &GA::ktournament_selection)
+        .def("truncation_selection", &GA::truncation_selection)
+        .def("linear_rank_selection", &GA::linear_rank_selection)
+        .def("random_selection", &GA::random_selection)
+        .def("roulette_wheel_selection", &GA::roulette_wheel_selection)
+        .def("stochastic_roulette_wheel_selection", &GA::stochastic_roulette_wheel_selection)
+        .def("whitley_selection", &GA::whitley_selection)
+        .def("select_selection_method", &GA::select_selection_method)
+        .def("one_point_crossover", &GA::one_point_crossover)
+        .def("two_point_crossover", &GA::two_point_crossover)
+        .def("uniform_crossover", &GA::uniform_crossover)
+        .def("flat_crossover", &GA::flat_crossover)
+        .def("discrete_crossover", &GA::discrete_crossover)
+        .def("order_one_crossover", &GA::order_one_crossover)
+        .def("select_crossover_method", &GA::select_crossover_method)
+        .def("delta_mutation", &GA::delta_mutation)
+        .def("random_mutation", &GA::random_mutation)
+        .def("nonuniform_mutation", &GA::nonuniform_mutation)
+        .def("fusion_mutation", &GA::fusion_mutation)
+        .def("swap_mutation", &GA::swap_mutation)
+        .def("select_mutation_method", &GA::select_mutation_method)
         .def("evaluation", &GA::evaluation)
         .def("next_generation", &GA::next_generation)
         .def("sort_population", &GA::sort_population)
@@ -56,9 +74,36 @@ PYBIND11_MODULE(pygaim, m)
         .def("reset_selection_flags", &GA::reset_selection_flags)
         .def("get_average_fitness", &GA::get_average_fitness);
 
+    py::class_<sel_parameter_s>(m, "sel_parameter_s")
+        .def(py::init([] (){ return new sel_parameter_s; }))
+        .def_readwrite("selection_method", &sel_parameter_s::selection_method)
+        .def_readwrite("bias", &sel_parameter_s::bias)
+        .def_readwrite("num_parents", &sel_parameter_s::num_parents)
+        .def_readwrite("lower_bound", &sel_parameter_s::lower_bound)
+        .def_readwrite("k", &sel_parameter_s::k)
+        .def_readwrite("replace", &sel_parameter_s::replace);
+
+    py::class_<cross_parameter_s>(m, "cross_parameter_s")
+        .def(py::init([] (){ return new cross_parameter_s; }))
+        .def_readwrite("crossover_method", &cross_parameter_s::crossover_method);
+
+    py::class_<mut_parameter_s>(m, "mut_parameter_s")
+        .def(py::init([] (){ return new mut_parameter_s; }))
+        .def_readwrite("mutation_method", &mut_parameter_s::mutation_method)
+        .def_readwrite("mutation_rate", &mut_parameter_s::mutation_rate)
+        .def_readwrite("variance", &mut_parameter_s::variance)
+        .def_readwrite("low_bound", &mut_parameter_s::low_bound)
+        .def_readwrite("up_bound", &mut_parameter_s::up_bound)
+        .def_readwrite("time", &mut_parameter_s::time)
+        .def_readwrite("order", &mut_parameter_s::order)
+        .def_readwrite("is_real", &mut_parameter_s::is_real);
+
     // Wrapper for GA parameters data structure
     py::class_<ga_parameter_s>(m, "ga_parameter_s")
         .def(py::init([] (){ return new ga_parameter_s; }))
+        .def_readwrite("sel_pms", &ga_parameter_s::sel_pms)
+        .def_readwrite("cross_pms", &ga_parameter_s::cross_pms)
+        .def_readwrite("mut_pms", &ga_parameter_s::mut_pms)
         .def_readwrite("a", &ga_parameter_s::a)
         .def_readwrite("b", &ga_parameter_s::b)
         .def_readwrite("generations", &ga_parameter_s::generations)
@@ -116,69 +161,6 @@ PYBIND11_MODULE(pygaim, m)
         .def("move_immigrants", &IM::move_immigrants)
         .def("evolve_island", &IM::evolve_island)
         .def("run_islands", &IM::run_islands);
-
-    // Crossover functions
-    m.def("one_point_crossover",
-          &one_point_crossover,
-          "One point crossover method");
-    m.def("two_point_crossover",
-          &two_point_crossover,
-          "Two point crossover method");
-    m.def("uniform_crossover",
-          &uniform_crossover,
-          "Uniform crossover method");
-    m.def("flat_crossover",
-          &flat_crossover,
-          "Flat crossover method");
-    m.def("discrete_crossover",
-          &discrete_crossover,
-          "Discrete crossover method");
-    m.def("order_one_crossover",
-          &order_one_crossover,
-          "Order one crossover method");
-
-    // Selection functions
-    m.def("ktournament_selection",
-          &ktournament_selection,
-          "k-tournament selection method");
-    m.def("truncation_selection",
-          &truncation_selection,
-          "Truncation selection method");
-    m.def("linear_rank_selection",
-          &linear_rank_selection,
-          "Linear Rank selection method");
-    m.def("random_selection",
-          &random_selection,
-          "Random selection method");
-    m.def("roulette_wheel_selection",
-          &roulette_wheel_selection,
-          "Roulette wheel selection method");
-    m.def("stochastic_roulette_wheel_selection",
-          &stochastic_roulette_wheel_selection,
-          "Roulette-wheel selection via stochastic acceptance");
-    m.def("whitley_selection_method",
-          &whitley_selection,
-          "Whitley selection method");
-
-    // Mutation functions
-    m.def("delta_mutation",
-          &delta_mutation,
-          "Delta mutation method");
-    m.def("random_mutation",
-          &random_mutation,
-          "Random mutation method");
-    m.def("nonuniform_mutation",
-          &nonuniform_mutation,
-          "Non-uniform mutation method");
-    m.def("fusion_mutation",
-          &fusion_mutation,
-          "Fusion mutation");
-    m.def("swap_mutation",
-          &swap_mutation,
-          "Swap mutation method");
-    m.def("whitley_selection",
-          &whitley_selection,
-          "Whitley rank selection method");
 
     // Interface function
     m.def("ga_optimization", &ga_optimization);

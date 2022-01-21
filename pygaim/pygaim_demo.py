@@ -36,16 +36,40 @@ def error(x):
 
 if __name__ == '__main__':
     # Define all GA parameters
+    sel_params = pygaim.sel_parameter_s()
+    sel_params.selection_method = "random"
+    sel_params.bias = 1.5
+    sel_params.num_parents = 2
+    sel_params.lower_bound = 1
+    sel_params.k = 2
+    sel_params.replace = False
+
+    cross_params = pygaim.cross_parameter_s()
+    cross_params.crossover_method = "one_point"
+
+    mut_params = pygaim.mut_parameter_s()
+    mut_params.mutation_method = "delta"
+    mut_params.mutation_rate = 0.5
+    mut_params.variance = 0.5
+    mut_params.low_bound = 0.0
+    mut_params.up_bound = 1.0
+    mut_params.time = 1
+    mut_params.order = 1
+    mut_params.is_real = True
+
     ga_params = pygaim.ga_parameter_s()
-    ga_params.a = -10.0     # Lower bound of fitness
-    ga_params.b = 10.0      # Upper bound of fitness
+    ga_params.sel_pms = sel_params
+    ga_params.mut_pms = mut_params
+    ga_params.cross_pms = cross_params
     ga_params.generations = 1000    # Number of generations
     ga_params.population_size = 200     # Number of individuals
     ga_params.genome_size = 2           # Number of parameters to search for
+    ga_params.a = [-10.0, -10.0]     # Lower bound of fitness
+    ga_params.b = [10.0, 10.0]      # Upper bound of fitness
     ga_params.num_offsprings = 5        # Number of offsprings
     ga_params.num_replacement = 3       # Number of individuals to be replaced
     ga_params.runs = 1                  # Number of indipendent runs of a GA
-    ga_params.universal_clipping = True     # Global clipping values
+    ga_params.clipping = "universal"     # Global clipping values
     ga_params.clipping_fname = "../examples/clip_file.dat".encode('utf-8')
 
     # Define all Logging parameters

@@ -282,11 +282,8 @@ class GA {
 #ifdef PYTHON
 #ifdef OLDGCC
         /// Callback for fitness function. It is used only with pyGAIM
-        
         std::function<REAL_(std::vector<REAL_>&)> fitness;
         bool pycallback(std::function<REAL_(std::vector<REAL_>&)>);
-        /* REAL_ (*fitness)(std::vector<REAL_> &); */
-        /* bool pycallback(REAL_ (*fitness)(std::vector<REAL_>&)); */
 #else
         using Callback = std::function<REAL_(std::vector<REAL_>&)>;
         Callback fitness;
@@ -295,7 +292,6 @@ class GA {
 #else
         /// Fitness function - function pointer
         std::function<REAL_(std::vector<REAL_> &)> fitness;
-        // REAL_ (*fitness)(std::vector<REAL_> &);
 #endif
 
         std::vector<individual_s> population; /// Individuals population vector
