@@ -1,7 +1,76 @@
+/*
+ * GAIM interface function cpp file 
+ * Copyright (C) 2022  Georgios Detorakis (gdetor@protonmail.com)
+ *                     
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+// $Id$
+/**
+ * @file interface.cpp
+ * Defines an interface function for calling game in a single-line code from 
+ * within any other software.
+ */
+// $Log$
 #include "gaim.h"
 
 extern "C"
-// py_results ga_optimization(REAL_ (*func)(std::vector<REAL_> &),
+/**
+ * @brief Interface function for calling GAIM from within any other C/C++ 
+ * source code of software (libgaim).
+ *
+ * It initializes all the necessary parameters and vectors for evolving a 
+ * population of individuals based on a predetermined Genetic Algorithm (GA). 
+ *
+ * @param[in] func A pointer function to the objective/fitness function
+ * @param[in] n_generations Number of generations   
+ * @param[in] population_size Number of individuals within a population
+ * @param[in] genome_size How many parameters the fitness function has
+ * @param[in] n_offsprings Number of new candidate individuals (children)
+ * @param[in] n_replacements Number of parents to be replaced per generation
+ * @param[in] n_rounds Number of independent experiments to run
+ * @param[in] n_islands Number of islands in a Island Model
+ * @param[in] n_immigrants Number of individuals to move from one island to
+ *              another (only for IM)
+ * @param[in] migration_interval Determines how frequent individuals have to
+ *              move from one island to another
+ * @param[in] a Vector with genes lower bounds
+ * @param[in] b Vector with genes upper bounds
+ * @param[in] clipping Gene's clipping method (universal: all the genes are
+ * clamped with the same values a and b. Individual: Each gene has its own 
+ * clamped values a and b. PPPPPPP
+ * @param[in] clipping_fname Filename of clipping file
+ * @param[in] experiment_id The name of the current experiment
+ * @param[in] log_fname The directory in which all the results and logs will be
+ *              saved
+ * @param[in] pickup_method Selection method of migrating individuals in IM.
+ * Poor: Select individuals with lowest fitness. Elite: select individuals
+ * with the highest fitness. Random: select individuals randomly.
+ * @param[in] replace_method Replacement method of individuals on islands who
+ * receive immigrants. Three method (poor, elite, and random).
+ * @param[in] im_graph_fname The filename of the file that contains the
+ * connectivity graph for an IM. 
+ * @param[in] log_fitness Enable/disable the track of individuals' fitness
+ * @param[in] log_average_fitness Enable/disable the track of population
+ * (average) fitness
+ * @param[in] log_bsf Enable/disable the track of Best So far Fitness (BSF)
+ * fitness. 
+ * @param[in] log_best_genome Enable/disable the track of the best genome
+ * @param[in] is_im_enabled Enable/disable the IM functionality
+ * * @return res A py_results_s data structure that contains the average
+ * fitness, the BSF, and the best genome. 
+ * */
  py_results_s ga_optimization(std::function<REAL_(std::vector<REAL_>&)> func,
                               size_t n_generations,
                               size_t population_size,

@@ -37,19 +37,19 @@ def error(x):
 if __name__ == '__main__':
     res = pygaim.ga_optimization(error,        # fitness function
                                  1000,         # Generations
-                                 10,           # Population size
-                                 2,            # Genome size
-                                 3,            # Number of offsprings
-                                 1,            # Replacements
+                                 20,           # Population size
+                                 3,            # Genome size
+                                 10,           # Number of offsprings
+                                 5,            # Replacements
                                  1,            # Independent rounds
                                  5,            # Number of Islands
                                  4,            # Number of immigrants
                                  200,          # Migration interval
-                                 [-10.0, -10.0],   # a - lower bound
-                                 [10.0, 10.0],     # b - upper bound
+                                 [-1., -1., -1.],   # a - lower bound
+                                 [1., 1., 1.],     # b - upper bound
                                  "universal",   # Clipping method
                                  " ",          # Clipping filename
-                                 "lolo",       # Experiment ID
+                                 "pygaim",       # Experiment ID
                                  "./data/",     # Where to store the logs
                                  "elite",      # Pickup method (IM)
                                  "poor",       # Replace method (IM)

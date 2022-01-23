@@ -27,8 +27,20 @@
 #include "gaim.h"
 
 
-void GA::select_mutation_method() {
-    // Assign the appropriate selection method
+/**
+ * @brief Assigns the appropriate mutation operator to the pointer function
+ * *mutation.
+ *
+ * This method assigns to the mutation operator (pointer function) the
+ * appropriate method based on the mutation method string. The mutation method
+ * is provided by the data structure mut_parameter_s.
+ *
+ * @param[in] void
+ * @return Nothing
+ *
+ * @see mut_parameter_s
+ */
+void GA::select_mutation_method(void) {
     if (mutation_method == "delta") {
         mutation = &GA::delta_mutation;
     } else if (mutation_method == "random") {
@@ -45,6 +57,7 @@ void GA::select_mutation_method() {
     }
 }
 
+
 /**
  * This function implements a delta mutation operator meaning that for every 
  * gene in the genome a random number drawn from a normal
@@ -53,9 +66,6 @@ void GA::select_mutation_method() {
  * with mean 0 and standard deviation defined by the argument variance.
  *
  * @param[in] genome The genome (genes) of an individual
- * @param[in] mutation_rate Mutation rate (probability threshold)
- * @param[in] variance  Standard deviation of the normal distribution from which the
- * increment/decrement is drawn
  * @return A vector of floats (mutated genome)
  */
 std::vector<REAL_> GA::delta_mutation(std::vector<REAL_> genome)
@@ -84,11 +94,6 @@ std::vector<REAL_> GA::delta_mutation(std::vector<REAL_> genome)
  * a new random one drawn from a uniform distribution in the interval [a, b].
  *
  * @param[in] genome Individual's genome (genes)
- * @param[in] a Lower boundary of interval [a, b]
- * @param[in] b Upper boundary of interval [a, b]
- * @param[in] is_real Determines if the interval is in the set of reals or
- * integers (to use when REAL_ is set to INT)
- *
  * @return A mutated genome (vector of type REAL_). 
  */
 std::vector<REAL_> GA::random_mutation(std::vector<REAL_> genome)
@@ -146,12 +151,6 @@ REAL_ delta(REAL_ x, size_t time, size_t tot_time, size_t r=1)
  * based on a random choice between -1 or 1, respectively. 
  * 
  * @param[in] genome Individual's genome
- * @param[in] time Current generation (time step)
- * @param[in] generations Total number of generations (total time steps)
- * @param[in] order Power of mutation rate
- * @param[in] a Lower boundary of interval [a, b]
- * @param[in] b Upper boundary of interval [a, b]
- *
  * @return A mutated genome.
  *
  */
@@ -185,11 +184,6 @@ std::vector<REAL_> GA::nonuniform_mutation(std::vector<REAL_> genome)
  * new random (uniformly drawn) values. 
  *
  * @param[in] genome Individual's genome
- * @param[in] a Lower bound of sampling interval
- * @param[in] b Upper bound of sampling interval
- * @param[in] is_real Determines if the interval is in the set of reals or
- * integers (to use when REAL_ is set to INT)
- *
  * @return A mutated genome.
  */
 std::vector<REAL_> GA::fusion_mutation(std::vector<REAL_> genome)
@@ -235,7 +229,6 @@ std::vector<REAL_> GA::fusion_mutation(std::vector<REAL_> genome)
  * instance in solving problems such as the Traveling Salesman Problem).
  *
  * @param[in] genome Individual's genome
- *
  * @return A mutated genome.
  */
 std::vector<REAL_> GA::swap_mutation(std::vector<REAL_> genome)

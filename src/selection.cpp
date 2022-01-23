@@ -26,7 +26,20 @@
 #include "gaim.h"
 
 
-void GA::select_selection_method() {
+/**
+ * @brief Assigns the appropriate selection operator to the pointer function
+ * *selection.
+ *
+ * This method assigns to the selection operator (pointer function) the
+ * appropriate method based on the selection method string. The selection method
+ * is provided by the data structure sel_parameter_s.
+ *
+ * @param[in] void
+ * @return Nothing
+ *
+ * @see sel_parameter_s
+ */
+void GA::select_selection_method(void) {
     // Assign the appropriate selection method
     if (selection_method == "ktournamet") {
         selection = &GA::ktournament_selection;
@@ -53,12 +66,6 @@ void GA::select_selection_method() {
  * Implements a k-tournament selection. 
  *
  * @param[in] population A vector of the entire population of individuals.
- * @param[in] num_parents Number of individuals being selected for
- * reproduction.
- * @param[in] k An integer that defines the tournament size (how many 
- *              individuals from the population will be drawn randomly).
- * @param[in] replace Determines if the individuals will be selected with
- * replacement or not.
  * @return A vector of individual_s structures (selected parents).
  */
 std::vector<individual_s> GA::ktournament_selection(std::vector<individual_s> &population) {
@@ -124,10 +131,6 @@ std::vector<individual_s> GA::ktournament_selection(std::vector<individual_s> &p
  * discarded is computed based on the given number of offsprings (lambda). 
  *
  * @param[in] population A vector of the entire population of individuals
- * @param[in] num_parents Number of individuals being selected for reproduction
- * @param[in] low_bound The lowest index from which the selection begins.
- * @param[in] replace Determines if the individuals will be selected with
- * replacement or not.
  * @return A vector of individual_s structures (or the selected parents). 
  */
 std::vector<individual_s> GA::truncation_selection(std::vector<individual_s> &population) {
@@ -183,8 +186,6 @@ std::vector<individual_s> GA::truncation_selection(std::vector<individual_s> &po
  * is assigned to each individual based on their rank. 
  *
  * @param[in] population A vector of the entire population of individuals
- * @param[in] num_parents Number of individuals being selected for reproduction
- * @param[in] replace Determines if the individuals will be selected with
  * replacement or not.
  * @return A vector of individual_s structures (or the selected parents). 
  */
@@ -254,10 +255,6 @@ std::vector<individual_s> GA::linear_rank_selection(std::vector<individual_s> &p
  * the entire population.
  *
  * @param[in] population A vector of the entire population of individuals.
- * @param[in] num_parents Number of individuals being selected for
- * reproduction.
- * @param[in] replace Determines if the individuals will be selected with
- * replacement or not.
  * @return A vector of indivudual_s as parents. 
  */
 std::vector<individual_s> GA::random_selection(std::vector<individual_s> &population) {
@@ -306,10 +303,6 @@ std::vector<individual_s> GA::random_selection(std::vector<individual_s> &popula
  * probability with each individual. 
  *
  * @param[in] population A vector of the entire population of individuals.
- * @param[in] num_parents Number of individuals being selected for
- * reproduction.
- * @param[in] replace Determines if the individuals will be selected with
- * replacement or not.
  * @return A vector of individual_s which corresponds to the selected parents. 
  */
 std::vector<individual_s> GA::roulette_wheel_selection(std::vector<individual_s> &population) {
@@ -382,10 +375,6 @@ std::vector<individual_s> GA::roulette_wheel_selection(std::vector<individual_s>
  * allowed to get offsprings.
  *
  * @param[in] population A vector of the entire population of individuals.
- * @param[in] num_parents Number of individuals being selected for
- * reproduction.
- * @param[in] replace Determines if the individuals will be selected with
- * replacement or not.
  * @return A vector of indivudual_s (selected parents). 
  */
 std::vector<individual_s> GA::stochastic_roulette_wheel_selection(std::vector<individual_s> &population) {
@@ -465,12 +454,6 @@ REAL_ calculate_whitley_factor(REAL_ bias) {
  * of Reproductive Trials is Best", ", D. Whitley, 2000. 
  *
  * @param[in] population A vector of the entire population of individuals.
- * @param[in] bias The bias that controls how strongly the high rank
- * individuals are favored.
- * @param[in] num_parents Number of individuals being selected for
- * reproduction.
- * @param[in] replace Determines if the individuals will be selected with
- * replacement or not.
  * @return A vector of indivudual_s (selected parents). 
  *
  * @see calculate_whitley_factor() On how to calculate the Whitley factor.

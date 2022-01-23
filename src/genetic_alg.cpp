@@ -406,10 +406,18 @@ void GA::evolve(size_t generations,
                 size_t unique_id,
                 pr_parameter_s *pms)
 {
+#ifdef TIME
+    auto start = std::chrono::high_resolution_clock::now();
+#endif
     for(size_t i = 0; i < generations; ++i) {
         run_one_generation();
     }
     sort_population();
+#ifdef TIME
+    auto end = std::chrono::high_resolution_clock::now();
+    auto taken = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "Total time: " << taken.count() << " ms "<< std::endl;
+#endif
 
     if (pms->print_fitness) {
         print_fitness(population, unique_id, pms->where2write);

@@ -19,7 +19,8 @@
 // $Id$
 /**
  * @file auxiliary_funs.cpp
- * Auxiliary functions for the GAIM package, encompassing helpers for arithmetic with individual fitnesses and wrappers for directory I/O.
+ * Auxiliary functions for the GAIM package, encompassing helpers for 
+ * arithmetic with individual fitnesses and wrappers for directory I/O.
  */
 // $Log$
 

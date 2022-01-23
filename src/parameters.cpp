@@ -19,7 +19,8 @@
 // $Id$
 /**
  * @file parameters.cpp
- * Provides I/O of GAIM configuration files holding GA, IM, and printing/debug parameters.
+ * Provides I/O of GAIM configuration files holding GA, IM, and printing/debug
+ * parameters.
  */
 // $Log$
 #include "gaim.h"
@@ -28,7 +29,8 @@ using namespace libconfig;
 
 
 /**
- * @brief Reads GAIM config files containing Genetic Algorithm, Island Model and printing parameters.
+ * @brief Reads GAIM config files containing Genetic Algorithm, Island Model 
+ * and printing parameters.
  *
  * Reads a configuration file (.cfg) of libconfig format, parses it and loads
  * the parameters into the internal data structures. 

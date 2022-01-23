@@ -40,10 +40,9 @@
 #include <set>
 #include <thread>
 #include <mutex>
+#include <sys/stat.h>
 
 #include "pcg_random.hpp"
-
-#include <sys/stat.h>
 
 #define REAL_ float
 
@@ -54,6 +53,7 @@
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
+//#define TIME
 
 #define XORSWAP(a, b)                                                         \
   ((&(a) == &(b)) ? (a)                                                       \
@@ -72,30 +72,72 @@
                    }}
 
 
+/**
+ * @brief Structure containing initialization parameters for the selection
+ * operator. 
+ *
+ * A structure that contains all the parameters for specifying a selection
+ * method and its corresponding parameters. It includes the selection method,
+ * the number of parents (individuals) that will be selected for reproduction,
+ * an integer k that defines the tournament size (how many individuals from 
+ * the population will be drawn randomly), a replace parameter that determines
+ * if the individuals will be selected with replacement or not. Furthermore, 
+ * it contains the lower bound (lowest index) from which the selection begins
+ * for the truncation method. Finally, includes the bias that controls how 
+ * strongly the high rank individuals are favored when the Whithley selection
+ * method is used.
+ */
 typedef struct parameter_sel {
-    std::string selection_method;
-    REAL_ bias;
-    size_t num_parents;
-    size_t lower_bound;
-    int k;
-    bool replace;
+    std::string selection_method; /**< Selection method. Can be one of: k-tournament,
+                                    linear_rank, truncation, random, roulette,
+                                    stochastic_roulette, and whitley*/
+    REAL_ bias; /**<Whitley's method bias term (favors the high rank individuals */
+    size_t num_parents; /**<The number of individuals from which to choose the
+                          individulas that will reproduce */
+    size_t lower_bound; /**< The starting index for the truncation selection method*/
+    int k; /**< The tournament size for the k-tournament selection method */
+    bool replace; /**< Defines if the selected individuals will be replaced or not */
 } sel_parameter_s;
 
 
+/**
+ * @brief Structure containing initialization parameters for the crossover
+ * operator.
+ *
+ * A structure that contains the parameters for specifying a crossover method.
+ */
 typedef struct parameter_cross {
-    std::string crossover_method;
+    std::string crossover_method; /**< Crossover method. Can be one of: one_point,
+    two_point, uniform, flat, discrete, and first_order. */
 } cross_parameter_s;
 
 
+/**
+ * @brief Structure containing initialization parameters for mutation operator.
+ *
+ * A structure that contains all the parameters for specifying a mutation
+ * operator. This data structure includes the mutation method, the mutation 
+ * rate and variance (delta mutation), the lower and upper bounds for the fusion
+ * and non-uniform mutation operators. Furthermore, it contains the time and 
+ * order parameters for the nonuniform mutation operator and a parameter that
+ * defines if the genome is of type int or real (float or double). 
+ *
+ */
 typedef struct parameter_mut {
-    std::string mutation_method;
-    REAL_ mutation_rate;
-    REAL_ variance;
-    REAL_ low_bound;
-    REAL_ up_bound;
-    size_t time;
-    size_t order;
-    bool is_real;
+    std::string mutation_method; /**< Mutation method. It can be one: delta,
+                                   random, nonuniform, fusion, and swap */
+    REAL_ mutation_rate; /**< Mutation rate or probability threshold for delta
+                           mutation operator */
+    REAL_ variance;  /**< Mutation step for delta mutation operator */
+    REAL_ low_bound; /**< Lower bound of interval [a, b] for all uniform 
+                       distributions (only mutation operator) */
+    REAL_ up_bound; /**< Upper bound of interval [a, b] for all uniform 
+                      distributions (only mutation operator) */
+    size_t time;    /**< The time index (current generation) for non-uniform
+                      mutation */
+    size_t order;  /**< Power of mutation rate (non-uniform mutation) */
+    bool is_real;  /**< Determines if the genome is of type int or real
+                     (float or double) */
 } mut_parameter_s;
 
 
@@ -112,9 +154,9 @@ typedef struct parameter_mut {
  * trying to derive an Monte Carlo estimate of fitness.
  */
 typedef struct parameter_ga {
-    sel_parameter_s sel_pms;
-    cross_parameter_s cross_pms;
-    mut_parameter_s mut_pms;
+    sel_parameter_s sel_pms;    /**< Selection operator data structure */
+    cross_parameter_s cross_pms;  /**< Crossover operator data structure */
+    mut_parameter_s mut_pms;    /**< Mutation operator data structure */
 
     std::vector<REAL_> a;    /**< Lower bound of genome's interval ([a, b]) */
     std::vector<REAL_> b;    /**< Upper bound of genome's interval ([a, b]) */
@@ -185,10 +227,18 @@ typedef struct individual {
 } individual_s;
 
 
+/**
+ * @brief Structure that holds the returned results from the ga_optimization
+ * function. 
+ *
+ * A structure that keeps all the results (best genome, BSF, and average 
+ * fitness). This data structure is used only from the ga_optimization 
+ * function. 
+ */
 typedef struct py_results {
-    std::vector<REAL_> genome;
-    std::vector<REAL_> bsf;
-    std::vector<REAL_> average_fitness;
+    std::vector<REAL_> genome; /**< Best genome */
+    std::vector<REAL_> bsf;   /**< BSF record */
+    std::vector<REAL_> average_fitness;  /**< Average fitness record */
 } py_results_s;
 
 
@@ -223,7 +273,7 @@ class GA {
         
         /// This method assigns the appropriate selection method to selection
         /// pointer function
-        void select_selection_method();
+        void select_selection_method(void);
 
         /// Crossover operator methods
         std::vector<REAL_> one_point_crossover(std::vector<REAL_>, std::vector<REAL_>);
@@ -238,7 +288,7 @@ class GA {
     
         /// This method assigns the appropriate crossover method to crossover
         /// pointer function
-        void select_crossover_method();
+        void select_crossover_method(void);
 
         /// Mutation operator methods
         std::vector<REAL_> delta_mutation(std::vector<REAL_>);
@@ -252,7 +302,7 @@ class GA {
     
         /// This method assigns the appropriate mutation operator based on
         /// the chosen mutation method
-        void select_mutation_method();
+        void select_mutation_method(void);
 
         /**
          * Genetic Algorithm secondary operations
@@ -431,9 +481,8 @@ void print_results(std::vector<individual_s>,
                    size_t, pr_parameter_s *);
 
 
-/// Demo functions
+/// Demo objective/fitness functions
 /// End-user can define more at her/his will
-
 REAL_ sphere(std::vector<REAL_>&);
 REAL_ rastrigin(std::vector<REAL_>&);
 REAL_ schwefel(std::vector<REAL_>&);

@@ -1,4 +1,4 @@
-/* Crossover cpp of GAIM package 
+/* Crossover Operators cpp file for GAIM software 
  * Copyright (C) 2019  Georgios Detorakis (gdetor@protonmail.com)
  *                     Andrew Burton (ajburton@uci.edu)
  *
@@ -29,8 +29,20 @@
 #include "gaim.h"
 
 
-void GA::select_crossover_method() {
-    // Assign the appropriate crossover method
+/**
+ * @brief Assigns the appropriate crossover operator to the pointer function
+ * *crossover.
+ *
+ * This method assigns to the crossover operator (pointer function) the
+ * appropriate method based on the crossover method string. The crossover method
+ * is provided by the data structure cross_parameter_s.
+ *
+ * @param[in] void
+ * @return Nothing
+ *
+ * @see cross_parameter_s
+ */
+void GA::select_crossover_method(void) {
     if (crossover_method == "one_point") {
         crossover = &GA::one_point_crossover;
     } else if (crossover_method == "two_point") {
