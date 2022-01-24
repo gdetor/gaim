@@ -26,15 +26,45 @@ REAL_ square(REAL_ x) {
 
 ga_parameter_s init_ga_params(void)
 {
+    std::vector<REAL_> a(2, -1.0);
+    std::vector<REAL_> b(2, 1.0);
+
+    mut_parameter_s mut;
+    cross_parameter_s cross;
+    sel_parameter_s sel;
     ga_parameter_s ga_test;
-    ga_test.a = -1;
-    ga_test.b = 1;
+
+    sel.selection_method = "ktournamet";
+    sel.bias = 1.5;
+    sel.num_parents = 2;
+    sel.lower_bound = 1;
+    sel.k = 2;
+    sel.replace = false;
+
+    cross.crossover_method = "one_point";
+
+    mut.mutation_method = "delta";
+    mut.mutation_rate = 0.5; 
+    mut.variance = 0.5; 
+    mut.low_bound = 0.0; 
+    mut.up_bound = 1.0; 
+    mut.time = 1;   
+    mut.order = 1;  
+    mut.is_real = true;  
+
+    ga_test.sel_pms = sel;
+    ga_test.cross_pms = cross;
+    ga_test.mut_pms = mut;
+    ga_test.a = a;
+    ga_test.b = b;
     ga_test.generations = 1000;
-    ga_test.population_size = 1;
+    ga_test.population_size = 10;
     ga_test.genome_size = 2;
     ga_test.num_offsprings = 1;
     ga_test.num_replacement = 1;
     ga_test.runs = 1;
+    ga_test.clipping = "universal";
+    ga_test.clipping_fname = "test";
     return ga_test;
 }
 
@@ -52,14 +82,14 @@ pr_parameter_s init_print_params(void)
 }
 
 
-int test_evaluation(std::size_t gene_size, std::size_t population_size)
+int test_evaluation(std::size_t population_size)
 {
     std::size_t count = 0;
     REAL_ ground_truth = 0;
-    std::vector<REAL_> genome_(gene_size, 2);
+    std::vector<REAL_> genome_(2, 2);
     ga_parameter_s pms(init_ga_params());
 
-    pms.genome_size = gene_size;
+    pms.genome_size = 2;
     pms.population_size = population_size;
 
     GA test(&pms);
@@ -88,7 +118,7 @@ int test_evaluation(std::size_t gene_size, std::size_t population_size)
 }
 
 
-int test_sort_population(std::size_t gene_size, std::size_t population_size)
+int test_sort_population(std::size_t population_size)
 {
     size_t count = 0;
     std::vector<REAL_> order(population_size);
@@ -96,7 +126,7 @@ int test_sort_population(std::size_t gene_size, std::size_t population_size)
     std::random_shuffle(order.begin(), order.end());
     ga_parameter_s pms(init_ga_params());
 
-    pms.genome_size = gene_size;
+    pms.genome_size = 2;
     pms.population_size = population_size;
 
     GA test(&pms);
@@ -121,77 +151,6 @@ int test_sort_population(std::size_t gene_size, std::size_t population_size)
 }
 
 
-int test_selection(std::size_t gene_size, std::size_t population_size)
-{
-    bool flag = false;
-    individual_s parent;
-    std::pair<individual_s, individual_s> parents;
-    ga_parameter_s pms(init_ga_params());
-
-    pms.genome_size = gene_size; 
-    pms.population_size = population_size;
-
-    GA test(&pms); 
-    parents = test.selection(2);
-    parent = parents.first;
-
-    if (parent.id >=0 && parent.id < population_size) {
-        flag = true;
-    } else {
-        flag = false;
-    }
-
-    if ((parent.genome == test.population[parent.id].genome) && flag == true) {
-        return 0;
-    } else {
-        return -1;
-    }
-}
-
-
-int test_crossover(std::size_t gene_size)
-{
-    std::vector<REAL_> parent1(gene_size, 3), parent2(gene_size, 13);
-    std::vector<REAL_> child(gene_size, 0);
-    ga_parameter_s pms(init_ga_params());
-
-    pms.genome_size = gene_size; 
-    GA test(&pms);
-
-    child = test.crossover(parent1, parent2);
-    std::size_t count1 = 0, count2 = 0;
-    for (std::size_t i = 0; i < child.size(); ++i) {
-        if (child[i] == parent2[i]) {
-            count2++;
-        } else if (child[i] == parent1[i]) {
-            count1++;
-        }
-    }
-    if (count1 == 0 || count2 == 0) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
-
-
-int test_mutation(std::size_t gene_size, REAL_ mutation_rate, REAL_ var)
-{
-    std::vector<REAL_> child(gene_size, 5), new_child(gene_size, 0);
-    ga_parameter_s pms(init_ga_params());
-
-    pms.genome_size = gene_size; 
-    GA test(&pms);
-    new_child = test.mutation(child, mutation_rate, var);
-
-    if (child == new_child) {
-        return -1;
-    } else {
-        return 0;
-    }
-}
-
-
 int test_next_generation(std::size_t population_size,
                          std::size_t num_offsprings,
                          std::size_t perc)
@@ -202,7 +161,7 @@ int test_next_generation(std::size_t population_size,
     std::uniform_real_distribution<> values_c(50, 100);
     ga_parameter_s pms(init_ga_params());
     
-    pms.genome_size = 10;
+    pms.genome_size = 2;
     pms.population_size = population_size;
     pms.num_offsprings = num_offsprings;
     pms.num_replacement = perc;
@@ -223,13 +182,16 @@ int test_next_generation(std::size_t population_size,
 
     test.next_generation(perc);
 
+    size_t count = 0;
     std::sort(test.population.begin(), test.population.end(), compare_fitness);
     for (std::size_t i = 0; i < perc; ++i) {
-        if (test.population[i].genome != test.offsprings[i].genome) {
-            return -1;
+        if (test.population[i].genome == test.offsprings[i].genome) {
+            ++count;
         }
     }
-
+    if (count == population_size) {
+        return -1;
+    }
     return 0;
 }
 
@@ -273,48 +235,21 @@ int main() {
     // Testing evaluation of fitness
     int id = 0;
     std::cout << "Testing evaluation of fitness (x3)." << std::endl;
-    id = test_evaluation(1, 10);
+    id = test_evaluation(10);
     cross_validate_(id, "Evaluation");
-    id = test_evaluation(5, 30);
+    id = test_evaluation(30);
     cross_validate_(id, "Evaluation");
-    id = test_evaluation(50, 5);
+    id = test_evaluation(5);
     cross_validate_(id, "Evaluation");
 
     // Testing population sorting
     std::cout << "Testing population sorting (x3)." << std::endl;
-    id = test_sort_population(1, 10);
+    id = test_sort_population(10);
     cross_validate_(id, "Sorting");
-    id = test_sort_population(5, 30);
+    id = test_sort_population(30);
     cross_validate_(id, "Sorting");
-    id = test_sort_population(50, 5);
+    id = test_sort_population(5);
     cross_validate_(id, "Sorting");
-
-    // Testing selection 
-    std::cout << "Testing selection method (x3)." << std::endl;
-    id = test_selection(2, 10);
-    cross_validate_(id, "Selection");
-    id = test_selection(20, 20);
-    cross_validate_(id, "Selection");
-    id = test_selection(50, 10);
-    cross_validate_(id, "Selection");
-
-    // Testing crossover 
-    std::cout << "Testing crossover method (x3)." << std::endl;
-    id = test_crossover(20);
-    cross_validate_(id, "Crossover");
-    id = test_crossover(20);
-    cross_validate_(id, "Crossover");
-    id = test_crossover(100);
-    cross_validate_(id, "Crossover");
-
-    // Testing mutation 
-    std::cout << "Testing mutation method (x3)." << std::endl;
-    id = test_mutation(2, 0.8, 1);
-    cross_validate_(id, "Mutation");
-    id = test_mutation(20, 0.5, .01);
-    cross_validate_(id, "Mutation");
-    id = test_mutation(50, 1.0, .5);
-    cross_validate_(id, "Mutation");
 
     // Testing next generation 
     std::cout << "Testing next generation method (x3)." << std::endl;

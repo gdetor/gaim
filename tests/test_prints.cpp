@@ -22,15 +22,44 @@
 
 ga_parameter_s init_ga_params(void)
 {
+    std::vector<REAL_> a(2, -1.0);
+    std::vector<REAL_> b(2, 1.0);
+    mut_parameter_s mut;
+    cross_parameter_s cross;
+    sel_parameter_s sel;
     ga_parameter_s ga_test;
-    ga_test.a = -1;
-    ga_test.b = 1;
+
+    sel.selection_method = "ktournamet";
+    sel.bias = 1.5;
+    sel.num_parents = 2;
+    sel.lower_bound = 1;
+    sel.k = 2;
+    sel.replace = false;
+
+    cross.crossover_method = "one_point";
+
+    mut.mutation_method = "delta";
+    mut.mutation_rate = 0.5; 
+    mut.variance = 0.5; 
+    mut.low_bound = 0.0; 
+    mut.up_bound = 1.0; 
+    mut.time = 1;   
+    mut.order = 1;  
+    mut.is_real = true;  
+
+    ga_test.sel_pms = sel;
+    ga_test.cross_pms = cross;
+    ga_test.mut_pms = mut;
+    ga_test.a = a;
+    ga_test.b = b;
     ga_test.generations = 1000;
-    ga_test.population_size = 20;
+    ga_test.population_size = 10;
     ga_test.genome_size = 2;
-    ga_test.num_offsprings = 5;
-    ga_test.num_replacement = 3;
+    ga_test.num_offsprings = 1;
+    ga_test.num_replacement = 1;
     ga_test.runs = 1;
+    ga_test.clipping = "universal";
+    ga_test.clipping_fname = "test";
     return ga_test;
 }
 
