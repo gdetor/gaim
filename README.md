@@ -22,6 +22,7 @@ Building GAIM requires the following packages:
 - libconfig++ (9v5> and dev) 
 - pthreads 
 - OpenMPI
+- Pybind11 (only if pyGAIM is used)
 
 
 ## Install
@@ -529,19 +530,43 @@ def error(x):
 
 if __name__ == '__main__':
     res = pygaim.ga_optimization(error,        # fitness function
-                                 1000,         # Generations
-                                 10,           # Population size
-                                 2,            # Genome size
-                                 3,            # Number of offsprings
-                                 1,            # Replacements
-                                 1,            # Independent rounds
-                                 5,            # Number of Islands
-                                 4,            # Number of immigrants
-                                 200,          # Migration interval
-                                 [-10.0, -10.0],   # a - lower bound
-                                 [10.0, 10.0],     # b - upper bound
-                                 "universal",   # Clipping method
-                                 " ",          # Clipping filename
+                                 1000,         # generations 
+                                 20,           # population size
+                                 2,            # genome size (parameters)
+                                 5,            # number of offsprings
+                                 3,            # number of replacements
+                                 1,            # number of independent experiments
+                                 [-1., -1.],   # lower bound of interval [a, b]
+                                 [1., 1.],     # upper bound of interval [a, b]
+                                 "universal",  # clipping type
+                                 "clip_file",  # clipping values file name
+                                 "ktournament", # selection method
+                                 1.5,           # Whitley method's bias
+                                 2,             # number of parents
+                                 1,             # starting index for truncation
+                                 2,             # k-tournament order
+                                 false,         # replace switch
+                                 "one_point",   # crossover method
+                                 "delta",       # mutation method
+                                 0.5,           # mutation rate
+                                 0.1,           # mutation variance
+                                 0.0,           # lower bound of RNG (mutation)
+                                 1.0,           # upper bound of RNG (mutation)
+                                 1,             # order of nonuniform mutation
+                                 True,          # real/int switch (mutation)
+                                 False,         # enable/disable IM
+                                 5,             # number of islands
+                                 3,             # number of immigrants
+                                 500,           # migration interval
+                                 "elite",       # immigrant pickup method (IM)
+                                 "poor",        # individual replace method (IM)    
+                                 "graph.dat",   # IM graph file
+                                 "test",        # experiment ID
+                                 "./data/",     # directory where to store
+                                 True,          # store fitness record
+                                 True,          # store average fitness
+                                 True,          # store BSF record
+                                 True)          # store best genome
                                  "lolo",       # Experiment ID
                                  "./data/",     # Where to store the logs
                                  "elite",      # Pickup method (IM)
@@ -552,7 +577,13 @@ if __name__ == '__main__':
                                  True,         # Log BSF
                                  True,         # Log of best genome
                                  False)        # Enable/disable the IM
+    print(res.genome)       # print the best genome
 ```
+
+The function **ga_optimization** returns a data structure of type
+**py_results_s**. This data structure contains the best genome, the BSF (over
+generations), and the average fitness (over generations).
+
 
 
 ## Platforms where GAIM has been tested
