@@ -94,9 +94,29 @@ $(document).ready(function(){initNavTree('structparameter__ga.html',''); initRes
  <a href="structparameter__ga.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="gaim_8h_source.html">gaim.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for parameter_ga:</div>
+<div class="dyncontent">
+<div class="center"><img src="structparameter__ga__coll__graph.png" border="0" usemap="#parameter__ga_coll__map" alt="Collaboration graph"/></div>
+<map name="parameter__ga_coll__map" id="parameter__ga_coll__map">
+<area shape="rect" title="Structure containing initialization parameters for GA&#45;based optimization." alt="" coords="153,95,254,121"/>
+<area shape="rect" href="structparameter__cross.html" title="Structure containing initialization parameters for the crossover operator." alt="" coords="5,5,124,32"/>
+<area shape="rect" href="structparameter__mut.html" title="Structure containing initialization parameters for mutation operator." alt="" coords="149,5,258,32"/>
+<area shape="rect" href="structparameter__sel.html" title="Structure containing initialization parameters for the selection operator." alt="" coords="282,5,386,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:adafde8181eac7a1dcc78f1114966dd00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gaim_8h.html#a2dc91f431701a401423810eb2c9d5a4a">sel_parameter_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparameter__ga.html#adafde8181eac7a1dcc78f1114966dd00">sel_pms</a></td></tr>
+<tr class="memdesc:adafde8181eac7a1dcc78f1114966dd00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selection operator data structure.  <a href="structparameter__ga.html#adafde8181eac7a1dcc78f1114966dd00">More...</a><br /></td></tr>
+<tr class="separator:adafde8181eac7a1dcc78f1114966dd00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6315331199205e3e45aa604660d0e410"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gaim_8h.html#a993ee458ac91bb8a503d1f0af63e7c81">cross_parameter_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparameter__ga.html#a6315331199205e3e45aa604660d0e410">cross_pms</a></td></tr>
+<tr class="memdesc:a6315331199205e3e45aa604660d0e410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crossover operator data structure.  <a href="structparameter__ga.html#a6315331199205e3e45aa604660d0e410">More...</a><br /></td></tr>
+<tr class="separator:a6315331199205e3e45aa604660d0e410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160a634b55b87e2119940cdfb33c36fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gaim_8h.html#a5d6b74d492960f193b2430ab91907c51">mut_parameter_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparameter__ga.html#a160a634b55b87e2119940cdfb33c36fc">mut_pms</a></td></tr>
+<tr class="memdesc:a160a634b55b87e2119940cdfb33c36fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutation operator data structure.  <a href="structparameter__ga.html#a160a634b55b87e2119940cdfb33c36fc">More...</a><br /></td></tr>
+<tr class="separator:a160a634b55b87e2119940cdfb33c36fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdc2a6499278d23b75a370f119554cc8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparameter__ga.html#abdc2a6499278d23b75a370f119554cc8">a</a></td></tr>
 <tr class="memdesc:abdc2a6499278d23b75a370f119554cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower bound of genome's interval ([a, b])  <a href="structparameter__ga.html#abdc2a6499278d23b75a370f119554cc8">More...</a><br /></td></tr>
 <tr class="separator:abdc2a6499278d23b75a370f119554cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +152,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Structure containing initialization parameters for GA-based optimization. </p>
 <p>A structure that contains all the parameters for specifying a Genetic Algorithms simulation, including how many generations it will run for, what the size of the population is, what the size of the genome is, what the endpoints of the interval to optimize on are, how many offspring are to be produced and how many individuals are to be replaced. It is typical in a Genetic Algorithm without elitism to replace the entire population. The number of indepedent runs can also be specified, if you are trying to derive an Monte Carlo estimate of fitness. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00086">86</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00156">156</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="abdc2a6499278d23b75a370f119554cc8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abdc2a6499278d23b75a370f119554cc8">&#9670;&nbsp;</a></span>a</h2>
@@ -148,9 +168,9 @@ Public Attributes</h2></td></tr>
 
 <p>Lower bound of genome's interval ([a, b]) </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00087">87</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00161">161</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="island__ga_8cpp_source.html#l00047">IM::IM()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="island__ga_8cpp_source.html#l00047">IM::IM()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -168,9 +188,9 @@ Public Attributes</h2></td></tr>
 
 <p>Upper bound of genome's interval ([a, b]) </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00088">88</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00162">162</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="island__ga_8cpp_source.html#l00047">IM::IM()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="island__ga_8cpp_source.html#l00047">IM::IM()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -188,9 +208,9 @@ Public Attributes</h2></td></tr>
 
 <p>Controls when the clipping values are the same for all genes for every individual ("universal"), or each individual has its own clipping values per gene ("individual"), or each individual has its own clipping values per gene provided by a file ("file"). </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00094">94</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00168">168</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -209,9 +229,29 @@ Public Attributes</h2></td></tr>
 <p>Clipping values file name. </p>
 <p>Contains the clipping values for each gene for each individual. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00099">99</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00173">173</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
+
+</div>
+</div>
+<a id="a6315331199205e3e45aa604660d0e410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6315331199205e3e45aa604660d0e410">&#9670;&nbsp;</a></span>cross_pms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gaim_8h.html#a993ee458ac91bb8a503d1f0af63e7c81">cross_parameter_s</a> parameter_ga::cross_pms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crossover operator data structure. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00158">158</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -229,9 +269,9 @@ Public Attributes</h2></td></tr>
 
 <p>Number of generations the <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> will run for. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00089">89</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00163">163</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="island__ga_8cpp_source.html#l00047">IM::IM()</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="island__ga_8cpp_source.html#l00047">IM::IM()</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -249,9 +289,29 @@ Public Attributes</h2></td></tr>
 
 <p>Size of genome of each individual. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00091">91</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00165">165</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
+
+</div>
+</div>
+<a id="a160a634b55b87e2119940cdfb33c36fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a160a634b55b87e2119940cdfb33c36fc">&#9670;&nbsp;</a></span>mut_pms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gaim_8h.html#a5d6b74d492960f193b2430ab91907c51">mut_parameter_s</a> parameter_ga::mut_pms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutation operator data structure. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00159">159</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -269,9 +329,9 @@ Public Attributes</h2></td></tr>
 
 <p>Number of offsprings (children) </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00092">92</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00166">166</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -289,9 +349,9 @@ Public Attributes</h2></td></tr>
 
 <p>Number of individuals being replaced in every generation. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00093">93</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00167">167</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -309,9 +369,9 @@ Public Attributes</h2></td></tr>
 
 <p>Population size (number of individuals) </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00090">90</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00164">164</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>
@@ -329,9 +389,29 @@ Public Attributes</h2></td></tr>
 
 <p>Number of experimental runs, greater than 1 in case of multiple trajectories. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00101">101</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00175">175</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00040">read_parameters_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
+
+</div>
+</div>
+<a id="adafde8181eac7a1dcc78f1114966dd00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adafde8181eac7a1dcc78f1114966dd00">&#9670;&nbsp;</a></span>sel_pms</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gaim_8h.html#a2dc91f431701a401423810eb2c9d5a4a">sel_parameter_s</a> parameter_ga::sel_pms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Selection operator data structure. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00157">157</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA::GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="parameters_8cpp_source.html#l00044">read_parameters_file()</a>.</p>
 
 </div>
 </div>

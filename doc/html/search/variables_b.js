@@ -1,7 +1,15 @@
 var searchData=
 [
-  ['num_5fimmigrants_608',['num_immigrants',['../structparameter__im.html#a23c8aa9f8f7c618113640f1d497645cf',1,'parameter_im::num_immigrants()'],['../classIM.html#a63b324a454c4c57d5438b89f0bfec051',1,'IM::num_immigrants()']]],
-  ['num_5fislands_609',['num_islands',['../structparameter__im.html#a922dd1fedfeedfe9281ac9b521aa8208',1,'parameter_im::num_islands()'],['../classIM.html#a0544287f3561fb2a6288ab3ee0215d4a',1,'IM::num_islands()']]],
-  ['num_5foffsprings_610',['num_offsprings',['../structparameter__ga.html#abaa5369cab51b8d7832e07897ae25a5e',1,'parameter_ga']]],
-  ['num_5freplacement_611',['num_replacement',['../structparameter__ga.html#aaf0d11846c4c999777935576c8ded7ef',1,'parameter_ga']]]
+  ['may_5ftick_644',['may_tick',['../classpcg__detail_1_1extended.html#ad0d69e4199fa8fc3e368d15007b92773',1,'pcg_detail::extended']]],
+  ['may_5ftock_645',['may_tock',['../classpcg__detail_1_1extended.html#a25ebcf79c66b6c892141b5891c7a5c76',1,'pcg_detail::extended']]],
+  ['mcg_646',['mcg',['../namespacepcg__detail.html#a1338b2f0b0575e795053506ae0579262',1,'pcg_detail']]],
+  ['migration_5finterval_647',['migration_interval',['../structparameter__im.html#aaeb50aa717d9df1f03e10012fb6aeb40',1,'parameter_im::migration_interval()'],['../classIM.html#a2a4461a34fa9de6d4ea7c0dbe5653f55',1,'IM::migration_interval()']]],
+  ['migration_5fsteps_648',['migration_steps',['../classIM.html#a7fb80afa381a603f0ba7ae2ed14749f5',1,'IM']]],
+  ['mtx_649',['mtx',['../classIM.html#abaa9967120da8d0fe168ebcb60af2c54',1,'IM']]],
+  ['mu_650',['mu',['../classGA.html#a8bbd40411a7a6618e03b8837d7f2fff3',1,'GA']]],
+  ['mut_5fpms_651',['mut_pms',['../structparameter__ga.html#a160a634b55b87e2119940cdfb33c36fc',1,'parameter_ga']]],
+  ['mutation_652',['mutation',['../classGA.html#ac0259117adf96a2f811845e45683df68',1,'GA']]],
+  ['mutation_5fmethod_653',['mutation_method',['../structparameter__mut.html#a03b3eb563538d7a0a54fe8055bdc0d74',1,'parameter_mut::mutation_method()'],['../classGA.html#a32790872e2e6c24c72585cded5f23d83',1,'GA::mutation_method()']]],
+  ['mutation_5frate_654',['mutation_rate',['../structparameter__mut.html#a26de9dcecf3db87f94d53a377dab959a',1,'parameter_mut::mutation_rate()'],['../classGA.html#a932f9628b8d26ceb7bd008f11b5ad2d3',1,'GA::mutation_rate()']]],
+  ['mutex_655',['mutex',['../struct__pthread__barrier__t.html#a1c614310f9a1b2d4b8bcbd6ac52c2b3a',1,'_pthread_barrier_t']]]
 ];

@@ -1,0 +1,6 @@
+<map id="parameter_ga" name="parameter_ga">
+<area shape="rect" id="node1" title="Structure containing initialization parameters for GA&#45;based optimization." alt="" coords="153,95,254,121"/>
+<area shape="rect" id="node2" href="$structparameter__cross.html" title="Structure containing initialization parameters for the crossover operator." alt="" coords="5,5,124,32"/>
+<area shape="rect" id="node3" href="$structparameter__mut.html" title="Structure containing initialization parameters for mutation operator." alt="" coords="149,5,258,32"/>
+<area shape="rect" id="node4" href="$structparameter__sel.html" title="Structure containing initialization parameters for the selection operator." alt="" coords="282,5,386,32"/>
+</map>

@@ -31,10 +31,14 @@ var hierarchy =
     [ "output_mixin", null, [
       [ "pcg_detail::engine< xtype, itype, output_mixin, output_previous, stream_mixin, multiplier_mixin >", "classpcg__detail_1_1engine.html", null ]
     ] ],
+    [ "parameter_cross", "structparameter__cross.html", null ],
     [ "parameter_ga", "structparameter__ga.html", null ],
     [ "parameter_im", "structparameter__im.html", null ],
+    [ "parameter_mut", "structparameter__mut.html", null ],
     [ "parameter_pr", "structparameter__pr.html", null ],
+    [ "parameter_sel", "structparameter__sel.html", null ],
     [ "pcg_extras::printable_typename< T >", "structpcg__extras_1_1printable__typename.html", null ],
+    [ "py_results", "structpy__results.html", null ],
     [ "pcg_detail::rxs_m_mixin< xtype, itype >", "structpcg__detail_1_1rxs__m__mixin.html", null ],
     [ "pcg_detail::rxs_m_xs_mixin", "structpcg__detail_1_1rxs__m__xs__mixin.html", null ],
     [ "pcg_detail::rxs_mixin< xtype, itype >", "structpcg__detail_1_1rxs__mixin.html", null ],

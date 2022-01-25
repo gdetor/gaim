@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ktournament_5fselection_120',['ktournament_selection',['../selection_8cpp.html#a9abad039f558ff4565614a90e0222e48',1,'ktournament_selection(std::vector&lt; individual_s &gt; &amp;population, size_t num_parents, int k, bool replace):&#160;selection.cpp'],['../gaim_8h.html#ac6caec06f9664fbafbb3b5a5a2174a1b',1,'ktournament_selection(std::vector&lt; individual_s &gt; &amp;, size_t, int, bool):&#160;selection.cpp']]]
+  ['k_126',['k',['../structparameter__sel.html#a4aeae5d837662e5d4fc61351676f4236',1,'parameter_sel::k()'],['../classGA.html#a8f531451d0b41b414b07c3fe8bd22467',1,'GA::k()']]],
+  ['ktournament_5fselection_127',['ktournament_selection',['../classGA.html#abac81258425dc01ddc070d2bd3014640',1,'GA']]]
 ];

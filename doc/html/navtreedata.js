@@ -59,8 +59,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"gaim_8h.html#ac27d906cc49ccb3918d60eb43afbe46f",
-"struct__pthread__barrier__t.html#a3916d57ff2b2d930a9a882f746bc79da"
+"gaim_8h.html#a2dc91f431701a401423810eb2c9d5a4a",
+"pygaim_8cpp.html#ae2af8aa60bb02e065180764005628ba7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

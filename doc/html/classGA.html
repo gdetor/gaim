@@ -121,15 +121,70 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a18975e5b8b24b68b2d783ae3080845c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a18975e5b8b24b68b2d783ae3080845c9">~GA</a> ()</td></tr>
 <tr class="memdesc:a18975e5b8b24b68b2d783ae3080845c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor method of <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a>.  <a href="classGA.html#a18975e5b8b24b68b2d783ae3080845c9">More...</a><br /></td></tr>
 <tr class="separator:a18975e5b8b24b68b2d783ae3080845c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d2dde49b73927cd41ed4e792afda156"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a6d2dde49b73927cd41ed4e792afda156">selection</a> (size_t, int, bool)</td></tr>
-<tr class="memdesc:a6d2dde49b73927cd41ed4e792afda156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genetic Algorithm basic operators.  <a href="classGA.html#a6d2dde49b73927cd41ed4e792afda156">More...</a><br /></td></tr>
-<tr class="separator:a6d2dde49b73927cd41ed4e792afda156"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afacacff0cc253cd9fb205cdf6b0dec14"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#afacacff0cc253cd9fb205cdf6b0dec14">crossover</a> (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
-<tr class="memdesc:afacacff0cc253cd9fb205cdf6b0dec14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crossover operator method.  <a href="classGA.html#afacacff0cc253cd9fb205cdf6b0dec14">More...</a><br /></td></tr>
-<tr class="separator:afacacff0cc253cd9fb205cdf6b0dec14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ebb11256ff35afe7cc718c2ec3b62ac"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a6ebb11256ff35afe7cc718c2ec3b62ac">mutation</a> (std::vector&lt; REAL_ &gt;, REAL_, REAL_)</td></tr>
-<tr class="memdesc:a6ebb11256ff35afe7cc718c2ec3b62ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutation operator method.  <a href="classGA.html#a6ebb11256ff35afe7cc718c2ec3b62ac">More...</a><br /></td></tr>
-<tr class="separator:a6ebb11256ff35afe7cc718c2ec3b62ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abac81258425dc01ddc070d2bd3014640"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#abac81258425dc01ddc070d2bd3014640">ktournament_selection</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:abac81258425dc01ddc070d2bd3014640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genetic Algorithm basic operators.  <a href="classGA.html#abac81258425dc01ddc070d2bd3014640">More...</a><br /></td></tr>
+<tr class="separator:abac81258425dc01ddc070d2bd3014640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4a41f346474bfdc0c01b3f6edc4a05c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#af4a41f346474bfdc0c01b3f6edc4a05c">truncation_selection</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:af4a41f346474bfdc0c01b3f6edc4a05c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a truncation selection operator.  <a href="classGA.html#af4a41f346474bfdc0c01b3f6edc4a05c">More...</a><br /></td></tr>
+<tr class="separator:af4a41f346474bfdc0c01b3f6edc4a05c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb563092905a667b93afc7048ee986fd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#afb563092905a667b93afc7048ee986fd">linear_rank_selection</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:afb563092905a667b93afc7048ee986fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a linear rank selection mechanism.  <a href="classGA.html#afb563092905a667b93afc7048ee986fd">More...</a><br /></td></tr>
+<tr class="separator:afb563092905a667b93afc7048ee986fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41ad3f2a1f28f02e3a994959b9524fd2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a41ad3f2a1f28f02e3a994959b9524fd2">random_selection</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a41ad3f2a1f28f02e3a994959b9524fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a random selection.  <a href="classGA.html#a41ad3f2a1f28f02e3a994959b9524fd2">More...</a><br /></td></tr>
+<tr class="separator:a41ad3f2a1f28f02e3a994959b9524fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c14732cb038108c0d96c45c7570c589"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a8c14732cb038108c0d96c45c7570c589">roulette_wheel_selection</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a8c14732cb038108c0d96c45c7570c589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a roulette-wheel selection (or fitness-proportionate selection) mechanism.  <a href="classGA.html#a8c14732cb038108c0d96c45c7570c589">More...</a><br /></td></tr>
+<tr class="separator:a8c14732cb038108c0d96c45c7570c589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afafdb1341dca5d1db4de4289fa1f1bbe"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#afafdb1341dca5d1db4de4289fa1f1bbe">stochastic_roulette_wheel_selection</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:afafdb1341dca5d1db4de4289fa1f1bbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parent selection method proposed by Lipowski A.  <a href="classGA.html#afafdb1341dca5d1db4de4289fa1f1bbe">More...</a><br /></td></tr>
+<tr class="separator:afafdb1341dca5d1db4de4289fa1f1bbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434b73adc44a1b80332eed4585ac9185"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a434b73adc44a1b80332eed4585ac9185">whitley_selection</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:a434b73adc44a1b80332eed4585ac9185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parent selection method proposed by Darrell Whitley in his GENITOR paper: "The GENITOR Algorithm and Selection Pressure: Why Rank-Based Allocation
+of Reproductive Trials is Best", ", D.  <a href="classGA.html#a434b73adc44a1b80332eed4585ac9185">More...</a><br /></td></tr>
+<tr class="separator:a434b73adc44a1b80332eed4585ac9185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29d427d1ea5763db90a768ea5c891532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a29d427d1ea5763db90a768ea5c891532">select_selection_method</a> (void)</td></tr>
+<tr class="memdesc:a29d427d1ea5763db90a768ea5c891532"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method assigns the appropriate selection method to selection pointer function.  <a href="classGA.html#a29d427d1ea5763db90a768ea5c891532">More...</a><br /></td></tr>
+<tr class="separator:a29d427d1ea5763db90a768ea5c891532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef9b140ee737ee459b7afa1e5ddba423"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#aef9b140ee737ee459b7afa1e5ddba423">one_point_crossover</a> (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:aef9b140ee737ee459b7afa1e5ddba423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crossover operator methods.  <a href="classGA.html#aef9b140ee737ee459b7afa1e5ddba423">More...</a><br /></td></tr>
+<tr class="separator:aef9b140ee737ee459b7afa1e5ddba423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a349018287e81843701d5026ca313e0d4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a349018287e81843701d5026ca313e0d4">two_point_crossover</a> (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a349018287e81843701d5026ca313e0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Two-point crossover operator.  <a href="classGA.html#a349018287e81843701d5026ca313e0d4">More...</a><br /></td></tr>
+<tr class="separator:a349018287e81843701d5026ca313e0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ed0c24516edd6d597e68016b162ec55"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a0ed0c24516edd6d597e68016b162ec55">uniform_crossover</a> (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a0ed0c24516edd6d597e68016b162ec55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform crossover operator.  <a href="classGA.html#a0ed0c24516edd6d597e68016b162ec55">More...</a><br /></td></tr>
+<tr class="separator:a0ed0c24516edd6d597e68016b162ec55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc9f82bc24a0be3a904773d572ee79d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a8dc9f82bc24a0be3a904773d572ee79d">flat_crossover</a> (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a8dc9f82bc24a0be3a904773d572ee79d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flat crossover operator.  <a href="classGA.html#a8dc9f82bc24a0be3a904773d572ee79d">More...</a><br /></td></tr>
+<tr class="separator:a8dc9f82bc24a0be3a904773d572ee79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a134d5e22a7b0de30575026f0da10ed21"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a134d5e22a7b0de30575026f0da10ed21">discrete_crossover</a> (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a134d5e22a7b0de30575026f0da10ed21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discrete crossover operator.  <a href="classGA.html#a134d5e22a7b0de30575026f0da10ed21">More...</a><br /></td></tr>
+<tr class="separator:a134d5e22a7b0de30575026f0da10ed21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21cb72d1295790abcefa9fbe0ac56803"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a21cb72d1295790abcefa9fbe0ac56803">order_one_crossover</a> (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a21cb72d1295790abcefa9fbe0ac56803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order-one crossover operator.  <a href="classGA.html#a21cb72d1295790abcefa9fbe0ac56803">More...</a><br /></td></tr>
+<tr class="separator:a21cb72d1295790abcefa9fbe0ac56803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6092d78caca0603181f0b66b308d7cd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a6092d78caca0603181f0b66b308d7cd0">select_crossover_method</a> (void)</td></tr>
+<tr class="memdesc:a6092d78caca0603181f0b66b308d7cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method assigns the appropriate crossover method to crossover pointer function.  <a href="classGA.html#a6092d78caca0603181f0b66b308d7cd0">More...</a><br /></td></tr>
+<tr class="separator:a6092d78caca0603181f0b66b308d7cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20bb30146057c37c5ed54ff18ec55647"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a20bb30146057c37c5ed54ff18ec55647">delta_mutation</a> (std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a20bb30146057c37c5ed54ff18ec55647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutation operator methods.  <a href="classGA.html#a20bb30146057c37c5ed54ff18ec55647">More...</a><br /></td></tr>
+<tr class="separator:a20bb30146057c37c5ed54ff18ec55647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c337716017d5fef7c3d2e4d327f002"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a56c337716017d5fef7c3d2e4d327f002">random_mutation</a> (std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a56c337716017d5fef7c3d2e4d327f002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Random mutation operator.  <a href="classGA.html#a56c337716017d5fef7c3d2e4d327f002">More...</a><br /></td></tr>
+<tr class="separator:a56c337716017d5fef7c3d2e4d327f002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9717879f6fa20fd32cb5f9b307dea1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a4f9717879f6fa20fd32cb5f9b307dea1">nonuniform_mutation</a> (std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a4f9717879f6fa20fd32cb5f9b307dea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-uniform mutation operator.  <a href="classGA.html#a4f9717879f6fa20fd32cb5f9b307dea1">More...</a><br /></td></tr>
+<tr class="separator:a4f9717879f6fa20fd32cb5f9b307dea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b026d94bb7d34bc64a9a18ceab654f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#ad1b026d94bb7d34bc64a9a18ceab654f">fusion_mutation</a> (std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:ad1b026d94bb7d34bc64a9a18ceab654f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fusion mutation operator method.  <a href="classGA.html#ad1b026d94bb7d34bc64a9a18ceab654f">More...</a><br /></td></tr>
+<tr class="separator:ad1b026d94bb7d34bc64a9a18ceab654f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a969b920744ac9f0f3d2aafbeb01612d8"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a969b920744ac9f0f3d2aafbeb01612d8">swap_mutation</a> (std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:a969b920744ac9f0f3d2aafbeb01612d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap mutation operator method.  <a href="classGA.html#a969b920744ac9f0f3d2aafbeb01612d8">More...</a><br /></td></tr>
+<tr class="separator:a969b920744ac9f0f3d2aafbeb01612d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db55023e496a68e97cba7aa3d518070"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a2db55023e496a68e97cba7aa3d518070">select_mutation_method</a> (void)</td></tr>
+<tr class="memdesc:a2db55023e496a68e97cba7aa3d518070"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method assigns the appropriate mutation operator based on the chosen mutation method.  <a href="classGA.html#a2db55023e496a68e97cba7aa3d518070">More...</a><br /></td></tr>
+<tr class="separator:a2db55023e496a68e97cba7aa3d518070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a122339dba6cab111cbfee7dd71c3e1c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a122339dba6cab111cbfee7dd71c3e1c8">evaluation</a> (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
 <tr class="memdesc:a122339dba6cab111cbfee7dd71c3e1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genetic Algorithm secondary operations.  <a href="classGA.html#a122339dba6cab111cbfee7dd71c3e1c8">More...</a><br /></td></tr>
 <tr class="separator:a122339dba6cab111cbfee7dd71c3e1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,8 +208,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3ebfd185d2cedc432b321acad08c83da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89800eb2174f0abd287dab5ce9016806"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a89800eb2174f0abd287dab5ce9016806">get_bsf</a> ()</td></tr>
 <tr class="separator:a89800eb2174f0abd287dab5ce9016806"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad111852face5ba08f6dd5a4798f4a23c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#ad111852face5ba08f6dd5a4798f4a23c">get_average_fitness_rec</a> ()</td></tr>
-<tr class="separator:ad111852face5ba08f6dd5a4798f4a23c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec70bd93965a3e104d9dacc4226b06e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a4ec70bd93965a3e104d9dacc4226b06e">get_best_genome</a> ()</td></tr>
+<tr class="separator:a4ec70bd93965a3e104d9dacc4226b06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabec06bace13b2777e72cea3bf19ab93"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#aabec06bace13b2777e72cea3bf19ab93">get_average_fitness</a> ()</td></tr>
+<tr class="separator:aabec06bace13b2777e72cea3bf19ab93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa85ba69277d8bca7bd57fd55857ecf40"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#aa85ba69277d8bca7bd57fd55857ecf40">pycallback</a> (std::function&lt; REAL_(std::vector&lt; REAL_ &gt; &amp;)&gt;)</td></tr>
 <tr class="memdesc:aa85ba69277d8bca7bd57fd55857ecf40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fitness callback function.  <a href="classGA.html#aa85ba69277d8bca7bd57fd55857ecf40">More...</a><br /></td></tr>
 <tr class="separator:aa85ba69277d8bca7bd57fd55857ecf40"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,6 +220,15 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:acd22a6333f2a8872ecc5abcf1fbf0af1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;(GA::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#acd22a6333f2a8872ecc5abcf1fbf0af1">selection</a> )(std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:acd22a6333f2a8872ecc5abcf1fbf0af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selection pointer function.  <a href="classGA.html#acd22a6333f2a8872ecc5abcf1fbf0af1">More...</a><br /></td></tr>
+<tr class="separator:acd22a6333f2a8872ecc5abcf1fbf0af1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd2b97ad91b196f318e53beb4e3abee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;(GA::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#abfd2b97ad91b196f318e53beb4e3abee">crossover</a> )(std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:abfd2b97ad91b196f318e53beb4e3abee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crossover pointer function.  <a href="classGA.html#abfd2b97ad91b196f318e53beb4e3abee">More...</a><br /></td></tr>
+<tr class="separator:abfd2b97ad91b196f318e53beb4e3abee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0259117adf96a2f811845e45683df68"><td class="memItemLeft" align="right" valign="top">std::vector&lt; REAL_ &gt;(GA::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#ac0259117adf96a2f811845e45683df68">mutation</a> )(std::vector&lt; REAL_ &gt;)</td></tr>
+<tr class="memdesc:ac0259117adf96a2f811845e45683df68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutation pointer function.  <a href="classGA.html#ac0259117adf96a2f811845e45683df68">More...</a><br /></td></tr>
+<tr class="separator:ac0259117adf96a2f811845e45683df68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab159c9cfe16b5e27799e59a4a89c9127"><td class="memItemLeft" align="right" valign="top">std::function&lt; REAL_(std::vector&lt; REAL_ &gt; &amp;)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#ab159c9cfe16b5e27799e59a4a89c9127">fitness</a></td></tr>
 <tr class="memdesc:ab159c9cfe16b5e27799e59a4a89c9127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for fitness function. It is used only with pyGAIM.  <a href="classGA.html#ab159c9cfe16b5e27799e59a4a89c9127">More...</a><br /></td></tr>
 <tr class="separator:ab159c9cfe16b5e27799e59a4a89c9127"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -205,8 +271,25 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a841b9ebd111babd6cb0d187492e3f731"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a841b9ebd111babd6cb0d187492e3f731">immigrant</a></td></tr>
 <tr class="memdesc:a841b9ebd111babd6cb0d187492e3f731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genome's interval limits [a, b].  <a href="classGA.html#a841b9ebd111babd6cb0d187492e3f731">More...</a><br /></td></tr>
 <tr class="separator:a841b9ebd111babd6cb0d187492e3f731"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5327e733513f1da62e60d7120c354521"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a5327e733513f1da62e60d7120c354521">selection_method</a></td></tr>
+<tr class="memdesc:a5327e733513f1da62e60d7120c354521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immigrants vector (buffer)  <a href="classGA.html#a5327e733513f1da62e60d7120c354521">More...</a><br /></td></tr>
+<tr class="separator:a5327e733513f1da62e60d7120c354521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eb2524e9c358401e7a4f4e3090f0732"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a5eb2524e9c358401e7a4f4e3090f0732">crossover_method</a></td></tr>
+<tr class="separator:a5eb2524e9c358401e7a4f4e3090f0732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32790872e2e6c24c72585cded5f23d83"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a32790872e2e6c24c72585cded5f23d83">mutation_method</a></td></tr>
+<tr class="separator:a32790872e2e6c24c72585cded5f23d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a904bb252c59a277b807fe1ae0f8ad28f"><td class="memItemLeft" align="right" valign="top">REAL_&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a904bb252c59a277b807fe1ae0f8ad28f">bias</a></td></tr>
+<tr class="separator:a904bb252c59a277b807fe1ae0f8ad28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932f9628b8d26ceb7bd008f11b5ad2d3"><td class="memItemLeft" align="right" valign="top">REAL_&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a932f9628b8d26ceb7bd008f11b5ad2d3">mutation_rate</a></td></tr>
+<tr class="memdesc:a932f9628b8d26ceb7bd008f11b5ad2d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bias term for Whitley selection metehod.  <a href="classGA.html#a932f9628b8d26ceb7bd008f11b5ad2d3">More...</a><br /></td></tr>
+<tr class="separator:a932f9628b8d26ceb7bd008f11b5ad2d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f0573ef57e968dc6ce3eaa9c222f0b3"><td class="memItemLeft" align="right" valign="top">REAL_&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a7f0573ef57e968dc6ce3eaa9c222f0b3">variance</a></td></tr>
+<tr class="separator:a7f0573ef57e968dc6ce3eaa9c222f0b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e692b7bfb706a0a160d053801eea62"><td class="memItemLeft" align="right" valign="top">REAL_&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a29e692b7bfb706a0a160d053801eea62">low_bound</a></td></tr>
+<tr class="separator:a29e692b7bfb706a0a160d053801eea62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96520156027a8b7dbb83963ab0c4851c"><td class="memItemLeft" align="right" valign="top">REAL_&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a96520156027a8b7dbb83963ab0c4851c">up_bound</a></td></tr>
+<tr class="separator:a96520156027a8b7dbb83963ab0c4851c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bbd40411a7a6618e03b8837d7f2fff3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a8bbd40411a7a6618e03b8837d7f2fff3">mu</a></td></tr>
-<tr class="memdesc:a8bbd40411a7a6618e03b8837d7f2fff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immigrants vector (buffer)  <a href="classGA.html#a8bbd40411a7a6618e03b8837d7f2fff3">More...</a><br /></td></tr>
 <tr class="separator:a8bbd40411a7a6618e03b8837d7f2fff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ceaff1f5d0abb3dc8d4d5216557aa9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#aa9ceaff1f5d0abb3dc8d4d5216557aa9">lambda</a></td></tr>
 <tr class="memdesc:aa9ceaff1f5d0abb3dc8d4d5216557aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of individuals within a population.  <a href="classGA.html#aa9ceaff1f5d0abb3dc8d4d5216557aa9">More...</a><br /></td></tr>
@@ -217,18 +300,38 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a92da617a43ffa69376d3ce6dcfc46f1e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a92da617a43ffa69376d3ce6dcfc46f1e">genome_size</a></td></tr>
 <tr class="memdesc:a92da617a43ffa69376d3ce6dcfc46f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of individuals being replaced.  <a href="classGA.html#a92da617a43ffa69376d3ce6dcfc46f1e">More...</a><br /></td></tr>
 <tr class="separator:a92da617a43ffa69376d3ce6dcfc46f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a070b614e21349a59d2c5dfd75e2cedfe"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a070b614e21349a59d2c5dfd75e2cedfe">num_parents</a></td></tr>
+<tr class="memdesc:a070b614e21349a59d2c5dfd75e2cedfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genome size (number of genes)  <a href="classGA.html#a070b614e21349a59d2c5dfd75e2cedfe">More...</a><br /></td></tr>
+<tr class="separator:a070b614e21349a59d2c5dfd75e2cedfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27cf884082dd8f4bcb75878474769e82"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a27cf884082dd8f4bcb75878474769e82">lower_bound</a></td></tr>
+<tr class="memdesc:a27cf884082dd8f4bcb75878474769e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of parents per generation to select from.  <a href="classGA.html#a27cf884082dd8f4bcb75878474769e82">More...</a><br /></td></tr>
+<tr class="separator:a27cf884082dd8f4bcb75878474769e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a916c4b5a643a9f3687bafdd2aa1e8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#aa1a916c4b5a643a9f3687bafdd2aa1e8">time</a></td></tr>
+<tr class="memdesc:aa1a916c4b5a643a9f3687bafdd2aa1e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting index for truncation selection.  <a href="classGA.html#aa1a916c4b5a643a9f3687bafdd2aa1e8">More...</a><br /></td></tr>
+<tr class="separator:aa1a916c4b5a643a9f3687bafdd2aa1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10b1a92ed188c32de244bac239165861"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a10b1a92ed188c32de244bac239165861">generations</a></td></tr>
+<tr class="separator:a10b1a92ed188c32de244bac239165861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d0aa417d47c8ca01667edb0b53d353"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#ac2d0aa417d47c8ca01667edb0b53d353">order</a></td></tr>
+<tr class="separator:ac2d0aa417d47c8ca01667edb0b53d353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f531451d0b41b414b07c3fe8bd22467"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a8f531451d0b41b414b07c3fe8bd22467">k</a></td></tr>
+<tr class="separator:a8f531451d0b41b414b07c3fe8bd22467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56cf54af24c82f080fc2f311baceadf7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a56cf54af24c82f080fc2f311baceadf7">replace</a></td></tr>
+<tr class="memdesc:a56cf54af24c82f080fc2f311baceadf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">k-tournament order  <a href="classGA.html#a56cf54af24c82f080fc2f311baceadf7">More...</a><br /></td></tr>
+<tr class="separator:a56cf54af24c82f080fc2f311baceadf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f0ca04f2ba33ad0b3d4bd655c41c93a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#a9f0ca04f2ba33ad0b3d4bd655c41c93a">is_real</a></td></tr>
+<tr class="memdesc:a9f0ca04f2ba33ad0b3d4bd655c41c93a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If replace is enabled, then selected parents are replaced.  <a href="classGA.html#a9f0ca04f2ba33ad0b3d4bd655c41c93a">More...</a><br /></td></tr>
+<tr class="separator:a9f0ca04f2ba33ad0b3d4bd655c41c93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:aa57c4a1cfccad26d7a06fd15cf4c8fb0"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGA.html#aa57c4a1cfccad26d7a06fd15cf4c8fb0">IM</a></td></tr>
-<tr class="memdesc:aa57c4a1cfccad26d7a06fd15cf4c8fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Genome size (number of genes)  <a href="classGA.html#aa57c4a1cfccad26d7a06fd15cf4c8fb0">More...</a><br /></td></tr>
 <tr class="separator:aa57c4a1cfccad26d7a06fd15cf4c8fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Genetic Algorithm main class. </p>
 <p><a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> is the main class for seting up and running an optimization process. It contains all the methods for performing operations such as selection, crossover, and mutation. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00164">164</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00254">254</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ad43b621702ecd9ef228a823f6812041b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad43b621702ecd9ef228a823f6812041b">&#9670;&nbsp;</a></span>Callback</h2>
@@ -242,7 +345,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00209">209</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00338">338</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
 </div>
 </div>
@@ -276,7 +379,7 @@ Friends</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00039">39</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00087">parameter_ga::a</a>, <a class="el" href="gaim_8h_source.html#l00229">alpha</a>, <a class="el" href="gaim_8h_source.html#l00088">parameter_ga::b</a>, <a class="el" href="gaim_8h_source.html#l00229">beta</a>, <a class="el" href="gaim_8h_source.html#l00094">parameter_ga::clipping</a>, <a class="el" href="gaim_8h_source.html#l00099">parameter_ga::clipping_fname</a>, <a class="el" href="gaim_8h_source.html#l00206">fitness</a>, <a class="el" href="gaim_8h_source.html#l00091">parameter_ga::genome_size</a>, <a class="el" href="gaim_8h_source.html#l00234">genome_size</a>, <a class="el" href="gaim_8h_source.html#l00232">lambda</a>, <a class="el" href="gaim_8h_source.html#l00231">mu</a>, <a class="el" href="gaim_8h_source.html#l00092">parameter_ga::num_offsprings</a>, <a class="el" href="gaim_8h_source.html#l00093">parameter_ga::num_replacement</a>, <a class="el" href="gaim_8h_source.html#l00219">offsprings</a>, <a class="el" href="gaim_8h_source.html#l00218">population</a>, <a class="el" href="gaim_8h_source.html#l00090">parameter_ga::population_size</a>, <a class="el" href="gaim_8h_source.html#l00233">replace_perc</a>, <a class="el" href="gaim_8h_source.html#l00220">sorted_population</a>, and <a class="el" href="test__functions_8cpp_source.html#l00039">sphere()</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00161">parameter_ga::a</a>, <a class="el" href="gaim_8h_source.html#l00358">alpha</a>, <a class="el" href="gaim_8h_source.html#l00162">parameter_ga::b</a>, <a class="el" href="gaim_8h_source.html#l00358">beta</a>, <a class="el" href="gaim_8h_source.html#l00094">parameter_sel::bias</a>, <a class="el" href="gaim_8h_source.html#l00363">bias</a>, <a class="el" href="gaim_8h_source.html#l00168">parameter_ga::clipping</a>, <a class="el" href="gaim_8h_source.html#l00173">parameter_ga::clipping_fname</a>, <a class="el" href="gaim_8h_source.html#l00158">parameter_ga::cross_pms</a>, <a class="el" href="gaim_8h_source.html#l00110">parameter_cross::crossover_method</a>, <a class="el" href="gaim_8h_source.html#l00361">crossover_method</a>, <a class="el" href="gaim_8h_source.html#l00335">fitness</a>, <a class="el" href="gaim_8h_source.html#l00165">parameter_ga::genome_size</a>, <a class="el" href="gaim_8h_source.html#l00371">genome_size</a>, <a class="el" href="gaim_8h_source.html#l00139">parameter_mut::is_real</a>, <a class="el" href="gaim_8h_source.html#l00379">is_real</a>, <a class="el" href="gaim_8h_source.html#l00098">parameter_sel::k</a>, <a class="el" href="gaim_8h_source.html#l00377">k</a>, <a class="el" href="gaim_8h_source.html#l00369">lambda</a>, <a class="el" href="gaim_8h_source.html#l00132">parameter_mut::low_bound</a>, <a class="el" href="gaim_8h_source.html#l00366">low_bound</a>, <a class="el" href="gaim_8h_source.html#l00097">parameter_sel::lower_bound</a>, <a class="el" href="gaim_8h_source.html#l00373">lower_bound</a>, <a class="el" href="gaim_8h_source.html#l00368">mu</a>, <a class="el" href="gaim_8h_source.html#l00159">parameter_ga::mut_pms</a>, <a class="el" href="gaim_8h_source.html#l00127">parameter_mut::mutation_method</a>, <a class="el" href="gaim_8h_source.html#l00362">mutation_method</a>, <a class="el" href="gaim_8h_source.html#l00129">parameter_mut::mutation_rate</a>, <a class="el" href="gaim_8h_source.html#l00364">mutation_rate</a>, <a class="el" href="gaim_8h_source.html#l00166">parameter_ga::num_offsprings</a>, <a class="el" href="gaim_8h_source.html#l00095">parameter_sel::num_parents</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00167">parameter_ga::num_replacement</a>, <a class="el" href="gaim_8h_source.html#l00348">offsprings</a>, <a class="el" href="gaim_8h_source.html#l00138">parameter_mut::order</a>, <a class="el" href="gaim_8h_source.html#l00376">order</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, <a class="el" href="gaim_8h_source.html#l00164">parameter_ga::population_size</a>, <a class="el" href="gaim_8h_source.html#l00099">parameter_sel::replace</a>, <a class="el" href="gaim_8h_source.html#l00378">replace</a>, <a class="el" href="gaim_8h_source.html#l00370">replace_perc</a>, <a class="el" href="gaim_8h_source.html#l00157">parameter_ga::sel_pms</a>, <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>, <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>, <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>, <a class="el" href="gaim_8h_source.html#l00091">parameter_sel::selection_method</a>, <a class="el" href="gaim_8h_source.html#l00360">selection_method</a>, <a class="el" href="gaim_8h_source.html#l00349">sorted_population</a>, <a class="el" href="test__functions_8cpp_source.html#l00039">sphere()</a>, <a class="el" href="gaim_8h_source.html#l00136">parameter_mut::time</a>, <a class="el" href="gaim_8h_source.html#l00374">time</a>, <a class="el" href="gaim_8h_source.html#l00134">parameter_mut::up_bound</a>, <a class="el" href="gaim_8h_source.html#l00367">up_bound</a>, <a class="el" href="gaim_8h_source.html#l00131">parameter_mut::variance</a>, and <a class="el" href="gaim_8h_source.html#l00365">variance</a>.</p>
 
 </div>
 </div>
@@ -326,22 +429,57 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing (void)</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This methods has to be called only when the lower and upper boundaries (limits) for every individual's genome have been initialized properly. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00342">342</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00295">295</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00218">population</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00347">population</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
-<a id="afacacff0cc253cd9fb205cdf6b0dec14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afacacff0cc253cd9fb205cdf6b0dec14">&#9670;&nbsp;</a></span>crossover()</h2>
+<a id="a20bb30146057c37c5ed54ff18ec55647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20bb30146057c37c5ed54ff18ec55647">&#9670;&nbsp;</a></span>delta_mutation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; REAL_ &gt; GA::crossover </td>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::delta_mutation </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>genome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutation operator methods. </p>
+<p>This function implements a delta mutation operator meaning that for every gene in the genome a random number drawn from a normal distribution and it is added to the gene value according to a probability.</p>
+<p>Specifically, the mutation delta is drawn from the Normal/Gaussian distribution with mean 0 and standard deviation defined by the argument variance.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">genome</td><td>The genome (genes) of an individual </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of floats (mutated genome) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mutation_8cpp_source.html#l00071">71</a> of file <a class="el" href="mutation_8cpp_source.html">mutation.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="mutation_8cpp_source.html#l00135">delta()</a>, <a class="el" href="gaim_8h_source.html#l00364">mutation_rate</a>, and <a class="el" href="gaim_8h_source.html#l00365">variance</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>.</p>
+
+</div>
+</div>
+<a id="a134d5e22a7b0de30575026f0da10ed21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a134d5e22a7b0de30575026f0da10ed21">&#9670;&nbsp;</a></span>discrete_crossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::discrete_crossover </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
           <td class="paramname"><em>parent1</em>, </td>
@@ -360,25 +498,20 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Crossover operator method. </p>
-<p>Applies a crossover operator on the genomes of two parents (parent1 and parent2) to create a child genome.</p>
-<p>By default, this method calls the one-point crossover operator.</p>
+<p>Discrete crossover operator. </p>
+<p>Performs a discrete crossover operation. Genes from both parent are combined in a random way, slightly different from uniform crossover. The second parent's genes replace genes from the first parent's genome in a random way. For each gene a random number {0, 1} is drawn and defines the replacement. In the case of a 0 being drawn, the second parent's gene replaces the first parent's gene.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">parent1</td><td>Genome of the first parent </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">parent2</td><td>Genome of the second parent </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent1</td><td>First parent's genome </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent2</td><td>Second parent's genome</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The genome of a child as a vector of type REAL_</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The user can define his or her own crossover operator or they can use any mutation operator that is defined in the file <a class="el" href="crossover_8cpp.html">crossover.cpp</a>.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="crossover_8cpp.html#afe9bf08c457226234a4a55b85ae5ec0b" title="Applies a crossover operator on the genomes of two parents (parent1 and parent2) to create a child ge...">one_point_crossover()</a>, <a class="el" href="crossover_8cpp.html#a43356097c6110373f59ca386383e52b8" title="Two-point crossover operator.">two_point_crossover()</a>, <a class="el" href="crossover_8cpp.html#ac4015fe741fd4dbde7252b23c52b1e53" title="Uniform crossover operator.">uniform_crossover()</a>, <a class="el" href="crossover_8cpp.html#ad63fe19e9d7a37724a8cd697203151ca" title="Flat crossover operator.">flat_crossover()</a>, <a class="el" href="crossover_8cpp.html#a630d2410511d517172af6e13ac545fdf" title="Discrete crossover operator.">discrete_crossover()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Offspring's genome </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00250">250</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crossover_8cpp_source.html#l00240">240</a> of file <a class="el" href="crossover_8cpp_source.html">crossover.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="crossover_8cpp_source.html#l00041">one_point_crossover()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
 
 </div>
 </div>
@@ -410,11 +543,11 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing (void)</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="test__functions_8cpp.html">test_functions.cpp</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00183">183</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00213">213</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00206">fitness</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00335">fitness</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
@@ -465,16 +598,94 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing (void) <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00455">455</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00405">405</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00221">best_individual</a>, <a class="el" href="gaim_8h_source.html#l00222">bsf</a>, <a class="el" href="gaim_8h_source.html#l00223">fit_avg</a>, <a class="el" href="gaim_8h_source.html#l00150">individual::genome</a>, <a class="el" href="gaim_8h_source.html#l00218">population</a>, <a class="el" href="gaim_8h_source.html#l00133">parameter_pr::print_average_fitness</a>, <a class="el" href="logging_8cpp_source.html#l00165">print_avg_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00135">parameter_pr::print_best_genome</a>, <a class="el" href="logging_8cpp_source.html#l00207">print_best_genome()</a>, <a class="el" href="logging_8cpp_source.html#l00123">print_bsf()</a>, <a class="el" href="gaim_8h_source.html#l00134">parameter_pr::print_bsf</a>, <a class="el" href="logging_8cpp_source.html#l00079">print_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00132">parameter_pr::print_fitness</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00197">sort_population()</a>, and <a class="el" href="gaim_8h_source.html#l00130">parameter_pr::where2write</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00350">best_individual</a>, <a class="el" href="gaim_8h_source.html#l00351">bsf</a>, <a class="el" href="gaim_8h_source.html#l00352">fit_avg</a>, <a class="el" href="gaim_8h_source.html#l00375">generations</a>, <a class="el" href="gaim_8h_source.html#l00224">individual::genome</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, <a class="el" href="gaim_8h_source.html#l00207">parameter_pr::print_average_fitness</a>, <a class="el" href="logging_8cpp_source.html#l00165">print_avg_fitness()</a>, <a class="el" href="logging_8cpp_source.html#l00207">print_best_genome()</a>, <a class="el" href="gaim_8h_source.html#l00209">parameter_pr::print_best_genome</a>, <a class="el" href="logging_8cpp_source.html#l00123">print_bsf()</a>, <a class="el" href="gaim_8h_source.html#l00208">parameter_pr::print_bsf</a>, <a class="el" href="logging_8cpp_source.html#l00079">print_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00206">parameter_pr::print_fitness</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00227">sort_population()</a>, and <a class="el" href="gaim_8h_source.html#l00204">parameter_pr::where2write</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
 
 </div>
 </div>
-<a id="ad111852face5ba08f6dd5a4798f4a23c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad111852face5ba08f6dd5a4798f4a23c">&#9670;&nbsp;</a></span>get_average_fitness_rec()</h2>
+<a id="a8dc9f82bc24a0be3a904773d572ee79d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dc9f82bc24a0be3a904773d572ee79d">&#9670;&nbsp;</a></span>flat_crossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::flat_crossover </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flat crossover operator. </p>
+<p>Performs a "flat" crossover operation. Genes from both parent are combined in as by linear mixing, similar to alpha blending. A random variate is chosen to specify <br  />
+ the mixing weight.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent1</td><td>First parent's genome </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent2</td><td>Second parent's genome</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Offspring's genome </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="crossover_8cpp_source.html#l00204">204</a> of file <a class="el" href="crossover_8cpp_source.html">crossover.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
+
+</div>
+</div>
+<a id="ad1b026d94bb7d34bc64a9a18ceab654f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b026d94bb7d34bc64a9a18ceab654f">&#9670;&nbsp;</a></span>fusion_mutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::fusion_mutation </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>genome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fusion mutation operator method. </p>
+<p>Performs a fusion mutation operation. It checks if the genome has unique elements. If doesn't have, it removes the repetitions and replaces them by new random (uniformly drawn) values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">genome</td><td>Individual's genome </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutated genome. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mutation_8cpp_source.html#l00189">189</a> of file <a class="el" href="mutation_8cpp_source.html">mutation.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00379">is_real</a>, <a class="el" href="gaim_8h_source.html#l00366">low_bound</a>, and <a class="el" href="gaim_8h_source.html#l00367">up_bound</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>.</p>
+
+</div>
+</div>
+<a id="aabec06bace13b2777e72cea3bf19ab93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabec06bace13b2777e72cea3bf19ab93">&#9670;&nbsp;</a></span>get_average_fitness()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -483,7 +694,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;REAL_&gt;&amp; GA::get_average_fitness_rec </td>
+          <td class="memname">std::vector&lt;REAL_&gt;&amp; GA::get_average_fitness </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -496,11 +707,42 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00202">202</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00331">331</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00223">fit_avg</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00352">fit_avg</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+
+</div>
+</div>
+<a id="a4ec70bd93965a3e104d9dacc4226b06e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec70bd93965a3e104d9dacc4226b06e">&#9670;&nbsp;</a></span>get_best_genome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;REAL_&gt;&amp; GA::get_best_genome </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00330">330</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00355">bsf_genome</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
 
 </div>
 </div>
@@ -527,66 +769,80 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00201">201</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00329">329</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00226">bsf_genome</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00351">bsf</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
 
 </div>
 </div>
-<a id="a6ebb11256ff35afe7cc718c2ec3b62ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ebb11256ff35afe7cc718c2ec3b62ac">&#9670;&nbsp;</a></span>mutation()</h2>
+<a id="abac81258425dc01ddc070d2bd3014640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abac81258425dc01ddc070d2bd3014640">&#9670;&nbsp;</a></span>ktournament_selection()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; REAL_ &gt; GA::mutation </td>
+          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::ktournament_selection </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
-          <td class="paramname"><em>genome</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">REAL_&#160;</td>
-          <td class="paramname"><em>mutation_rate</em> = <code>0.5</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">REAL_&#160;</td>
-          <td class="paramname"><em>variance</em> = <code>0.5</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Mutation operator method. </p>
-<p>The basic mutation operator.</p>
-<p>By default, this is a delta mutation operator.</p>
+<p>Genetic Algorithm basic operators. </p>
+<p>Implements a k-tournament selection.</p>
+<p>Selection operator methods</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">genome</td><td>The genome (genes) of an individual </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mutation_rate</td><td>Mutation rate (probability threshold) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">variance</td><td>Standard deviation of the normal distribution from which the increment/decrement is drawn </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">population</td><td>A vector of the entire population of individuals. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of floats (mutated genome)</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The used can define his or her own method of mutation or they can use any other operator defined in the file <a class="el" href="mutation_8cpp.html">mutation.cpp</a>.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="mutation_8cpp.html#aae60272d405be8a81a20d55a44852a66" title="This function implements a delta mutation operator meaning that for every gene in the genome a random...">delta_mutation()</a>, <a class="el" href="mutation_8cpp.html#ad39dab4e9fc8e8e78867f5171302b568" title="Random mutation operator.">random_mutation()</a>, <a class="el" href="mutation_8cpp.html#aa3b9a27967ab6548bf554a635562956e" title="Non-uniform mutation operator.">nonuniform_mutation()</a>, <a class="el" href="mutation_8cpp.html#a6770e5738eb1e4fc5d2b978bd0b22cf1" title="Fusion mutation operator method.">fusion_mutation()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of individual_s structures (selected parents). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00273">273</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00071">71</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="mutation_8cpp_source.html#l00043">delta_mutation()</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00223">individual::fitness</a>, <a class="el" href="gaim_8h_source.html#l00224">individual::genome</a>, <a class="el" href="gaim_8h_source.html#l00377">k</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00076">remove_at()</a>, and <a class="el" href="gaim_8h_source.html#l00378">replace</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
+
+</div>
+</div>
+<a id="afb563092905a667b93afc7048ee986fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb563092905a667b93afc7048ee986fd">&#9670;&nbsp;</a></span>linear_rank_selection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::linear_rank_selection </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implements a linear rank selection mechanism. </p>
+<p>The population is sorted based on the fitness of each individual and then a selection probability is assigned to each individual based on their rank.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">population</td><td>A vector of the entire population of individuals replacement or not. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of individual_s structures (or the selected parents). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00192">192</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00161">compare_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00377">k</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, and <a class="el" href="gaim_8h_source.html#l00378">replace</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
 
 </div>
 </div>
@@ -618,11 +874,135 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing (void)</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The user can define his or her own method for the next generation. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00295">295</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00248">248</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00160">compare_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00232">lambda</a>, <a class="el" href="gaim_8h_source.html#l00219">offsprings</a>, and <a class="el" href="gaim_8h_source.html#l00218">population</a>.</p>
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00161">compare_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00369">lambda</a>, <a class="el" href="gaim_8h_source.html#l00348">offsprings</a>, and <a class="el" href="gaim_8h_source.html#l00347">population</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
+
+</div>
+</div>
+<a id="a4f9717879f6fa20fd32cb5f9b307dea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f9717879f6fa20fd32cb5f9b307dea1">&#9670;&nbsp;</a></span>nonuniform_mutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::nonuniform_mutation </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>genome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Non-uniform mutation operator. </p>
+<p>Performs a non-uniform mutation which is time-dependent, decaying over time. The mutation is computed as <img class="formulaInl" alt="$ \Delta(b - x) $" src="form_1.png"/> or <img class="formulaInl" alt="$\Delta(x - a) $" src="form_2.png"/> based on a random choice between -1 or 1, respectively.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">genome</td><td>Individual's genome </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutated genome. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mutation_8cpp_source.html#l00157">157</a> of file <a class="el" href="mutation_8cpp_source.html">mutation.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="mutation_8cpp_source.html#l00135">delta()</a>, <a class="el" href="gaim_8h_source.html#l00375">generations</a>, <a class="el" href="gaim_8h_source.html#l00366">low_bound</a>, <a class="el" href="gaim_8h_source.html#l00376">order</a>, <a class="el" href="gaim_8h_source.html#l00374">time</a>, and <a class="el" href="gaim_8h_source.html#l00367">up_bound</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>.</p>
+
+</div>
+</div>
+<a id="aef9b140ee737ee459b7afa1e5ddba423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef9b140ee737ee459b7afa1e5ddba423">&#9670;&nbsp;</a></span>one_point_crossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::one_point_crossover </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crossover operator methods. </p>
+<p>Applies a crossover operator on the genomes of two parents (parent1 and parent2) to create a child genome.</p>
+<p>By default, this is a one-point crossover operator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent1</td><td>Genome of the first parent </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent2</td><td>Genome of the second parent </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The genome of a child as a vector of type REAL_ </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="crossover_8cpp_source.html#l00074">74</a> of file <a class="el" href="crossover_8cpp_source.html">crossover.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00376">order</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
+
+</div>
+</div>
+<a id="a21cb72d1295790abcefa9fbe0ac56803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21cb72d1295790abcefa9fbe0ac56803">&#9670;&nbsp;</a></span>order_one_crossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::order_one_crossover </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Order-one crossover operator. </p>
+<p>Performs an order-one crossover operation. It starts from the half genome of the first parent and as long as the genes between the two parents are different, it copies parent 2's genes to the child's genome.</p>
+<dl class="section note"><dt>Note</dt><dd>This operator is useful in problems involving permuations. The rule is somewhat different from traditional single-point crossover, which has no guarantees of preserving parent A's half genome.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent1</td><td>First parent's genome </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent2</td><td>Second parent's genome</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Offspring's genome </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="crossover_8cpp_source.html#l00280">280</a> of file <a class="el" href="crossover_8cpp_source.html">crossover.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
 
 </div>
 </div>
@@ -672,9 +1052,77 @@ Friends</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="pygaim_8cpp.html">pygaim.cpp</a>, pygaim_demo.py</dd></dl>
 <p>Destructor of <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> class </p>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00152">152</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00182">182</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+
+</div>
+</div>
+<a id="a56c337716017d5fef7c3d2e4d327f002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c337716017d5fef7c3d2e4d327f002">&#9670;&nbsp;</a></span>random_mutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::random_mutation </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>genome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Random mutation operator. </p>
+<p>Performs a random mutation on the genome of an individual. A random mutation takes place at a random gene and replaces the current value of the gene with a new random one drawn from a uniform distribution in the interval [a, b].</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">genome</td><td>Individual's genome (genes) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutated genome (vector of type REAL_). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mutation_8cpp_source.html#l00099">99</a> of file <a class="el" href="mutation_8cpp_source.html">mutation.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00379">is_real</a>, <a class="el" href="gaim_8h_source.html#l00366">low_bound</a>, and <a class="el" href="gaim_8h_source.html#l00367">up_bound</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>.</p>
+
+</div>
+</div>
+<a id="a41ad3f2a1f28f02e3a994959b9524fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41ad3f2a1f28f02e3a994959b9524fd2">&#9670;&nbsp;</a></span>random_selection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::random_selection </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implements a random selection. </p>
+<p>It randomly picks up one individual from the entire population.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">population</td><td>A vector of the entire population of individuals. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of indivudual_s as parents. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00260">260</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00043">int_random()</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, and <a class="el" href="gaim_8h_source.html#l00378">replace</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
 
 </div>
 </div>
@@ -705,11 +1153,46 @@ Friends</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Nothing (void)</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>This methods has to be called after the method next_generation and only when a selection operator without replacement has been chosen. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00323">323</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00276">276</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00218">population</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00347">population</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
+
+</div>
+</div>
+<a id="a8c14732cb038108c0d96c45c7570c589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c14732cb038108c0d96c45c7570c589">&#9670;&nbsp;</a></span>roulette_wheel_selection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::roulette_wheel_selection </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implements a roulette-wheel selection (or fitness-proportionate selection) mechanism. </p>
+<p>The fitness function observes a fitness for each individual and the share of the population's total fitness is used to associate a selection <br  />
+ probability with each individual.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">population</td><td>A vector of the entire population of individuals. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of individual_s which corresponds to the selected parents. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00308">308</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00181">average_fitness()</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00093">cumulative_fitness()</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00060">float_random()</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, and <a class="el" href="gaim_8h_source.html#l00378">replace</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
 
 </div>
 </div>
@@ -740,67 +1223,119 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Nothing (void) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00366">366</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00319">319</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00180">average_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00221">best_individual</a>, <a class="el" href="gaim_8h_source.html#l00222">bsf</a>, <a class="el" href="gaim_8h_source.html#l00226">bsf_genome</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00342">clip_genome()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00250">crossover()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00183">evaluation()</a>, <a class="el" href="gaim_8h_source.html#l00223">fit_avg</a>, <a class="el" href="gaim_8h_source.html#l00149">individual::fitness</a>, <a class="el" href="gaim_8h_source.html#l00206">fitness</a>, <a class="el" href="gaim_8h_source.html#l00150">individual::genome</a>, <a class="el" href="gaim_8h_source.html#l00224">hfi</a>, <a class="el" href="gaim_8h_source.html#l00232">lambda</a>, <a class="el" href="gaim_8h_source.html#l00225">lfi</a>, <a class="el" href="gaim_8h_source.html#l00231">mu</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00273">mutation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00295">next_generation()</a>, <a class="el" href="gaim_8h_source.html#l00219">offsprings</a>, <a class="el" href="gaim_8h_source.html#l00218">population</a>, <a class="el" href="gaim_8h_source.html#l00233">replace_perc</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00323">reset_selection_flags()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00225">selection()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00197">sort_population()</a>, and <a class="el" href="gaim_8h_source.html#l00220">sorted_population</a>.</p>
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00181">average_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00350">best_individual</a>, <a class="el" href="gaim_8h_source.html#l00351">bsf</a>, <a class="el" href="gaim_8h_source.html#l00355">bsf_genome</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00295">clip_genome()</a>, <a class="el" href="gaim_8h_source.html#l00287">crossover</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00213">evaluation()</a>, <a class="el" href="gaim_8h_source.html#l00352">fit_avg</a>, <a class="el" href="gaim_8h_source.html#l00223">individual::fitness</a>, <a class="el" href="gaim_8h_source.html#l00335">fitness</a>, <a class="el" href="gaim_8h_source.html#l00224">individual::genome</a>, <a class="el" href="gaim_8h_source.html#l00353">hfi</a>, <a class="el" href="gaim_8h_source.html#l00369">lambda</a>, <a class="el" href="gaim_8h_source.html#l00354">lfi</a>, <a class="el" href="gaim_8h_source.html#l00368">mu</a>, <a class="el" href="gaim_8h_source.html#l00301">mutation</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00248">next_generation()</a>, <a class="el" href="gaim_8h_source.html#l00348">offsprings</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, <a class="el" href="gaim_8h_source.html#l00370">replace_perc</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00276">reset_selection_flags()</a>, <a class="el" href="gaim_8h_source.html#l00272">selection</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00227">sort_population()</a>, and <a class="el" href="gaim_8h_source.html#l00349">sorted_population</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00455">evolve()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00405">evolve()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
 
 </div>
 </div>
-<a id="a6d2dde49b73927cd41ed4e792afda156"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d2dde49b73927cd41ed4e792afda156">&#9670;&nbsp;</a></span>selection()</h2>
+<a id="a6092d78caca0603181f0b66b308d7cd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6092d78caca0603181f0b66b308d7cd0">&#9670;&nbsp;</a></span>select_crossover_method()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::selection </td>
+          <td class="memname">void GA::select_crossover_method </td>
           <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>num_parents</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>k</em> = <code>2</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>replace</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Genetic Algorithm basic operators. </p>
-<p>Applies a selection operator by selecting two parents for breeding out of a whole population of individuals.</p>
-<p>Selection operator method</p>
-<p>By default this method implements a k-tournament selection.</p>
+<p>This method assigns the appropriate crossover method to crossover pointer function. </p>
+<p>Assigns the appropriate crossover operator to the pointer function *crossover.</p>
+<p>This method assigns to the crossover operator (pointer function) the appropriate method based on the crossover method string. The crossover method is provided by the data structure cross_parameter_s.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">num_parents</td><td>Number of individuals being selected for reproduction. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">k</td><td>An integer that defines the tournament size (how many individuals from the population will be drawn randomly) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">replace</td><td>Defines if selection is being done with/without replacement </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of individuals (parents)</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The user can define his or her own selection operators or can use any other operator defined in the file <a class="el" href="selection_8cpp.html">selection.cpp</a>.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="selection_8cpp.html#a9abad039f558ff4565614a90e0222e48" title="Implements a k-tournament selection.">ktournament_selection()</a>, <a class="el" href="selection_8cpp.html#aaf7a7082658144642a54b8f309a507bc" title="Implements a roulette-wheel selection (or fitness-proportionate selection) mechanism.">roulette_wheel_selection()</a>, <a class="el" href="selection_8cpp.html#a51405693b105cb75be857ea28f3cc568" title="Implements a linear rank selection mechanism.">linear_rank_selection()</a>, <a class="el" href="selection_8cpp.html#af0baff9b36cc1f200a3cf96fefaaaae1" title="Implements a random selection.">random_selection()</a>, <a class="el" href="selection_8cpp.html#a9620d28577a5545f313e43c4fc8f7436" title="Parent selection method proposed by Lipowski A.">stochastic_roulette_wheel_selection()</a>, trunctation_selection() </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gaim_8h.html#a993ee458ac91bb8a503d1f0af63e7c81" title="Structure containing initialization parameters for the crossover operator.">cross_parameter_s</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00225">225</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="crossover_8cpp_source.html#l00045">45</a> of file <a class="el" href="crossover_8cpp_source.html">crossover.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="selection_8cpp_source.html#l00041">ktournament_selection()</a>, and <a class="el" href="gaim_8h_source.html#l00218">population</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00287">crossover</a>, <a class="el" href="gaim_8h_source.html#l00361">crossover_method</a>, <a class="el" href="crossover_8cpp_source.html#l00240">discrete_crossover()</a>, <a class="el" href="crossover_8cpp_source.html#l00204">flat_crossover()</a>, <a class="el" href="crossover_8cpp_source.html#l00074">one_point_crossover()</a>, <a class="el" href="crossover_8cpp_source.html#l00280">order_one_crossover()</a>, <a class="el" href="crossover_8cpp_source.html#l00115">two_point_crossover()</a>, and <a class="el" href="crossover_8cpp_source.html#l00163">uniform_crossover()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+
+</div>
+</div>
+<a id="a2db55023e496a68e97cba7aa3d518070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2db55023e496a68e97cba7aa3d518070">&#9670;&nbsp;</a></span>select_mutation_method()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GA::select_mutation_method </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method assigns the appropriate mutation operator based on the chosen mutation method. </p>
+<p>Assigns the appropriate mutation operator to the pointer function *mutation.</p>
+<p>This method assigns to the mutation operator (pointer function) the appropriate method based on the mutation method string. The mutation method is provided by the data structure mut_parameter_s.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gaim_8h.html#a5d6b74d492960f193b2430ab91907c51" title="Structure containing initialization parameters for mutation operator.">mut_parameter_s</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mutation_8cpp_source.html#l00043">43</a> of file <a class="el" href="mutation_8cpp_source.html">mutation.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="mutation_8cpp_source.html#l00071">delta_mutation()</a>, <a class="el" href="mutation_8cpp_source.html#l00189">fusion_mutation()</a>, <a class="el" href="gaim_8h_source.html#l00301">mutation</a>, <a class="el" href="gaim_8h_source.html#l00362">mutation_method</a>, <a class="el" href="mutation_8cpp_source.html#l00157">nonuniform_mutation()</a>, <a class="el" href="mutation_8cpp_source.html#l00099">random_mutation()</a>, and <a class="el" href="mutation_8cpp_source.html#l00234">swap_mutation()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
+
+</div>
+</div>
+<a id="a29d427d1ea5763db90a768ea5c891532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d427d1ea5763db90a768ea5c891532">&#9670;&nbsp;</a></span>select_selection_method()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GA::select_selection_method </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method assigns the appropriate selection method to selection pointer function. </p>
+<p>Assigns the appropriate selection operator to the pointer function *selection.</p>
+<p>This method assigns to the selection operator (pointer function) the appropriate method based on the selection method string. The selection method is provided by the data structure sel_parameter_s.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nothing</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="gaim_8h.html#a2dc91f431701a401423810eb2c9d5a4a" title="Structure containing initialization parameters for the selection operator.">sel_parameter_s</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00042">42</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="selection_8cpp_source.html#l00071">ktournament_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00192">linear_rank_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00260">random_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00308">roulette_wheel_selection()</a>, <a class="el" href="gaim_8h_source.html#l00272">selection</a>, <a class="el" href="gaim_8h_source.html#l00360">selection_method</a>, <a class="el" href="selection_8cpp_source.html#l00380">stochastic_roulette_wheel_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00136">truncation_selection()</a>, and <a class="el" href="selection_8cpp_source.html#l00461">whitley_selection()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
 
 </div>
 </div>
@@ -830,11 +1365,239 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Nothing (void) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00197">197</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="genetic__alg_8cpp_source.html#l00227">227</a> of file <a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00160">compare_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00218">population</a>, and <a class="el" href="gaim_8h_source.html#l00220">sorted_population</a>.</p>
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00161">compare_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, and <a class="el" href="gaim_8h_source.html#l00349">sorted_population</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00455">evolve()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00405">evolve()</a>, <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
+
+</div>
+</div>
+<a id="afafdb1341dca5d1db4de4289fa1f1bbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afafdb1341dca5d1db4de4289fa1f1bbe">&#9670;&nbsp;</a></span>stochastic_roulette_wheel_selection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::stochastic_roulette_wheel_selection </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parent selection method proposed by Lipowski A. </p>
+<p>and Lipowska D. in "Roulette wheel selection via stochastic acceptance", 2011. The method is a variant of the roulette wheel where the maximum fitness is used to normalize individuals' fitness and transform them to a probability. The latter is used to decide probabilisticly if the chosen individual will be allowed to get offsprings.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">population</td><td>A vector of the entire population of individuals. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of indivudual_s (selected parents). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00380">380</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00060">float_random()</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00043">int_random()</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00112">maximum_fitness()</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00138">nonselected_maximum_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00076">remove_at()</a>, and <a class="el" href="gaim_8h_source.html#l00378">replace</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
+
+</div>
+</div>
+<a id="a969b920744ac9f0f3d2aafbeb01612d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a969b920744ac9f0f3d2aafbeb01612d8">&#9670;&nbsp;</a></span>swap_mutation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::swap_mutation </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>genome</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Swap mutation operator method. </p>
+<p>Performs a swap mutation operation. It randomly picks up two genes on the same genome and swaps them.</p>
+<dl class="section note"><dt>Note</dt><dd>The swap mutation operator is useful in cases of permutations (for instance in solving problems such as the Traveling Salesman Problem).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">genome</td><td>Individual's genome </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A mutated genome. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="mutation_8cpp_source.html#l00234">234</a> of file <a class="el" href="mutation_8cpp_source.html">mutation.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>.</p>
+
+</div>
+</div>
+<a id="af4a41f346474bfdc0c01b3f6edc4a05c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a41f346474bfdc0c01b3f6edc4a05c">&#9670;&nbsp;</a></span>truncation_selection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::truncation_selection </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implements a truncation selection operator. </p>
+<p>The population is sorted based on the fitness of each individual and a percentage of individuals that will be discarded is computed based on the given number of offsprings (lambda).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">population</td><td>A vector of the entire population of individuals </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of individual_s structures (or the selected parents). </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00136">136</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="auxiliary__funs_8cpp_source.html#l00161">compare_fitness()</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00043">int_random()</a>, <a class="el" href="gaim_8h_source.html#l00373">lower_bound</a>, <a class="el" href="gaim_8h_source.html#l00368">mu</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, and <a class="el" href="gaim_8h_source.html#l00378">replace</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
+
+</div>
+</div>
+<a id="a349018287e81843701d5026ca313e0d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a349018287e81843701d5026ca313e0d4">&#9670;&nbsp;</a></span>two_point_crossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::two_point_crossover </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Two-point crossover operator. </p>
+<p>Performs a two-point crossover. Two random points on the genome are drawn from a uniform distribution and the genes within the <br  />
+ area defined by the two points is swapped between parents.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent1</td><td>First parent's genome </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent2</td><td>Second parent's genome</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Offspring's genome </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="crossover_8cpp_source.html#l00115">115</a> of file <a class="el" href="crossover_8cpp_source.html">crossover.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00376">order</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
+
+</div>
+</div>
+<a id="a0ed0c24516edd6d597e68016b162ec55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ed0c24516edd6d597e68016b162ec55">&#9670;&nbsp;</a></span>uniform_crossover()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; REAL_ &gt; GA::uniform_crossover </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
+          <td class="paramname"><em>parent2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Uniform crossover operator. </p>
+<p>Performs a uniform crossover operation. Each gene is chosen from one parent or the other with equal probability.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent1</td><td>First parent's genome </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parent2</td><td>Second parent's genome</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Offspring's genome </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="crossover_8cpp_source.html#l00163">163</a> of file <a class="el" href="crossover_8cpp_source.html">crossover.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00376">order</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
+
+</div>
+</div>
+<a id="a434b73adc44a1b80332eed4585ac9185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a434b73adc44a1b80332eed4585ac9185">&#9670;&nbsp;</a></span>whitley_selection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; GA::whitley_selection </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>population</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parent selection method proposed by Darrell Whitley in his GENITOR paper: "The GENITOR Algorithm and Selection Pressure: Why Rank-Based Allocation
+of Reproductive Trials is Best", ", D. </p>
+<p>Whitley, 2000.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">population</td><td>A vector of the entire population of individuals. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of indivudual_s (selected parents).</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="selection_8cpp.html#a493ff9c75ab6ac1ef21aa248806c75a8" title="Calculates the Whitley factor used in Whitley&#39;s selection method.">calculate_whitley_factor()</a> On how to calculate the Whitley factor. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selection_8cpp_source.html#l00461">461</a> of file <a class="el" href="selection_8cpp_source.html">selection.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00363">bias</a>, <a class="el" href="selection_8cpp_source.html#l00443">calculate_whitley_factor()</a>, <a class="el" href="gaim_8h_source.html#l00372">num_parents</a>, <a class="el" href="gaim_8h_source.html#l00347">population</a>, and <a class="el" href="gaim_8h_source.html#l00378">replace</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
 
 </div>
 </div>
@@ -859,9 +1622,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Genome size (number of genes) </p>
-
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00236">236</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00381">381</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
 </div>
 </div>
@@ -888,7 +1649,7 @@ Friends</h2></td></tr>
 
 <p>BSF genome. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00229">229</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00358">358</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>.</p>
 
@@ -908,9 +1669,9 @@ Friends</h2></td></tr>
 
 <p>Sorted population vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00221">221</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00350">350</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00455">evolve()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00405">evolve()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
@@ -934,9 +1695,35 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00229">229</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00358">358</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>.</p>
+
+</div>
+</div>
+<a id="a904bb252c59a277b807fe1ae0f8ad28f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a904bb252c59a277b807fe1ae0f8ad28f">&#9670;&nbsp;</a></span>bias</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">REAL_ GA::bias</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00363">363</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="selection_8cpp_source.html#l00461">whitley_selection()</a>.</p>
 
 </div>
 </div>
@@ -954,9 +1741,9 @@ Friends</h2></td></tr>
 
 <p>Best individual (keep track) </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00222">222</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00351">351</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00455">evolve()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00405">evolve()</a>, <a class="el" href="gaim_8h_source.html#l00329">get_bsf()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
@@ -974,9 +1761,55 @@ Friends</h2></td></tr>
 
 <p>Lowest fitness in the population. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00226">226</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00355">355</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="gaim_8h_source.html#l00201">get_bsf()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="gaim_8h_source.html#l00330">get_best_genome()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
+
+</div>
+</div>
+<a id="abfd2b97ad91b196f318e53beb4e3abee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd2b97ad91b196f318e53beb4e3abee">&#9670;&nbsp;</a></span>crossover</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;REAL_&gt;(GA::* GA::crossover) (std::vector&lt; REAL_ &gt;, std::vector&lt; REAL_ &gt;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Crossover pointer function. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00287">287</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
+
+</div>
+</div>
+<a id="a5eb2524e9c358401e7a4f4e3090f0732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eb2524e9c358401e7a4f4e3090f0732">&#9670;&nbsp;</a></span>crossover_method</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GA::crossover_method</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00361">361</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="crossover_8cpp_source.html#l00045">select_crossover_method()</a>.</p>
 
 </div>
 </div>
@@ -994,9 +1827,9 @@ Friends</h2></td></tr>
 
 <p>BSF vector (keep track) </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00223">223</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00352">352</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00455">evolve()</a>, <a class="el" href="gaim_8h_source.html#l00202">get_average_fitness_rec()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00405">evolve()</a>, <a class="el" href="gaim_8h_source.html#l00331">get_average_fitness()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
@@ -1015,9 +1848,9 @@ Friends</h2></td></tr>
 <p>Callback for fitness function. It is used only with pyGAIM. </p>
 <p>Fitness function - function pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00206">206</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00335">335</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00183">evaluation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="interface_8cpp_source.html#l00005">ga_optimization()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00213">evaluation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="interface_8cpp_source.html#l00074">ga_optimization()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
@@ -1033,7 +1866,33 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00210">210</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00339">339</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+</div>
+</div>
+<a id="a10b1a92ed188c32de244bac239165861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10b1a92ed188c32de244bac239165861">&#9670;&nbsp;</a></span>generations</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t GA::generations</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00375">375</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00405">evolve()</a>, and <a class="el" href="mutation_8cpp_source.html#l00157">nonuniform_mutation()</a>.</p>
 
 </div>
 </div>
@@ -1059,7 +1918,7 @@ Friends</h2></td></tr>
 
 <p>Number of individuals being replaced. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00234">234</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00371">371</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>.</p>
 
@@ -1079,9 +1938,9 @@ Friends</h2></td></tr>
 
 <p>Average fitness vector (keep track) </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00224">224</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00353">353</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
@@ -1107,7 +1966,61 @@ Friends</h2></td></tr>
 
 <p>Genome's interval limits [a, b]. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00230">230</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00359">359</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+</div>
+</div>
+<a id="a9f0ca04f2ba33ad0b3d4bd655c41c93a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f0ca04f2ba33ad0b3d4bd655c41c93a">&#9670;&nbsp;</a></span>is_real</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GA::is_real</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>If replace is enabled, then selected parents are replaced. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00379">379</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="mutation_8cpp_source.html#l00189">fusion_mutation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="mutation_8cpp_source.html#l00099">random_mutation()</a>.</p>
+
+</div>
+</div>
+<a id="a8f531451d0b41b414b07c3fe8bd22467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f531451d0b41b414b07c3fe8bd22467">&#9670;&nbsp;</a></span>k</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GA::k</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00377">377</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="selection_8cpp_source.html#l00071">ktournament_selection()</a>, and <a class="el" href="selection_8cpp_source.html#l00192">linear_rank_selection()</a>.</p>
 
 </div>
 </div>
@@ -1133,9 +2046,9 @@ Friends</h2></td></tr>
 
 <p>Number of individuals within a population. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00232">232</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00369">369</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00295">next_generation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00248">next_generation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
 
 </div>
 </div>
@@ -1153,9 +2066,63 @@ Friends</h2></td></tr>
 
 <p>Highest fitness in the population. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00225">225</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00354">354</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
+
+</div>
+</div>
+<a id="a29e692b7bfb706a0a160d053801eea62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e692b7bfb706a0a160d053801eea62">&#9670;&nbsp;</a></span>low_bound</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">REAL_ GA::low_bound</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00366">366</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="mutation_8cpp_source.html#l00189">fusion_mutation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="mutation_8cpp_source.html#l00157">nonuniform_mutation()</a>, and <a class="el" href="mutation_8cpp_source.html#l00099">random_mutation()</a>.</p>
+
+</div>
+</div>
+<a id="a27cf884082dd8f4bcb75878474769e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27cf884082dd8f4bcb75878474769e82">&#9670;&nbsp;</a></span>lower_bound</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t GA::lower_bound</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of parents per generation to select from. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00373">373</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="selection_8cpp_source.html#l00136">truncation_selection()</a>.</p>
 
 </div>
 </div>
@@ -1179,11 +2146,111 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Immigrants vector (buffer) </p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00368">368</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00231">231</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>, and <a class="el" href="selection_8cpp_source.html#l00136">truncation_selection()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+</div>
+</div>
+<a id="ac0259117adf96a2f811845e45683df68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0259117adf96a2f811845e45683df68">&#9670;&nbsp;</a></span>mutation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;REAL_&gt;(GA::* GA::mutation) (std::vector&lt; REAL_ &gt;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutation pointer function. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00301">301</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>, and <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>.</p>
+
+</div>
+</div>
+<a id="a32790872e2e6c24c72585cded5f23d83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32790872e2e6c24c72585cded5f23d83">&#9670;&nbsp;</a></span>mutation_method</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GA::mutation_method</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00362">362</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="mutation_8cpp_source.html#l00043">select_mutation_method()</a>.</p>
+
+</div>
+</div>
+<a id="a932f9628b8d26ceb7bd008f11b5ad2d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932f9628b8d26ceb7bd008f11b5ad2d3">&#9670;&nbsp;</a></span>mutation_rate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">REAL_ GA::mutation_rate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bias term for Whitley selection metehod. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00364">364</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="mutation_8cpp_source.html#l00071">delta_mutation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>.</p>
+
+</div>
+</div>
+<a id="a070b614e21349a59d2c5dfd75e2cedfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a070b614e21349a59d2c5dfd75e2cedfe">&#9670;&nbsp;</a></span>num_parents</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t GA::num_parents</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Genome size (number of genes) </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00372">372</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="selection_8cpp_source.html#l00071">ktournament_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00192">linear_rank_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00260">random_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00308">roulette_wheel_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00380">stochastic_roulette_wheel_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00136">truncation_selection()</a>, and <a class="el" href="selection_8cpp_source.html#l00461">whitley_selection()</a>.</p>
 
 </div>
 </div>
@@ -1201,9 +2268,35 @@ Friends</h2></td></tr>
 
 <p>Individuals population vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00219">219</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00348">348</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00295">next_generation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00248">next_generation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
+
+</div>
+</div>
+<a id="ac2d0aa417d47c8ca01667edb0b53d353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2d0aa417d47c8ca01667edb0b53d353">&#9670;&nbsp;</a></span>order</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t GA::order</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00376">376</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="mutation_8cpp_source.html#l00157">nonuniform_mutation()</a>, <a class="el" href="crossover_8cpp_source.html#l00074">one_point_crossover()</a>, <a class="el" href="crossover_8cpp_source.html#l00115">two_point_crossover()</a>, and <a class="el" href="crossover_8cpp_source.html#l00163">uniform_crossover()</a>.</p>
 
 </div>
 </div>
@@ -1219,9 +2312,37 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00218">218</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00347">347</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00342">clip_genome()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00455">evolve()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00295">next_generation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00323">reset_selection_flags()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00225">selection()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00197">sort_population()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00295">clip_genome()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00405">evolve()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="selection_8cpp_source.html#l00071">ktournament_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00192">linear_rank_selection()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00248">next_generation()</a>, <a class="el" href="selection_8cpp_source.html#l00260">random_selection()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00276">reset_selection_flags()</a>, <a class="el" href="selection_8cpp_source.html#l00308">roulette_wheel_selection()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00227">sort_population()</a>, <a class="el" href="selection_8cpp_source.html#l00380">stochastic_roulette_wheel_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00136">truncation_selection()</a>, and <a class="el" href="selection_8cpp_source.html#l00461">whitley_selection()</a>.</p>
+
+</div>
+</div>
+<a id="a56cf54af24c82f080fc2f311baceadf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56cf54af24c82f080fc2f311baceadf7">&#9670;&nbsp;</a></span>replace</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GA::replace</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>k-tournament order </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00378">378</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="selection_8cpp_source.html#l00071">ktournament_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00192">linear_rank_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00260">random_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00308">roulette_wheel_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00380">stochastic_roulette_wheel_selection()</a>, <a class="el" href="selection_8cpp_source.html#l00136">truncation_selection()</a>, and <a class="el" href="selection_8cpp_source.html#l00461">whitley_selection()</a>.</p>
 
 </div>
 </div>
@@ -1247,9 +2368,57 @@ Friends</h2></td></tr>
 
 <p>Number of offsprings. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00233">233</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00370">370</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>.</p>
+
+</div>
+</div>
+<a id="acd22a6333f2a8872ecc5abcf1fbf0af1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd22a6333f2a8872ecc5abcf1fbf0af1">&#9670;&nbsp;</a></span>selection</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a>&gt;(GA::* GA::selection) (std::vector&lt; <a class="el" href="gaim_8h.html#ae4920e8d3c078b055e3c4089c93908b9">individual_s</a> &gt; &amp;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Selection pointer function. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00272">272</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
+
+</div>
+</div>
+<a id="a5327e733513f1da62e60d7120c354521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5327e733513f1da62e60d7120c354521">&#9670;&nbsp;</a></span>selection_method</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GA::selection_method</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Immigrants vector (buffer) </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00360">360</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="selection_8cpp_source.html#l00042">select_selection_method()</a>.</p>
 
 </div>
 </div>
@@ -1267,15 +2436,98 @@ Friends</h2></td></tr>
 
 <p>Offsprings vector. </p>
 
-<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00220">220</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00349">349</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00366">run_one_generation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00197">sort_population()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00319">run_one_generation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00227">sort_population()</a>.</p>
+
+</div>
+</div>
+<a id="aa1a916c4b5a643a9f3687bafdd2aa1e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a916c4b5a643a9f3687bafdd2aa1e8">&#9670;&nbsp;</a></span>time</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t GA::time</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starting index for truncation selection. </p>
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00374">374</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, and <a class="el" href="mutation_8cpp_source.html#l00157">nonuniform_mutation()</a>.</p>
+
+</div>
+</div>
+<a id="a96520156027a8b7dbb83963ab0c4851c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96520156027a8b7dbb83963ab0c4851c">&#9670;&nbsp;</a></span>up_bound</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">REAL_ GA::up_bound</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00367">367</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="mutation_8cpp_source.html#l00189">fusion_mutation()</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>, <a class="el" href="mutation_8cpp_source.html#l00157">nonuniform_mutation()</a>, and <a class="el" href="mutation_8cpp_source.html#l00099">random_mutation()</a>.</p>
+
+</div>
+</div>
+<a id="a7f0573ef57e968dc6ce3eaa9c222f0b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f0573ef57e968dc6ce3eaa9c222f0b3">&#9670;&nbsp;</a></span>variance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">REAL_ GA::variance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gaim_8h_source.html#l00365">365</a> of file <a class="el" href="gaim_8h_source.html">gaim.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="mutation_8cpp_source.html#l00071">delta_mutation()</a>, and <a class="el" href="genetic__alg_8cpp_source.html#l00039">GA()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="gaim_8h_source.html">gaim.h</a></li>
+<li><a class="el" href="crossover_8cpp_source.html">crossover.cpp</a></li>
 <li><a class="el" href="genetic__alg_8cpp_source.html">genetic_alg.cpp</a></li>
+<li><a class="el" href="mutation_8cpp_source.html">mutation.cpp</a></li>
+<li><a class="el" href="selection_8cpp_source.html">selection.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

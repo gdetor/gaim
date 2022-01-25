@@ -8,9 +8,10 @@ var searchData=
   ['base_5fgenerate0_19',['base_generate0',['../classpcg__detail_1_1engine.html#a9c75cb00bd3a81f316546acca79a2ca7',1,'pcg_detail::engine']]],
   ['best_5findividual_20',['best_individual',['../classGA.html#adf56d9161e7240aa8a2cf7d968723565',1,'GA']]],
   ['beta_21',['beta',['../classGA.html#ab90200ffd20bb96ebf1fd0e026e138a8',1,'GA']]],
-  ['bitcount_5ft_22',['bitcount_t',['../namespacepcg__extras.html#a406cfb7122fb02569323935c54affb0b',1,'pcg_extras']]],
-  ['bounded_5frand_23',['bounded_rand',['../namespacepcg__extras.html#a09fe30ab14f4bae059b13199966e6562',1,'pcg_extras']]],
-  ['bsf_24',['bsf',['../classGA.html#acf83f95e8a89102c0057863e54ca08a5',1,'GA']]],
-  ['bsf_5fgenome_25',['bsf_genome',['../classGA.html#a0ad4ecd90133aac99107b3d86d0c22f3',1,'GA']]],
-  ['bump_26',['bump',['../classpcg__detail_1_1engine.html#abc83b5b934e2acfa6fac6501db0bb703',1,'pcg_detail::engine']]]
+  ['bias_22',['bias',['../structparameter__sel.html#ad40bf775950856a8ad7cedd47a535a61',1,'parameter_sel::bias()'],['../classGA.html#a904bb252c59a277b807fe1ae0f8ad28f',1,'GA::bias()']]],
+  ['bitcount_5ft_23',['bitcount_t',['../namespacepcg__extras.html#a406cfb7122fb02569323935c54affb0b',1,'pcg_extras']]],
+  ['bounded_5frand_24',['bounded_rand',['../namespacepcg__extras.html#a09fe30ab14f4bae059b13199966e6562',1,'pcg_extras']]],
+  ['bsf_25',['bsf',['../structpy__results.html#a100569c09358ce87add27e824a4d4f00',1,'py_results::bsf()'],['../classGA.html#acf83f95e8a89102c0057863e54ca08a5',1,'GA::bsf()']]],
+  ['bsf_5fgenome_26',['bsf_genome',['../classGA.html#a0ad4ecd90133aac99107b3d86d0c22f3',1,'GA']]],
+  ['bump_27',['bump',['../classpcg__detail_1_1engine.html#abc83b5b934e2acfa6fac6501db0bb703',1,'pcg_detail::engine']]]
 ];

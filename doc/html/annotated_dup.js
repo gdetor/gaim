@@ -6,7 +6,11 @@ var annotated_dup =
     [ "GA", "classGA.html", "classGA" ],
     [ "IM", "classIM.html", "classIM" ],
     [ "individual", "structindividual.html", "structindividual" ],
+    [ "parameter_cross", "structparameter__cross.html", "structparameter__cross" ],
     [ "parameter_ga", "structparameter__ga.html", "structparameter__ga" ],
     [ "parameter_im", "structparameter__im.html", "structparameter__im" ],
-    [ "parameter_pr", "structparameter__pr.html", "structparameter__pr" ]
+    [ "parameter_mut", "structparameter__mut.html", "structparameter__mut" ],
+    [ "parameter_pr", "structparameter__pr.html", "structparameter__pr" ],
+    [ "parameter_sel", "structparameter__sel.html", "structparameter__sel" ],
+    [ "py_results", "structpy__results.html", "structpy__results" ]
 ];

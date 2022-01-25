@@ -7,5 +7,5 @@ var searchData=
   ['advance_5ftable_10',['advance_table',['../classpcg__detail_1_1extended.html#a5f496dd4c53e6543d9966f5c252074d9',1,'pcg_detail::extended::advance_table()'],['../classpcg__detail_1_1extended.html#a0d81db8641a6144e45738018a89f3850',1,'pcg_detail::extended::advance_table(state_type delta, bool isForwards=true)']]],
   ['alpha_11',['alpha',['../classGA.html#a86ae6c9ddd7599c3ad81604106ac214d',1,'GA']]],
   ['auxiliary_5ffuns_2ecpp_12',['auxiliary_funs.cpp',['../auxiliary__funs_8cpp.html',1,'']]],
-  ['average_5ffitness_13',['average_fitness',['../auxiliary__funs_8cpp.html#addc8f0ef3a052d32abb937843bd5ee03',1,'average_fitness(REAL_ x, const individual_s y):&#160;auxiliary_funs.cpp'],['../gaim_8h.html#a1177b09905836f47887034420641a2c0',1,'average_fitness(REAL_, const individual_s):&#160;auxiliary_funs.cpp']]]
+  ['average_5ffitness_13',['average_fitness',['../structpy__results.html#a004fad79e56b40f4b030e6f65a8a3dd5',1,'py_results::average_fitness()'],['../auxiliary__funs_8cpp.html#addc8f0ef3a052d32abb937843bd5ee03',1,'average_fitness(REAL_ x, const individual_s y):&#160;auxiliary_funs.cpp'],['../gaim_8h.html#a1177b09905836f47887034420641a2c0',1,'average_fitness(REAL_, const individual_s):&#160;auxiliary_funs.cpp']]]
 ];

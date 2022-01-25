@@ -2,7 +2,7 @@ var files_dup =
 [
     [ "auxiliary_funs.cpp", "auxiliary__funs_8cpp.html", "auxiliary__funs_8cpp" ],
     [ "barrier.h", "barrier_8h.html", "barrier_8h" ],
-    [ "crossover.cpp", "crossover_8cpp.html", "crossover_8cpp" ],
+    [ "crossover.cpp", "crossover_8cpp.html", null ],
     [ "gaim.h", "gaim_8h.html", "gaim_8h" ],
     [ "genetic_alg.cpp", "genetic__alg_8cpp.html", null ],
     [ "interface.cpp", "interface_8cpp.html", "interface_8cpp" ],

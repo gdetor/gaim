@@ -93,19 +93,23 @@ $(document).ready(function(){initNavTree('interface_8cpp.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a41122230547878783d6472a38a19eed5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8cpp.html#a41122230547878783d6472a38a19eed5">ga_optimization</a> (std::function&lt; REAL_(std::vector&lt; REAL_ &gt; &amp;)&gt; func, size_t n_generations, size_t population_size, size_t genome_size, size_t n_offsprings, size_t n_replacements, size_t n_rounds, size_t n_islands, size_t n_immigrants, size_t migration_interval, std::vector&lt; REAL_ &gt; a, std::vector&lt; REAL_ &gt; b, std::string clipping, std::string clipping_fname, std::string experiment_id, std::string log_fname, std::string pickup_method, std::string replace_method, std::string im_graph_fname, bool log_fitness, bool log_average_fitness, bool log_bsf, bool log_best_genome, bool is_im_enabled)</td></tr>
-<tr class="memdesc:a41122230547878783d6472a38a19eed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface functions (to use GAIM through other programming languages.  <a href="interface_8cpp.html#a41122230547878783d6472a38a19eed5">More...</a><br /></td></tr>
-<tr class="separator:a41122230547878783d6472a38a19eed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fdac706f950817bfb9d14f8b4f0ae1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gaim_8h.html#ad9aa3758d610fe0fafa9016608ca64e6">py_results_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8cpp.html#a5fdac706f950817bfb9d14f8b4f0ae1e">ga_optimization</a> (std::function&lt; REAL_(std::vector&lt; REAL_ &gt; &amp;)&gt; func, size_t n_generations, size_t population_size, size_t genome_size, size_t n_offsprings, size_t n_replacements, size_t n_rounds, std::vector&lt; REAL_ &gt; a, std::vector&lt; REAL_ &gt; b, std::string clipping, std::string clipping_fname, std::string selection_method, REAL_ bias, size_t num_parents, size_t lower_bound, size_t k, bool replace, std::string crossover_method, std::string mutation_method, REAL_ mutation_rate, REAL_ mutation_var, REAL_ low_bound, REAL_ up_bound, size_t order, bool is_real, bool is_im_enabled, size_t n_islands, size_t n_immigrants, size_t migration_interval, std::string pickup_method, std::string replace_method, std::string im_graph_fname, std::string experiment_id, std::string log_fname, bool log_fitness, bool log_average_fitness, bool log_bsf, bool log_best_genome)</td></tr>
+<tr class="memdesc:a5fdac706f950817bfb9d14f8b4f0ae1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface function for calling GAIM from within any other C/C++ source code of software (libgaim).  <a href="interface_8cpp.html#a5fdac706f950817bfb9d14f8b4f0ae1e">More...</a><br /></td></tr>
+<tr class="separator:a5fdac706f950817bfb9d14f8b4f0ae1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a41122230547878783d6472a38a19eed5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41122230547878783d6472a38a19eed5">&#9670;&nbsp;</a></span>ga_optimization()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines an interface function for calling game in a single-line code from within any other software. </p>
+
+<p class="definition">Definition in file <a class="el" href="interface_8cpp_source.html">interface.cpp</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5fdac706f950817bfb9d14f8b4f0ae1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fdac706f950817bfb9d14f8b4f0ae1e">&#9670;&nbsp;</a></span>ga_optimization()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ga_optimization </td>
+          <td class="memname"><a class="el" href="gaim_8h.html#ad9aa3758d610fe0fafa9016608ca64e6">py_results_s</a> ga_optimization </td>
           <td>(</td>
           <td class="paramtype">std::function&lt; REAL_(std::vector&lt; REAL_ &gt; &amp;)&gt;&#160;</td>
           <td class="paramname"><em>func</em>, </td>
@@ -149,24 +153,6 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>n_islands</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>n_immigrants</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>migration_interval</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">std::vector&lt; REAL_ &gt;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
@@ -192,13 +178,109 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>experiment_id</em>, </td>
+          <td class="paramname"><em>selection_method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">REAL_&#160;</td>
+          <td class="paramname"><em>bias</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num_parents</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>lower_bound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>replace</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>log_fname</em>, </td>
+          <td class="paramname"><em>crossover_method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>mutation_method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">REAL_&#160;</td>
+          <td class="paramname"><em>mutation_rate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">REAL_&#160;</td>
+          <td class="paramname"><em>mutation_var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">REAL_&#160;</td>
+          <td class="paramname"><em>low_bound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">REAL_&#160;</td>
+          <td class="paramname"><em>up_bound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>order</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_real</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>is_im_enabled</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n_islands</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n_immigrants</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>migration_interval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -217,6 +299,18 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>im_graph_fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>experiment_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>log_fname</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -240,13 +334,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>log_best_genome</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>is_im_enabled</em>&#160;</td>
+          <td class="paramname"><em>log_best_genome</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -256,11 +344,47 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Interface functions (to use GAIM through other programming languages. </p>
+<p>Interface function for calling GAIM from within any other C/C++ source code of software (libgaim). </p>
+<p>Interface functions (to use GAIM through other programming languages.</p>
+<p>It initializes all the necessary parameters and vectors for evolving a population of individuals based on a predetermined Genetic Algorithm (<a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a>).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>A pointer function to the objective/fitness function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_generations</td><td>Number of generations <br  />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">population_size</td><td>Number of individuals within a population </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">genome_size</td><td>How many parameters the fitness function has </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_offsprings</td><td>Number of new candidate individuals (children) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_replacements</td><td>Number of parents to be replaced per generation </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_rounds</td><td>Number of independent experiments to run </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_islands</td><td>Number of islands in a Island Model </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n_immigrants</td><td>Number of individuals to move from one island to another (only for <a class="el" href="classIM.html" title="Island Model main class.">IM</a>) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">migration_interval</td><td>Determines how frequent individuals have to move from one island to another </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Vector with genes lower bounds </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Vector with genes upper bounds </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">clipping</td><td>Gene's clipping method (universal: all the genes are clamped with the same values a and b. Individual: Each gene has its own clamped values a and b. PPPPPPP </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">clipping_fname</td><td>Filename of clipping file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">experiment_id</td><td>The name of the current experiment </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_fname</td><td>The directory in which all the results and logs will be saved </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pickup_method</td><td>Selection method of migrating individuals in <a class="el" href="classIM.html" title="Island Model main class.">IM</a>. Poor: Select individuals with lowest fitness. Elite: select individuals with the highest fitness. Random: select individuals randomly. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">replace_method</td><td>Replacement method of individuals on islands who receive immigrants. Three method (poor, elite, and random). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">im_graph_fname</td><td>The filename of the file that contains the connectivity graph for an <a class="el" href="classIM.html" title="Island Model main class.">IM</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_fitness</td><td>Enable/disable the track of individuals' fitness </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_average_fitness</td><td>Enable/disable the track of population (average) fitness </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_bsf</td><td>Enable/disable the track of Best So far Fitness (BSF) fitness. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_best_genome</td><td>Enable/disable the track of the best genome </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">is_im_enabled</td><td>Enable/disable the <a class="el" href="classIM.html" title="Island Model main class.">IM</a> functionality<ul>
+<li></li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>res A py_results_s data structure that contains the average fitness, the BSF, and the best genome. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="interface_8cpp_source.html#l00005">5</a> of file <a class="el" href="interface_8cpp_source.html">interface.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="interface_8cpp_source.html#l00074">74</a> of file <a class="el" href="interface_8cpp_source.html">interface.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="gaim_8h_source.html#l00087">parameter_ga::a</a>, <a class="el" href="gaim_8h_source.html#l00117">parameter_im::adj_list_fname</a>, <a class="el" href="gaim_8h_source.html#l00088">parameter_ga::b</a>, <a class="el" href="gaim_8h_source.html#l00094">parameter_ga::clipping</a>, <a class="el" href="gaim_8h_source.html#l00099">parameter_ga::clipping_fname</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00455">GA::evolve()</a>, <a class="el" href="gaim_8h_source.html#l00131">parameter_pr::experiment_name</a>, <a class="el" href="gaim_8h_source.html#l00206">GA::fitness</a>, <a class="el" href="gaim_8h_source.html#l00089">parameter_ga::generations</a>, <a class="el" href="gaim_8h_source.html#l00091">parameter_ga::genome_size</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, <a class="el" href="gaim_8h_source.html#l00118">parameter_im::is_im_enabled</a>, <a class="el" href="gaim_8h_source.html#l00275">IM::island</a>, <a class="el" href="gaim_8h_source.html#l00114">parameter_im::migration_interval</a>, <a class="el" href="gaim_8h_source.html#l00112">parameter_im::num_immigrants</a>, <a class="el" href="gaim_8h_source.html#l00113">parameter_im::num_islands</a>, <a class="el" href="gaim_8h_source.html#l00092">parameter_ga::num_offsprings</a>, <a class="el" href="gaim_8h_source.html#l00093">parameter_ga::num_replacement</a>, <a class="el" href="gaim_8h_source.html#l00115">parameter_im::pick_method</a>, <a class="el" href="gaim_8h_source.html#l00090">parameter_ga::population_size</a>, <a class="el" href="gaim_8h_source.html#l00133">parameter_pr::print_average_fitness</a>, <a class="el" href="gaim_8h_source.html#l00135">parameter_pr::print_best_genome</a>, <a class="el" href="gaim_8h_source.html#l00134">parameter_pr::print_bsf</a>, <a class="el" href="gaim_8h_source.html#l00132">parameter_pr::print_fitness</a>, <a class="el" href="parameters_8cpp_source.html#l00217">print_parameters()</a>, <a class="el" href="gaim_8h_source.html#l00116">parameter_im::replace_method</a>, <a class="el" href="island__ga_8cpp_source.html#l00343">IM::run_islands()</a>, <a class="el" href="gaim_8h_source.html#l00101">parameter_ga::runs</a>, and <a class="el" href="gaim_8h_source.html#l00130">parameter_pr::where2write</a>.</p>
+<p class="reference">References <a class="el" href="gaim_8h_source.html#l00161">parameter_ga::a</a>, <a class="el" href="gaim_8h_source.html#l00191">parameter_im::adj_list_fname</a>, <a class="el" href="gaim_8h_source.html#l00241">py_results::average_fitness</a>, <a class="el" href="gaim_8h_source.html#l00162">parameter_ga::b</a>, <a class="el" href="gaim_8h_source.html#l00094">parameter_sel::bias</a>, <a class="el" href="gaim_8h_source.html#l00240">py_results::bsf</a>, <a class="el" href="gaim_8h_source.html#l00168">parameter_ga::clipping</a>, <a class="el" href="gaim_8h_source.html#l00173">parameter_ga::clipping_fname</a>, <a class="el" href="gaim_8h_source.html#l00158">parameter_ga::cross_pms</a>, <a class="el" href="gaim_8h_source.html#l00110">parameter_cross::crossover_method</a>, <a class="el" href="genetic__alg_8cpp_source.html#l00405">GA::evolve()</a>, <a class="el" href="gaim_8h_source.html#l00205">parameter_pr::experiment_name</a>, <a class="el" href="gaim_8h_source.html#l00335">GA::fitness</a>, <a class="el" href="gaim_8h_source.html#l00163">parameter_ga::generations</a>, <a class="el" href="gaim_8h_source.html#l00239">py_results::genome</a>, <a class="el" href="gaim_8h_source.html#l00165">parameter_ga::genome_size</a>, <a class="el" href="gaim_8h_source.html#l00331">GA::get_average_fitness()</a>, <a class="el" href="gaim_8h_source.html#l00330">GA::get_best_genome()</a>, <a class="el" href="gaim_8h_source.html#l00329">GA::get_bsf()</a>, <a class="el" href="parallel__ga_8cpp_source.html#l00039">independent_runs()</a>, <a class="el" href="gaim_8h_source.html#l00192">parameter_im::is_im_enabled</a>, <a class="el" href="gaim_8h_source.html#l00139">parameter_mut::is_real</a>, <a class="el" href="gaim_8h_source.html#l00421">IM::island</a>, <a class="el" href="gaim_8h_source.html#l00098">parameter_sel::k</a>, <a class="el" href="gaim_8h_source.html#l00132">parameter_mut::low_bound</a>, <a class="el" href="gaim_8h_source.html#l00097">parameter_sel::lower_bound</a>, <a class="el" href="gaim_8h_source.html#l00188">parameter_im::migration_interval</a>, <a class="el" href="gaim_8h_source.html#l00159">parameter_ga::mut_pms</a>, <a class="el" href="gaim_8h_source.html#l00127">parameter_mut::mutation_method</a>, <a class="el" href="gaim_8h_source.html#l00129">parameter_mut::mutation_rate</a>, <a class="el" href="gaim_8h_source.html#l00186">parameter_im::num_immigrants</a>, <a class="el" href="gaim_8h_source.html#l00187">parameter_im::num_islands</a>, <a class="el" href="gaim_8h_source.html#l00166">parameter_ga::num_offsprings</a>, <a class="el" href="gaim_8h_source.html#l00095">parameter_sel::num_parents</a>, <a class="el" href="gaim_8h_source.html#l00167">parameter_ga::num_replacement</a>, <a class="el" href="gaim_8h_source.html#l00138">parameter_mut::order</a>, <a class="el" href="gaim_8h_source.html#l00189">parameter_im::pick_method</a>, <a class="el" href="gaim_8h_source.html#l00164">parameter_ga::population_size</a>, <a class="el" href="gaim_8h_source.html#l00207">parameter_pr::print_average_fitness</a>, <a class="el" href="gaim_8h_source.html#l00209">parameter_pr::print_best_genome</a>, <a class="el" href="gaim_8h_source.html#l00208">parameter_pr::print_bsf</a>, <a class="el" href="gaim_8h_source.html#l00206">parameter_pr::print_fitness</a>, <a class="el" href="parameters_8cpp_source.html#l00268">print_parameters()</a>, <a class="el" href="gaim_8h_source.html#l00099">parameter_sel::replace</a>, <a class="el" href="gaim_8h_source.html#l00190">parameter_im::replace_method</a>, <a class="el" href="island__ga_8cpp_source.html#l00343">IM::run_islands()</a>, <a class="el" href="gaim_8h_source.html#l00175">parameter_ga::runs</a>, <a class="el" href="gaim_8h_source.html#l00157">parameter_ga::sel_pms</a>, <a class="el" href="gaim_8h_source.html#l00091">parameter_sel::selection_method</a>, <a class="el" href="gaim_8h_source.html#l00136">parameter_mut::time</a>, <a class="el" href="gaim_8h_source.html#l00134">parameter_mut::up_bound</a>, <a class="el" href="gaim_8h_source.html#l00131">parameter_mut::variance</a>, and <a class="el" href="gaim_8h_source.html#l00204">parameter_pr::where2write</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="pygaim_8cpp_source.html#l00036">PYBIND11_MODULE()</a>.</p>
 
