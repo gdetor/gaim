@@ -42,21 +42,35 @@ if __name__ == '__main__':
                                  10,           # Number of offsprings
                                  5,            # Replacements
                                  1,            # Independent rounds
-                                 5,            # Number of Islands
-                                 4,            # Number of immigrants
-                                 200,          # Migration interval
                                  [-1., -1., -1.],   # a - lower bound
                                  [1., 1., 1.],     # b - upper bound
-                                 "universal",   # Clipping method
-                                 " ",          # Clipping filename
-                                 "pygaim",       # Experiment ID
-                                 "./data/",     # Where to store the logs
-                                 "elite",      # Pickup method (IM)
-                                 "poor",       # Replace method (IM)
-                                 " ",          # IM connectivity graph file
-                                 False,        # Log fitness
-                                 True,         # Log average fitness
-                                 True,         # Log BSF
-                                 True,         # Log of best genome
-                                 False)        # Enable/disable the IM
+                                 clipping="universal",
+                                 clipping_fname="clamp_fname.dat",
+                                 selection_method="ktournament",
+                                 bias=1.5,
+                                 num_parents=2,
+                                 lower_bound=1,
+                                 k=2,
+                                 replace=False,
+                                 crossover_method="one_point",
+                                 mutation_method="delta",
+                                 mutation_rate=0.5,
+                                 mutation_var=0.5,
+                                 low_bound=0.0,
+                                 up_bound=1.0,
+                                 order=1,
+                                 is_real=True,
+                                 is_im_enabled=False,
+                                 n_islands=5,
+                                 n_immigrants=3,
+                                 migration_interval=500,
+                                 pickup_method="elite",
+                                 replace_method="poor",
+                                 im_graph_fname="graph.dat",
+                                 experiment_id="experiment1",
+                                 log_fname="./data/",
+                                 log_fitness=False,
+                                 log_average_fitness=True,
+                                 log_bsf=True,
+                                 log_best_genome=True)
     print(res.genome)

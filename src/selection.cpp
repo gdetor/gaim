@@ -41,7 +41,7 @@
  */
 void GA::select_selection_method(void) {
     // Assign the appropriate selection method
-    if (selection_method == "ktournamet") {
+    if (selection_method == "ktournament") {
         selection = &GA::ktournament_selection;
     } else if (selection_method == "truncation") {
         selection = &GA::truncation_selection;

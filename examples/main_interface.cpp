@@ -31,7 +31,7 @@ int main() {
     std::string clip = "universal", clip_file = " ", graph = " ";
 
     int n = 2;
-    std::vector<REAL_> a(n, -10.0), b(n, 10.0);
+    std::vector<REAL_> a(n, -1.0), b(n, 1.0);
     res = ga_optimization(sphere,       // fitness function
                           1000,         // Generations
                           10,           // Population size
@@ -39,23 +39,8 @@ int main() {
                           3,            // Number of offsprings
                           1,            // Replacements
                           1,            // Independent rounds
-                          5,            // Number of Islands
-                          4,            // Number of immigrants
-                          200,          // Migration interval
                           a,            // a - lower bound
-                          b,            // b - upper bound
-                          clip,         // Clipping method
-                          clip_file,    // Clipping filename
-                          exp_id,       // Experiment ID
-                          store,        // Where to store the logs
-                          choice,       // Pickup method (IM)
-                          replace,      // Replace method (IM)
-                          graph,        // IM connectivity graph file
-                          true,         // Log average fitness
-                          true,         // Log BSF
-                          true,         // Log of best genome
-                          true,         // Enable/disable genome universal clipping 
-                          false);       // Enable/disable the IM
+                          b);            // b - upper bound
 
     std::cout << "Best genome:" << std::endl;
     for (auto &g: res.genome) {

@@ -78,45 +78,59 @@ extern "C"
                               size_t n_offsprings,
                               size_t n_replacements,
                               size_t n_rounds,
-                              size_t n_islands,
-                              size_t n_immigrants,
-                              size_t migration_interval,
                               std::vector<REAL_> a,
                               std::vector<REAL_> b,
                               std::string clipping,
                               std::string clipping_fname,
-                              std::string experiment_id,
-                              std::string log_fname,
+                              std::string selection_method,
+                              REAL_ bias,
+                              size_t num_parents,
+                              size_t lower_bound,
+                              size_t k,
+                              bool replace,
+                              std::string crossover_method,
+                              std::string mutation_method,
+                              REAL_ mutation_rate,
+                              REAL_ mutation_var,
+                              REAL_ low_bound,
+                              REAL_ up_bound,
+                              size_t order,
+                              bool is_real,
+                              bool is_im_enabled,
+                              size_t n_islands,
+                              size_t n_immigrants,
+                              size_t migration_interval,
                               std::string pickup_method,
                               std::string replace_method,
                               std::string im_graph_fname,
+                              std::string experiment_id,
+                              std::string log_fname,
                               bool log_fitness,
                               bool log_average_fitness,
                               bool log_bsf,
-                              bool log_best_genome,
-                              bool is_im_enabled) {
+                              bool log_best_genome) {
     py_results res;
     ga_parameter_s ga_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
 
-    ga_pms.sel_pms.bias = 1.5;
-    ga_pms.sel_pms.selection_method = "random";
-    ga_pms.sel_pms.num_parents = 2;
-    ga_pms.sel_pms.lower_bound = 1;
-    ga_pms.sel_pms.k = 2;
-    ga_pms.sel_pms.replace = false;
+    ga_pms.sel_pms.selection_method = selection_method;
+    ga_pms.sel_pms.bias = bias;
+    ga_pms.sel_pms.num_parents = num_parents;
+    ga_pms.sel_pms.lower_bound = lower_bound;
+    ga_pms.sel_pms.k = k;
+    ga_pms.sel_pms.replace = replace;
     
-    ga_pms.cross_pms.crossover_method = "one_point";
+    ga_pms.cross_pms.crossover_method = crossover_method;
 
-    ga_pms.mut_pms.mutation_method = "delta";
-    ga_pms.mut_pms.mutation_rate = 0.5;
-    ga_pms.mut_pms.variance = 0.5;
-    ga_pms.mut_pms.low_bound = 1.0;
-    ga_pms.mut_pms.up_bound = 1.0;
+    ga_pms.mut_pms.mutation_method = mutation_method;
+    ga_pms.mut_pms.mutation_rate = mutation_rate;
+    ga_pms.mut_pms.variance = mutation_var;
+    ga_pms.mut_pms.low_bound = low_bound;
+    ga_pms.mut_pms.up_bound = up_bound;
     ga_pms.mut_pms.time = 1;
-    ga_pms.mut_pms.order = 1;
-    ga_pms.mut_pms.is_real = true;
+    ga_pms.mut_pms.order = order;
+    ga_pms.mut_pms.is_real = is_real;
 
     // Assign values to GA parameters
     ga_pms.runs = n_rounds;
