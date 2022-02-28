@@ -139,8 +139,7 @@ std::map<int, node_s> read_connectivity_graph(std::string fname,
  */
 void select_ind2migrate(std::vector<individual_s> pool,
                         REAL_ **buffer,
-                        // REAL_ (*f)(std::vector<REAL_> &),
-                        std::function<REAL_(std::vector<REAL_>&)> f,
+                        REAL_ (*f)(REAL_ *, size_t),
                         std::vector<REAL_> a,
                         std::vector<REAL_> b,
                         std::size_t num_immigrants,
@@ -168,7 +167,7 @@ void select_ind2migrate(std::vector<individual_s> pool,
                           new_genome.end(),
                           [&]{return probs(gen);});
             pool[id].genome = new_genome;
-            pool[id].fitness = f(new_genome);
+            pool[id].fitness = f(&new_genome[0], new_genome.size());
         }
     } else if (method == "elit") {
         for (size_t i = len-1, j = 0; j < num_immigrants; --i, ++j) {
@@ -179,7 +178,7 @@ void select_ind2migrate(std::vector<individual_s> pool,
                           new_genome.end(),
                           [&]{return probs(gen);});
             pool[i].genome = new_genome;
-            pool[i].fitness = f(new_genome);
+            pool[i].fitness = f(&new_genome[0], new_genome.size());
         }
     } else if (method == "poor") {
         for (size_t i = 0; i < num_immigrants; ++i) {
@@ -190,7 +189,7 @@ void select_ind2migrate(std::vector<individual_s> pool,
                           new_genome.end(),
                           [&]{return probs(gen);});
             pool[i].genome = new_genome;
-            pool[i].fitness = f(new_genome);
+            pool[i].fitness = f(&new_genome[0], new_genome.size());
         }
     } else {
         std::cerr << "No such immigration method exists!" <<std::endl;
@@ -218,8 +217,7 @@ void select_ind2migrate(std::vector<individual_s> pool,
  */
 void receiving_immigrants(std::vector<individual_s> pool,
                           REAL_ *buffer,
-                          // REAL_ (*f)(std::vector<REAL_> &),
-                          std::function<REAL_(std::vector<REAL_>&)> f,
+                          REAL_ (*f)(REAL_ *, size_t),
                           std::size_t num_immigrants,
                           std::size_t genome_size,
                           std::string method)
@@ -239,14 +237,14 @@ void receiving_immigrants(std::vector<individual_s> pool,
             std::copy(buffer+(i*genome_size),
                       buffer+((i+1)*genome_size),
                       pool[id].genome.begin());
-            pool[id].fitness = f(pool[id].genome);
+            pool[id].fitness = f(&pool[id].genome[0], pool[id].genome.size());
         }
     } else if (method == "poor") {
         for (size_t i = 0; i < num_immigrants; ++i) {
             std::copy(buffer+(i*genome_size),
                       buffer+((i+1)*genome_size),
                       pool[i].genome.begin());
-            pool[i].fitness = f(pool[i].genome);
+            pool[i].fitness = f(&pool[i].genome[0], pool[i].genome.size());
         }
     } else if (method == "elit") {
         id = pool.size();
@@ -254,7 +252,8 @@ void receiving_immigrants(std::vector<individual_s> pool,
             std::copy(buffer+(i*genome_size),
                       buffer+((i+1)*genome_size),
                       pool[id-1-i].genome.begin());
-            pool[id-1-i].fitness = f(pool[id-1-i].genome);
+            pool[id-1-i].fitness = f(&pool[id-1-i].genome[0],
+                                     pool[id-1-i].genome.size());
         }
     } else {
         std::cerr << "No such immigration method exists!" <<std::endl;

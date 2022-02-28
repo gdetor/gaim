@@ -341,7 +341,10 @@ class GA {
 #endif
 #else
         /// Fitness function - function pointer
-        std::function<REAL_(std::vector<REAL_> &)> fitness;
+        // std::function<REAL_(std::vector<REAL_> &)> fitness;
+        // REAL_ (*fitness)(std::vector<REAL_> &);
+        REAL_ (*fitness)(REAL_ *, size_t);
+
 #endif
 
         std::vector<individual_s> population; /// Individuals population vector
@@ -483,7 +486,8 @@ void print_results(std::vector<individual_s>,
 
 /// Demo objective/fitness functions
 /// End-user can define more at her/his will
-REAL_ sphere(std::vector<REAL_>&);
+// REAL_ sphere(std::vector<REAL_>&);
+REAL_ sphere(REAL_ *, size_t);
 REAL_ rastrigin(std::vector<REAL_>&);
 REAL_ schwefel(std::vector<REAL_>&);
 REAL_ griewank(std::vector<REAL_>&);
@@ -502,7 +506,7 @@ int mkdir_(const std::string &);
 
 
 /// Interface functions (to use GAIM through other programming languages
-py_results_s ga_optimization(std::function<REAL_(std::vector<REAL_>&)>,
+py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              size_t n_generations,
                              size_t population_size,
                              size_t genome_size,
@@ -512,7 +516,7 @@ py_results_s ga_optimization(std::function<REAL_(std::vector<REAL_>&)>,
                              std::vector<REAL_> a,
                              std::vector<REAL_> b,
                              std::string clipping="universal",
-                             std::string clipping_fname="clamp_values_file",
+                             std::string clipping_fname="clip_file.dat",
                              std::string selection_method="ktournament",
                              REAL_ bias=1.5,
                              size_t num_parents=2,
@@ -528,18 +532,61 @@ py_results_s ga_optimization(std::function<REAL_(std::vector<REAL_>&)>,
                              size_t order=1,
                              bool is_real=true,
                              bool is_im_enabled=false,
-                             size_t n_islands=5,
+                             size_t n_islands=4,
                              size_t n_immigrants=4,
                              size_t migration_interval=500,
                              std::string pickup_method="elite",
                              std::string replace_method="poor",
-                             std::string im_graph_fname="./examples/star_graph.dat",
-                             std::string experiment_id="experiment1",
+                             std::string im_graph_fname="star_graph.dat",
+                             std::string experiment_id="experiment-1",
                              std::string log_fname="./data/",
                              bool log_fitness=false,
                              bool log_average_fitness=true,
                              bool log_bsf=true,
                              bool log_best_genome=true);
+
+
+void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
+                            size_t n_generations,
+                            size_t population_size,
+                            size_t genome_size,
+                            size_t n_offsprings,
+                            size_t n_replacements,
+                            size_t n_rounds,
+                            REAL_ *a,
+                            REAL_ *b,
+                            char *clipping,
+                            char *clipping_fname,
+                            char *selection_method,
+                            REAL_ bias,
+                            size_t num_parents,
+                            size_t lower_bound,
+                            size_t k,
+                            bool replace,
+                            char *crossover_method,
+                            char *mutation_method,
+                            REAL_ mutation_rate,
+                            REAL_ mutation_var,
+                            REAL_ low_bound,
+                            REAL_ up_bound,
+                            size_t order,
+                            bool is_real,
+                            bool is_im_enabled,
+                            size_t n_islands,
+                            size_t n_immigrants,
+                            size_t migration_interval,
+                            char *pickup_method,
+                            char *replace_method,
+                            char *im_graph_fname,
+                            char *experiment_id,
+                            char *log_fname,
+                            bool log_fitness,
+                            bool log_average_fitness,
+                            bool log_bsf,
+                            bool log_best_genome,
+                            REAL_ **genoe,
+                            REAL_ **bsf,
+                            REAL_ **agv_fitness);
 
 #ifdef __cplusplus
 }

@@ -36,11 +36,11 @@
  *  @param[in] x Vector
  *  @return A number indicating the cost
  */
-REAL_ sphere(std::vector<REAL_>& x)
+REAL_ sphere(REAL_ *x, size_t len)
 {
     REAL_ mysum = 0;
-    for (auto &i : x) {
-        mysum += i * i;
+    for (size_t i = 0; i < len; ++i) {
+        mysum += x[i] * x[i];
     }
     return -mysum;
 }
@@ -55,13 +55,13 @@ REAL_ sphere(std::vector<REAL_>& x)
  *  @param[in] x Vector
  *  @return A number indicating the cost
  */
-REAL_ rastrigin(std::vector<REAL_>& x)
+REAL_ rastrigin(REAL_ *x, size_t len)
 {
     REAL_ mysum = 0.0;
-    for (auto &i : x) {
-        mysum += i*i - 10.0 * cos(2. * M_PI *i);
+    for (size_t i = 0; i < len; ++i) {
+        mysum += x[i]*x[i] - 10.0 * cos(2. * M_PI * x[i]);
     }
-    return -(10.0 * x.size() + mysum);
+    return -(10.0 * len + mysum);
 }
 
 
@@ -74,13 +74,13 @@ REAL_ rastrigin(std::vector<REAL_>& x)
  *  @param[in] x Vector
  *  @return A number indicating the cost
  */
-REAL_ schwefel(std::vector<REAL_>& x)
+REAL_ schwefel(REAL_ *x, size_t len)
 {
     REAL_ mysum = 0.0;
-    for (auto &i : x) {
-        mysum += i * sin(sqrt(abs(i)));
+    for (size_t i = 0; i < len; ++i) {
+        mysum += x[i] * sin(sqrt(abs(x[i])));
     }
-    return -(418.9829 * x.size() - mysum);
+    return -(418.9829 * len - mysum);
 }
 
 
@@ -94,13 +94,13 @@ REAL_ schwefel(std::vector<REAL_>& x)
  *  @param[in] x Vector
  *  @return A number indicating the cost
  */
-REAL_ griewank(std::vector<REAL_>& x)
+REAL_ griewank(REAL_ *x, size_t len)
 {
     REAL_ myprod = 1.0, mysum = 0.0;
     size_t ii = 0;
-    for(auto &i : x) {
-        myprod *= cos(i / sqrt(ii + 1));
-        mysum += i * i;
+    for (size_t i = 0; i < len; ++i) {
+        myprod *= cos(x[i] / sqrt(ii + 1));
+        mysum += x[i] * x[i];
         ii++;
     }
     return -(1 + mysum / 4000.0 - myprod);  
@@ -139,11 +139,11 @@ int distance(int x, int y)
 }
 
 
-REAL_ tsm(std::vector<REAL_>& x)
+REAL_ tsm(REAL_ *x, size_t len)
 {
     REAL_ mysum = 0;
     mysum = 0;
-    for (size_t i = 0; i < x.size()-1; ++i) {
+    for (size_t i = 0; i < len-1; ++i) {
         mysum += distance(x[i], x[i+1]);
     }
     return -mysum;

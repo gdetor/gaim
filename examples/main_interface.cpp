@@ -30,7 +30,7 @@ int main() {
     std::string store = "./data/", exp_id = "interface";
     std::string clip = "universal", clip_file = " ", graph = " ";
 
-    int n = 2;
+    size_t n = 2;
     std::vector<REAL_> a(n, -1.0), b(n, 1.0);
     res = ga_optimization(sphere,       // fitness function
                           1000,         // Generations
@@ -39,8 +39,8 @@ int main() {
                           3,            // Number of offsprings
                           1,            // Replacements
                           1,            // Independent rounds
-                          a,            // a - lower bound
-                          b);            // b - upper bound
+                          a,        // a - lower bound
+                          b);       // b - upper bound
 
     std::cout << "Best genome:" << std::endl;
     for (auto &g: res.genome) {

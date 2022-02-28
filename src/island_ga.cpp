@@ -198,7 +198,7 @@ void IM::select_ind2migrate(size_t num_immigrants,
     for (size_t i = 0; i < num_immigrants; ++i) {
         std::generate(new_genome.begin(), new_genome.end(), [&]{return probs(gen);});
         island[unique_id].population[island[unique_id].immigrant[i].id].genome = new_genome;
-        island[unique_id].population[island[unique_id].immigrant[i].id].fitness = island[unique_id].fitness(new_genome);
+        island[unique_id].population[island[unique_id].immigrant[i].id].fitness = island[unique_id].fitness(&new_genome[0], new_genome.size());
     }
 }
 
@@ -243,7 +243,7 @@ void IM::move_immigrants(size_t num_immigrants,
                 id = pop[i];
                 island[unique_id].population[id].genome = t.genome;
                 island[unique_id].population[id].fitness = 
-                    island[unique_id].fitness(t.genome);
+                    island[unique_id].fitness(&t.genome[0], t.genome.size());
                 i++;
             }
         } else if (method == "poor") {
@@ -251,7 +251,7 @@ void IM::move_immigrants(size_t num_immigrants,
             for (auto &t : island[k].immigrant) {
                 island[unique_id].sorted_population[i].genome = t.genome;
                 island[unique_id].sorted_population[i].fitness = 
-                    island[unique_id].fitness(t.genome);
+                    island[unique_id].fitness(&t.genome[0], t.genome.size());
                 i++;
             }
             island[unique_id].population = island[unique_id].sorted_population;
@@ -261,7 +261,7 @@ void IM::move_immigrants(size_t num_immigrants,
             for (auto &t : island[k].immigrant) {
                 island[unique_id].sorted_population[id-1-i].genome = t.genome;
                 island[unique_id].sorted_population[id-1-i].fitness = 
-                    island[unique_id].fitness(t.genome);
+                    island[unique_id].fitness(&t.genome[0], t.genome.size());
                 i++;
             }
             island[unique_id].population = island[unique_id].sorted_population;

@@ -213,7 +213,7 @@ GA::~GA()
 void GA::evaluation(std::vector<individual_s> &x)
 {
     for (size_t i = 0; i < x.size(); ++i) {
-        x[i].fitness = fitness(x[i].genome);
+        x[i].fitness = fitness(&x[i].genome[0], x[i].genome.size());
     }
 }
 

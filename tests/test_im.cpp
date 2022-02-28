@@ -28,7 +28,7 @@ ga_parameter_s init_ga_params(void)
     sel_parameter_s sel;
     ga_parameter_s ga_test;
 
-    sel.selection_method = "ktournamet";
+    sel.selection_method = "ktournament";
     sel.bias = 1.5;
     sel.num_parents = 2;
     sel.lower_bound = 1;

@@ -30,7 +30,11 @@ from struct import unpack
 import matplotlib.pylab as plt
 
 
-def plot_data(directory='./data/', data_type="bsf", nbytes=4, average=False):
+def plot_data(directory='./data/',
+              data_type="bsf",
+              nbytes=4,
+              average=False,
+              ax=None):
     """
     Plots either the Best-so-far (BSF) fitness or the average fitness per
     population.
@@ -41,6 +45,10 @@ def plot_data(directory='./data/', data_type="bsf", nbytes=4, average=False):
                             the average fitness per population
         nbytes (int):       Number of bytes of the encoding. Default is 4 (int
                             or float). Use 8 for double or long int.
+        average (bool):     If enabled (True) averages the fitness records over
+                            all individuals.
+        ax (obj):           A subplot object in case one would like to use
+                            subplots or grids.
 
     Returns:
     """
@@ -66,23 +74,27 @@ def plot_data(directory='./data/', data_type="bsf", nbytes=4, average=False):
             data.append(tmp)
     data = np.array(data)
     if average:
-        average_bsf = data.mean(axis=0)
+        average_fit = data.mean(axis=0)
 
-    fig = plt.figure(figsize=(9, 5))
-    fig.subplots_adjust(bottom=0.2, left=0.2)
-    ax = fig.add_subplot(111)
+    if ax is None:
+        fig = plt.figure(figsize=(9, 5))
+        fig.subplots_adjust(bottom=0.2, left=0.2)
+        ax = fig.add_subplot(111)
     if average:
-        ax.plot(average_bsf, lw=2)
+        ax.plot(average_fit, lw=2)
     else:
         for i in range(len(data)):
             ax.plot(data[i], lw=2)
             plt.ticklabel_format(axis="y", style='sci')
     # ax.set_ylim([data.min(), 0])
     ax.set_xlabel("Generations", fontsize=16, weight='bold')
-    ax.set_ylabel(data_type, fontsize=16, weight='bold')
+    if data_type == "bsf":
+        ax.set_ylabel("BSF", fontsize=16, weight='bold')
+    else:
+        ax.set_ylabel("Average fitness", fontsize=16, weight='bold')
     ticks = ax.get_xticks().astype('i')
     ax.set_xticklabels(ticks, fontsize=16, weight='bold')
-    ticks = np.round(ax.get_yticks(), 17)
+    ticks = np.round(ax.get_yticks(), 6)
     ax.set_yticklabels(ticks, fontsize=16, weight='bold')
 
 
@@ -156,11 +168,27 @@ def print_best_genome(directory='./data/', islands=1, nbytes=4):
 
 if __name__ == '__main__':
     path = sys.argv[1]
+    # with plt.xkcd():
+    fig = plt.figure(figsize=(16, 6))
+
+    ax = fig.add_subplot(121)
     # Plot BSF
-    plot_data(directory=path, data_type="bsf", nbytes=8)
+    plot_data(directory=path, data_type="bsf", nbytes=4, ax=ax)
+    # ax.set_ylim([-2, 0])
+    ax.text(0, 0.05, 'A',
+            ha='left',
+            fontsize=21,
+            weight='bold')
 
     # Plot average fitness
-    plot_data(directory=path, data_type="average_fitness", nbytes=8)
+    ax = fig.add_subplot(122)
+    plot_data(directory=path, data_type="average_fitness", nbytes=4, ax=ax)
+    # ax.set_ylim([-1.5, 0])
+    ax.text(0, 0.07, 'B',
+            ha='left',
+            fontsize=21,
+            weight='bold')
+    plt.savefig("bsf_avg_fit.png")
 
     # Pring individuals IDs and their Fitness
     # print_fitness(directory=path)
