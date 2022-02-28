@@ -316,12 +316,13 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
 
             auto tmp_avg = gen_alg.get_average_fitness();
             auto tmp_bsf = gen_alg.get_bsf();
-            for (size_t i = 0; i < ga_pms.generations; ++i) {
+            auto tmp_gen = gen_alg.get_best_genome();
+            for (size_t i = 0; i < tmp_bsf.size(); ++i) {
                 (*bsf)[i] = tmp_bsf[i];
                 (*avg_fitness)[i] = tmp_avg[i];
             }
-            for (size_t i = 0; i < ga_pms.genome_size; ++i) {
-                (*genome)[i] = gen_alg.get_best_genome()[i];
+            for (size_t i = 0; i < tmp_gen.size(); ++i) {
+                (*genome)[i] = tmp_gen[i];
             }
         } else if (ga_pms.runs > 1) {
             printf("Running %d independent GAs!\n", ga_pms.runs);

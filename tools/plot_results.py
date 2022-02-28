@@ -188,7 +188,7 @@ if __name__ == '__main__':
             ha='left',
             fontsize=21,
             weight='bold')
-    plt.savefig("bsf_avg_fit.png")
+    # plt.savefig("bsf_avg_fit.png")
 
     # Pring individuals IDs and their Fitness
     # print_fitness(directory=path)
