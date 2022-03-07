@@ -467,7 +467,7 @@ def error(x):
     return -tmp
 ```
 
-And the GA and logging parameters (see [here](https://gitlab.com/gdetor/genetic_alg#controlling-the-optimizer-using-gaim-configuration-files)). 
+And the GA and logging parameters (see [here](https://github.com/gdetor/gaim#controlling-the-optimizer-using-gaim-configuration-files)). 
 ```
 if __name__ == '__main__':
     # Define all GA parameters
@@ -608,8 +608,8 @@ generations), and the average fitness (over generations).
 
 Please first consult the **CONTRIBUTING.md** file for the Code of Conduct.
 
-In case you would like to contribute to GAIM, you should use the [Gitlab Merge
-Request](https://gitlab.com/gdetor/genetic_alg/merge_requests) system. 
+In case you would like to contribute to GAIM, you should use the [Github Pull
+Request](https://github.com/gdetor/gaim/pulls) system. 
 
 
 ## For more help
@@ -619,7 +619,7 @@ See documentation included under doc/.
 ## Report Bugs
 
 In case you would like to report a bug or you experience any problems with GAIM,
-you should open an issue using the [Gitlab Issue Tracker](https://gitlab.com/gdetor/genetic_alg/issues). 
+you should open an issue using the [Github Issue Tracker](https://github.com/gdetor/gaim/issues). 
 
 ## References
 
