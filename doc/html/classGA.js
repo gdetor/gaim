@@ -1,6 +1,5 @@
 var classGA =
 [
-    [ "Callback", "classGA.html#ad43b621702ecd9ef228a823f6812041b", null ],
     [ "GA", "classGA.html#a2a2859549b38e5bb1446d07613718364", null ],
     [ "~GA", "classGA.html#a18975e5b8b24b68b2d783ae3080845c9", null ],
     [ "clip_genome", "classGA.html#a355a96066688ca3ea7b8bcdce049f337", null ],
@@ -19,8 +18,6 @@ var classGA =
     [ "nonuniform_mutation", "classGA.html#a4f9717879f6fa20fd32cb5f9b307dea1", null ],
     [ "one_point_crossover", "classGA.html#aef9b140ee737ee459b7afa1e5ddba423", null ],
     [ "order_one_crossover", "classGA.html#a21cb72d1295790abcefa9fbe0ac56803", null ],
-    [ "pycallback", "classGA.html#ad33d1ba273b049b8b108e9d216e02ee5", null ],
-    [ "pycallback", "classGA.html#aa85ba69277d8bca7bd57fd55857ecf40", null ],
     [ "random_mutation", "classGA.html#a56c337716017d5fef7c3d2e4d327f002", null ],
     [ "random_selection", "classGA.html#a41ad3f2a1f28f02e3a994959b9524fd2", null ],
     [ "reset_selection_flags", "classGA.html#a81fcc9b9c0c604e98ef58b382eb5744c", null ],
@@ -46,8 +43,7 @@ var classGA =
     [ "crossover", "classGA.html#abfd2b97ad91b196f318e53beb4e3abee", null ],
     [ "crossover_method", "classGA.html#a5eb2524e9c358401e7a4f4e3090f0732", null ],
     [ "fit_avg", "classGA.html#a30d7682cf0e54680635765bdcb40ba4b", null ],
-    [ "fitness", "classGA.html#ab159c9cfe16b5e27799e59a4a89c9127", null ],
-    [ "fitness", "classGA.html#a0bf5cfdd0ad478eb651700b4c19d6812", null ],
+    [ "fitness", "classGA.html#a74887086b04eeb3224718ce14dbfdc3a", null ],
     [ "generations", "classGA.html#a10b1a92ed188c32de244bac239165861", null ],
     [ "genome_size", "classGA.html#a92da617a43ffa69376d3ce6dcfc46f1e", null ],
     [ "hfi", "classGA.html#a68c5a5c6cb9d3280f45cf7d5de162e37", null ],

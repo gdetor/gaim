@@ -329,23 +329,7 @@ class GA {
         std::vector<REAL_> &get_bsf(){ return bsf; }
         std::vector<REAL_> &get_best_genome(){ return bsf_genome; }
         std::vector<REAL_> &get_average_fitness(){ return fit_avg; }
-#ifdef PYTHON
-#ifdef OLDGCC
-        /// Callback for fitness function. It is used only with pyGAIM
-        std::function<REAL_(std::vector<REAL_>&)> fitness;
-        bool pycallback(std::function<REAL_(std::vector<REAL_>&)>);
-#else
-        using Callback = std::function<REAL_(std::vector<REAL_>&)>;
-        Callback fitness;
-        bool pycallback(Callback);
-#endif
-#else
-        /// Fitness function - function pointer
-        // std::function<REAL_(std::vector<REAL_> &)> fitness;
-        // REAL_ (*fitness)(std::vector<REAL_> &);
         REAL_ (*fitness)(REAL_ *, size_t);
-
-#endif
 
         std::vector<individual_s> population; /// Individuals population vector
         std::vector<individual_s> offsprings;   /// Offsprings vector 
@@ -539,7 +523,7 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              std::string replace_method="poor",
                              std::string im_graph_fname="star_graph.dat",
                              std::string experiment_id="experiment-1",
-                             std::string log_fname="./data/",
+                             std::string log_path="./data/",
                              bool log_fitness=false,
                              bool log_average_fitness=true,
                              bool log_bsf=true,
@@ -579,7 +563,7 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
                             char *replace_method,
                             char *im_graph_fname,
                             char *experiment_id,
-                            char *log_fname,
+                            char *log_path,
                             bool log_fitness,
                             bool log_average_fitness,
                             bool log_bsf,

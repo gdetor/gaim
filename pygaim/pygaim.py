@@ -3,14 +3,10 @@ import ctypes as C
 import matplotlib.pylab as plt
 
 
-def error(x: float, length: int):
-    """!
-    A simple test fitness function (Sphere).
-    """
-    address = C.addressof(x.contents)
-    x = np.ctypeslib.as_array((C.c_float * length).from_address(address))
-    tmp = (x**2).sum()
-    return -float(tmp)
+def c2numpy(arr, length):
+    address = C.addressof(arr.contents)
+    arr = np.ctypeslib.as_array((C.c_float * length).from_address(address))
+    return arr
 
 
 class GAOptimize():
@@ -213,27 +209,12 @@ class GAOptimize():
         fig = plt.figure(figsize=(14, 5))
         fig.subplots_adjust(wspace=0.3, hspace=0.3)
         ax = fig.add_subplot(121)
-        ax.plot(ga.bsf, 'k', lw=2)
+        ax.plot(self.bsf, 'k', lw=2)
         ax.set_xlabel("Generations", fontsize=16, weight='bold')
         ax.set_ylabel("BSF", fontsize=16, weight='bold')
         pretty_ticks(ax)
         ax = fig.add_subplot(122)
-        ax.plot(ga.avg, 'orange', lw=2)
+        ax.plot(self.avg, 'orange', lw=2)
         ax.set_xlabel("Generations", fontsize=16, weight='bold')
         ax.set_ylabel("Average Fitness", fontsize=16, weight='bold')
         pretty_ticks(ax)
-
-
-if __name__ == '__main__':
-    genome_size = 2
-    ga = GAOptimize(error,
-                    n_generations=500,
-                    population_size=20,
-                    genome_size=genome_size,
-                    n_offsprings=5,
-                    n_replacements=2,
-                    a=[float(-1) for _ in range(genome_size)],
-                    b=[float(1) for _ in range(genome_size)])
-    ga.fit()
-    ga.plot_()
-    plt.show()

@@ -166,30 +166,6 @@ GA::GA(ga_parameter_s *ga_pms)
 }
 
 
-#ifdef PYTHON
-#ifdef OLDGCC
-/**
- * Fitness callback function. Allows the user to define a fitness function on
- * Python side and use it with pygaim (based on pybind11).
- *
- * @param[in] func Functional that takes a vector as input and returns a REAL_.
- * Essentialy this is the fitness function. 
- *              
- * @return True (bool)
- *
- * @see pygaim.cpp, pygaim_demo.py
- */
-bool GA::pycallback(std::function<REAL_(std::vector<REAL_>&)> func)
-#else
-bool GA::pycallback(Callback func)
-#endif
-{
-    fitness = func;
-    return true;
-}
-#endif
-
-
 /**
  * @brief Destructor of GA class
  */

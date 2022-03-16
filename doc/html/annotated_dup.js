@@ -2,6 +2,7 @@ var annotated_dup =
 [
     [ "pcg_detail", "namespacepcg__detail.html", "namespacepcg__detail" ],
     [ "pcg_extras", "namespacepcg__extras.html", "namespacepcg__extras" ],
+    [ "pygaim", "namespacepygaim.html", "namespacepygaim" ],
     [ "_pthread_barrier_t", "struct__pthread__barrier__t.html", "struct__pthread__barrier__t" ],
     [ "GA", "classGA.html", "classGA" ],
     [ "IM", "classIM.html", "classIM" ],

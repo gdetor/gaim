@@ -40,36 +40,69 @@ extern "C"
  * @param[in] n_offsprings Number of new candidate individuals (children)
  * @param[in] n_replacements Number of parents to be replaced per generation
  * @param[in] n_rounds Number of independent experiments to run
- * @param[in] n_islands Number of islands in a Island Model
- * @param[in] n_immigrants Number of individuals to move from one island to
- *              another (only for IM)
- * @param[in] migration_interval Determines how frequent individuals have to
- *              move from one island to another
  * @param[in] a Vector with genes lower bounds
  * @param[in] b Vector with genes upper bounds
  * @param[in] clipping Gene's clipping method (universal: all the genes are
  * clamped with the same values a and b. Individual: Each gene has its own 
- * clamped values a and b. PPPPPPP
+ * clamped values a and b.
  * @param[in] clipping_fname Filename of clipping file
- * @param[in] experiment_id The name of the current experiment
- * @param[in] log_fname The directory in which all the results and logs will be
- *              saved
- * @param[in] pickup_method Selection method of migrating individuals in IM.
- * Poor: Select individuals with lowest fitness. Elite: select individuals
- * with the highest fitness. Random: select individuals randomly.
+ * @param[in] selection_method Selection method must be one of the following:
+ * ktournament, truncation, linear_rank, random, roulette, stochastic_roulette,
+ * whitley
+ * @param[in] bias This is the bias term when the Whitley selection method is
+ * used
+ * @param[in] num_parents Determines how many parents will be selected from the
+ * population
+ * @param[in] lower_bound Determines the starting index when the Truncation 
+ * selection method is used
+ * @param[in] k Determines the tournament size (number of individuals to choose)
+ * when the k-tournament method is used
+ * @param[in] replace If it's true then any selection method will choose the
+ * parents from the original population with replacement.
+ * param[in] crossover_method Crossover method must be one of the following:
+ * one_point, two_point, uniform, flat, discrete, first_order
+ * @param[in] mutation_method Mutation method muse be one of the following:
+ * delta, random, nonuniform, fusion, swap_mutation
+ * @param[in] mutation_rate The mutation rate when the delta mutation method is
+ * used
+ * @param[in] mutation_var The mutation variance when the delta mutation method
+ * is used
+ * @param[in] low_bound Determines the lower bound for the uniform distributions
+ * used in all mutation methods
+ * @param[in] up_bound Determines the upper bound for the uniform distributions
+ * used in all mutation methods
+ * @param[in] order Defines the order of the Nonuniform delta mutation
+ * @param[in] is_real Determines if the mutation operators will operate on real
+ * or integer numbers
+ * @param[in] is_im_enabled Enables/disables the island model operation
+ * @param[in] n_islands Number of islands in a Island Model
+ * @param[in] n_immigrants Number of individuals to move from one island to
+ *              another (only for island model)
+ * @param[in] migration_interval Determines how frequent individuals have to
+ *              move from one island to another
+ * @param[in] pickup_method Selection method of migrating individuals in an 
+ * island model, poor: Select individuals with lowest fitness, elite: select
+ * individuals with the highest fitness, and random: select individuals randomly
  * @param[in] replace_method Replacement method of individuals on islands who
  * receive immigrants. Three method (poor, elite, and random).
  * @param[in] im_graph_fname The filename of the file that contains the
- * connectivity graph for an IM. 
+ * connectivity graph for an island model. 
+ * @param[in] experiment_id A name for any optimization (experiment). GAIM will
+ * store all the parameters of the optimization in a file with that name
+ * @param[in] log_path The directory in which all the results and logs will
+ * be saved
  * @param[in] log_fitness Enable/disable the track of individuals' fitness
  * @param[in] log_average_fitness Enable/disable the track of population
  * (average) fitness
  * @param[in] log_bsf Enable/disable the track of Best So far Fitness (BSF)
  * fitness. 
  * @param[in] log_best_genome Enable/disable the track of the best genome
- * @param[in] is_im_enabled Enable/disable the IM functionality
- * * @return res A py_results_s data structure that contains the average
- * fitness, the BSF, and the best genome. 
+ *
+ * @return res A py_results_s data structure that contains the average
+ * fitness, the BSF, and the best genome found from the GA.
+ *
+ * @note Right now the island model most probably will fail to return the best
+ * genome. A function the will take care of that is required.
  * */
 py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              size_t n_generations,
@@ -104,7 +137,7 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              std::string replace_method,
                              std::string im_graph_fname,
                              std::string experiment_id,
-                             std::string log_fname,
+                             std::string log_path,
                              bool log_fitness,
                              bool log_average_fitness,
                              bool log_bsf,
@@ -157,7 +190,7 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
     pr_pms.print_average_fitness = log_average_fitness;
     pr_pms.print_bsf = log_bsf;
     pr_pms.print_best_genome = log_best_genome;
-    pr_pms.where2write = log_fname;
+    pr_pms.where2write = log_path;
     pr_pms.experiment_name = experiment_id;
 
     im_pms.num_immigrants = n_immigrants;
@@ -230,7 +263,7 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
                             char *replace_method,
                             char *im_graph_fname,
                             char *experiment_id,
-                            char *log_fname,
+                            char *log_path,
                             bool log_fitness,
                             bool log_average_fitness,
                             bool log_bsf,
@@ -288,7 +321,7 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
     pr_pms.print_average_fitness = log_average_fitness;
     pr_pms.print_bsf = log_bsf;
     pr_pms.print_best_genome = log_best_genome;
-    pr_pms.where2write = std::string(log_fname);
+    pr_pms.where2write = std::string(log_path);
     pr_pms.experiment_name = std::string(experiment_id);
 
     im_pms.num_immigrants = n_immigrants;

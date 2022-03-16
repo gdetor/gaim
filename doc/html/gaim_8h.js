@@ -24,7 +24,8 @@ var gaim_8h =
     [ "compare_fitness", "gaim_8h.html#a98c219b4a1c75f16e81784bf5618cd8a", null ],
     [ "cumulative_fitness", "gaim_8h.html#a3422d21ce5b5a4bd09925c7c3501197c", null ],
     [ "float_random", "gaim_8h.html#a1d9cef7331f9b3b7e0c590c61f74eff2", null ],
-    [ "ga_optimization", "gaim_8h.html#abee949fdc367be7dcbd2578f312ab591", null ],
+    [ "ga_optimization", "gaim_8h.html#a72dd112669455c453a44c4af7c4542f4", null ],
+    [ "ga_optimization_python", "gaim_8h.html#a0759fb97c89b3d6710df7987c7c433f9", null ],
     [ "griewank", "gaim_8h.html#a4ee9ecf0f8b15abe84fe28b658a48fed", null ],
     [ "independent_runs", "gaim_8h.html#a518c54c210409fc2183267d6a6a16c60", null ],
     [ "int_random", "gaim_8h.html#a31999cecab5f3885384236781c504ec7", null ],
@@ -44,6 +45,6 @@ var gaim_8h =
     [ "remove_at", "gaim_8h.html#a5af1482c7bb76e240cbd177d1eb066fc", null ],
     [ "remove_file", "gaim_8h.html#ad1161f455f37ff08ba8644dbd1015f4d", null ],
     [ "schwefel", "gaim_8h.html#ab65d727174dca6fa3e2c8f7695637ea4", null ],
-    [ "sphere", "gaim_8h.html#a4ded098f00476342536910805dccda88", null ],
+    [ "sphere", "gaim_8h.html#a05205871b5be531e5fcd21443e2f61ed", null ],
     [ "tsm", "gaim_8h.html#a4cb94ce044c729ba9a0a7be0444b9ad6", null ]
 ];

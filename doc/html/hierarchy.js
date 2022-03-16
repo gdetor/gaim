@@ -17,6 +17,7 @@ var hierarchy =
       [ "pcg_detail::engine< xtype, itype, output_mixin, output_previous, stream_mixin, multiplier_mixin >", "classpcg__detail_1_1engine.html", null ]
     ] ],
     [ "GA", "classGA.html", null ],
+    [ "pygaim.pygaim.GAOptimize", "classpygaim_1_1pygaim_1_1GAOptimize.html", null ],
     [ "pcg_detail::halfsize_trait< T >", "structpcg__detail_1_1halfsize__trait.html", null ],
     [ "pcg_detail::halfsize_trait< pcg128_t >", "structpcg__detail_1_1halfsize__trait_3_01pcg128__t_01_4.html", null ],
     [ "pcg_detail::halfsize_trait< uint16_t >", "structpcg__detail_1_1halfsize__trait_3_01uint16__t_01_4.html", null ],

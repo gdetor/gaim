@@ -1,9 +1,9 @@
 var test__functions_8cpp =
 [
     [ "distance", "test__functions_8cpp.html#aeecd6e89e2a3202942f8bc969295608a", null ],
-    [ "griewank", "test__functions_8cpp.html#ab16264d38d5a269f2f00c3707f221167", null ],
-    [ "rastrigin", "test__functions_8cpp.html#afa129890421082451d3c2a8025e9d824", null ],
-    [ "schwefel", "test__functions_8cpp.html#ad56869b41fd72a0d395063964218a3db", null ],
-    [ "sphere", "test__functions_8cpp.html#ad3b9262a03a70913ca68f43f383a0123", null ],
-    [ "tsm", "test__functions_8cpp.html#a4cb94ce044c729ba9a0a7be0444b9ad6", null ]
+    [ "griewank", "test__functions_8cpp.html#a6d67494cf0767fbd38f7bfa2a6b7f17a", null ],
+    [ "rastrigin", "test__functions_8cpp.html#ac1ab34331975039523efab417993992a", null ],
+    [ "schwefel", "test__functions_8cpp.html#ad513103cfc2b9a2fc6d1b80abf91db1d", null ],
+    [ "sphere", "test__functions_8cpp.html#a5c58d066962a0fc569b0a0f2e3ea032f", null ],
+    [ "tsm", "test__functions_8cpp.html#aafe60761b45442530fd29fcaad91178c", null ]
 ];

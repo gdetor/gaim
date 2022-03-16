@@ -22,7 +22,6 @@ Building GAIM requires the following packages:
 - libconfig++ (9v5> and dev) 
 - pthreads 
 - OpenMPI
-- Pybind11 (only if pyGAIM is used)
 
 
 ## Install
@@ -104,7 +103,7 @@ optimizization (similar to Scipy's minimize). The user passes the objective
 function as an argument along with all the necessary optimization parameters.
 In this case there is no need for a configuration file. The same function can
 be called from Python since GAIM already provides a Python wrapper based on 
-Pybind11. 
+ctypes. 
 
 
 ## Controlling the optimizer using GAIM configuration files
@@ -436,74 +435,6 @@ Once the user has the configuration file and the main function they desire, they
 **More examples** above for instructions on creating the dynamic library).
 
 
-## Optimize a function through Python with pyGAIM
-
-GAIM offers Python wrappers based on [pybind11](https://github.com/pybind/pybind11).
-So far the user can call GAIM via Python and can define their own fitness function
-written in Python. In the future we will provide wrappers for the entire GAIM 
-infrastracture so the user will be able to define their own GA flow. 
-
-The user has to compile the source code using the Makefile in the **pygaim**
-directory. 
-```
-$ cd pygaim/
-$ make PYTHON=1
-```
-
-If everything runs smoothly and the code compiles without any error then the
-user can import the pyGAIM in their source code:
-```
-import pygaim
-```
-
-Then, they can define a fitness function 
-```
-def error(x):
-    """!
-    A simple test fitness function (Sphere).
-    """
-    x = np.array(x, 'd')
-    tmp = (x**2).sum()
-    return -tmp
-```
-
-And the GA and logging parameters (see [here](https://github.com/gdetor/gaim#controlling-the-optimizer-using-gaim-configuration-files)). 
-```
-if __name__ == '__main__':
-    # Define all GA parameters
-    ga_params = pygaim.ga_parameter_s()
-    ga_params.a = -10.0     # Lower bound of fitness
-    ga_params.b = 10.0      # Upper bound of fitness
-    ga_params.generations = 1000    # Number of generations
-    ga_params.population_size = 200     # Number of individuals
-    ga_params.genome_size = 2           # Number of parameters to search for
-    ga_params.num_offsprings = 5        # Number of offsprings
-    ga_params.num_replacement = 3       # Number of individuals to be replaced
-    ga_params.runs = 1                  # Number of indipendent runs of a GA
-
-    # Define all Logging parameters
-    where2write = "./data/".encode('utf-8')     # Where to store the results
-    experiment_name = "PyGATest".encode('utf-8')    # Name of the experiment
-    log_params = pygaim.pr_parameter_s()
-    log_params.where2write = where2write
-    log_params.experiment_name = experiment_name
-    log_params.print_fitness = True
-    log_params.print_average_fitness = True
-    log_params.print_bsf = True
-    log_params.print_best_genome = True
-```
-Finally, they can instantiate the GA class, assign the fitness function to the
-callback method and call the evolve method to run the GA. 
-
-```
-    new_ga = pygaim.GA(ga_params)   # GA instance
-    new_ga.pycallback(error)        # Assign the fitness function
-    new_ga.evolve(1000, 0, log_params)  # Evolve the GA#0 for 1000 generations
-```
-The complete example can be found in the **pygaim** directory as a standalone
-python script under the name **pygaim_demo.py**.
-
-
 ## Optimize a function through the interface function from python
 The following code snippet demonstrates how we can use the **ga_optimization**
 function to minimize any objective function. For the moment the objective
@@ -516,74 +447,44 @@ will allow an objective function with extra parameters.
 
 ```
 import numpy as np
-import pygaim
+import ctypes as C
+import matplotlib.pylab as plt
+
+from pygaim import GAOptimize, c2numpy
 
 
-def error(x):
-    """!
-    A simple test fitness function (Sphere).
-    """
-    x = np.array(x, 'd')
+def error(x: float, length: int):
+    x = c2numpy(x, length)
     tmp = (x**2).sum()
-    return -tmp
+    return -float(tmp)
 
 
 if __name__ == '__main__':
-    res = pygaim.ga_optimization(error,        # fitness function
-                                 1000,         # generations 
-                                 20,           # population size
-                                 2,            # genome size (parameters)
-                                 5,            # number of offsprings
-                                 3,            # number of replacements
-                                 1,            # number of independent experiments
-                                 [-1., -1.],   # lower bound of interval [a, b]
-                                 [1., 1.],     # upper bound of interval [a, b]
-                                 "universal",  # clipping type
-                                 "clip_file",  # clipping values file name
-                                 "ktournament", # selection method
-                                 1.5,           # Whitley method's bias
-                                 2,             # number of parents
-                                 1,             # starting index for truncation
-                                 2,             # k-tournament order
-                                 false,         # replace switch
-                                 "one_point",   # crossover method
-                                 "delta",       # mutation method
-                                 0.5,           # mutation rate
-                                 0.1,           # mutation variance
-                                 0.0,           # lower bound of RNG (mutation)
-                                 1.0,           # upper bound of RNG (mutation)
-                                 1,             # order of nonuniform mutation
-                                 True,          # real/int switch (mutation)
-                                 False,         # enable/disable IM
-                                 5,             # number of islands
-                                 3,             # number of immigrants
-                                 500,           # migration interval
-                                 "elite",       # immigrant pickup method (IM)
-                                 "poor",        # individual replace method (IM)    
-                                 "graph.dat",   # IM graph file
-                                 "test",        # experiment ID
-                                 "./data/",     # directory where to store
-                                 True,          # store fitness record
-                                 True,          # store average fitness
-                                 True,          # store BSF record
-                                 True)          # store best genome
-                                 "lolo",       # Experiment ID
-                                 "./data/",     # Where to store the logs
-                                 "elite",      # Pickup method (IM)
-                                 "poor",       # Replace method (IM)
-                                 " ",          # IM connectivity graph file
-                                 False,        # Log fitness
-                                 True,         # Log average fitness
-                                 True,         # Log BSF
-                                 True,         # Log of best genome
-                                 False)        # Enable/disable the IM
-    print(res.genome)       # print the best genome
+    genome_size = 2         # set the genome size to 2
+
+    # Instantiate the class GAOptimize
+    ga = GAOptimize(error,
+                    n_generations=500,              # number of generations
+                    population_size=20,             # population size
+                    genome_size=genome_size,        # genome size
+                    n_offsprings=5,                 # number of offsprings
+                    n_replacements=2,               # number of replacements
+                    a=[float(-1) for _ in range(genome_size)],  # lower genome limits
+                    b=[float(1) for _ in range(genome_size)])   # upper genome limits
+    
+    ga.fit()        # Run the optimization
+    ga.plot_()      # Plot the average and BSF fitness
+    plt.show()
 ```
 
-The function **ga_optimization** returns a data structure of type
-**py_results_s**. This data structure contains the best genome, the BSF (over
-generations), and the average fitness (over generations).
-
+The class **GAOptimize** provides a method *fit* which will run the GA optimization
+on the fintess function, in this example the function called *error*. Furthermore,
+GAOptimize comes with a basic plot function that will trace the average fitness
+and the best-so-far (BSF) fitness value. The function c2numpy converts a C 
+array into a numpy one. The user has to use this function inside their fitness
+function every time the fitness function receives an array from the GAIM 
+library. For a more detailed description please see the documentation on the 
+**ga_optimization** function of GAIM.
 
 
 ## Platforms where GAIM has been tested

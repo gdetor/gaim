@@ -14,7 +14,7 @@ var files_dup =
     [ "pcg_extras.hpp", "pcg__extras_8hpp.html", "pcg__extras_8hpp" ],
     [ "pcg_random.hpp", "pcg__random_8hpp.html", "pcg__random_8hpp" ],
     [ "pcg_uint128.hpp", "pcg__uint128_8hpp.html", null ],
-    [ "pygaim.cpp", "pygaim_8cpp.html", "pygaim_8cpp" ],
+    [ "pygaim.py", "pygaim_8py.html", "pygaim_8py" ],
     [ "selection.cpp", "selection_8cpp.html", "selection_8cpp" ],
     [ "test_functions.cpp", "test__functions_8cpp.html", "test__functions_8cpp" ]
 ];
