@@ -133,8 +133,6 @@ typedef struct parameter_mut {
                        distributions (only mutation operator) */
     REAL_ up_bound; /**< Upper bound of interval [a, b] for all uniform 
                       distributions (only mutation operator) */
-    size_t time;    /**< The time index (current generation) for non-uniform
-                      mutation */
     size_t order;  /**< Power of mutation rate (non-uniform mutation) */
     bool is_real;  /**< Determines if the genome is of type int or real
                      (float or double) */
@@ -235,11 +233,11 @@ typedef struct individual {
  * fitness). This data structure is used only from the ga_optimization 
  * function. 
  */
-typedef struct py_results {
+typedef struct ga_results {
     std::vector<REAL_> genome; /**< Best genome */
     std::vector<REAL_> bsf;   /**< BSF record */
     std::vector<REAL_> average_fitness;  /**< Average fitness record */
-} py_results_s;
+} ga_results_s;
 
 
 #ifdef __cplusplus
@@ -358,7 +356,7 @@ class GA {
         size_t genome_size;    /// Genome size (number of genes)
         size_t num_parents;    /// Number of parents per generation to select from
         size_t lower_bound;    /// Starting index for truncation selection
-        size_t time;
+        size_t current_generation;
         size_t generations;
         size_t order;
         int k;                 /// k-tournament order
@@ -389,7 +387,7 @@ class IM {
         /// Selection method. It selects individuals per island to move and
         //populates the vacant spots with new ones randomly. 
         //@see select_ind2immigrate()
-        void select_ind2migrate(size_t, size_t, std::string method="random");
+        void select_ind2migrate(size_t, size_t, std::string);
         /// Immigration method. It moves the immigrants (individuals) from one
         //island to another based on a specific policy.
         //@see move_immigrants()
@@ -403,7 +401,7 @@ class IM {
         /// Evolves an island (thread function)
         void evolve_island(size_t, im_parameter_s *, pr_parameter_s *);
         /// Runs the Island Models 
-        void run_islands(im_parameter_s *, pr_parameter_s *);
+        void evolve_islands(im_parameter_s *, pr_parameter_s *);
 
         std::vector<GA> island; /// Islands (threads) vector
 
@@ -418,6 +416,14 @@ class IM {
 
         std::mutex mtx;     // Mutex for locking threads
 };
+
+
+// Main island function
+ga_results_s run_islands(REAL_ (*func)(REAL_ *, size_t),
+                         im_parameter_s,
+                         ga_parameter_s,
+                         pr_parameter_s,
+                         std::string);
 
 // Auxiliary functions (only for C++)
 void remove_at(std::vector<size_t>&, typename std::vector<size_t>::size_type);
@@ -434,16 +440,26 @@ extern "C" {
 bool compare_fitness(const individual_s, const individual_s);
 REAL_ average_fitness(REAL_, const individual_s);
 bool is_path_exist(const std::string &);
+int mkdir_(const std::string &);
+int make_dir(const std::string &);
 int remove_file(const std::string);
 REAL_ calculate_whitley_factor(REAL_);
 REAL_ maximum_fitness(std::vector<individual_s>);
 REAL_ nonselected_maximum_fitness(std::vector<individual_s>);
 REAL_ cumulative_fitness(std::vector<individual_s>);
+REAL_ vector_norm(std::vector<REAL_>);
+int argmin(std::vector<REAL_>);
+int argmax(std::vector<REAL_>);
+std::vector<REAL_> compute_population_norms(std::vector<GA>);
+ga_results return_best_results(std::vector<GA>, std::string);
+
 
 
 /// Multithread and Islands functions declarations
-void independent_runs(ga_parameter_s *,
-                      pr_parameter_s *);
+ga_results_s independent_runs(REAL_ (*func)(REAL_ *, size_t),
+                              ga_parameter_s *,
+                              pr_parameter_s *,
+                              std::string);
 
 
 /// Printing Functions
@@ -485,12 +501,10 @@ std::tuple<ga_parameter_s,
 void print_parameters(ga_parameter_s,
                       pr_parameter_s,
                       im_parameter_s); 
-bool is_path_exist(const std::string &);
-int mkdir_(const std::string &);
 
 
 /// Interface functions (to use GAIM through other programming languages
-py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
+ga_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              size_t n_generations,
                              size_t population_size,
                              size_t genome_size,
@@ -516,7 +530,7 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              size_t order=1,
                              bool is_real=true,
                              bool is_im_enabled=false,
-                             size_t n_islands=4,
+                             size_t n_islands=5,
                              size_t n_immigrants=4,
                              size_t migration_interval=500,
                              std::string pickup_method="elite",
@@ -524,6 +538,7 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              std::string im_graph_fname="star_graph.dat",
                              std::string experiment_id="experiment-1",
                              std::string log_path="./data/",
+                             std::string return_type="minimum",
                              bool log_fitness=false,
                              bool log_average_fitness=true,
                              bool log_bsf=true,
@@ -564,6 +579,7 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
                             char *im_graph_fname,
                             char *experiment_id,
                             char *log_path,
+                            char *return_type,
                             bool log_fitness,
                             bool log_average_fitness,
                             bool log_bsf,

@@ -21,6 +21,7 @@ if __name__ == '__main__':
                     genome_size=genome_size,
                     n_offsprings=5,
                     n_replacements=2,
+                    n_rounds=1,
                     a=[float(-1) for _ in range(genome_size)],
                     b=[float(1) for _ in range(genome_size)])
     ga.fit()

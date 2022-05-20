@@ -30,11 +30,13 @@ int main() {
     ga_parameter_s ga_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
+    ga_results_s res;
+    std::string return_type("minimum");
 
     std::tie(ga_pms, pr_pms, im_pms) = read_parameters_file("demo_independent_runs.cfg");
     print_parameters(ga_pms, pr_pms, im_pms);
 
     std::cout << "Running "<< ga_pms.runs << " Independent GAs" << std::endl;
-    independent_runs(&ga_pms, &pr_pms);
+    res = independent_runs(sphere, &ga_pms, &pr_pms, return_type);
     return 0;
 }

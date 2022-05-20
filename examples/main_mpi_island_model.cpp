@@ -125,7 +125,7 @@ std::map<int, node_s> read_connectivity_graph(std::string fname,
  * as potential migrants.
  * It supports three methods of distribution. random - where individuals are
  * randomly chosen, poor - individuals with the lowest fitness are chosen, 
- * and finally elit - where individuals with the best fitness are chosen.
+ * and finally elite - where individuals with the best fitness are chosen.
  *
  * @param[in] pool Is the vector of indviduals within an Island (MPI process) 
  * @param[in] buffer A buffer array that is populated with potential migrants
@@ -169,7 +169,7 @@ void select_ind2migrate(std::vector<individual_s> pool,
             pool[id].genome = new_genome;
             pool[id].fitness = f(&new_genome[0], new_genome.size());
         }
-    } else if (method == "elit") {
+    } else if (method == "elite") {
         for (size_t i = len-1, j = 0; j < num_immigrants; --i, ++j) {
             std::copy(pool[i].genome.begin(),
                       pool[i].genome.end(),
@@ -205,7 +205,7 @@ void select_ind2migrate(std::vector<individual_s> pool,
  * them to their final destination MPI process. It supports three methods of 
  * distribution. random - where random individuals from within the local
  * pooulation are being replaced, poor - where individuals with the lowest
- * fitness are replaced, and finally elit - where individuals with the best 
+ * fitness are replaced, and finally elite - where individuals with the best 
  * fitness are replaced by migrants.
  *
  * @param[in] pool Is the vector of indviduals within an Island (MPI process) 
@@ -246,7 +246,7 @@ void receiving_immigrants(std::vector<individual_s> pool,
                       pool[i].genome.begin());
             pool[i].fitness = f(&pool[i].genome[0], pool[i].genome.size());
         }
-    } else if (method == "elit") {
+    } else if (method == "elite") {
         id = pool.size();
         for (size_t i = 0; i < num_immigrants; ++i) {
             std::copy(buffer+(i*genome_size),

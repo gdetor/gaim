@@ -25,22 +25,19 @@
 
 
 int main() {
-    py_results res;
-    std::string replace = "poor", choice = "elite";
-    std::string store = "./data/", exp_id = "interface";
-    std::string clip = "universal", clip_file = " ", graph = " ";
+    ga_results res;
 
     size_t n = 2;
     std::vector<REAL_> a(n, -1.0), b(n, 1.0);
     res = ga_optimization(sphere,       // fitness function
                           1000,         // Generations
                           10,           // Population size
-                          2,            // Genome size
+                          n,            // Genome size
                           3,            // Number of offsprings
                           1,            // Replacements
                           1,            // Independent rounds
-                          a,        // a - lower bound
-                          b);       // b - upper bound
+                          a,            // a - lower bound
+                          b);           // b - upper bound
 
     std::cout << "Best genome:" << std::endl;
     for (auto &g: res.genome) {

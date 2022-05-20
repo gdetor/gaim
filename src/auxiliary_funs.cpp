@@ -31,6 +31,63 @@
 #include "gaim.h"
 
 
+REAL_ vector_norm(std::vector<REAL_> x) {
+    REAL_ norm = 0.0;
+
+    for (size_t i = 0; i < x.size(); ++i) {
+        norm += x[i] * x[i];
+    }
+    return sqrt(norm);
+}
+
+
+std::vector<REAL_> compute_population_norms(std::vector<GA> population) {
+    std::vector<REAL_> norms;
+    for (auto &p : population) {
+        norms.push_back(vector_norm(p.get_best_genome()));
+    }
+    return norms;
+}
+
+
+int argmax(std::vector<REAL_> x) {
+    int argmax_idx(0);
+    std::vector<REAL_>::iterator max = max_element(x.begin(), x.end());
+    argmax_idx = distance(x.begin(), max);
+    return argmax_idx;
+}   
+
+
+int argmin(std::vector<REAL_> x) {
+    int argmin_idx(0);
+    std::vector<REAL_>::iterator min = min_element(x.begin(), x.end());
+    argmin_idx = distance(x.begin(), min);
+    return argmin_idx;
+}   
+
+
+ga_results_s return_best_results(std::vector<GA> population,
+                                 std::string return_type) {
+    int best_index(0);
+    std::vector<REAL_> norms;
+    ga_results_s res;
+
+    norms = compute_population_norms(population);
+
+    if (return_type == "minimum") {
+        best_index = argmin(norms);
+    }else if (return_type == "random") {
+        best_index = (int) int_random(0, norms.size()-1);
+    } else {
+        best_index = argmax(norms);
+    }
+    res.bsf = population[best_index].get_bsf();
+    res.average_fitness = population[best_index].get_average_fitness();
+    res.genome = population[best_index].get_best_genome();
+    return res;
+}
+
+
 /**
  * Integer uniform distribution. It returns an integer random number in the
  * interval [a, b] (uniform distribution).
@@ -227,4 +284,16 @@ int mkdir_(const std::string &path)
         std::cout << "Directory " << path << " created" << std::endl;
         return 0;
     }
+}
+
+
+int make_dir(const std::string &path) {
+    int flag;
+    if (path != "stdout") {
+        if (!is_path_exist(path)) {
+            flag = mkdir_(path);
+            if (flag) { return -1; }
+        }
+    }
+    return 0;
 }

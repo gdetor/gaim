@@ -30,6 +30,8 @@ int main() {
     ga_parameter_s ga_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
+    ga_results_s res;
+    std::string return_type("minimum");
 
     // Load the parameters from the demo_island_model configuration file
     std::tie(ga_pms, pr_pms, im_pms) = read_parameters_file("demo_island_model.cfg");
@@ -37,8 +39,14 @@ int main() {
 
     // Instantiate the IM and run it
     std::cout << "Running an Island Model" << std::endl;
-    IM island_model(&im_pms, &ga_pms);
-    island_model.run_islands(&im_pms, &pr_pms);
+    // IM island_model(&im_pms, &ga_pms);
+    // island_model.run_islands(&im_pms, &pr_pms);
+    res = run_islands(sphere, im_pms, ga_pms, pr_pms, return_type);
 
+    std::cout << "Best genome:\n";
+    for (auto &g : res.genome) {
+        std::cout << g << "  ";
+    }
+    std::cout << "\n";
     return 0;
 }

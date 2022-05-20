@@ -36,11 +36,23 @@
  *
  * @return Nothing (void)
  */
-void independent_runs(ga_parameter_s *ga_pms,
-                      pr_parameter_s *pr_pms)
+ga_results independent_runs(REAL_ (*func)(REAL_ *, size_t),
+                            ga_parameter_s *ga_pms,
+                            pr_parameter_s *pr_pms,
+                            std::string return_type)
 {
     std::vector<GA> ind_population(ga_pms->runs, GA(ga_pms));
     std::vector<std::thread> run;
+    ga_results_s best_results;
+
+    if (make_dir(pr_pms->where2write)) {
+        std::cout << "ERROR: Cannot create directory " << pr_pms->where2write << "\n";
+        exit(-1);
+    }
+
+    for (int i = 0; i < ga_pms->runs; ++i) {
+        ind_population[i].fitness = func;
+    }
 
     /// Instantiate threads and GAs
     for(int i = 0; i < ga_pms->runs; ++i) {
@@ -55,4 +67,7 @@ void independent_runs(ga_parameter_s *ga_pms,
     for(std::thread& th : run) {
         if (th.joinable()) { th.join(); }
 	}
+
+    best_results = return_best_results(ind_population, return_type);
+    return best_results;
 }

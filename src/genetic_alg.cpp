@@ -95,7 +95,6 @@ GA::GA(ga_parameter_s *ga_pms)
     variance = ga_pms->mut_pms.variance;
     low_bound = ga_pms->mut_pms.low_bound;
     up_bound = ga_pms->mut_pms.up_bound;
-    time = ga_pms->mut_pms.time;
     order = ga_pms->mut_pms.order;
     is_real = ga_pms->mut_pms.is_real;
 
@@ -125,6 +124,7 @@ GA::GA(ga_parameter_s *ga_pms)
         }
     }
 
+    // initialize clamping values (clipping)
     // corresponding file (see config file)
     if (ga_pms->clipping == "file") {
         auto ifile = std::fstream(ga_pms->clipping_fname, std::ios::in);
@@ -385,8 +385,10 @@ void GA::evolve(size_t generations,
 #ifdef TIME
     auto start = std::chrono::high_resolution_clock::now();
 #endif
+    current_generation = 0;
     for(size_t i = 0; i < generations; ++i) {
         run_one_generation();
+        ++current_generation;
     }
     sort_population();
 #ifdef TIME

@@ -48,7 +48,6 @@ ga_parameter_s init_ga_params(void)
     mut.variance = 0.5; 
     mut.low_bound = 0.0; 
     mut.up_bound = 1.0; 
-    mut.time = 1;   
     mut.order = 1;  
     mut.is_real = true;  
 

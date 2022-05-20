@@ -147,7 +147,8 @@ REAL_ delta(REAL_ x, size_t time, size_t tot_time, size_t r=1)
  * @brief Non-uniform mutation operator.
  *
  * Performs a non-uniform mutation which is time-dependent, decaying over 
- * time. The mutation is computed as \f$ \Delta(b - x) \f$ or \f$\Delta(x - a) \f$
+ * time (generations). The mutation is computed as
+ * \f$ \Delta(b - x) \f$ or \f$\Delta(x - a) \f$
  * based on a random choice between -1 or 1, respectively. 
  * 
  * @param[in] genome Individual's genome
@@ -165,11 +166,11 @@ std::vector<REAL_> GA::nonuniform_mutation(std::vector<REAL_> genome)
     size_t sign = U(gen);
     if (sign == 1) {
         for (auto &g : mutated_genome) {
-            g += delta(up_bound - g, time, generations, order);
+            g += delta(up_bound - g, current_generation, generations, order);
         }
     } else {
         for (auto &g : mutated_genome) {
-            g -= delta(g - low_bound, time, generations, order);
+            g -= delta(g - low_bound, current_generation, generations, order);
         }
     }
     return mutated_genome;

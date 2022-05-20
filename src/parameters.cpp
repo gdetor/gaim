@@ -51,7 +51,7 @@ std::tuple<ga_parameter_s,
     int generations, population_size, num_offsprings, genome_size, k;
     int num_replacement, runs;
     int num_islands, num_immigrants, migration_interval;
-    int flag, time, order;
+    int flag, order;
     int num_parents, lower_bound;
     REAL_ bias, mutation_rate, variance;
     REAL_ low_bound, up_bound;
@@ -177,7 +177,6 @@ std::tuple<ga_parameter_s,
                 mut.lookupValue("variance", variance) &&
                 mut.lookupValue("low_bound", low_bound) &&
                 mut.lookupValue("up_bound", up_bound) &&
-                mut.lookupValue("time", time) &&
                 mut.lookupValue("order", order) &&
                 mut.lookupValue("is_real", is_real))  {
 
@@ -186,7 +185,6 @@ std::tuple<ga_parameter_s,
                 tmp.mut_pms.variance = variance;
                 tmp.mut_pms.low_bound = low_bound;
                 tmp.mut_pms.up_bound = up_bound;
-                tmp.mut_pms.time = time;
                 tmp.mut_pms.order = order;
                 tmp.mut_pms.is_real = is_real;
             }
@@ -236,13 +234,9 @@ std::tuple<ga_parameter_s,
                 }
             }
 
-            if (print_tmp.where2write != "stdout") {
-                if (!is_path_exist(print_tmp.where2write)) {
-                    flag = mkdir_(print_tmp.where2write);
-                    if (flag) {
-                        exit(-1);
-                    }
-                }
+            if (make_dir(print_tmp.where2write)) {
+                std::cout << "ERROR: Cannot create directory " << print_tmp.where2write << "\n";
+                exit(-1);
             }
         }
         catch(const SettingNotFoundException &nfex)
@@ -305,8 +299,6 @@ void print_parameters(ga_parameter_s ga_pms,
             << std::endl;
         std::cout << "Interval upper limit: " << ga_pms.mut_pms.up_bound
             << std::endl;
-        std::cout << "Non-uniform mutation time: " << ga_pms.mut_pms.time
-            << std::endl;
         std::cout << "Non-uniform mutation order: " << ga_pms.mut_pms.order
             << std::endl;
         std::cout << "Fusion and Random mutation float/int switch: "
@@ -364,8 +356,6 @@ void print_parameters(ga_parameter_s ga_pms,
         ofile << "Interval lower limit: " << ga_pms.mut_pms.low_bound
             << std::endl;
         ofile << "Interval upper limit: " << ga_pms.mut_pms.up_bound
-            << std::endl;
-        ofile << "Non-uniform mutation time: " << ga_pms.mut_pms.time
             << std::endl;
         ofile << "Non-uniform mutation order: " << ga_pms.mut_pms.order
             << std::endl;

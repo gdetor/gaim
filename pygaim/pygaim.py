@@ -1,6 +1,7 @@
 import numpy as np
 import ctypes as C
 import matplotlib.pylab as plt
+import matplotlib.ticker as mticker
 
 
 def c2numpy(arr, length):
@@ -40,11 +41,12 @@ class GAOptimize():
                  n_islands=5,
                  n_immigrants=4,
                  migration_interval=500,
-                 pickup_method="elit",
+                 pickup_method="elite",
                  replace_method="poor",
                  im_graph_fname="./examples/star_graph.dat",
                  experiment_id="experiment-1",
                  log_fname="./data/",
+                 return_type="minimum",
                  log_fitness=False,
                  log_average_fitness=True,
                  log_bsf=True,
@@ -80,6 +82,7 @@ class GAOptimize():
         self.im_graph_fname = self.string2pchar(im_graph_fname)
         self.experiment_id = self.string2pchar(experiment_id)
         self.log_fname = self.string2pchar(log_fname)
+        self.return_type = self.string2pchar(return_type)
         self.log_fitness = log_fitness
         self.log_average_fitness = log_average_fitness
         self.log_bsf = log_bsf
@@ -140,6 +143,7 @@ class GAOptimize():
                                      C.c_char_p,
                                      C.c_char_p,
                                      C.c_char_p,
+                                     C.c_char_p,
                                      C.c_bool,
                                      C.c_bool,
                                      C.c_bool,
@@ -186,6 +190,7 @@ class GAOptimize():
                          self.im_graph_fname,
                          self.experiment_id,
                          self.log_fname,
+                         self.return_type,
                          self.log_fitness,
                          self.log_average_fitness,
                          self.log_bsf,
@@ -202,8 +207,10 @@ class GAOptimize():
     def plot_(self):
         def pretty_ticks(ax):
             ticks = ax.get_xticks().astype('i')
+            ax.xaxis.set_major_locator(mticker.FixedLocator(ticks))
             ax.set_xticklabels(ticks, fontsize=16, weight='bold')
             ticks = np.round(ax.get_yticks(), 4)
+            ax.yaxis.set_major_locator(mticker.FixedLocator(ticks))
             ax.set_yticklabels(ticks, fontsize=16, weight='bold')
 
         fig = plt.figure(figsize=(14, 5))

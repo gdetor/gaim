@@ -27,17 +27,19 @@ int main() {
     sel_parameter_s sel_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
+    ga_results_s res;
+    std::string return_type("minimum");
 
     std::tie(ga_pms, pr_pms, im_pms) = read_parameters_file("./examples/demo.cfg");
     print_parameters(ga_pms, pr_pms, im_pms);
 
     if (im_pms.is_im_enabled) {
         std::cout << "Running an Island Model" << std::endl;
-        IM island_model(&im_pms, &ga_pms);
-        for (size_t i = 0; i < im_pms.num_islands; ++i) {
-           island_model.island[i].fitness=&sphere;
-        }
-        island_model.run_islands(&im_pms, &pr_pms);
+        res = run_islands(sphere,
+                          im_pms,
+                          ga_pms,
+                          pr_pms,
+                          return_type);    
     } else {
         if (ga_pms.runs == 1) {
             std::cout << "Running a single GA" << std::endl;
@@ -47,7 +49,7 @@ int main() {
         } else if (ga_pms.runs > 1) {
             std::cout << "Running "<< ga_pms.runs << " Independent GAs"
                 << std::endl;
-            independent_runs(&ga_pms, &pr_pms);
+            res = independent_runs(sphere, &ga_pms, &pr_pms, return_type);
         } else {
             std::cout << "Negative number of runs is illegal!" << std::endl;
             exit(-1);

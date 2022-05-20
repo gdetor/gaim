@@ -98,13 +98,13 @@ extern "C"
  * fitness. 
  * @param[in] log_best_genome Enable/disable the track of the best genome
  *
- * @return res A py_results_s data structure that contains the average
+ * @return res A ga_results_s data structure that contains the average
  * fitness, the BSF, and the best genome found from the GA.
  *
  * @note Right now the island model most probably will fail to return the best
  * genome. A function the will take care of that is required.
  * */
-py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
+ga_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              size_t n_generations,
                              size_t population_size,
                              size_t genome_size,
@@ -138,14 +138,20 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              std::string im_graph_fname,
                              std::string experiment_id,
                              std::string log_path,
+                             std::string return_type,
                              bool log_fitness,
                              bool log_average_fitness,
                              bool log_bsf,
                              bool log_best_genome) {
-    py_results res;
+    ga_results res;
     ga_parameter_s ga_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
+
+    if (make_dir(log_path)) {
+        std::cout << "ERROR: Cannot create directory " << log_path << "\n";
+        exit(-1);
+    }
         
     ga_pms.sel_pms.selection_method = selection_method;
     ga_pms.sel_pms.bias = bias;
@@ -161,7 +167,6 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
     ga_pms.mut_pms.variance = mutation_var;
     ga_pms.mut_pms.low_bound = low_bound;
     ga_pms.mut_pms.up_bound = up_bound;
-    ga_pms.mut_pms.time = 1;
     ga_pms.mut_pms.order = order;
     ga_pms.mut_pms.is_real = is_real;
 
@@ -203,12 +208,12 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
 
     print_parameters(ga_pms, pr_pms, im_pms);
     if (im_pms.is_im_enabled) {
-        IM island_model(&im_pms, &ga_pms);
         printf("Optimizing using Island Model!\n");
-        for (size_t i = 0; i < im_pms.num_islands; ++i) {
-           island_model.island[i].fitness = func;
-        }
-        island_model.run_islands(&im_pms, &pr_pms);
+        res = run_islands(func,
+                          im_pms,
+                          ga_pms,
+                          pr_pms,
+                          std::string(return_type));    
     } else {
         if (ga_pms.runs == 1) {
             printf("Optimizing using a single GA!\n");
@@ -220,7 +225,7 @@ py_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
             res.genome = gen_alg.get_best_genome();
         } else if (ga_pms.runs > 1) {
             printf("Running %d independent GAs!\n", ga_pms.runs);
-            independent_runs(&ga_pms, &pr_pms);
+            res = independent_runs(func, &ga_pms, &pr_pms, return_type);
         } else {
             printf("Negative number of runs is illegal!\n");
             exit(-1);
@@ -264,6 +269,7 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
                             char *im_graph_fname,
                             char *experiment_id,
                             char *log_path,
+                            char *return_type,
                             bool log_fitness,
                             bool log_average_fitness,
                             bool log_bsf,
@@ -274,9 +280,15 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
     ga_parameter_s ga_pms;
     pr_parameter_s pr_pms;
     im_parameter_s im_pms;
+    ga_results_s res;
         
     std::vector<REAL_> a_(a, a + genome_size);
     std::vector<REAL_> b_(b, b + genome_size);
+
+    if (make_dir(log_path)) {
+        std::cout << "ERROR: Cannot create directory " << log_path << "\n";
+        exit(-1);
+    }
     
     ga_pms.sel_pms.selection_method = std::string(selection_method);
     ga_pms.sel_pms.bias = bias;
@@ -292,7 +304,6 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
     ga_pms.mut_pms.variance = mutation_var;
     ga_pms.mut_pms.low_bound = low_bound;
     ga_pms.mut_pms.up_bound = up_bound;
-    ga_pms.mut_pms.time = 1;
     ga_pms.mut_pms.order = order;
     ga_pms.mut_pms.is_real = is_real;
 
@@ -334,12 +345,18 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
 
     print_parameters(ga_pms, pr_pms, im_pms);
     if (im_pms.is_im_enabled) {
-        IM island_model(&im_pms, &ga_pms);
         printf("Optimizing using Island Model!\n");
-        for (size_t i = 0; i < im_pms.num_islands; ++i) {
-           island_model.island[i].fitness = func;
-        }
-        island_model.run_islands(&im_pms, &pr_pms);
+        res = run_islands(func,
+                          im_pms,
+                          ga_pms,
+                          pr_pms,
+                          std::string(return_type));    
+        /* IM island_model(&im_pms, &ga_pms); */
+        /* printf("Optimizing using Island Model!\n"); */
+        /* for (size_t i = 0; i < im_pms.num_islands; ++i) { */
+        /*    island_model.island[i].fitness = func; */
+        /* } */
+        /* island_model.run_islands(&im_pms, &pr_pms); */
     } else {
         if (ga_pms.runs == 1) {
             printf("Optimizing using a single GA!\n");
@@ -347,22 +364,26 @@ void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
             gen_alg.fitness = func;
             gen_alg.evolve(ga_pms.generations, 0, &pr_pms);
 
-            auto tmp_avg = gen_alg.get_average_fitness();
-            auto tmp_bsf = gen_alg.get_bsf();
-            auto tmp_gen = gen_alg.get_best_genome();
-            for (size_t i = 0; i < tmp_bsf.size(); ++i) {
-                (*bsf)[i] = tmp_bsf[i];
-                (*avg_fitness)[i] = tmp_avg[i];
-            }
-            for (size_t i = 0; i < tmp_gen.size(); ++i) {
-                (*genome)[i] = tmp_gen[i];
-            }
+            res.average_fitness = gen_alg.get_average_fitness();
+            res.bsf = gen_alg.get_bsf();
+            res.genome = gen_alg.get_best_genome();
         } else if (ga_pms.runs > 1) {
             printf("Running %d independent GAs!\n", ga_pms.runs);
-            independent_runs(&ga_pms, &pr_pms);
+            res = independent_runs(func,
+                                   &ga_pms,
+                                   &pr_pms,
+                                   std::string(return_type));
+            
         } else {
             printf("Negative number of runs is illegal!\n");
             exit(-1);
         }
+    }
+    for (size_t i = 0; i < res.bsf.size(); ++i) {
+        (*bsf)[i] = res.bsf[i];
+        (*avg_fitness)[i] = res.average_fitness[i];
+    }
+    for (size_t i = 0; i < res.genome.size(); ++i) {
+        (*genome)[i] = res.genome[i];
     }
 }

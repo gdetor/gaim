@@ -28,6 +28,7 @@ import glob
 import numpy as np
 from struct import unpack
 import matplotlib.pylab as plt
+import matplotlib.ticker as mticker
 
 
 def plot_data(directory='./data/',
@@ -93,8 +94,10 @@ def plot_data(directory='./data/',
     else:
         ax.set_ylabel("Average fitness", fontsize=16, weight='bold')
     ticks = ax.get_xticks().astype('i')
+    ax.xaxis.set_major_locator(mticker.FixedLocator(ticks))
     ax.set_xticklabels(ticks, fontsize=16, weight='bold')
     ticks = np.round(ax.get_yticks(), 6)
+    ax.yaxis.set_major_locator(mticker.FixedLocator(ticks))
     ax.set_yticklabels(ticks, fontsize=16, weight='bold')
 
 

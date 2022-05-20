@@ -146,14 +146,14 @@ size_t IM::read_connectivity_graph(std::string fname)
  * implements three distinct selection methods.
  * @li random   The number of individuals is selected randomly from the
  *              population
- * @li elit     Individuals with the best fitness (elit) are selected
+ * @li elite    Individuals with the best fitness (elite) are selected
  * @li poor     Individuals with the worst fitness (poor) are selected
  *
  * @param num_immigrants Number of total individuals who are selected to
  *                       migrate
  * @param unique_id      Is the unique ID of each island (thread ID)
  * @param method         Defines whith strategy (policy) of selecting
- * individuals is going to be used (elit, poor, random)
+ * individuals is going to be used (elite, poor, random)
  * @return Nothing (void)
  *
  * @note In a future version of GAIM, each island will accept a different 
@@ -181,7 +181,7 @@ void IM::select_ind2migrate(size_t num_immigrants,
             id = pop[i];
             island[unique_id].immigrant.push_back(island[unique_id].sorted_population[id]);
         }
-    } else if (method == "elit") {
+    } else if (method == "elite") {
         for (size_t i = len-1, j = 0; j < num_immigrants; --i, ++j) {
             island[unique_id].immigrant.push_back(island[unique_id].sorted_population[i]);
         }
@@ -190,7 +190,8 @@ void IM::select_ind2migrate(size_t num_immigrants,
             island[unique_id].immigrant.push_back(island[unique_id].sorted_population[i]);
         }
     } else {
-        std::cerr << "No such immigration method exists!" <<std::endl;
+        std::cerr << "ERROR: Select Immigrants" << std::endl;
+        std::cerr << "No such immigration method exists!" << std::endl;
         exit(-1);
     }
     mtx.unlock();
@@ -208,7 +209,7 @@ void IM::select_ind2migrate(size_t num_immigrants,
  * method. Supported methods are:
  * @li random Individuals from the current island are randomly chosen and they
  *            are replaced by immigrants
- * @li elit   The highest-fitness individuals within the current island 
+ * @li elite  The highest-fitness individuals within the current island 
  *            population are replaced by immigrants
  * @li poor   The lowest-fitness individuals within the current island
  *            population are replaced by immigrants  
@@ -224,7 +225,7 @@ void IM::select_ind2migrate(size_t num_immigrants,
  */
 void IM::move_immigrants(size_t num_immigrants,
                          size_t unique_id,
-                         std::string method="random")
+                         std::string method)
 {
     size_t id;
     static std::random_device rd;
@@ -255,7 +256,7 @@ void IM::move_immigrants(size_t num_immigrants,
                 i++;
             }
             island[unique_id].population = island[unique_id].sorted_population;
-        } else if (method == "elit") {
+        } else if (method == "elite") {
             id = island[unique_id].population.size();
             size_t i = 0;
             for (auto &t : island[k].immigrant) {
@@ -266,6 +267,7 @@ void IM::move_immigrants(size_t num_immigrants,
             }
             island[unique_id].population = island[unique_id].sorted_population;
         } else {
+            std::cerr << "ERROR: Move Immigrants" << std::endl;
             std::cerr << "No such immigration method exists!" <<std::endl;
             exit(-1);
         }
@@ -292,8 +294,10 @@ void IM::evolve_island(size_t unique_id,
     std::vector<individual_s> immigrant;
 
     island[unique_id].evaluation(island[unique_id].population);
+    island[unique_id].current_generation = 0;
     for (size_t k = 0; k < migration_steps; ++k) {
         island[unique_id].run_one_generation();
+        ++island[unique_id].current_generation;
         pthread_barrier_wait(&barrier);
 
         if (!(k % migration_interval)) {
@@ -340,7 +344,7 @@ void IM::evolve_island(size_t unique_id,
  * @param pr_pms Logging parameters structure
  * @return Nothing (void)
  */
-void IM::run_islands(im_parameter_s *im_pms, pr_parameter_s *pr_pms)
+void IM::evolve_islands(im_parameter_s *im_pms, pr_parameter_s *pr_pms)
 {
     pthread_barrier_init(&barrier, NULL, im_pms->num_islands);
     std::vector<std::thread> islands;
@@ -355,4 +359,27 @@ void IM::run_islands(im_parameter_s *im_pms, pr_parameter_s *pr_pms)
     for (std::thread& th : islands) {
         if (th.joinable()) { th.join(); }
     }
+}
+
+
+ga_results_s run_islands(REAL_ (*func)(REAL_ *, size_t),
+                         im_parameter_s im_pms,
+                         ga_parameter_s ga_pms,
+                         pr_parameter_s pr_pms,
+                         std::string return_type) {
+    ga_results_s res;
+    IM island_model(&im_pms, &ga_pms);
+
+    if (make_dir(pr_pms.where2write)) {
+        std::cout << "ERROR: Cannot create directory " << pr_pms.where2write << "\n";
+        exit(-1);
+    }
+
+    for (size_t i = 0; i < im_pms.num_islands; ++i) {
+       island_model.island[i].fitness = func;
+    }
+    island_model.evolve_islands(&im_pms, &pr_pms);
+    res = return_best_results(island_model.island, return_type);
+
+    return res;
 }

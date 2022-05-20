@@ -42,7 +42,6 @@ ga_parameter_s init_ga_params(void)
     mut.variance = 0.5; 
     mut.low_bound = 0.0; 
     mut.up_bound = 1.0; 
-    mut.time = 1;   
     mut.order = 1;  
     mut.is_real = true;  
 
@@ -76,7 +75,7 @@ pr_parameter_s init_print_params(void)
 }
 
 
-parameter_im init_im_params(void)
+im_parameter_s init_im_params(void)
 {
     im_parameter_s im_test;
     im_test.num_immigrants = 3;
@@ -90,13 +89,15 @@ parameter_im init_im_params(void)
 }
 
 
-int test_evolve_islands(parameter_im *im_pms)
+int test_evolve_islands(im_parameter_s im_pms)
 {
     ga_parameter_s ga_pms(init_ga_params());
     pr_parameter_s pr_pms(init_print_params()); 
-    IM im(im_pms, &ga_pms);
+    // IM im(im_pms, &ga_pms);
+    std::string return_type("minimum");
+    ga_results_s res;
 
-    im.run_islands(im_pms, &pr_pms);
+    res = run_islands(sphere, im_pms, ga_pms, pr_pms, return_type);
     return 0;
 }
 
@@ -105,7 +106,7 @@ int test_im(std::size_t num_immigrants, std::size_t migration_interval,
             std::string method)
 {
     int id;
-    parameter_im pms(init_im_params());
+    im_parameter_s pms(init_im_params());
     pms.num_immigrants = num_immigrants;
     pms.pick_method = method;
     pms.replace_method = method;
@@ -115,7 +116,7 @@ int test_im(std::size_t num_immigrants, std::size_t migration_interval,
     std::cout <<  "All-2-all topology " << num_immigrants << " immigrants "
         << migration_interval << " migration interval and " << method << 
         " migration policy";
-    id = test_evolve_islands(&pms);
+    id = test_evolve_islands(pms);
     cross_validate_(id, "");
 
     pms.num_islands = 4;
@@ -123,7 +124,7 @@ int test_im(std::size_t num_immigrants, std::size_t migration_interval,
     std::cout <<  "Ring topology " << num_immigrants << " immigrants "
         << migration_interval << " migration interval and " << method <<
         " migration policy";
-    id = test_evolve_islands(&pms);
+    id = test_evolve_islands(pms);
     cross_validate_(id, "");
 
     pms.num_islands = 5;
@@ -131,7 +132,7 @@ int test_im(std::size_t num_immigrants, std::size_t migration_interval,
     std::cout <<  "Star topology " << num_immigrants << " immigrants "
         << migration_interval << " migration interval and " << method <<
         " migration policy";
-    id = test_evolve_islands(&pms);
+    id = test_evolve_islands(pms);
     cross_validate_(id, "");
     return 0;
 }
@@ -141,10 +142,10 @@ int main()
 {
     std::cout << "Test Island Model" << std::endl;
     test_im(3, 500, "random");
-    test_im(3, 500, "elit");
+    test_im(3, 500, "elite");
     test_im(3, 500, "poor");
-    test_im(2, 100, "elit");
-    test_im(4, 100, "elit");
+    test_im(2, 100, "elite");
+    test_im(4, 100, "elite");
     test_im(5, 100, "poor");
     return 0;
 }
