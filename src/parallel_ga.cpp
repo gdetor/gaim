@@ -30,11 +30,17 @@
 /**
  * @brief It runs X independent GAs in parallel using threads. 
  *
- * Runs an X number of GAs in parallel and independently using threads. 
- * @param[in] pms Structure of GA parameters.
- * @param[in] pr_pms Structure of printing parameters 
+ * Runs an X number of GAs in parallel and independently using threads.
+ * @param[in] func A pointer to the fitness function
+ * @param[in] ga_pms Structure of GA parameters
+ * @param[in] pr_pms Structure of printing parameters
+ * @param[in] return_type A string that determines which run the genome will be
+ * returned. The available options are:
+ *  (*) "minimum" - the genome with the minimum Euclidean distance is returned
+ *  (*) "maximum" - the genome with the maximum Euclidean distance is returned
+ *  (*) "random" - a randomly chosen genome is returned
  *
- * @return Nothing (void)
+ * @return A data structure of type ga_results_s with the selected genome.
  */
 ga_results independent_runs(REAL_ (*func)(REAL_ *, size_t),
                             ga_parameter_s *ga_pms,
@@ -45,11 +51,13 @@ ga_results independent_runs(REAL_ (*func)(REAL_ *, size_t),
     std::vector<std::thread> run;
     ga_results_s best_results;
 
+    /// Create the data directory if it doesn't exist
     if (make_dir(pr_pms->where2write)) {
         std::cout << "ERROR: Cannot create directory " << pr_pms->where2write << "\n";
         exit(-1);
     }
 
+    /// Set the fitness function for every run
     for (int i = 0; i < ga_pms->runs; ++i) {
         ind_population[i].fitness = func;
     }
@@ -68,6 +76,7 @@ ga_results independent_runs(REAL_ (*func)(REAL_ *, size_t),
         if (th.joinable()) { th.join(); }
 	}
 
+    /// Choose from all the runs which genome to return
     best_results = return_best_results(ind_population, return_type);
     return best_results;
 }

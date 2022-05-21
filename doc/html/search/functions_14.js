@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7ega_631',['~GA',['../classGA.html#a18975e5b8b24b68b2d783ae3080845c9',1,'GA']]],
-  ['_7eim_632',['~IM',['../classIM.html#a450bc003d188ce2f3ff72b83ce78abfb',1,'IM']]]
+  ['whitley_5fselection_644',['whitley_selection',['../classGA.html#a434b73adc44a1b80332eed4585ac9185',1,'GA']]],
+  ['wrapped_645',['wrapped',['../classpcg__detail_1_1engine.html#a142a7d2853ddc5e0583e0398da4c77b7',1,'pcg_detail::engine']]]
 ];

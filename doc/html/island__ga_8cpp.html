@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('island__ga_8cpp.html',''); initResizab
 
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">island_ga.cpp File Reference</div>  </div>
@@ -91,6 +92,12 @@ $(document).ready(function(){initNavTree('island__ga_8cpp.html',''); initResizab
 
 <p><a href="island__ga_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ada3ffe1a30e2e05fa9ee646196e75701"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gaim_8h.html#a11121ae153de3c7a9ca2f60e54d50035">ga_results_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="island__ga_8cpp.html#ada3ffe1a30e2e05fa9ee646196e75701">run_islands</a> (REAL_(*func)(REAL_ *, size_t), <a class="el" href="gaim_8h.html#a8d4fd104d78eed52db4a70ed2ada28ac">im_parameter_s</a> im_pms, <a class="el" href="gaim_8h.html#a89734bd6529544f0baddd879f565d94b">ga_parameter_s</a> ga_pms, <a class="el" href="gaim_8h.html#ac27d906cc49ccb3918d60eb43afbe46f">pr_parameter_s</a> pr_pms, std::string return_type)</td></tr>
+<tr class="memdesc:ada3ffe1a30e2e05fa9ee646196e75701"><td class="mdescLeft">&#160;</td><td class="mdescRight">It runs an island model using pthreads.  <a href="island__ga_8cpp.html#ada3ffe1a30e2e05fa9ee646196e75701">More...</a><br /></td></tr>
+<tr class="separator:ada3ffe1a30e2e05fa9ee646196e75701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a779bfbbb688cf46720cfb65109ea4858"><td class="memItemLeft" align="right" valign="top">pthread_barrier_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="island__ga_8cpp.html#a779bfbbb688cf46720cfb65109ea4858">barrier</a></td></tr>
@@ -100,7 +107,77 @@ Variables</h2></td></tr>
 <div class="textblock"><p>Defines the Island Model class, which runs a genetic algorithm process across multiple communicating subpopulations. </p>
 
 <p class="definition">Definition in file <a class="el" href="island__ga_8cpp_source.html">island_ga.cpp</a>.</p>
-</div><h2 class="groupheader">Variable Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ada3ffe1a30e2e05fa9ee646196e75701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada3ffe1a30e2e05fa9ee646196e75701">&#9670;&nbsp;</a></span>run_islands()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gaim_8h.html#a11121ae153de3c7a9ca2f60e54d50035">ga_results_s</a> run_islands </td>
+          <td>(</td>
+          <td class="paramtype">REAL_(*)(REAL_ *, size_t)&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="gaim_8h.html#a8d4fd104d78eed52db4a70ed2ada28ac">im_parameter_s</a>&#160;</td>
+          <td class="paramname"><em>im_pms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="gaim_8h.html#a89734bd6529544f0baddd879f565d94b">ga_parameter_s</a>&#160;</td>
+          <td class="paramname"><em>ga_pms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="gaim_8h.html#ac27d906cc49ccb3918d60eb43afbe46f">pr_parameter_s</a>&#160;</td>
+          <td class="paramname"><em>pr_pms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>return_type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It runs an island model using pthreads. </p>
+<p>Runs an X number of islands in parallel using threads. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>A pointer to the fitness function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">im_pms</td><td>Structure of <a class="el" href="classIM.html" title="Island Model main class.">IM</a> parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ga_pms</td><td>Structure of <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pr_pms</td><td>Structure of printing parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">return_type</td><td>A string that determines which run the genome will be returned. The available options are: (*) "minimum" - the genome with the minimum Euclidean distance is returned (*) "maximum" - the genome with the maximum Euclidean distance is returned (*) "random" - a randomly chosen genome is returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A data structure of type ga_results_s with the selected genome. </dd></dl>
+<p>Create the data directory if it doesn't exist</p>
+<p>Set the fitness function for every island</p>
+<p>Evolve a <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> on each island</p>
+<p>Choose from all the islands which genome to return</p>
+
+<p class="definition">Definition at line <a class="el" href="island__ga_8cpp_source.html#l00381">381</a> of file <a class="el" href="island__ga_8cpp_source.html">island_ga.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="island__ga_8cpp_source.html#l00347">IM::evolve_islands()</a>, <a class="el" href="gaim_8h_source.html#l00406">IM::island</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00332">make_dir()</a>, <a class="el" href="gaim_8h_source.html#l00185">parameter_im::num_islands</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00103">return_best_results()</a>, and <a class="el" href="gaim_8h_source.html#l00202">parameter_pr::where2write</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00109">ga_optimization()</a>, and <a class="el" href="interface_8cpp_source.html#l00249">ga_optimization_python()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a id="a779bfbbb688cf46720cfb65109ea4858"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a779bfbbb688cf46720cfb65109ea4858">&#9670;&nbsp;</a></span>barrier</h2>
 
@@ -115,7 +192,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="island__ga_8cpp_source.html#l00033">33</a> of file <a class="el" href="island__ga_8cpp_source.html">island_ga.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="barrier_8h_source.html#l00055">_pthread_barrier_destroy()</a>, <a class="el" href="barrier_8h_source.html#l00035">_pthread_barrier_init()</a>, <a class="el" href="barrier_8h_source.html#l00063">_pthread_barrier_wait()</a>, <a class="el" href="island__ga_8cpp_source.html#l00288">IM::evolve_island()</a>, and <a class="el" href="island__ga_8cpp_source.html#l00343">IM::run_islands()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="barrier_8h_source.html#l00055">_pthread_barrier_destroy()</a>, <a class="el" href="barrier_8h_source.html#l00035">_pthread_barrier_init()</a>, <a class="el" href="barrier_8h_source.html#l00063">_pthread_barrier_wait()</a>, <a class="el" href="island__ga_8cpp_source.html#l00290">IM::evolve_island()</a>, and <a class="el" href="island__ga_8cpp_source.html#l00347">IM::evolve_islands()</a>.</p>
 
 </div>
 </div>

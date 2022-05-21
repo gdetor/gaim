@@ -93,24 +93,30 @@ $(document).ready(function(){initNavTree('parallel__ga_8cpp.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2bbce2d124bb920fe844514a92a3ea79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parallel__ga_8cpp.html#a2bbce2d124bb920fe844514a92a3ea79">independent_runs</a> (<a class="el" href="gaim_8h.html#a89734bd6529544f0baddd879f565d94b">ga_parameter_s</a> *ga_pms, <a class="el" href="gaim_8h.html#ac27d906cc49ccb3918d60eb43afbe46f">pr_parameter_s</a> *pr_pms)</td></tr>
-<tr class="memdesc:a2bbce2d124bb920fe844514a92a3ea79"><td class="mdescLeft">&#160;</td><td class="mdescRight">It runs X independent GAs in parallel using threads.  <a href="parallel__ga_8cpp.html#a2bbce2d124bb920fe844514a92a3ea79">More...</a><br /></td></tr>
-<tr class="separator:a2bbce2d124bb920fe844514a92a3ea79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c377cf954056e47569c586b2458d30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structga__results.html">ga_results</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parallel__ga_8cpp.html#ae5c377cf954056e47569c586b2458d30">independent_runs</a> (REAL_(*func)(REAL_ *, size_t), <a class="el" href="gaim_8h.html#a89734bd6529544f0baddd879f565d94b">ga_parameter_s</a> *ga_pms, <a class="el" href="gaim_8h.html#ac27d906cc49ccb3918d60eb43afbe46f">pr_parameter_s</a> *pr_pms, std::string return_type)</td></tr>
+<tr class="memdesc:ae5c377cf954056e47569c586b2458d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">It runs X independent GAs in parallel using threads.  <a href="parallel__ga_8cpp.html#ae5c377cf954056e47569c586b2458d30">More...</a><br /></td></tr>
+<tr class="separator:ae5c377cf954056e47569c586b2458d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements parallel independent runs of a <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> within an experiment so that you can average over separate evolutionary trajectories. </p>
 
 <p class="definition">Definition in file <a class="el" href="parallel__ga_8cpp_source.html">parallel_ga.cpp</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a2bbce2d124bb920fe844514a92a3ea79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bbce2d124bb920fe844514a92a3ea79">&#9670;&nbsp;</a></span>independent_runs()</h2>
+<a id="ae5c377cf954056e47569c586b2458d30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c377cf954056e47569c586b2458d30">&#9670;&nbsp;</a></span>independent_runs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void independent_runs </td>
+          <td class="memname"><a class="el" href="structga__results.html">ga_results</a> independent_runs </td>
           <td>(</td>
+          <td class="paramtype">REAL_(*)(REAL_ *, size_t)&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="gaim_8h.html#a89734bd6529544f0baddd879f565d94b">ga_parameter_s</a> *&#160;</td>
           <td class="paramname"><em>ga_pms</em>, </td>
         </tr>
@@ -118,7 +124,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="gaim_8h.html#ac27d906cc49ccb3918d60eb43afbe46f">pr_parameter_s</a> *&#160;</td>
-          <td class="paramname"><em>pr_pms</em>&#160;</td>
+          <td class="paramname"><em>pr_pms</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>return_type</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -132,20 +144,25 @@ Functions</h2></td></tr>
 <p>Multithread and Islands functions declarations.</p>
 <p>Runs an X number of GAs in parallel and independently using threads. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">pms</td><td>Structure of <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> parameters. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pr_pms</td><td>Structure of printing parameters</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">func</td><td>A pointer to the fitness function </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ga_pms</td><td>Structure of <a class="el" href="classGA.html" title="Genetic Algorithm main class.">GA</a> parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pr_pms</td><td>Structure of printing parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">return_type</td><td>A string that determines which run the genome will be returned. The available options are: (*) "minimum" - the genome with the minimum Euclidean distance is returned (*) "maximum" - the genome with the maximum Euclidean distance is returned (*) "random" - a randomly chosen genome is returned</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Nothing (void) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A data structure of type ga_results_s with the selected genome. </dd></dl>
+<p>Create the data directory if it doesn't exist</p>
+<p>Set the fitness function for every run</p>
 <p>Instantiate threads and GAs</p>
 <p>Join threads</p>
+<p>Choose from all the runs which genome to return</p>
 
-<p class="definition">Definition at line <a class="el" href="parallel__ga_8cpp_source.html#l00039">39</a> of file <a class="el" href="parallel__ga_8cpp_source.html">parallel_ga.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parallel__ga_8cpp_source.html#l00045">45</a> of file <a class="el" href="parallel__ga_8cpp_source.html">parallel_ga.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="genetic__alg_8cpp_source.html#l00381">GA::evolve()</a>, <a class="el" href="gaim_8h_source.html#l00163">parameter_ga::generations</a>, and <a class="el" href="gaim_8h_source.html#l00175">parameter_ga::runs</a>.</p>
+<p class="reference">References <a class="el" href="genetic__alg_8cpp_source.html#l00381">GA::evolve()</a>, <a class="el" href="gaim_8h_source.html#l00161">parameter_ga::generations</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00332">make_dir()</a>, <a class="el" href="auxiliary__funs_8cpp_source.html#l00103">return_best_results()</a>, <a class="el" href="gaim_8h_source.html#l00173">parameter_ga::runs</a>, and <a class="el" href="gaim_8h_source.html#l00202">parameter_pr::where2write</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00107">ga_optimization()</a>, and <a class="el" href="interface_8cpp_source.html#l00233">ga_optimization_python()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="interface_8cpp_source.html#l00109">ga_optimization()</a>, and <a class="el" href="interface_8cpp_source.html#l00249">ga_optimization_python()</a>.</p>
 
 </div>
 </div>

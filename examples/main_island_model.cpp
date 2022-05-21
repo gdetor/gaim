@@ -39,8 +39,6 @@ int main() {
 
     // Instantiate the IM and run it
     std::cout << "Running an Island Model" << std::endl;
-    // IM island_model(&im_pms, &ga_pms);
-    // island_model.run_islands(&im_pms, &pr_pms);
     res = run_islands(sphere, im_pms, ga_pms, pr_pms, return_type);
 
     std::cout << "Best genome:\n";

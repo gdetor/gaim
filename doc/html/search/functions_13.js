@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['whitley_5fselection_629',['whitley_selection',['../classGA.html#a434b73adc44a1b80332eed4585ac9185',1,'GA']]],
-  ['wrapped_630',['wrapped',['../classpcg__detail_1_1engine.html#a142a7d2853ddc5e0583e0398da4c77b7',1,'pcg_detail::engine']]]
+  ['vector_5fnorm_643',['vector_norm',['../auxiliary__funs_8cpp.html#a64802d9f3077918064e2886ad1ab16ea',1,'vector_norm(std::vector&lt; REAL_ &gt; x):&#160;auxiliary_funs.cpp'],['../gaim_8h.html#a97e1f11c4767414b9d1411c5a31589d2',1,'vector_norm(std::vector&lt; REAL_ &gt;):&#160;auxiliary_funs.cpp']]]
 ];

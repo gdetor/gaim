@@ -91,6 +91,11 @@ extern "C"
  * store all the parameters of the optimization in a file with that name
  * @param[in] log_path The directory in which all the results and logs will
  * be saved
+ * @param[in] return_type A string that determines which run the genome will be
+ * returned. The available options are:
+ *  (*) "minimum" - the genome with the minimum Euclidean distance is returned
+ *  (*) "maximum" - the genome with the maximum Euclidean distance is returned
+ *  (*) "random" - a randomly chosen genome is returned
  * @param[in] log_fitness Enable/disable the track of individuals' fitness
  * @param[in] log_average_fitness Enable/disable the track of population
  * (average) fitness
@@ -100,9 +105,6 @@ extern "C"
  *
  * @return res A ga_results_s data structure that contains the average
  * fitness, the BSF, and the best genome found from the GA.
- *
- * @note Right now the island model most probably will fail to return the best
- * genome. A function the will take care of that is required.
  * */
 ga_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
                              size_t n_generations,
@@ -235,6 +237,15 @@ ga_results_s ga_optimization(REAL_ (*func)(REAL_ *, size_t),
 }
 
 
+/**
+ * @brief Interface function for calling GAIM from within any other C/C++ 
+ * source code of software (libgaim).
+ *
+ * It initializes all the necessary parameters and vectors for evolving a 
+ * population of individuals based on a predetermined Genetic Algorithm (GA). 
+ *
+ * See ga_optimization for more details on the arguments.
+ * */
 void ga_optimization_python(REAL_ (*func)(REAL_ *, size_t),
                             size_t n_generations,
                             size_t population_size,

@@ -362,6 +362,22 @@ void IM::evolve_islands(im_parameter_s *im_pms, pr_parameter_s *pr_pms)
 }
 
 
+/**
+ * @brief It runs an island model using pthreads.
+ *
+ * Runs an X number of islands in parallel using threads.
+ * @param[in] func A pointer to the fitness function
+ * @param[in] im_pms Structure of IM parameters
+ * @param[in] ga_pms Structure of GA parameters
+ * @param[in] pr_pms Structure of printing parameters
+ * @param[in] return_type A string that determines which run the genome will be
+ * returned. The available options are:
+ *  (*) "minimum" - the genome with the minimum Euclidean distance is returned
+ *  (*) "maximum" - the genome with the maximum Euclidean distance is returned
+ *  (*) "random" - a randomly chosen genome is returned
+ *
+ * @return A data structure of type ga_results_s with the selected genome.
+ */
 ga_results_s run_islands(REAL_ (*func)(REAL_ *, size_t),
                          im_parameter_s im_pms,
                          ga_parameter_s ga_pms,
@@ -370,15 +386,21 @@ ga_results_s run_islands(REAL_ (*func)(REAL_ *, size_t),
     ga_results_s res;
     IM island_model(&im_pms, &ga_pms);
 
+    /// Create the data directory if it doesn't exist
     if (make_dir(pr_pms.where2write)) {
         std::cout << "ERROR: Cannot create directory " << pr_pms.where2write << "\n";
         exit(-1);
     }
 
+    /// Set the fitness function for every island
     for (size_t i = 0; i < im_pms.num_islands; ++i) {
        island_model.island[i].fitness = func;
     }
+
+    /// Evolve a GA on each island
     island_model.evolve_islands(&im_pms, &pr_pms);
+
+    /// Choose from all the islands which genome to return
     res = return_best_results(island_model.island, return_type);
 
     return res;

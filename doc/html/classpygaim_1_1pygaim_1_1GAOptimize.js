@@ -1,6 +1,6 @@
 var classpygaim_1_1pygaim_1_1GAOptimize =
 [
-    [ "__init__", "classpygaim_1_1pygaim_1_1GAOptimize.html#a3dcd08957243106561470eba9810ca5e", null ],
+    [ "__init__", "classpygaim_1_1pygaim_1_1GAOptimize.html#a664f235e3ee5bebcce2561c3c05897b4", null ],
     [ "fit", "classpygaim_1_1pygaim_1_1GAOptimize.html#a6bfe84649e29b44bb364c5d7e59e3966", null ],
     [ "plot_", "classpygaim_1_1pygaim_1_1GAOptimize.html#a43371771a0a69143eae40703cc25bce1", null ],
     [ "string2pchar", "classpygaim_1_1pygaim_1_1GAOptimize.html#a65a103c5f8ae63c54fd7db456e3a7085", null ],
@@ -48,6 +48,7 @@ var classpygaim_1_1pygaim_1_1GAOptimize =
     [ "population_size", "classpygaim_1_1pygaim_1_1GAOptimize.html#a496fab5f5d7bcef8aa664b9a85a9b4b0", null ],
     [ "replace", "classpygaim_1_1pygaim_1_1GAOptimize.html#a81760a435dd8c7138e57b95a14aaa3e7", null ],
     [ "replace_method", "classpygaim_1_1pygaim_1_1GAOptimize.html#a99fe832897e3ce4c2051362e49da1a3f", null ],
+    [ "return_type", "classpygaim_1_1pygaim_1_1GAOptimize.html#a39df87218d5abfd103f3c32f0db7d30b", null ],
     [ "selection_method", "classpygaim_1_1pygaim_1_1GAOptimize.html#add03e043974af7ac527566580a41efcc", null ],
     [ "up_bound", "classpygaim_1_1pygaim_1_1GAOptimize.html#a4075cfc1cf01186bd3de198a606789af", null ]
 ];

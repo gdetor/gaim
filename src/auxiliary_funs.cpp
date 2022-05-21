@@ -31,6 +31,13 @@
 #include "gaim.h"
 
 
+/**
+ * Vector's Euclidean norm. It computes the Euclidean norm of a vector of type
+ * REAL_. 
+ *
+ * @param[in] x A vector of type REAL_
+ * @return The norm of x as type REAL_ 
+ */
 REAL_ vector_norm(std::vector<REAL_> x) {
     REAL_ norm = 0.0;
 
@@ -41,15 +48,29 @@ REAL_ vector_norm(std::vector<REAL_> x) {
 }
 
 
-std::vector<REAL_> compute_population_norms(std::vector<GA> population) {
+/**
+ * Compute population norms. It computes the Euclidean norms of all
+ * individual's genome within a population.
+ *
+ * @param[in] a A vector of type GA
+ * @return A vector of REAL_ that contains the norms of all population's
+ * individuals
+ */
+std::vector<REAL_> compute_population_norms(std::vector<GA> x) {
     std::vector<REAL_> norms;
-    for (auto &p : population) {
+    for (auto &p : x) {
         norms.push_back(vector_norm(p.get_best_genome()));
     }
     return norms;
 }
 
 
+/**
+ * Argmax. It returns the index of the maximum element in a vector. 
+ *
+ * @param[in] x A vector of type REAL_
+ * @return An integer as the index of the maximum element in vector x
+ */
 int argmax(std::vector<REAL_> x) {
     int argmax_idx(0);
     std::vector<REAL_>::iterator max = max_element(x.begin(), x.end());
@@ -58,6 +79,12 @@ int argmax(std::vector<REAL_> x) {
 }   
 
 
+/**
+ * Argmin. It returns the index of the minimum element in a vector. 
+ *
+ * @param[in] x A vector of type REAL_
+ * @return An integer as the index of the minimum element in vector x
+ */
 int argmin(std::vector<REAL_> x) {
     int argmin_idx(0);
     std::vector<REAL_>::iterator min = min_element(x.begin(), x.end());
@@ -66,6 +93,13 @@ int argmin(std::vector<REAL_> x) {
 }   
 
 
+/**
+ * Return best results. It computes the best genome based on the Euclidean
+ * norm. 
+ *
+ * @param[in] x A vector of type REAL_
+ * @return A data structure of type ga_results_s
+ */
 ga_results_s return_best_results(std::vector<GA> population,
                                  std::string return_type) {
     int best_index(0);
@@ -287,6 +321,14 @@ int mkdir_(const std::string &path)
 }
 
 
+/**
+ * Attempts to make a directory.
+ *
+ * @param[in] path const string that contains the name (path) of the new
+ *             directory. 
+ *
+ * @return Zero upon successfully created directory, one otherwise.
+ */
 int make_dir(const std::string &path) {
     int flag;
     if (path != "stdout") {

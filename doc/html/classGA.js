@@ -42,6 +42,7 @@ var classGA =
     [ "bsf_genome", "classGA.html#a0ad4ecd90133aac99107b3d86d0c22f3", null ],
     [ "crossover", "classGA.html#abfd2b97ad91b196f318e53beb4e3abee", null ],
     [ "crossover_method", "classGA.html#a5eb2524e9c358401e7a4f4e3090f0732", null ],
+    [ "current_generation", "classGA.html#a352f67fb584db856253e1b7ba1a7c24a", null ],
     [ "fit_avg", "classGA.html#a30d7682cf0e54680635765bdcb40ba4b", null ],
     [ "fitness", "classGA.html#a74887086b04eeb3224718ce14dbfdc3a", null ],
     [ "generations", "classGA.html#a10b1a92ed188c32de244bac239165861", null ],
@@ -67,7 +68,6 @@ var classGA =
     [ "selection", "classGA.html#acd22a6333f2a8872ecc5abcf1fbf0af1", null ],
     [ "selection_method", "classGA.html#a5327e733513f1da62e60d7120c354521", null ],
     [ "sorted_population", "classGA.html#a2920f1d9718b83395f98ec5204566ff5", null ],
-    [ "time", "classGA.html#aa1a916c4b5a643a9f3687bafdd2aa1e8", null ],
     [ "up_bound", "classGA.html#a96520156027a8b7dbb83963ab0c4851c", null ],
     [ "variance", "classGA.html#a7f0573ef57e968dc6ce3eaa9c222f0b3", null ]
 ];
