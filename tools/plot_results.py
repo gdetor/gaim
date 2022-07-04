@@ -197,5 +197,5 @@ if __name__ == '__main__':
     # print_fitness(directory=path)
 
     # Print the best Genome
-    # print_best_genome(directory=path, nbytes=8)
+    print_best_genome(directory=path, nbytes=4)
     plt.show()

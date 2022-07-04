@@ -24,7 +24,8 @@
  */
 // $Log$
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <cmath>
 #include <sys/stat.h> 
 #include <sys/types.h> 
 #include <cstdint>
